@@ -10,13 +10,15 @@ public class GameManager : MonoBehaviour {
     private int playersInGame = 0;
     public readonly static int PLAYERS_MAX = 4;
 
-    private Dictionary<int, ThirdPersonUserControl> players;
+    private Dictionary<int, ThirdPersonUserControl> controllersInGame;
+    private List<ThirdPersonUserControl> players;
 
     public GameObject characterPrefab;
 
     // Use this for initialization
     void Start () {
-        players = new Dictionary<int, ThirdPersonUserControl>();
+        controllersInGame = new Dictionary<int, ThirdPersonUserControl>();
+        players = new List<ThirdPersonUserControl>();
 
     }
 	
@@ -26,7 +28,7 @@ public class GameManager : MonoBehaviour {
         {
             for (int i = 0; i <= 8; i++)
             {
-                if(players.ContainsKey(i))
+                if(controllersInGame.ContainsKey(i))
                 {
                     continue;
                 }
@@ -38,17 +40,19 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    private void InitPlayer(int _playerId)
+    private void InitPlayer(int _controllerID)
     {
-        Debug.Log("Activating Player " + _playerId);
+        int playerID = playersInGame;
+        Debug.Log("Activating Controller " + _controllerID + " Player " + playerID);
         GameObject player = (GameObject)GameObject.Instantiate(characterPrefab);
-        player.transform.position = new Vector3(_playerId * 1.0f, 0.0f, 0.0f);
-        player.name = "Player " + _playerId;
+        player.transform.position = new Vector3(playerID * 1.0f, 0.0f, 0.0f);
+        player.name = "Player " + playerID;
 
         ThirdPersonUserControl tpuc = player.GetComponent<ThirdPersonUserControl>();
-        tpuc.SetController(_playerId);
+        tpuc.SetController(_controllerID);
 
-        players.Add(_playerId, tpuc);
+        controllersInGame.Add(_controllerID, tpuc);
+        players.Add(tpuc);
 
         playersInGame++;
     }
