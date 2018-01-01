@@ -5,36 +5,43 @@ using UnityEngine;
 using UnityStandardAssets.Characters.ThirdPerson;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class GameManager : MonoBehaviour {
+public class PlayerManager : MonoBehaviour {
 
+    public struct Constants
+    {
+        // Max number of players allowed in game at a given time
+        public readonly static int PLAYERS_MAX = 4;
+        // Highest gamepad ID we're listening input from
+        public readonly static int CONTROLLER_LISTENER_MAX = 8;    // 0: keyboard, 1-8 (included): gamepads
+    }
+
+    // Players currently in game
     private int playersInGame = 0;
-    public readonly static int PLAYERS_MAX = 4;
+    private List<ThirdPersonUserControl> players;
 
     private Dictionary<int, ThirdPersonUserControl> controllersInGame;
-    private List<ThirdPersonUserControl> players;
+
+    // ----- Public
 
     public GameObject characterPrefab;
 
-    // Use this for initialization
     void Start () {
         controllersInGame = new Dictionary<int, ThirdPersonUserControl>();
         players = new List<ThirdPersonUserControl>();
 
     }
 	
-	// Update is called once per frame
 	void Update () {
-        if(playersInGame < PLAYERS_MAX)
+        if(playersInGame < Constants.PLAYERS_MAX)   // Check new players joining the game
         {
-            for (int i = 0; i <= 8; i++)
+            for (int controllerID = 0; controllerID <= Constants.CONTROLLER_LISTENER_MAX; controllerID++)
             {
-                if(controllersInGame.ContainsKey(i))
-                {
+                if(controllersInGame.ContainsKey(controllerID))
                     continue;
-                }
-                if (Input.GetButtonDown("Activate_P"+i))
+
+                if (Input.GetButtonDown("Activate_P"+controllerID))
                 {
-                    InitPlayer(i);
+                    InitPlayer(controllerID);
                 }
             }
         }
