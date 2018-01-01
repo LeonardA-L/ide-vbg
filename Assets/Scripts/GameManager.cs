@@ -51,7 +51,6 @@ namespace vbg
 
         public SpawnPoint GetStartPoint(int _idx)
         {
-            Debug.Log("Return " + startPoints[_idx % startPoints.Count]);
             return startPoints[_idx % startPoints.Count];
         }
     }
