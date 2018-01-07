@@ -7,18 +7,21 @@ namespace vbg
     [RequireComponent(typeof(CharacterController))]
     public class VBGCharacterController : MonoBehaviour
     {
-
+        // Components
         private CharacterController cc;
+
+        // Parameters
         private float speed = 2;
         private float rotationSpeedFactor = 0.2f;
-        private Vector3 lastDirection;
-        private float lastInputNorm;
-        private bool jump = false;
         private float jumpHeight = 30.0f;
         private float friction = 0.2f;
         private float airFriction = 0.02f;
-
         private float gravity = Physics.gravity.y / 3.0f;
+
+        // Members
+        private Vector3 lastDirection;
+        private float lastInputNorm;
+        private bool jump = false;
 
 
         // Use this for initialization
@@ -35,8 +38,6 @@ namespace vbg
             if (cc.isGrounded)
             {
                 movement += lastDirection * lastInputNorm * speed;
-                //movement = transform.TransformDirection(movement);
-
             }
 
             transform.forward = Vector3.Lerp(transform.forward, lastDirection, rotationSpeedFactor * lastInputNorm);
@@ -57,12 +58,11 @@ namespace vbg
             // Apply friction
             Vector2 groundMovement = new Vector2(movement.x, movement.z);
             groundMovement = Vector2.Lerp(groundMovement, Vector2.zero, cc.isGrounded ? friction : airFriction);
-
             movement.x = groundMovement.x;
             movement.z = groundMovement.y;
 
+            // Update CC
             cc.Move(movement * Time.deltaTime);
-
         }
 
         public void Move(Vector3 _move, float _inputNorm, bool _jump)
