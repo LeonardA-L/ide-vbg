@@ -66,7 +66,9 @@ namespace vbg
             Debug.Log("Activating Controller " + _controllerID + " Player " + playerID);
             GameObject player = GameObject.Instantiate(characterPrefab);
             //player.transform.position = new Vector3(playerID * 1.0f, 0.0f, 0.0f);
-            player.transform.position = GameManager.Instance.GetStartPoint(playerID).transform.position;
+            SpawnPoint startPoint = GameManager.Instance.GetStartPoint(playerID);
+            player.transform.position = startPoint.transform.position;
+            player.transform.rotation = startPoint.transform.rotation;
             player.name = "Player " + playerID;
 
             CharacterUserControl tpuc = player.GetComponent<CharacterUserControl>();

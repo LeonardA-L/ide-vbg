@@ -38,16 +38,17 @@ namespace vbg
             if (cc.isGrounded)
             {
                 movement += lastDirection * lastInputNorm * speed;
+
+                // Apply Jump
+                if (jump)
+                {
+                    movement.y += jumpHeight;
+                    jump = false;
+                }
             }
 
             transform.forward = Vector3.Lerp(transform.forward, lastDirection, rotationSpeedFactor * lastInputNorm);
 
-            // Apply Jump
-            if (jump)
-            {
-                movement.y += jumpHeight;
-                jump = false;
-            }
 
             // Apply Gravity
             if (!cc.isGrounded)
