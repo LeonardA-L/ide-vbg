@@ -2,8 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityStandardAssets.Characters.ThirdPerson;
-using UnityStandardAssets.CrossPlatformInput;
 
 namespace vbg
 {
@@ -29,9 +27,9 @@ namespace vbg
 
         // Players currently in game
         private int playersInGame = 0;
-        private List<ThirdPersonUserControl> players;
+        private List<CharacterUserControl> players;
 
-        private Dictionary<int, ThirdPersonUserControl> controllersInGame;
+        private Dictionary<int, CharacterUserControl> controllersInGame;
 
         // ----- Public
 
@@ -40,8 +38,8 @@ namespace vbg
         void Start()
         {
             instance = this;
-            controllersInGame = new Dictionary<int, ThirdPersonUserControl>();
-            players = new List<ThirdPersonUserControl>();
+            controllersInGame = new Dictionary<int, CharacterUserControl>();
+            players = new List<CharacterUserControl>();
 
         }
 
@@ -71,7 +69,7 @@ namespace vbg
             player.transform.position = GameManager.Instance.GetStartPoint(playerID).transform.position;
             player.name = "Player " + playerID;
 
-            ThirdPersonUserControl tpuc = player.GetComponent<ThirdPersonUserControl>();
+            CharacterUserControl tpuc = player.GetComponent<CharacterUserControl>();
             tpuc.SetController(_controllerID);
 
             controllersInGame.Add(_controllerID, tpuc);
