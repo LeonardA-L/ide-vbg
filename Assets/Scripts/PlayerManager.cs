@@ -27,7 +27,7 @@ namespace vbg
 
         // Players currently in game
         private int playersInGame = 0;
-        private List<CharacterUserControl> players;
+        private List<CharacterController> players;
 
         private Dictionary<int, CharacterUserControl> controllersInGame;
 
@@ -39,7 +39,7 @@ namespace vbg
         {
             instance = this;
             controllersInGame = new Dictionary<int, CharacterUserControl>();
-            players = new List<CharacterUserControl>();
+            players = new List<CharacterController>();
 
         }
 
@@ -75,9 +75,21 @@ namespace vbg
             tpuc.SetController(_controllerID);
 
             controllersInGame.Add(_controllerID, tpuc);
-            players.Add(tpuc);
+            players.Add(tpuc.GetComponent<CharacterController>());
 
             playersInGame++;
+        }
+
+        public Vector3 GetPlayerBarycenter()
+        {
+            Vector3 barycenter = new Vector3();
+
+            foreach(CharacterController player in players) {
+                barycenter += player.transform.position;
+            }
+            barycenter /= playersInGame;
+
+            return barycenter;
         }
     }
 }

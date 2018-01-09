@@ -21,6 +21,7 @@ namespace vbg
         private Transform m_cam;
         private Transform m_cameraSceneSettings;
         private CameraType m_currentMode;
+        private bool m_aimAtCenter;
 
         protected static CameraManager m_instance;
         public static CameraManager Instance
@@ -53,14 +54,27 @@ namespace vbg
             if (m_currentMode == CameraType.SCENE)
             {
                 m_cam.position = Vector3.Lerp(m_cam.position, m_cameraSceneSettings.position, Constants.DEFAULT_LERP_POSITION);
-                m_cam.rotation = Quaternion.Lerp(m_cam.rotation, m_cameraSceneSettings.rotation, Constants.DEFAULT_LERP_ROTATION);
+                if(m_aimAtCenter)
+                {
+                    Vector3 cameraToBarycenter = PlayerManager.Instance.GetPlayerBarycenter() - m_cam.position;
+                    m_cam.forward = Vector3.Lerp(m_cam.forward, cameraToBarycenter, Constants.DEFAULT_LERP_ROTATION);
+                } else
+                {
+                    m_cam.rotation = Quaternion.Lerp(m_cam.rotation, m_cameraSceneSettings.rotation, Constants.DEFAULT_LERP_ROTATION);
+                }
+            }
+
+            if(m_currentMode == CameraType.FOLLOW)
+            {
+
             }
         }
 
-        public void SetSceneSettings (Transform _newCameraSceneSettings)
+        public void SetSceneSettings (Transform _newCameraSceneSettings, bool _aimAtCenter)
         {
             m_cameraSceneSettings = _newCameraSceneSettings;
             m_currentMode = CameraType.SCENE;
+            m_aimAtCenter = _aimAtCenter;
         }
     }
 }
