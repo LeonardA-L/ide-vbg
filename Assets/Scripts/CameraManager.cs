@@ -22,6 +22,8 @@ namespace vbg
         private Transform m_cameraSceneSettings;
         private CameraType m_currentMode;
         private bool m_aimAtCenter;
+        private float m_positionSmooth;
+        private float m_rotationSmooth;
 
         protected static CameraManager m_instance;
         public static CameraManager Instance
@@ -46,6 +48,8 @@ namespace vbg
             }
 
             m_currentMode = CameraType.FOLLOW;
+            m_positionSmooth = Constants.DEFAULT_LERP_POSITION;
+            m_rotationSmooth = Constants.DEFAULT_LERP_ROTATION;
         }
 
         // Update is called once per frame
@@ -53,14 +57,14 @@ namespace vbg
         {
             if (m_currentMode == CameraType.SCENE)
             {
-                m_cam.position = Vector3.Lerp(m_cam.position, m_cameraSceneSettings.position, Constants.DEFAULT_LERP_POSITION);
+                m_cam.position = Vector3.Lerp(m_cam.position, m_cameraSceneSettings.position, m_positionSmooth);
                 if(m_aimAtCenter)
                 {
                     Vector3 cameraToBarycenter = PlayerManager.Instance.GetPlayerBarycenter() - m_cam.position;
-                    m_cam.forward = Vector3.Lerp(m_cam.forward, cameraToBarycenter, Constants.DEFAULT_LERP_ROTATION);
+                    m_cam.forward = Vector3.Lerp(m_cam.forward, cameraToBarycenter, m_rotationSmooth);
                 } else
                 {
-                    m_cam.rotation = Quaternion.Lerp(m_cam.rotation, m_cameraSceneSettings.rotation, Constants.DEFAULT_LERP_ROTATION);
+                    m_cam.rotation = Quaternion.Lerp(m_cam.rotation, m_cameraSceneSettings.rotation, m_rotationSmooth);
                 }
             }
 
@@ -70,11 +74,14 @@ namespace vbg
             }
         }
 
-        public void SetSceneSettings (Transform _newCameraSceneSettings, bool _aimAtCenter)
+        public void SetSceneSettings (Transform _newCameraSceneSettings, bool _aimAtCenter, float _overridePositionSmooth = 0.0f, float _overrideRotationSmooth = 0.0f)
         {
             m_cameraSceneSettings = _newCameraSceneSettings;
             m_currentMode = CameraType.SCENE;
             m_aimAtCenter = _aimAtCenter;
+
+            m_positionSmooth = _overridePositionSmooth;
+            m_rotationSmooth = _overrideRotationSmooth;
         }
     }
 }

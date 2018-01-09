@@ -7,14 +7,15 @@ namespace vbg
     public class CameraAreaTrigger : MonoBehaviour
     {
         public bool m_aimAtCenter = false;
+        [Range(0, 1)]
+        public float m_positionSmooth = 0.05f;  // The default value is actually set in the prefab
+        [Range(0, 1)]
+        public float m_rotationSmooth = 0.05f;
 
         private void OnTriggerEnter(UnityEngine.Collider _collider)
         {
-            Debug.Log("Entered");
             Transform cameraSettings = transform.Find("Camera");
-            Debug.Log(cameraSettings.rotation);
-
-            CameraManager.Instance.SetSceneSettings(cameraSettings, m_aimAtCenter);
+            CameraManager.Instance.SetSceneSettings(cameraSettings, m_aimAtCenter, m_positionSmooth, m_rotationSmooth);
         }
     }
 }
