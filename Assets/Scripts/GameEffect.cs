@@ -7,16 +7,28 @@ namespace vbg
     [RequireComponent(typeof(Collider))]
     public class GameEffect : MonoBehaviour
     {
+        // Parameters
+        public Vector3 initialVelocity;
+        public GameObject finishPrefab;
+
 
         GameEffectExit[] exitConditions;
         List<VBGCharacterController> impactedCharacters;
         private bool toDelete = false;
+
+        Rigidbody rb;
 
         // Use this for initialization
         void Start()
         {
             exitConditions = GetComponents<GameEffectExit>();
             impactedCharacters = new List<VBGCharacterController>();
+
+            rb = GetComponent<Rigidbody>();
+            if(initialVelocity != null && initialVelocity.magnitude > 0.0f && rb != null)
+            {
+                rb.velocity = initialVelocity;
+            }
         }
 
         // Update is called once per frame
@@ -31,7 +43,12 @@ namespace vbg
                 }
             }
 
-            if(toDelete)
+            if (initialVelocity != null && initialVelocity.magnitude > 0.0f && rb == null)
+            {
+                transform.position += initialVelocity * Time.deltaTime;
+            }
+
+            if (toDelete)
             {
                 Finish();
             }
@@ -46,6 +63,14 @@ namespace vbg
                 cc.UnRegisterGameEffect(this);
             }
             GameObject.Destroy(gameObject);
+            Debug.Log(transform.position);
+
+            if (finishPrefab != null)
+            {
+                GameObject finishObject = GameObject.Instantiate(finishPrefab);
+                finishObject.transform.position = transform.position;
+                finishObject.transform.rotation = transform.rotation;
+            }
         }
 
         private void OnTriggerEnter(UnityEngine.Collider other)
