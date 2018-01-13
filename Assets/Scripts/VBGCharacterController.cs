@@ -24,11 +24,14 @@ namespace vbg
         private bool jump = false;
         private List<GameEffect> activeGameEffects;
 
+        CharacterHealth health;
+
         // Use this for initialization
         void Start()
         {
             cc = GetComponent<CharacterController>();
             activeGameEffects = new List<GameEffect>();
+            health = GetComponent<CharacterHealth>();
         }
 
         // Update is called once per frame
@@ -112,6 +115,24 @@ namespace vbg
                 ge.RegisterCharacter(this);
                 // TODO process here ?
             }
+        }
+
+        public void Damage(float intensity)
+        {
+            if(health == null)
+            {
+                return;
+            }
+            health.Damage(intensity);
+        }
+
+        public void Heal(float intensity)
+        {
+            if (health == null)
+            {
+                return;
+            }
+            health.Damage(intensity);
         }
     }
 }

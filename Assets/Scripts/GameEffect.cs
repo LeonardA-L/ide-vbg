@@ -10,6 +10,9 @@ namespace vbg
         // Parameters
         public GameObject finishPrefab;
         public Vector3 initialVelocity;
+        [Header("Health impact")]
+        public float healthImpact = 0.0f;
+        public bool impactPerFrame = false;
         [Header("Push Force")]
         public Vector3 pushForceVector;
         public float pushForceNorm = 0.0f;
@@ -22,7 +25,6 @@ namespace vbg
         private bool toDelete = false;
 
         Rigidbody rb;
-        Collider col;
 
         // Use this for initialization
         void Start()
@@ -31,7 +33,6 @@ namespace vbg
             impactedCharacters = new List<VBGCharacterController>();
 
             rb = GetComponent<Rigidbody>();
-            col = GetComponent<Collider>();
             if(initialVelocity != null && initialVelocity.magnitude > 0.0f && rb != null)
             {
                 rb.velocity = initialVelocity;
@@ -148,6 +149,17 @@ namespace vbg
                     }
                     movement.Normalize();
                     characterMovement += movement * forceNorm;
+                }
+            }
+
+            if(healthImpact != 0.0f)
+            {
+                if(healthImpact > 0.0f)
+                {
+                    cc.Heal(healthImpact * (impactPerFrame ? 1 : Time.deltaTime));
+                } else
+                {
+                    cc.Damage(healthImpact * (impactPerFrame ? 1 : Time.deltaTime));
                 }
             }
         }
