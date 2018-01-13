@@ -22,12 +22,13 @@ namespace vbg
         private Vector3 lastDirection;
         private float lastInputNorm;
         private bool jump = false;
-
+        private List<GameEffect> activeGameEffects;
 
         // Use this for initialization
         void Start()
         {
             cc = GetComponent<CharacterController>();
+            activeGameEffects = new List<GameEffect>();
         }
 
         // Update is called once per frame
@@ -49,6 +50,12 @@ namespace vbg
 
             transform.forward = Vector3.Lerp(transform.forward, lastDirection, rotationSpeedFactor * lastInputNorm);
 
+            // Apply GameEffects
+            activeGameEffects.RemoveAll(item => item == null);
+            foreach (GameEffect ge in activeGameEffects)
+            {
+                ge.Process(this);
+            }
 
             // Apply Gravity
             if (!cc.isGrounded)
@@ -76,6 +83,34 @@ namespace vbg
             if (_jump)
             {
                 jump = true;
+            }
+        }
+
+        public void RegisterGameEffect(GameEffect ge)
+        {
+            activeGameEffects.Add(ge);
+        }
+
+        public void UnRegisterGameEffect(GameEffect ge)
+        {
+            activeGameEffects.Remove(ge);
+        }
+
+        public float GetGravity()
+        {
+            return gravity;
+        }
+
+        void OnControllerColliderHit(ControllerColliderHit hit)
+        {
+            if (hit.gameObject.tag == GameManager.Constants.TAG_GAMEEFFECT)
+            {
+                GameEffect ge = hit.gameObject.GetComponent<GameEffect>();
+                Debug.Assert(ge != null);
+
+                RegisterGameEffect(ge);
+                ge.RegisterCharacter(this);
+                // TODO process here ?
             }
         }
     }

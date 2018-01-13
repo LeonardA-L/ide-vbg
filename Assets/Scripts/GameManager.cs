@@ -11,6 +11,12 @@ namespace vbg
             public readonly static bool SHOW_COLLIDERS_INGAME = true;
         }
 
+        public struct Constants
+        {
+            public readonly static string TAG_CHARACTER = "Player";
+            public readonly static string TAG_GAMEEFFECT = "GameEffect";
+        }
+
         protected static GameManager instance;
         public static GameManager Instance
         {
