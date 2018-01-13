@@ -8,15 +8,21 @@ namespace vbg
     public class GameEffect : MonoBehaviour
     {
         // Parameters
-        public Vector3 initialVelocity;
         public GameObject finishPrefab;
-
+        public Vector3 initialVelocity;
+        [Header("Push Force")]
+        public Vector3 pushForceVector;
+        public float pushForceNorm = 0.0f;
+        public bool pushForceIsOmnidirectional;
+        public bool pushForceNoY = true;
+        public float pushForceDecreaseLength = 1.0f;
 
         GameEffectExit[] exitConditions;
         List<VBGCharacterController> impactedCharacters;
         private bool toDelete = false;
 
         Rigidbody rb;
+        Collider col;
 
         // Use this for initialization
         void Start()
@@ -25,6 +31,7 @@ namespace vbg
             impactedCharacters = new List<VBGCharacterController>();
 
             rb = GetComponent<Rigidbody>();
+            col = GetComponent<Collider>();
             if(initialVelocity != null && initialVelocity.magnitude > 0.0f && rb != null)
             {
                 rb.velocity = initialVelocity;
@@ -63,7 +70,6 @@ namespace vbg
                 cc.UnRegisterGameEffect(this);
             }
             GameObject.Destroy(gameObject);
-            Debug.Log(transform.position);
 
             if (finishPrefab != null)
             {
@@ -108,7 +114,7 @@ namespace vbg
             impactedCharacters.Remove(cc);
         }
 
-        public void Process(VBGCharacterController cc)
+        public void Process(VBGCharacterController cc, ref Vector3 characterMovement)
         {
             Debug.Log("Process");
             foreach (GameEffectExit gee in exitConditions)
@@ -117,6 +123,31 @@ namespace vbg
                 {
                     toDelete = true;
                     break;
+                }
+            }
+
+            if(pushForceNorm > 0.0f)
+            {
+
+                float forceNorm = pushForceNorm;
+                if(pushForceDecreaseLength != 1.0f)
+                {
+                    float distRatio = (cc.transform.position - transform.position).magnitude / pushForceDecreaseLength;
+                    forceNorm *= distRatio;
+                }
+                if (pushForceVector != null && pushForceVector.magnitude > 0.0f)
+                {
+                    characterMovement += pushForceVector.normalized * forceNorm;
+                }
+                else if(pushForceIsOmnidirectional)
+                {
+                    Vector3 movement = (cc.transform.position - transform.position);
+                    if(pushForceNoY)
+                    {
+                        movement.y = 0.0f;
+                    }
+                    movement.Normalize();
+                    characterMovement += movement * forceNorm;
                 }
             }
         }

@@ -54,7 +54,7 @@ namespace vbg
             activeGameEffects.RemoveAll(item => item == null);
             foreach (GameEffect ge in activeGameEffects)
             {
-                ge.Process(this);
+                ge.Process(this, ref movement);
             }
 
             // Apply Gravity

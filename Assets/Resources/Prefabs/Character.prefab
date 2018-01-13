@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4198583567598808}
   - component: {fileID: 114846926667529026}
   - component: {fileID: 114867943046269164}
+  - component: {fileID: 114532337989285024}
   - component: {fileID: 143601726876287288}
   m_Layer: 0
   m_Name: Character
@@ -86,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1095950458327522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.12333, y: 3.9185736e-17, z: 17.070463}
+  m_LocalPosition: {x: 8.727438, y: 4.9993592e-17, z: 16.096977}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4542483036120820}
@@ -228,6 +229,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114532337989285024
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1095950458327522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9bb02040104824a97555c6df5681d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114846926667529026
 MonoBehaviour:
   m_ObjectHideFlags: 1
