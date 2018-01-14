@@ -4,13 +4,12 @@ using UnityEngine;
 
 namespace vbg
 {
-    [RequireComponent(typeof (Animator))]
+    [RequireComponent(typeof(Animator))]
     public class Destroyable : MonoBehaviour
     {
 
         public void DestroyMe()
         {
-            Animator animator = gameObject.GetComponent<Animator>();
             Destroy(gameObject);
         }
     }

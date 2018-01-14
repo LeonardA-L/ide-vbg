@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace vbg
 {
-    [RequireComponent(typeof(Collider))]
+    [RequireComponent(typeof(UnityEngine.Collider))]
     public class GameEffect : MonoBehaviour
     {
         // Parameters
@@ -36,7 +36,7 @@ namespace vbg
             impactedCharacters = new List<VBGCharacterController>();
 
             rb = GetComponent<Rigidbody>();
-            if(initialVelocity != null && initialVelocity.magnitude > 0.0f && rb != null)
+            if(initialVelocity.magnitude > 0.0f && rb != null)
             {
                 rb.velocity = initialVelocity;
             }
@@ -54,7 +54,7 @@ namespace vbg
                 }
             }
 
-            if (initialVelocity != null && initialVelocity.magnitude > 0.0f && rb == null)
+            if (initialVelocity.magnitude > 0.0f && rb == null)
             {
                 transform.position += initialVelocity * Time.deltaTime;
             }
@@ -163,7 +163,7 @@ namespace vbg
                     float distRatio = (cc.transform.position - transform.position).magnitude / pushForceDecreaseLength;
                     forceNorm *= distRatio;
                 }
-                if (pushForceVector != null && pushForceVector.magnitude > 0.0f)
+                if (pushForceVector.magnitude > 0.0f)
                 {
                     characterMovement += pushForceVector.normalized * forceNorm;
                 }

@@ -43,13 +43,15 @@ namespace vbg
             Vector3 movement = cc.velocity;
             if (cc.isGrounded)
             {
-                movement += lastDirection * lastInputNorm * speed;
-
                 // Apply Jump
                 if (attack)
                 {
                     animator.SetTrigger("Attack");
                     attack = false;
+                }
+                //if(!attack && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking"))
+                {
+                    movement += lastDirection * lastInputNorm * speed;
                 }
             }
 
@@ -74,9 +76,12 @@ namespace vbg
             movement.x = groundMovement.x;
             movement.z = groundMovement.y;
 
+            groundMovement = movement;
+            groundMovement.y = 0.0f;
+            animator.SetBool("Walking", groundMovement.magnitude > 0.3f);
+
             // Update CC
             cc.Move(movement * Time.deltaTime);
-
             animator.SetFloat("Health", health.GetHealth());
         }
 
