@@ -12,8 +12,8 @@ namespace vbg
         private CharacterController cc;
 
         // Parameters
-        private float speed = 2;
-        private float rotationSpeedFactor = 0.2f;
+        public float speed = 2;
+        public float rotationSpeedFactor = 0.2f;
         private float friction = 0.2f;
         private float airFriction = 0.02f;
         private float gravity = Physics.gravity.y / 3.0f;
