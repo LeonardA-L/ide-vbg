@@ -8,6 +8,14 @@ namespace vbg
     [RequireComponent(typeof(Animator))]
     public class VBGCharacterController : MonoBehaviour
     {
+
+        public struct Constants
+        {
+
+            public readonly static float CHARACTER_START_HEALTH = 100.0f;
+            public readonly static int ANIMATOR_LAYER_ATTACK = 0;
+        }
+
         // Components
         private CharacterController cc;
 
@@ -23,6 +31,7 @@ namespace vbg
         private float lastInputNorm;
         private bool attack = false;
         private List<GameEffect> activeGameEffects;
+        private bool weaponIsActive;
 
         CharacterHealth health;
         Animator animator;
@@ -34,11 +43,13 @@ namespace vbg
             activeGameEffects = new List<GameEffect>();
             health = GetComponent<CharacterHealth>();
             animator = GetComponent<Animator>();
+            weaponIsActive = false;
         }
 
         // Update is called once per frame
         void Update()
         {
+            weaponIsActive = animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking");
             // Apply movement
             Vector3 movement = cc.velocity;
             if (cc.isGrounded)
@@ -87,6 +98,10 @@ namespace vbg
 
         public void Move(Vector3 _move, float _inputNorm, bool _attack)
         {
+            if(health.IsDead())
+            {
+                return;
+            }
             if (_move.magnitude > 0.0f)
             {
                 lastDirection = _move.normalized;
@@ -133,7 +148,7 @@ namespace vbg
 
         public void Damage(float intensity)
         {
-            if(health == null)
+            if(health == null || health.IsDead())
             {
                 return;
             }
@@ -142,7 +157,7 @@ namespace vbg
 
         public void Heal(float intensity)
         {
-            if (health == null)
+            if (health == null || health.IsDead())
             {
                 return;
             }

@@ -12,7 +12,7 @@ namespace vbg
         // Use this for initialization
         void Start()
         {
-            health = GameManager.Constants.CHARACTER_START_HEALTH;
+            health = VBGCharacterController.Constants.CHARACTER_START_HEALTH;
             // TODO set start health from stats / armor / whatever
         }
 
@@ -26,16 +26,28 @@ namespace vbg
         {
             // TODO calculate actual blow with stats/def/armor/...
             health -= intensity;
+            health = ClampHealth();
         }
 
         public void Heal(float intensity)
         {
             health += intensity;
+            health = ClampHealth();
         }
 
         public float GetHealth()
         {
             return health;
+        }
+
+        public bool IsDead()
+        {
+            return health <= 0.0f;
+        }
+
+        private float ClampHealth()
+        {
+            return Mathf.Clamp(health, 0.0f, 200.0f);
         }
     }
 }

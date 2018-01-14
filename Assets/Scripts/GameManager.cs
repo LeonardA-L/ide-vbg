@@ -17,7 +17,6 @@ namespace vbg
             public readonly static string TAG_NONPLAYER_CHARACTER = "NonPlayerCharacter";
             public readonly static string TAG_GAMEEFFECT = "GameEffect";
 
-            public readonly static float CHARACTER_START_HEALTH = 100.0f;
         }
 
         protected static GameManager instance;
