@@ -14,6 +14,7 @@ namespace vbg
         public struct Constants
         {
             public readonly static string TAG_CHARACTER = "Player";
+            public readonly static string TAG_NONPLAYER_CHARACTER = "NonPlayerCharacter";
             public readonly static string TAG_GAMEEFFECT = "GameEffect";
 
             public readonly static float CHARACTER_START_HEALTH = 100.0f;

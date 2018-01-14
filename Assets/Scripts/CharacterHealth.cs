@@ -32,5 +32,10 @@ namespace vbg
         {
             health += intensity;
         }
+
+        public float GetHealth()
+        {
+            return health;
+        }
     }
 }

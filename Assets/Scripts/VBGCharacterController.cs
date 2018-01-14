@@ -5,6 +5,7 @@ using UnityEngine;
 namespace vbg
 {
     [RequireComponent(typeof(CharacterController))]
+    [RequireComponent(typeof(Animator))]
     public class VBGCharacterController : MonoBehaviour
     {
         // Components
@@ -13,7 +14,6 @@ namespace vbg
         // Parameters
         private float speed = 2;
         private float rotationSpeedFactor = 0.2f;
-        private float jumpHeight = 30.0f;
         private float friction = 0.2f;
         private float airFriction = 0.02f;
         private float gravity = Physics.gravity.y / 3.0f;
@@ -21,10 +21,11 @@ namespace vbg
         // Members
         private Vector3 lastDirection;
         private float lastInputNorm;
-        private bool jump = false;
+        private bool attack = false;
         private List<GameEffect> activeGameEffects;
 
         CharacterHealth health;
+        Animator animator;
 
         // Use this for initialization
         void Start()
@@ -32,6 +33,7 @@ namespace vbg
             cc = GetComponent<CharacterController>();
             activeGameEffects = new List<GameEffect>();
             health = GetComponent<CharacterHealth>();
+            animator = GetComponent<Animator>();
         }
 
         // Update is called once per frame
@@ -44,10 +46,10 @@ namespace vbg
                 movement += lastDirection * lastInputNorm * speed;
 
                 // Apply Jump
-                if (jump)
+                if (attack)
                 {
-                    movement.y += jumpHeight;
-                    jump = false;
+                    animator.SetTrigger("Attack");
+                    attack = false;
                 }
             }
 
@@ -74,18 +76,20 @@ namespace vbg
 
             // Update CC
             cc.Move(movement * Time.deltaTime);
+
+            animator.SetFloat("Health", health.GetHealth());
         }
 
-        public void Move(Vector3 _move, float _inputNorm, bool _jump)
+        public void Move(Vector3 _move, float _inputNorm, bool _attack)
         {
             if (_move.magnitude > 0.0f)
             {
                 lastDirection = _move.normalized;
             }
             lastInputNorm = _inputNorm;
-            if (_jump)
+            if (_attack)
             {
-                jump = true;
+                attack = true;
             }
         }
 
@@ -110,6 +114,11 @@ namespace vbg
             {
                 GameEffect ge = hit.gameObject.GetComponent<GameEffect>();
                 Debug.Assert(ge != null);
+                VBGCharacterController geOwner = ge.GetOwner();
+                if (!ge.IsOwnerActive() && geOwner == this)
+                {
+                    return;
+                }
 
                 RegisterGameEffect(ge);
                 ge.RegisterCharacter(this);

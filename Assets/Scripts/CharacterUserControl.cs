@@ -50,7 +50,7 @@ namespace vbg
             float h = Input.GetAxis("Horizontal" + GetControllersuffix());
             float v = Input.GetAxis("Vertical" + GetControllersuffix());
             Vector2 joy = new Vector2(h, v);
-            bool jump = Input.GetButtonDown("Jump" + GetControllersuffix());
+            bool attack = Input.GetButtonDown("Attack" + GetControllersuffix());
 
             // calculate move direction to pass to character
             if (m_Cam != null)
@@ -61,8 +61,8 @@ namespace vbg
             }
 
             // pass all parameters to the character control script
-            m_Character.Move(m_Move, joy.magnitude, jump);
-            jump = false;
+            m_Character.Move(m_Move, joy.magnitude, attack);
+            attack = false;
         }
 
         public void SetController(int _controllerID)

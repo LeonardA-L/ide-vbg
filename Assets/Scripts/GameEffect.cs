@@ -10,9 +10,12 @@ namespace vbg
         // Parameters
         public GameObject finishPrefab;
         public Vector3 initialVelocity;
+        public bool ownerActive = false;
         [Header("Health impact")]
         public float healthImpact = 0.0f;
         public bool impactPerFrame = false;
+        public bool friendlyFire = false;
+        public VBGCharacterController owner;
         [Header("Push Force")]
         public Vector3 pushForceVector;
         public float pushForceNorm = 0.0f;
@@ -82,10 +85,16 @@ namespace vbg
 
         private void OnTriggerEnter(UnityEngine.Collider other)
         {
-            if (other.gameObject.tag == GameManager.Constants.TAG_CHARACTER)
+            if (other.gameObject.tag == GameManager.Constants.TAG_CHARACTER
+                || other.gameObject.tag == GameManager.Constants.TAG_NONPLAYER_CHARACTER)
             {
                 VBGCharacterController cc = other.gameObject.GetComponent<VBGCharacterController>();
                 Debug.Assert(cc != null);
+
+                if (!ownerActive && cc == owner)
+                {
+                    return;
+                }
 
                 RegisterCharacter(cc);
                 cc.RegisterGameEffect(this);
@@ -95,10 +104,16 @@ namespace vbg
 
         private void OnTriggerExit(UnityEngine.Collider other)
         {
-            if (other.gameObject.tag == GameManager.Constants.TAG_CHARACTER)
+            if (other.gameObject.tag == GameManager.Constants.TAG_CHARACTER
+                || other.gameObject.tag == GameManager.Constants.TAG_NONPLAYER_CHARACTER)
             {
                 VBGCharacterController cc = other.gameObject.GetComponent<VBGCharacterController>();
                 Debug.Assert(cc != null);
+
+                if (!ownerActive && cc == owner)
+                {
+                    return;
+                }
 
                 UnRegisterCharacter(cc);
                 cc.UnRegisterGameEffect(this);
@@ -115,6 +130,56 @@ namespace vbg
             impactedCharacters.Remove(cc);
         }
 
+        private void ProcessHealth(VBGCharacterController cc)
+        {
+            if (healthImpact != 0.0f)
+            {
+                if (owner != null)
+                {
+                    if(!friendlyFire && owner.tag == cc.tag)
+                    {
+                        return;
+                    }
+                }
+                if (healthImpact > 0.0f)
+                {
+                    cc.Heal(healthImpact * (impactPerFrame ? 1 : Time.deltaTime));
+                }
+                else
+                {
+                    cc.Damage(healthImpact * (impactPerFrame ? 1 : Time.deltaTime));
+                }
+            }
+        }
+
+        private void ProcessPushForce(VBGCharacterController cc, ref Vector3 characterMovement)
+        {
+            if (pushForceNorm > 0.0f)
+            {
+
+                float forceNorm = pushForceNorm;
+                if (pushForceDecreaseLength != 1.0f)
+                {
+                    float distRatio = (cc.transform.position - transform.position).magnitude / pushForceDecreaseLength;
+                    forceNorm *= distRatio;
+                }
+                if (pushForceVector != null && pushForceVector.magnitude > 0.0f)
+                {
+                    characterMovement += pushForceVector.normalized * forceNorm;
+                }
+                else if (pushForceIsOmnidirectional)
+                {
+                    Vector3 movement = (cc.transform.position - transform.position);
+                    if (pushForceNoY)
+                    {
+                        movement.y = 0.0f;
+                    }
+                    movement.Normalize();
+                    characterMovement += movement * forceNorm;
+                }
+            }
+        }
+
         public void Process(VBGCharacterController cc, ref Vector3 characterMovement)
         {
             Debug.Log("Process");
@@ -127,41 +192,18 @@ namespace vbg
                 }
             }
 
-            if(pushForceNorm > 0.0f)
-            {
+            ProcessPushForce(cc, ref characterMovement);
+            ProcessHealth(cc);
+        }
 
-                float forceNorm = pushForceNorm;
-                if(pushForceDecreaseLength != 1.0f)
-                {
-                    float distRatio = (cc.transform.position - transform.position).magnitude / pushForceDecreaseLength;
-                    forceNorm *= distRatio;
-                }
-                if (pushForceVector != null && pushForceVector.magnitude > 0.0f)
-                {
-                    characterMovement += pushForceVector.normalized * forceNorm;
-                }
-                else if(pushForceIsOmnidirectional)
-                {
-                    Vector3 movement = (cc.transform.position - transform.position);
-                    if(pushForceNoY)
-                    {
-                        movement.y = 0.0f;
-                    }
-                    movement.Normalize();
-                    characterMovement += movement * forceNorm;
-                }
-            }
+        public bool IsOwnerActive()
+        {
+            return ownerActive;
+        }
 
-            if(healthImpact != 0.0f)
-            {
-                if(healthImpact > 0.0f)
-                {
-                    cc.Heal(healthImpact * (impactPerFrame ? 1 : Time.deltaTime));
-                } else
-                {
-                    cc.Damage(healthImpact * (impactPerFrame ? 1 : Time.deltaTime));
-                }
-            }
+        public VBGCharacterController GetOwner()
+        {
+            return owner;
         }
     }
 }
