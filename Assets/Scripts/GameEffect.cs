@@ -24,6 +24,7 @@ namespace vbg
         public float pushForceDecreaseLength = 0.0f;
 
         GameEffectExit[] exitConditions;
+        GameEffectActivate[] activateConditions;
         List<VBGCharacterController> impactedCharacters;
         private bool toDelete = false;
 
@@ -33,6 +34,7 @@ namespace vbg
         void Start()
         {
             exitConditions = GetComponents<GameEffectExit>();
+            activateConditions = GetComponents<GameEffectActivate>();
             impactedCharacters = new List<VBGCharacterController>();
 
             rb = GetComponent<Rigidbody>();
@@ -183,6 +185,15 @@ namespace vbg
         public void Process(VBGCharacterController cc, ref Vector3 characterMovement)
         {
             Debug.Log("Process");
+
+            foreach (GameEffectActivate gea in activateConditions)
+            {
+                if (!gea.IsActive())
+                {
+                    return;
+                }
+            }
+
             foreach (GameEffectExit gee in exitConditions)
             {
                 if (gee.AfterProcess())

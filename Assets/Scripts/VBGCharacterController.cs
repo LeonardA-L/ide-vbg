@@ -163,5 +163,13 @@ namespace vbg
             }
             health.Damage(intensity);
         }
+
+        public bool WeaponIsActive
+        {
+            get
+            {
+                return weaponIsActive;
+            }
+        }
     }
 }
