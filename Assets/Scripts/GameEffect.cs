@@ -21,7 +21,7 @@ namespace vbg
         public float pushForceNorm = 0.0f;
         public bool pushForceIsOmnidirectional;
         public bool pushForceNoY = true;
-        public float pushForceDecreaseLength = 1.0f;
+        public float pushForceDecreaseLength = 0.0f;
 
         GameEffectExit[] exitConditions;
         List<VBGCharacterController> impactedCharacters;
@@ -158,7 +158,7 @@ namespace vbg
             {
 
                 float forceNorm = pushForceNorm;
-                if (pushForceDecreaseLength != 1.0f)
+                if (pushForceDecreaseLength > 0.0f)
                 {
                     float distRatio = (cc.transform.position - transform.position).magnitude / pushForceDecreaseLength;
                     forceNorm *= distRatio;
