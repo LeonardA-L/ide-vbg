@@ -25,7 +25,7 @@ namespace vbg
         public void Damage(float intensity)
         {
             // TODO calculate actual blow with stats/def/armor/...
-            health -= intensity;
+            health += intensity;
             health = ClampHealth();
         }
 

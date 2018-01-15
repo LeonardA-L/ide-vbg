@@ -143,13 +143,13 @@ namespace vbg
                         return;
                     }
                 }
-                if (healthImpact > 0.0f)
+                if (healthImpact < 0.0f)
                 {
-                    cc.Heal(healthImpact * (impactPerFrame ? 1 : Time.deltaTime));
+                    cc.Damage(healthImpact * (impactPerFrame ? 1 : Time.deltaTime));
                 }
                 else
                 {
-                    cc.Damage(healthImpact * (impactPerFrame ? 1 : Time.deltaTime));
+                    cc.Heal(healthImpact * (impactPerFrame ? 1 : Time.deltaTime));
                 }
             }
         }
