@@ -47,6 +47,12 @@ namespace vbg
         // Update is called once per frame
         void Update()
         {
+
+            if (!IsActive())
+            {
+                return;
+            }
+
             foreach (GameEffectExit gee in exitConditions)
             {
                 if(gee.AfterUpdate())
@@ -87,6 +93,12 @@ namespace vbg
 
         private void OnTriggerEnter(UnityEngine.Collider other)
         {
+
+            if (!IsActive())
+            {
+                return;
+            }
+
             if (other.gameObject.tag == GameManager.Constants.TAG_CHARACTER
                 || other.gameObject.tag == GameManager.Constants.TAG_NONPLAYER_CHARACTER)
             {
@@ -106,6 +118,12 @@ namespace vbg
 
         private void OnTriggerExit(UnityEngine.Collider other)
         {
+
+            if (!IsActive())
+            {
+                return;
+            }
+
             if (other.gameObject.tag == GameManager.Constants.TAG_CHARACTER
                 || other.gameObject.tag == GameManager.Constants.TAG_NONPLAYER_CHARACTER)
             {
@@ -186,12 +204,9 @@ namespace vbg
         {
             Debug.Log("Process");
 
-            foreach (GameEffectActivate gea in activateConditions)
+            if(!IsActive())
             {
-                if (!gea.IsActive())
-                {
-                    return;
-                }
+                return;
             }
 
             foreach (GameEffectExit gee in exitConditions)
@@ -215,6 +230,18 @@ namespace vbg
         public VBGCharacterController GetOwner()
         {
             return owner;
+        }
+
+        private bool IsActive()
+        {
+            foreach (GameEffectActivate gea in activateConditions)
+            {
+                if (!gea.IsActive())
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
