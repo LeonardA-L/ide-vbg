@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace vbg
 {
-    [RequireComponent(typeof(UnityEngine.Collider))]
     public class GameEffect : MonoBehaviour
     {
         // Parameters

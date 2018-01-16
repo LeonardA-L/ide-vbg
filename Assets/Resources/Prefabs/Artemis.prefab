@@ -491,9 +491,10 @@ GameObject:
   - component: {fileID: 4453922035446492}
   - component: {fileID: 95617674204855424}
   - component: {fileID: 114948721891901264}
-  - component: {fileID: 143846265922684134}
   - component: {fileID: 114022768809569034}
   - component: {fileID: 114405651997453948}
+  - component: {fileID: 54673299911804280}
+  - component: {fileID: 136450677837128816}
   m_Layer: 0
   m_Name: Artemis
   m_TagString: Player
@@ -1774,7 +1775,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1409938460915610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.28843403, y: 6.5836496e-17, z: 14.669976}
+  m_LocalPosition: {x: -3.7307398, y: -3.3482064e-17, z: 23.615797}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4087921795428008}
@@ -2332,6 +2333,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1614209534391596}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54673299911804280
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1409938460915610}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!95 &95617674204855424
 Animator:
   serializedVersion: 3
@@ -2417,8 +2433,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ad7ed69a4757040808f735d6e7dc63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.2
+  speed: 4
   rotationSpeedFactor: 0.15
+--- !u!136 &136450677837128816
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1409938460915610}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.4
+  m_Height: 1.7
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.85, z: 0}
 --- !u!136 &136847252897446858
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -2974,20 +3003,3 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0007132143, y: -0.41096795, z: 0.016123176}
     m_Extent: {x: 0.16233586, y: 0.46463943, z: 0.30111074}
   m_DirtyAABB: 0
---- !u!143 &143846265922684134
-CharacterController:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1409938460915610}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 1.8
-  m_Radius: 0.3
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.9, z: 0}

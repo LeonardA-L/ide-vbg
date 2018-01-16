@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace vbg
 {
-    [RequireComponent(typeof(CharacterController))]
+    //[RequireComponent(typeof(CharacterController))]
     [RequireComponent(typeof(Animator))]
     public class VBGCharacterController : MonoBehaviour
     {
@@ -17,10 +17,10 @@ namespace vbg
         }
 
         // Components
-        private CharacterController cc;
+        private Rigidbody rb;
 
         // Parameters
-        public float speed = 2;
+        public float speed = 6;
         public float rotationSpeedFactor = 0.2f;
         private float friction = 0.2f;
         private float airFriction = 0.02f;
@@ -32,6 +32,7 @@ namespace vbg
         private bool attack = false;
         private List<GameEffect> activeGameEffects;
         private bool weaponIsActive;
+        private Vector3 bodyMovement;
 
         CharacterHealth health;
         Animator animator;
@@ -39,7 +40,7 @@ namespace vbg
         // Use this for initialization
         void Start()
         {
-            cc = GetComponent<CharacterController>();
+            rb = GetComponent<Rigidbody>();
             activeGameEffects = new List<GameEffect>();
             health = GetComponent<CharacterHealth>();
             animator = GetComponent<Animator>();
@@ -51,8 +52,8 @@ namespace vbg
         {
             weaponIsActive = animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking");
             // Apply movement
-            Vector3 movement = cc.velocity;
-            if (cc.isGrounded)
+            bodyMovement = rb.velocity;
+            //if (rb.isGrounded)
             {
                 // Apply Jump
                 if (attack)
@@ -62,7 +63,7 @@ namespace vbg
                 }
                 //if(!attack && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking"))
                 {
-                    movement += lastDirection * lastInputNorm * speed;
+                    bodyMovement += lastDirection * lastInputNorm * speed;
                 }
             }
 
@@ -72,28 +73,34 @@ namespace vbg
             activeGameEffects.RemoveAll(item => item == null);
             foreach (GameEffect ge in activeGameEffects)
             {
-                ge.Process(this, ref movement);
+                ge.Process(this, ref bodyMovement);
             }
 
             // Apply Gravity
-            if (!cc.isGrounded)
+            /*
+            //if (!cc.isGrounded)
             {
-                movement.y += gravity;
+                bodyMovement.y += gravity;
             }
 
             // Apply friction
-            Vector2 groundMovement = new Vector2(movement.x, movement.z);
+            Vector2 groundMovement = new Vector2(bodyMovement.x, bodyMovement.z);
             groundMovement = Vector2.Lerp(groundMovement, Vector2.zero, cc.isGrounded ? friction : airFriction);
-            movement.x = groundMovement.x;
-            movement.z = groundMovement.y;
-
-            groundMovement = movement;
+            bodyMovement.x = groundMovement.x;
+            bodyMovement.z = groundMovement.y;
+            */
+            Vector2 groundMovement = bodyMovement;
             groundMovement.y = 0.0f;
             animator.SetBool("Walking", groundMovement.magnitude > 0.3f);
 
             // Update CC
-            cc.Move(movement * Time.deltaTime);
+            //cc.Move(movement * Time.deltaTime);
             animator.SetFloat("Health", health.GetHealth());
+        }
+
+        void FixedUpdate()
+        {
+            rb.MovePosition(rb.position + bodyMovement * Time.fixedDeltaTime);
         }
 
         public void Move(Vector3 _move, float _inputNorm, bool _attack)
