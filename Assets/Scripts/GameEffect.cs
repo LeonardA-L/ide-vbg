@@ -171,11 +171,11 @@ namespace vbg
             }
         }
 
-        private void ProcessPushForce(VBGCharacterController cc, ref Vector3 characterMovement)
+        private void ProcessPushForce(VBGCharacterController cc, Rigidbody rb, ref Vector3 characterMovement)
         {
             if (pushForceNorm > 0.0f)
             {
-
+                Vector3 force = new Vector3();
                 float forceNorm = pushForceNorm;
                 if (pushForceDecreaseLength > 0.0f)
                 {
@@ -184,7 +184,7 @@ namespace vbg
                 }
                 if (pushForceVector.magnitude > 0.0f)
                 {
-                    characterMovement += pushForceVector.normalized * forceNorm;
+                    force += pushForceVector.normalized * forceNorm;
                 }
                 else if (pushForceIsOmnidirectional)
                 {
@@ -194,12 +194,20 @@ namespace vbg
                         movement.y = 0.0f;
                     }
                     movement.Normalize();
-                    characterMovement += movement * forceNorm;
+                    force += movement * forceNorm;
+                }
+
+                if(rb != null)
+                {
+                    rb.AddForce(force);
+                } else
+                {
+                    characterMovement = force;
                 }
             }
         }
 
-        public void Process(VBGCharacterController cc, ref Vector3 characterMovement)
+        public void Process(VBGCharacterController cc, Rigidbody rb, ref Vector3 characterMovement)
         {
             Debug.Log("Process");
 
@@ -217,7 +225,7 @@ namespace vbg
                 }
             }
 
-            ProcessPushForce(cc, ref characterMovement);
+            ProcessPushForce(cc, rb, ref characterMovement);
             ProcessHealth(cc);
         }
 
