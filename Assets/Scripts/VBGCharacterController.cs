@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace vbg
 {
-    //[RequireComponent(typeof(CharacterController))]
+    [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(Animator))]
     public class VBGCharacterController : MonoBehaviour
     {
@@ -18,13 +18,14 @@ namespace vbg
 
         // Components
         private Rigidbody rb;
+        private CharacterHealth health;
+        private Animator animator;
 
         // Parameters
         public float speed = 6;
         public float rotationSpeedFactor = 0.2f;
-        private float friction = 0.2f;
-        private float airFriction = 0.02f;
-        private float gravity = Physics.gravity.y / 3.0f;
+        public Transform groundChecker;
+        public LayerMask Ground;
 
         // Members
         private Vector3 lastDirection;
@@ -33,9 +34,8 @@ namespace vbg
         private List<GameEffect> activeGameEffects;
         private bool weaponIsActive;
         private Vector3 bodyMovement;
+        public bool isGrounded;
 
-        CharacterHealth health;
-        Animator animator;
 
         // Use this for initialization
         void Start()
@@ -45,15 +45,17 @@ namespace vbg
             health = GetComponent<CharacterHealth>();
             animator = GetComponent<Animator>();
             weaponIsActive = false;
+            isGrounded = true;
         }
 
         // Update is called once per frame
         void Update()
         {
+            isGrounded = Physics.CheckSphere(groundChecker.position, groundChecker.localPosition.y + 0.1f, Ground, QueryTriggerInteraction.Ignore);
             weaponIsActive = animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking");
             // Apply movement
             bodyMovement = rb.velocity;
-            //if (rb.isGrounded)
+            if (isGrounded)
             {
                 // Apply Jump
                 if (attack)
@@ -76,19 +78,6 @@ namespace vbg
                 ge.Process(this, rb, ref bodyMovement);
             }
 
-            // Apply Gravity
-            /*
-            //if (!cc.isGrounded)
-            {
-                bodyMovement.y += gravity;
-            }
-
-            // Apply friction
-            Vector2 groundMovement = new Vector2(bodyMovement.x, bodyMovement.z);
-            groundMovement = Vector2.Lerp(groundMovement, Vector2.zero, cc.isGrounded ? friction : airFriction);
-            bodyMovement.x = groundMovement.x;
-            bodyMovement.z = groundMovement.y;
-            */
             Vector2 groundMovement = bodyMovement;
             groundMovement.y = 0.0f;
             animator.SetBool("Walking", groundMovement.magnitude > 0.3f);
@@ -128,11 +117,6 @@ namespace vbg
         public void UnRegisterGameEffect(GameEffect ge)
         {
             activeGameEffects.Remove(ge);
-        }
-
-        public float GetGravity()
-        {
-            return gravity;
         }
 
         void OnControllerColliderHit(ControllerColliderHit hit)
