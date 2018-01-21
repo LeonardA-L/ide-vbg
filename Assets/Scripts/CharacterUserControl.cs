@@ -12,6 +12,8 @@ namespace vbg
         private Vector3 m_CamForward;             // The current forward direction of the camera
         private Vector3 m_Move;
 
+        private float prevModifier;
+
         string GetControllersuffix()
         {
             return "_P" + controllerID;
@@ -51,6 +53,13 @@ namespace vbg
             float v = Input.GetAxis("Vertical" + GetControllersuffix());
             Vector2 joy = new Vector2(h, v);
             bool attack = Input.GetButtonDown("Attack" + GetControllersuffix());
+            bool defense = Input.GetButtonDown("Defense" + GetControllersuffix());
+            bool movement = Input.GetButtonDown("Movement" + GetControllersuffix());
+            bool special = Input.GetButtonDown("Special" + GetControllersuffix());
+
+            float modifier = Input.GetAxis("Modifier" + GetControllersuffix());
+            bool modifierActive = modifier > 0.6f && modifier >= prevModifier;
+            prevModifier = modifier;
 
             // calculate move direction to pass to character
             if (m_Cam != null)
@@ -60,9 +69,55 @@ namespace vbg
                 m_Move = v * m_CamForward + h * m_Cam.right;
             }
 
+            VBGCharacterController.Action action = VBGCharacterController.Action.NONE;
+
+            if(modifierActive)
+            {
+                if(attack)
+                {
+                    action = VBGCharacterController.Action.SPE_ATTACK;
+                }
+                else if (special)
+                {
+                    action = VBGCharacterController.Action.SPE_SPECIAL;
+                }
+                else if (movement)
+                {
+                    action = VBGCharacterController.Action.SPE_MOVEMENT;
+                }
+                else if(defense)
+                {
+                    action = VBGCharacterController.Action.SPE_DEFENSE;
+                }
+            } else
+            {
+                if (attack)
+                {
+                    action = VBGCharacterController.Action.ATTACK;
+                }
+                else if (special)
+                {
+                    action = VBGCharacterController.Action.SPECIAL;
+                }
+                else if (movement)
+                {
+                    action = VBGCharacterController.Action.MOVEMENT;
+                }
+                else if (defense)
+                {
+                    action = VBGCharacterController.Action.DEFENSE;
+                }
+            }
+
+            VBGCharacterController.Request request = new VBGCharacterController.Request
+            {
+                move = m_Move,
+                inputNorm = joy.magnitude,
+                action = action
+            };
+
             // pass all parameters to the character control script
-            m_Character.Move(m_Move, joy.magnitude, attack);
-            attack = false;
+            m_Character.Move(request);
         }
 
         public void SetController(int _controllerID)

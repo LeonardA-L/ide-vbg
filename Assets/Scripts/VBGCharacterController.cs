@@ -16,6 +16,26 @@ namespace vbg
             public readonly static int ANIMATOR_LAYER_ATTACK = 0;
         }
 
+        public enum Action
+        {
+            NONE,
+            ATTACK,
+            SPE_ATTACK,
+            MOVEMENT,
+            SPE_MOVEMENT,
+            DEFENSE,
+            SPE_DEFENSE,
+            SPECIAL,
+            SPE_SPECIAL
+        }
+
+        public struct Request
+        {
+            public Vector3 move;
+            public float inputNorm;
+            public Action action;
+        }
+
         // Components
         private Rigidbody rb;
         private CharacterHealth health;
@@ -30,7 +50,7 @@ namespace vbg
         // Members
         private Vector3 lastDirection;
         private float lastInputNorm;
-        private bool attack = false;
+        private Action action;
         private List<GameEffect> activeGameEffects;
         private bool weaponIsActive;
         private Vector3 bodyMovement;
@@ -55,14 +75,9 @@ namespace vbg
             weaponIsActive = animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking");
             // Apply movement
             bodyMovement = rb.velocity;
+            ProcessAction();
             if (isGrounded)
             {
-                // Apply Jump
-                if (attack)
-                {
-                    animator.SetTrigger("Attack");
-                    attack = false;
-                }
                 //if(!attack && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking"))
                 {
                     bodyMovement += lastDirection * lastInputNorm * speed;
@@ -92,21 +107,34 @@ namespace vbg
             rb.MovePosition(rb.position + bodyMovement * Time.fixedDeltaTime);
         }
 
-        public void Move(Vector3 _move, float _inputNorm, bool _attack)
+        public void Move(Request _req)
         {
             if(health.IsDead())
             {
                 return;
             }
-            if (_move.magnitude > 0.0f)
+            if (_req.move.magnitude > 0.0f)
             {
-                lastDirection = _move.normalized;
+                lastDirection = _req.move.normalized;
             }
-            lastInputNorm = _inputNorm;
-            if (_attack)
+            lastInputNorm = _req.inputNorm;
+
+            if(_req.action != Action.NONE)
             {
-                attack = true;
+                action = _req.action;
             }
+        }
+
+        private void ProcessAction()
+        {
+            switch(action)
+            {
+                case Action.ATTACK:
+                    animator.SetTrigger("Attack");
+                break;
+            }
+
+            action = Action.NONE;
         }
 
         public void RegisterGameEffect(GameEffect ge)
