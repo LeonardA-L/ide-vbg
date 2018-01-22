@@ -46,7 +46,6 @@ namespace vbg
         // Update is called once per frame
         void Update()
         {
-
             if (!IsActive())
             {
                 return;

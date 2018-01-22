@@ -141,7 +141,7 @@ namespace vbg
                 case Action.SPE_ATTACK:
                 case Action.SPE_DEFENSE:
                 case Action.SPE_MOVEMENT:
-                case Action.SPE_SPECIAL:
+                //case Action.SPE_SPECIAL:
                     TriggerGameEffect(action);
                     break;
             }
@@ -170,11 +170,12 @@ namespace vbg
             GameEffect gameEffect = geGameObject.GetComponent<GameEffect>();
             if(gameEffect == null)
             {
-                gameEffect = GetComponentsInChildren<GameEffect>()[0];
+                gameEffect = geGameObject.GetComponentsInChildren<GameEffect>()[0];
             }
             Debug.Assert(gameEffect, "Instantiated prefab has no GameEffect");
 
             gameEffect.SetOwner(this);
+
             geGameObject.transform.position = transform.position;
             geGameObject.transform.forward = transform.forward;
         }
