@@ -168,11 +168,15 @@ namespace vbg
 
             GameObject geGameObject = Instantiate(toInstanciate);
             GameEffect gameEffect = geGameObject.GetComponent<GameEffect>();
+            if(gameEffect == null)
+            {
+                gameEffect = GetComponentsInChildren<GameEffect>()[0];
+            }
             Debug.Assert(gameEffect, "Instantiated prefab has no GameEffect");
 
             gameEffect.SetOwner(this);
-            gameEffect.transform.position = transform.position;
-            gameEffect.transform.rotation = transform.rotation;
+            geGameObject.transform.position = transform.position;
+            geGameObject.transform.forward = transform.forward;
         }
 
         public void RegisterGameEffect(GameEffect ge)
