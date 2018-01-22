@@ -47,6 +47,12 @@ namespace vbg
         public Transform groundChecker;
         public LayerMask Ground;
 
+        // Special attacks
+        public GameObject specialAttack;
+        public GameObject specialMovement;
+        public GameObject specialDefense;
+        public GameObject specialSpecial;
+
         // Members
         private Vector3 lastDirection;
         private float lastInputNorm;
@@ -132,9 +138,41 @@ namespace vbg
                 case Action.ATTACK:
                     animator.SetTrigger("Attack");
                 break;
+                case Action.SPE_ATTACK:
+                case Action.SPE_DEFENSE:
+                case Action.SPE_MOVEMENT:
+                case Action.SPE_SPECIAL:
+                    TriggerGameEffect(action);
+                    break;
             }
 
             action = Action.NONE;
+        }
+
+        private void TriggerGameEffect(Action action)
+        {
+            GameObject toInstanciate = null;
+            switch(action)
+            {
+                case Action.SPE_ATTACK:
+                    toInstanciate = specialAttack;
+                    break;
+                case Action.SPE_MOVEMENT:
+                    toInstanciate = specialMovement;
+                    break;
+                case Action.SPE_DEFENSE:
+                    toInstanciate = specialDefense;
+                    break;
+            }
+            Debug.Assert(toInstanciate, "No prefab provided");
+
+            GameObject geGameObject = Instantiate(toInstanciate);
+            GameEffect gameEffect = geGameObject.GetComponent<GameEffect>();
+            Debug.Assert(gameEffect, "Instantiated prefab has no GameEffect");
+
+            gameEffect.SetOwner(this);
+            gameEffect.transform.position = transform.position;
+            gameEffect.transform.rotation = transform.rotation;
         }
 
         public void RegisterGameEffect(GameEffect ge)

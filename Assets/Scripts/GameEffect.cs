@@ -184,7 +184,11 @@ namespace vbg
                 }
                 if (pushForceVector.magnitude > 0.0f)
                 {
-                    force += pushForceVector.normalized * forceNorm;
+                    Vector3 normalizedPF = pushForceVector.normalized;
+                    force +=  (normalizedPF.x * transform.right
+                             + normalizedPF.y * transform.up
+                             + normalizedPF.z * transform.forward)
+                             * forceNorm;
                 }
                 else if (pushForceIsOmnidirectional)
                 {
@@ -237,6 +241,11 @@ namespace vbg
         public VBGCharacterController GetOwner()
         {
             return owner;
+        }
+
+        public void SetOwner(VBGCharacterController _owner)
+        {
+            owner = _owner;
         }
 
         private bool IsActive()
