@@ -158,7 +158,7 @@ namespace vbg
                 case Action.ATTACK:
                     animator.SetTrigger("Attack");
                 break;
-                //case Action.SPE_ATTACK:
+                case Action.SPE_ATTACK:
                 case Action.SPE_DEFENSE:
                 case Action.SPE_MOVEMENT:
                 case Action.SPE_SPECIAL:
