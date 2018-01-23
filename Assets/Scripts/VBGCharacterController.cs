@@ -61,6 +61,10 @@ namespace vbg
         public GameEffectCommand specialMovement;
         public GameEffectCommand specialDefense;
         public GameEffectCommand specialSpecial;
+        
+        public GameEffectCommand movement;
+        public GameEffectCommand defense;
+        public GameEffectCommand special;
 
         // Members
         private Vector3 lastDirection;
@@ -91,7 +95,8 @@ namespace vbg
             // Apply movement
             bodyMovement = rb.velocity;
             ProcessAction();
-            if (isGrounded)
+            //
+            //if (isGrounded)
             {
                 //if(!attack && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking"))
                 {
