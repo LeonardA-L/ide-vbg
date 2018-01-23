@@ -30,6 +30,10 @@ namespace vbg
         public bool pushForceIsOmnidirectional;
         public bool pushForceNoY = true;
         public float pushForceDecreaseLength = 0.0f;
+        [Header("Switch")]
+        public string switchName;
+        public bool switchValue = false;
+        public bool unstable = false;
 
         GameEffectExit[] exitConditions;
         GameEffectActivate[] activateConditions;
@@ -38,6 +42,8 @@ namespace vbg
         private Transform toFollow;
         private bool followForward;
         private bool followRotation;
+
+        private bool lastFrameProcessed = false;
 
         Rigidbody rb;
 
@@ -62,6 +68,13 @@ namespace vbg
             {
                 return;
             }
+
+            if(unstable && !lastFrameProcessed)
+            {
+                GameManager.Instance.SetSwitch(switchName, !switchValue);
+            }
+
+            lastFrameProcessed = false;
 
             foreach (GameEffectExit gee in exitConditions)
             {
@@ -209,6 +222,15 @@ namespace vbg
             }
         }
 
+        private void ProcessSwitch()
+        {
+            if(switchName == null || switchName == "")
+            {
+                return;
+            }
+            GameManager.Instance.SetSwitch(switchName, switchValue);
+        }
+
         private void ProcessPushForce(VBGCharacterController cc, Rigidbody rb, ref Vector3 characterMovement)
         {
             if (pushForceNorm > 0.0f)
@@ -258,6 +280,8 @@ namespace vbg
                 return;
             }
 
+            lastFrameProcessed = true;
+
             foreach (GameEffectExit gee in exitConditions)
             {
                 if (gee.AfterProcess())
@@ -269,6 +293,7 @@ namespace vbg
 
             ProcessPushForce(cc, rb, ref characterMovement);
             ProcessHealth(cc);
+            ProcessSwitch();
         }
 
         public OwnerActive IsOwnerActive()
