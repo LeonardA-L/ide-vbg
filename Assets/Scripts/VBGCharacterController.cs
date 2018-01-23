@@ -16,6 +16,14 @@ namespace vbg
             public readonly static int ANIMATOR_LAYER_ATTACK = 0;
         }
 
+        [System.Serializable]
+        public class GameEffectCommand
+        {
+            public GameObject toInstanciate;
+            public float cooldown = 2.0f;
+            public float timer;
+        }
+
         public enum Action
         {
             NONE,
@@ -48,10 +56,10 @@ namespace vbg
         public LayerMask Ground;
 
         // Special attacks
-        public GameObject specialAttack;
-        public GameObject specialMovement;
-        public GameObject specialDefense;
-        public GameObject specialSpecial;
+        public GameEffectCommand specialAttack;
+        public GameEffectCommand specialMovement;
+        public GameEffectCommand specialDefense;
+        public GameEffectCommand specialSpecial;
 
         // Members
         private Vector3 lastDirection;
@@ -106,6 +114,18 @@ namespace vbg
             // Update CC
             //cc.Move(movement * Time.deltaTime);
             animator.SetFloat("Health", health.GetHealth());
+
+            // Cooldowns
+            // TODO in list
+            ProcessCooldown(specialAttack);
+            ProcessCooldown(specialDefense);
+            ProcessCooldown(specialMovement);
+            ProcessCooldown(specialSpecial);
+        }
+
+        private void ProcessCooldown(GameEffectCommand gec)
+        {
+            gec.timer = Mathf.Clamp(gec.timer - Time.deltaTime, 0.0f, 1000);
         }
 
         void FixedUpdate()
@@ -138,10 +158,10 @@ namespace vbg
                 case Action.ATTACK:
                     animator.SetTrigger("Attack");
                 break;
-                case Action.SPE_ATTACK:
+                //case Action.SPE_ATTACK:
                 case Action.SPE_DEFENSE:
                 case Action.SPE_MOVEMENT:
-                //case Action.SPE_SPECIAL:
+                case Action.SPE_SPECIAL:
                     TriggerGameEffect(action);
                     break;
             }
@@ -151,22 +171,35 @@ namespace vbg
 
         private void TriggerGameEffect(Action action)
         {
-            GameObject toInstanciate = null;
+            GameEffectCommand command;
             switch(action)
             {
                 case Action.SPE_ATTACK:
-                    toInstanciate = specialAttack;
+                    command = specialAttack;
                     break;
                 case Action.SPE_MOVEMENT:
-                    toInstanciate = specialMovement;
+                    command = specialMovement;
                     break;
                 case Action.SPE_DEFENSE:
-                    toInstanciate = specialDefense;
+                    command = specialDefense;
                     break;
+                case Action.SPE_SPECIAL:
+                    command = specialSpecial;
+                    break;
+                default:
+                    Debug.Assert(false, "No prefab provided");
+                    return;
             }
-            Debug.Assert(toInstanciate, "No prefab provided");
 
-            GameObject geGameObject = Instantiate(toInstanciate);
+            if(command.timer > 0.0f)
+            {
+                Debug.Log("Too soon");
+                return;
+            }
+
+            command.timer = command.cooldown;
+
+            GameObject geGameObject = Instantiate(command.toInstanciate);
             GameEffect gameEffect = geGameObject.GetComponent<GameEffect>();
             if(gameEffect == null)
             {

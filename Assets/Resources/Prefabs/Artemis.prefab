@@ -1790,7 +1790,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1409938460915610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.890952, y: 2.6374346e-17, z: 18.224411}
+  m_LocalPosition: {x: 5.12119, y: -2.4477623e-18, z: 20.820475}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4087921795428008}
@@ -2430,11 +2430,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
+  owner: {fileID: 114948721891901264}
   ownerActive: 0
-  healthImpact: 75
+  destroyParent: 0
+  healthImpact: -75
   impactPerFrame: 0
   friendlyFire: 1
-  owner: {fileID: 114948721891901264}
   pushForceVector: {x: 0, y: 0, z: 0}
   pushForceNorm: 0
   pushForceIsOmnidirectional: 0
@@ -2468,13 +2469,25 @@ MonoBehaviour:
   Ground:
     serializedVersion: 2
     m_Bits: 256
-  specialAttack: {fileID: 1410900066037384, guid: cf2aa9c394ce4854db4a4bf9e6197d22,
-    type: 2}
-  specialMovement: {fileID: 1763979341736754, guid: 24b3fd89970c53b4cafb88091114bda8,
-    type: 2}
-  specialDefense: {fileID: 1735137292521736, guid: 4c0fa72b41fbe714ca3a307eafc5b2de,
-    type: 2}
-  specialSpecial: {fileID: 0}
+  specialAttack:
+    toInstanciate: {fileID: 0}
+    cooldown: 2
+    timer: 0
+  specialMovement:
+    toInstanciate: {fileID: 1410900066037384, guid: cf2aa9c394ce4854db4a4bf9e6197d22,
+      type: 2}
+    cooldown: 2
+    timer: 0
+  specialDefense:
+    toInstanciate: {fileID: 1735137292521736, guid: 4c0fa72b41fbe714ca3a307eafc5b2de,
+      type: 2}
+    cooldown: 2
+    timer: 0
+  specialSpecial:
+    toInstanciate: {fileID: 1763979341736754, guid: 24b3fd89970c53b4cafb88091114bda8,
+      type: 2}
+    cooldown: 2
+    timer: 0
   isGrounded: 0
 --- !u!136 &136450677837128816
 CapsuleCollider:
