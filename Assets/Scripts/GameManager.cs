@@ -28,6 +28,8 @@ namespace vbg
             }
         }
 
+        private Dictionary<string, bool> switches;
+
         private List<SpawnPoint> spawnPoints;
         private List<SpawnPoint> startPoints;
 
@@ -37,6 +39,7 @@ namespace vbg
             instance = this;
             spawnPoints = new List<SpawnPoint>();
             startPoints = new List<SpawnPoint>();
+            switches = new Dictionary<string, bool>();
 
             SpawnPoint[] spawns = (SpawnPoint[])FindObjectsOfType(typeof(SpawnPoint));
             foreach (SpawnPoint spawn in spawns)
@@ -54,12 +57,22 @@ namespace vbg
         // Update is called once per frame
         void Update()
         {
-
+            Debug.Log(GetSwitch("plate1"));
         }
 
         public SpawnPoint GetStartPoint(int _idx)
         {
             return startPoints[_idx % startPoints.Count];
+        }
+
+        public bool GetSwitch(string name)
+        {
+            return switches[name];
+        }
+
+        public void SetSwitch(string name, bool value)
+        {
+            switches[name] = value;
         }
     }
 }
