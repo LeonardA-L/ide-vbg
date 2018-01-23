@@ -6,16 +6,24 @@ namespace vbg
 {
     public class GameEffect : MonoBehaviour
     {
+
+        public enum OwnerActive
+        {
+            NO,
+            YES,
+            OWNER_ONLY
+        }
+
         // Parameters
         public GameObject finishPrefab;
         public Vector3 initialVelocity;
-        public bool ownerActive = false;
+        public VBGCharacterController owner;
+        public OwnerActive ownerActive = OwnerActive.NO;
         public bool destroyParent = false;
         [Header("Health impact")]
         public float healthImpact = 0.0f;
         public bool impactPerFrame = false;
         public bool friendlyFire = false;
-        public VBGCharacterController owner;
         [Header("Push Force")]
         public Vector3 pushForceVector;
         public float pushForceNorm = 0.0f;
@@ -108,7 +116,12 @@ namespace vbg
                 VBGCharacterController cc = other.gameObject.GetComponent<VBGCharacterController>();
                 Debug.Assert(cc != null);
 
-                if (!ownerActive && cc == owner)
+                if (ownerActive == OwnerActive.NO && cc == owner)
+                {
+                    return;
+                }
+
+                if (ownerActive == OwnerActive.OWNER_ONLY && cc != owner)
                 {
                     return;
                 }
@@ -133,7 +146,12 @@ namespace vbg
                 VBGCharacterController cc = other.gameObject.GetComponent<VBGCharacterController>();
                 Debug.Assert(cc != null);
 
-                if (!ownerActive && cc == owner)
+                if (ownerActive == OwnerActive.NO && cc == owner)
+                {
+                    return;
+                }
+
+                if (ownerActive == OwnerActive.OWNER_ONLY && cc != owner)
                 {
                     return;
                 }
@@ -237,7 +255,7 @@ namespace vbg
             ProcessHealth(cc);
         }
 
-        public bool IsOwnerActive()
+        public OwnerActive IsOwnerActive()
         {
             return ownerActive;
         }
