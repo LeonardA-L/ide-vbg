@@ -22,6 +22,7 @@ namespace vbg
             public GameObject toInstanciate;
             public float cooldown = 2.0f;
             public float timer;
+            public bool child;
         }
 
         public enum Action
@@ -199,7 +200,7 @@ namespace vbg
 
             command.timer = command.cooldown;
 
-            GameObject geGameObject = Instantiate(command.toInstanciate);
+            GameObject geGameObject = Instantiate(command.toInstanciate, command.child ? transform : null);
             GameEffect gameEffect = geGameObject.GetComponent<GameEffect>();
             if(gameEffect == null)
             {
