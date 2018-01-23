@@ -14,7 +14,7 @@ namespace vbg
             Debug.Assert(owner);
         }
 
-        public override bool IsActive() {
+        public override bool IsActive(VBGCharacterController cc) {
             return owner.WeaponIsActive;
         }
     }

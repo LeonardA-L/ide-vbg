@@ -57,7 +57,6 @@ namespace vbg
         // Update is called once per frame
         void Update()
         {
-            Debug.Log(GetSwitch("plate1"));
         }
 
         public SpawnPoint GetStartPoint(int _idx)
@@ -67,7 +66,9 @@ namespace vbg
 
         public bool GetSwitch(string name)
         {
-            return switches[name];
+            bool ret = false;
+            switches.TryGetValue(name, out ret);
+            return ret;
         }
 
         public void SetSwitch(string name, bool value)

@@ -64,7 +64,7 @@ namespace vbg
         // Update is called once per frame
         void Update()
         {
-            if (!IsActive())
+            if (!IsActive(null))
             {
                 return;
             }
@@ -134,16 +134,17 @@ namespace vbg
         private void OnTriggerEnter(UnityEngine.Collider other)
         {
 
-            if (!IsActive())
-            {
-                return;
-            }
 
             if (other.gameObject.tag == GameManager.Constants.TAG_CHARACTER
                 || other.gameObject.tag == GameManager.Constants.TAG_NONPLAYER_CHARACTER)
             {
                 VBGCharacterController cc = other.gameObject.GetComponent<VBGCharacterController>();
                 Debug.Assert(cc != null);
+
+                if (!IsActive(cc))
+                {
+                    return;
+                }
 
                 if (ownerActive == OwnerActive.NO && cc == owner)
                 {
@@ -164,16 +165,17 @@ namespace vbg
         private void OnTriggerExit(UnityEngine.Collider other)
         {
 
-            if (!IsActive())
-            {
-                return;
-            }
 
             if (other.gameObject.tag == GameManager.Constants.TAG_CHARACTER
                 || other.gameObject.tag == GameManager.Constants.TAG_NONPLAYER_CHARACTER)
             {
                 VBGCharacterController cc = other.gameObject.GetComponent<VBGCharacterController>();
                 Debug.Assert(cc != null);
+
+                if (!IsActive(cc))
+                {
+                    return;
+                }
 
                 if (ownerActive == OwnerActive.NO && cc == owner)
                 {
@@ -275,7 +277,7 @@ namespace vbg
         {
             Debug.Log("Process");
 
-            if(!IsActive())
+            if(!IsActive(cc))
             {
                 return;
             }
@@ -311,11 +313,11 @@ namespace vbg
             owner = _owner;
         }
 
-        private bool IsActive()
+        private bool IsActive(VBGCharacterController cc)
         {
             foreach (GameEffectActivate gea in activateConditions)
             {
-                if (!gea.IsActive())
+                if (!gea.IsActive(cc))
                 {
                     return false;
                 }

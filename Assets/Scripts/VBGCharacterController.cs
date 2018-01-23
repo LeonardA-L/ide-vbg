@@ -38,6 +38,14 @@ namespace vbg
             SPE_SPECIAL
         }
 
+        public enum Character
+        {
+            APOLLO,
+            ARES,
+            ARTEMIS,
+            HEPHAESTUS
+        }
+
         public struct Request
         {
             public Vector3 move;
@@ -55,6 +63,7 @@ namespace vbg
         public float rotationSpeedFactor = 0.2f;
         public Transform groundChecker;
         public LayerMask Ground;
+        public Character character;
 
         // Special attacks
         public GameEffectCommand specialAttack;
