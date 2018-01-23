@@ -10,6 +10,7 @@ namespace vbg
         public GameObject finishPrefab;
         public Vector3 initialVelocity;
         public bool ownerActive = false;
+        public bool destroyParent = false;
         [Header("Health impact")]
         public float healthImpact = 0.0f;
         public bool impactPerFrame = false;
@@ -78,6 +79,10 @@ namespace vbg
             foreach (VBGCharacterController cc in impactedCharacters)
             {
                 cc.UnRegisterGameEffect(this);
+            }
+            if(destroyParent)
+            {
+                GameObject.Destroy(transform.parent.gameObject);
             }
             GameObject.Destroy(gameObject);
 
