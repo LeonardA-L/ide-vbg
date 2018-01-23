@@ -1790,7 +1790,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1409938460915610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.57738, y: -6.358795e-18, z: 21.17275}
+  m_LocalPosition: {x: -2.23, y: -7.888938e-17, z: 14.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4087921795428008}
@@ -2470,25 +2470,29 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   specialAttack:
-    toInstanciate: {fileID: 1882697391419768, guid: 8d5994628a72f9247853fba2bb2c765c,
+    toInstanciate: {fileID: 1628685058097148, guid: 0fbe126792703de4a834d73be4995a59,
       type: 2}
     cooldown: 2
     timer: 0
+    child: 1
   specialMovement:
-    toInstanciate: {fileID: 1410900066037384, guid: cf2aa9c394ce4854db4a4bf9e6197d22,
+    toInstanciate: {fileID: 1923744890027746, guid: c8707246929b1be43baba2fa01b03765,
       type: 2}
     cooldown: 2
     timer: 0
+    child: 1
   specialDefense:
     toInstanciate: {fileID: 1735137292521736, guid: 4c0fa72b41fbe714ca3a307eafc5b2de,
       type: 2}
     cooldown: 2
     timer: 0
+    child: 0
   specialSpecial:
     toInstanciate: {fileID: 1763979341736754, guid: 24b3fd89970c53b4cafb88091114bda8,
       type: 2}
     cooldown: 2
     timer: 0
+    child: 0
   isGrounded: 0
 --- !u!136 &136450677837128816
 CapsuleCollider:
