@@ -35,6 +35,9 @@ namespace vbg
         GameEffectActivate[] activateConditions;
         List<VBGCharacterController> impactedCharacters;
         private bool toDelete = false;
+        private Transform toFollow;
+        private bool followForward;
+        private bool followRotation;
 
         Rigidbody rb;
 
@@ -72,6 +75,19 @@ namespace vbg
             if (initialVelocity.magnitude > 0.0f && rb == null)
             {
                 transform.position += initialVelocity * Time.deltaTime;
+            }
+
+            if(toFollow != null)
+            {
+                transform.position = toFollow.position;
+
+                if(followForward)
+                {
+                    transform.forward = toFollow.forward;
+                } else if (followRotation)
+                {
+                    transform.rotation = toFollow.rotation;
+                }
             }
 
             if (toDelete)
@@ -280,6 +296,15 @@ namespace vbg
                 }
             }
             return true;
+        }
+
+        public void FollowTransform(Transform _transform, bool _followForward, bool _followRotation)
+        {
+            if(followForward || followRotation)
+                Debug.Assert(followForward != followRotation, "FollowForward cannot be equal to FollowRotation");
+            toFollow = _transform;
+            followForward = _followForward;
+            followRotation = _followRotation;
         }
     }
 }

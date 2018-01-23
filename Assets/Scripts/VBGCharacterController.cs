@@ -200,7 +200,7 @@ namespace vbg
 
             command.timer = command.cooldown;
 
-            GameObject geGameObject = Instantiate(command.toInstanciate, command.child ? transform : null);
+            GameObject geGameObject = Instantiate(command.toInstanciate);
             GameEffect gameEffect = geGameObject.GetComponent<GameEffect>();
             if(gameEffect == null)
             {
@@ -212,6 +212,10 @@ namespace vbg
 
             geGameObject.transform.position = transform.position;
             geGameObject.transform.forward = transform.forward;
+            if(command.child)
+            {
+                gameEffect.FollowTransform(transform, true, false);
+            }
         }
 
         public void RegisterGameEffect(GameEffect ge)
