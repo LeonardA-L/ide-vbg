@@ -34,17 +34,14 @@ namespace vbg
 
         void Callback(bool switchValue)
         {
-            if(switchValue)
+            if(triggerName != null && triggerName != "")
             {
-                if(triggerName != null && triggerName != "")
-                {
-                    animator.SetTrigger(triggerName);
-                }
+                animator.SetTrigger(triggerName);
+            }
 
-                if (boolName != null && boolName != "")
-                {
-                    animator.SetBool(boolName, switchValue);
-                }
+            if (boolName != null && boolName != "")
+            {
+                animator.SetBool(boolName, switchValue);
             }
         }
     }
