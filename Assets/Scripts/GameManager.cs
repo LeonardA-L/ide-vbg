@@ -29,6 +29,8 @@ namespace vbg
         }
 
         private Dictionary<string, bool> switches;
+        public delegate void SwitchCallback(bool switchValue);
+        private Dictionary<string, List<SwitchCallback>> switchesPubSub;
 
         private List<SpawnPoint> spawnPoints;
         private List<SpawnPoint> startPoints;
@@ -40,6 +42,7 @@ namespace vbg
             spawnPoints = new List<SpawnPoint>();
             startPoints = new List<SpawnPoint>();
             switches = new Dictionary<string, bool>();
+            switchesPubSub = new Dictionary<string, List<SwitchCallback>>();
 
             SpawnPoint[] spawns = (SpawnPoint[])FindObjectsOfType(typeof(SpawnPoint));
             foreach (SpawnPoint spawn in spawns)
@@ -64,6 +67,15 @@ namespace vbg
             return startPoints[_idx % startPoints.Count];
         }
 
+        public void RegisterSwitchListener(string name, SwitchCallback callback)
+        {
+            if (!switchesPubSub.ContainsKey(name))
+            {
+                switchesPubSub.Add(name, new List<SwitchCallback>());
+            }
+            switchesPubSub[name].Add(callback);
+        }
+
         public bool GetSwitch(string name)
         {
             bool ret = false;
@@ -74,6 +86,16 @@ namespace vbg
         public void SetSwitch(string name, bool value)
         {
             switches[name] = value;
+            List<SwitchCallback> subscribers = null;
+
+            switchesPubSub.TryGetValue(name, out subscribers);
+
+            if(subscribers != null)
+            {
+                foreach (SwitchCallback sw in subscribers) {
+                    sw(value);
+                }
+            }
         }
     }
 }

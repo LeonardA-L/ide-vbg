@@ -13,22 +13,27 @@ namespace vbg
 
         public Animator animator;
 
+        private bool init = false;
+
         // Use this for initialization
         void Start()
         {
-
+            
         }
 
-        // Update is called once per frame
         void Update()
         {
-            if(switchName == null || switchName == "")
+            if (init || GameManager.Instance == null)
             {
                 return;
             }
+            init = true;
+            Debug.Assert(switchName != null && switchName != "");
+            GameManager.Instance.RegisterSwitchListener(switchName, Callback);
+        }
 
-            bool switchValue = GameManager.Instance.GetSwitch(switchName);
-
+        void Callback(bool switchValue)
+        {
             if(switchValue)
             {
                 if(triggerName != null && triggerName != "")
