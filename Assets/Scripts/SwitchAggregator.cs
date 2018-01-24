@@ -14,14 +14,29 @@ namespace vbg
 
         public string outSwitch;
 
+        private bool init = false;
+
         // Use this for initialization
         void Start()
         {
 
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
+        {
+            if (init || GameManager.Instance == null)
+            {
+                return;
+            }
+            init = true;
+
+            foreach (string s in andSwitches)
+            {
+                GameManager.Instance.RegisterSwitchListener(s, Callback);
+            }
+        }
+        
+        void Callback(bool switchValue)
         {
             bool value = true;
 
