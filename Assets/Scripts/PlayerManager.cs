@@ -33,7 +33,10 @@ namespace vbg
 
         // ----- Public
 
-        public GameObject characterPrefab;
+        public GameObject aresPrefab;
+        public GameObject artemisPrefab;
+        public GameObject hephaestusPrefab;
+        public GameObject apolloPrefab;
 
         void Start()
         {
@@ -64,6 +67,24 @@ namespace vbg
         {
             int playerID = playersInGame;
             Debug.Log("Activating Controller " + _controllerID + " Player " + playerID);
+            GameObject characterPrefab;
+            switch (playerID)
+            {
+                case 0:
+                    characterPrefab = artemisPrefab;
+                    break;
+                case 1:
+                    characterPrefab = hephaestusPrefab;
+                    break;
+                case 2:
+                    characterPrefab = apolloPrefab;
+                    break;
+                case 3:
+                default:
+                    characterPrefab = aresPrefab;
+                    break;
+            }
+
             GameObject player = GameObject.Instantiate(characterPrefab);
             //player.transform.position = new Vector3(playerID * 1.0f, 0.0f, 0.0f);
             SpawnPoint startPoint = GameManager.Instance.GetStartPoint(playerID);
