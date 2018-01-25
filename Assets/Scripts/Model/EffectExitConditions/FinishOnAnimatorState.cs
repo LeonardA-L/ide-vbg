@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace vbg
 {
+    [AddComponentMenu("GameEffect/ExitConditions/Finish On Animator State")]
     public class FinishOnAnimatorState : GameEffectExit
     {
         [Tooltip("Animator to listen to")]

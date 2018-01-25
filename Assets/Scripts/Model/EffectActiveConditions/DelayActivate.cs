@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace vbg
 {
+    [AddComponentMenu("GameEffect/ActivateConditions/Delay Activate")]
     public class DelayActivate : GameEffectActivate
     {
         [Tooltip("Delay before the effect is activated, in s")]

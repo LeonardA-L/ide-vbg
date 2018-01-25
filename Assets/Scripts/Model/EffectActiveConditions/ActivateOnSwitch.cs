@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace vbg
 {
+    [AddComponentMenu("GameEffect/ActivateConditions/Activate On Switch")]
     public class ActivateOnSwitch : GameEffectActivate
     {
         [Tooltip("Name of the switch to listen to")]

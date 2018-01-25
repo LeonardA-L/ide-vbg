@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace vbg
 {
+    [AddComponentMenu("GameEffect/ActivateConditions/Activate On Weapon")]
     public class ActivateWeapon : GameEffectActivate
     {
         private VBGCharacterController owner;

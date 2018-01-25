@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace vbg
 {
+    [AddComponentMenu("GameEffect/ExitConditions/Until Owner Moves")]
     public class UntilOwnerMoves : GameEffectExit
     {
         private Vector3 initPosition;

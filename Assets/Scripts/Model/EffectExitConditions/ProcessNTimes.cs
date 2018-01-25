@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace vbg
 {
+    [AddComponentMenu("GameEffect/ExitConditions/Process N Times")]
     public class ProcessNTimes : GameEffectExit
     {
         [Tooltip("Number of times the GameEffect should process begore being killed")]

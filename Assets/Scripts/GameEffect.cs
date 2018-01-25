@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace vbg
 {
+    [AddComponentMenu("GameEffect/New Game Effect")]
     public class GameEffect : MonoBehaviour
     {
 

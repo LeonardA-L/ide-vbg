@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace vbg
 {
+    [AddComponentMenu("GameEffect/ExitConditions/Delay Finish")]
     public class DelayFinish : GameEffectExit
     {
         [Tooltip("Delay before the effect is killed, in s")]
