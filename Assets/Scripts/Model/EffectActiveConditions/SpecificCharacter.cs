@@ -6,8 +6,9 @@ namespace vbg
 {
     public class SpecificCharacter : GameEffectActivate
     {
+        [Tooltip("Only Character to be able to activate this GameEffect")]
         public VBGCharacterController.Character target;
-        public VBGCharacterController activator;
+        private VBGCharacterController activator;
 
         void Start()
         {

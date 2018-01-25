@@ -6,6 +6,7 @@ namespace vbg
 {
     public class ActivateOnSwitch : GameEffectActivate
     {
+        [Tooltip("Name of the switch to listen to")]
         public string switchName;
         private bool isActive = false;
         private bool init = false;

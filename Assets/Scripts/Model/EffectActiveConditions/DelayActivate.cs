@@ -8,9 +8,16 @@ namespace vbg
     {
         [Tooltip("Delay before the effect is activated, in s")]
         public float delay = 10;
+        [Tooltip("Optional. Name of a switch to wait on before starting the timer")]
         public string switchStart;
         private bool isTimerActive = false;
         private bool init = false;
+
+        private void Start()
+        {
+            isTimerActive = !(switchStart != null && switchStart != "");
+            init = isTimerActive;
+        }
 
         void Update()
         {

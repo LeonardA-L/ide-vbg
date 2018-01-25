@@ -21,25 +21,42 @@ namespace vbg
         }
 
         // Parameters
+        [Tooltip("A prefab to instantiate when the game effect finishes")]
         public GameObject finishPrefab;
+        [Tooltip("The initial velocity (or force if it has a RigidBody) of the object")]
         public Vector3 initialVelocity;
+        [Tooltip("Owner the object belongs to. This field is filled automatically if the GE is an action")]
         public VBGCharacterController owner;
+        [Tooltip("Is the effect active on its owner (in most cases, no) (if there is no owner, everyone is impacted)")]
         public OwnerActive ownerActive = OwnerActive.NO;
+        [Tooltip("Should the game effect destroy its parent when it dies (is it embedded)")]
         public bool destroyParent = false;
+        [Tooltip("Should the game effect process every frame or only when colliding with a character")]
         public ProcessMode processMode = ProcessMode.ON_COLLISION;
         [Header("Health impact")]
+        [Tooltip("How much health difference the character will get (negative: dammage, positive: heal)")]
         public float healthImpact = 0.0f;
+        [Tooltip("Is the health impact per frame or per second")]
         public bool impactPerFrame = false;
+        [Tooltip("Is friendly fire enabled")]
         public bool friendlyFire = false;
         [Header("Push Force")]
+        [Tooltip("Force that impacts the character that takes the game effect. Normalized")]
         public Vector3 pushForceVector;
+        [Tooltip("Norm of the push force vector")]
         public float pushForceNorm = 0.0f;
+        [Tooltip("NOT IMPLEMENTED")]
         public bool pushForceIsOmnidirectional;
+        [Tooltip("Should the push force lift the player or not")]
         public bool pushForceNoY = true;
+        [Tooltip("NOT IMPLEMENTED")]
         public float pushForceDecreaseLength = 0.0f;
         [Header("Switch")]
+        [Tooltip("Name of the switch the GameEffect will toggle")]
         public string switchName;
-        public bool switchValue = false;
+        [Tooltip("Value of the switch the GameEffect will set when processed (in most cases, true)")]
+        public bool switchValue = true;
+        [Tooltip("Should the GameEffect toggle the switch back when it's not being processed")]
         public bool unstable = false;
 
         GameEffectExit[] exitConditions;

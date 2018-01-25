@@ -6,6 +6,7 @@ namespace vbg
 {
     public class ProcessNTimes : GameEffectExit
     {
+        [Tooltip("Number of times the GameEffect should process begore being killed")]
         public int times = 1;
 
         public override bool AfterProcess() {

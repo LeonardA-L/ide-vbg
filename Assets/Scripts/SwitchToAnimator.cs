@@ -6,11 +6,15 @@ namespace vbg
 {
     public class SwitchToAnimator : MonoBehaviour
     {
+        [Tooltip("Name of the boolean parameter to update in the animator")]
         public string boolName;
+        [Tooltip("Name of the trigger parameter to update in the animator")]
         public string triggerName;
 
+        [Tooltip("Name of the switch to listen to")]
         public string switchName;
 
+        [Tooltip("Animator to update")]
         public Animator animator;
 
         private bool init = false;

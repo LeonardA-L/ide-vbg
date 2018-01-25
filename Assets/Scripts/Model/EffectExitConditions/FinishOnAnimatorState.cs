@@ -6,7 +6,9 @@ namespace vbg
 {
     public class FinishOnAnimatorState : GameEffectExit
     {
+        [Tooltip("Animator to listen to")]
         public Animator animator;
+        [Tooltip("Name of the state in which the game effect finishes")]
         public string state;
 
         public override bool AfterUpdate() {
