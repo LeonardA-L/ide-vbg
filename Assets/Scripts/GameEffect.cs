@@ -14,12 +14,19 @@ namespace vbg
             OWNER_ONLY
         }
 
+        public enum ProcessMode
+        {
+            ON_COLLISION,
+            ALWAYS
+        }
+
         // Parameters
         public GameObject finishPrefab;
         public Vector3 initialVelocity;
         public VBGCharacterController owner;
         public OwnerActive ownerActive = OwnerActive.NO;
         public bool destroyParent = false;
+        public ProcessMode processMode = ProcessMode.ON_COLLISION;
         [Header("Health impact")]
         public float healthImpact = 0.0f;
         public bool impactPerFrame = false;
@@ -106,6 +113,11 @@ namespace vbg
             if (toDelete)
             {
                 Finish();
+            }
+
+            if(processMode == ProcessMode.ALWAYS)
+            {
+                ProcessAlways();
             }
         }
 
@@ -273,17 +285,8 @@ namespace vbg
             }
         }
 
-        public void Process(VBGCharacterController cc, Rigidbody rb, ref Vector3 characterMovement)
+        private void AfterProcessCommon()
         {
-            Debug.Log("Process");
-
-            if(!IsActive(cc))
-            {
-                return;
-            }
-
-            lastFrameProcessed = true;
-
             foreach (GameEffectExit gee in exitConditions)
             {
                 if (gee.AfterProcess())
@@ -292,10 +295,40 @@ namespace vbg
                     break;
                 }
             }
+        }
+
+        public void ProcessAlways()
+        {
+            Debug.Log("Process Always " + gameObject.name);
+
+            if (!IsActive(null))
+            {
+                return;
+            }
+
+            lastFrameProcessed = true;
+
+            ProcessSwitch();
+            // Call last
+            AfterProcessCommon();
+        }
+
+        public void ProcessOnCollision(VBGCharacterController cc, Rigidbody rb, ref Vector3 characterMovement)
+        {
+            Debug.Log("Process On Collision " + gameObject.name);
+
+            if(!IsActive(cc))
+            {
+                return;
+            }
+
+            lastFrameProcessed = true;
 
             ProcessPushForce(cc, rb, ref characterMovement);
             ProcessHealth(cc);
             ProcessSwitch();
+            // Call last
+            AfterProcessCommon();
         }
 
         public OwnerActive IsOwnerActive()

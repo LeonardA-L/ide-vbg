@@ -119,7 +119,7 @@ namespace vbg
             activeGameEffects.RemoveAll(item => item == null);
             foreach (GameEffect ge in activeGameEffects)
             {
-                ge.Process(this, rb, ref bodyMovement);
+                ge.ProcessOnCollision(this, rb, ref bodyMovement);
             }
 
             Vector2 groundMovement = bodyMovement;
