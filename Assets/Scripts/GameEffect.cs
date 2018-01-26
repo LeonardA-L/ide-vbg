@@ -82,7 +82,9 @@ namespace vbg
             rb = GetComponent<Rigidbody>();
             if(initialVelocity.magnitude > 0.0f && rb != null)
             {
-                rb.velocity = initialVelocity;
+                rb.velocity = (initialVelocity.x * transform.right
+                             + initialVelocity.y * transform.up
+                             + initialVelocity.z * transform.forward);
             }
         }
 
@@ -112,7 +114,10 @@ namespace vbg
 
             if (initialVelocity.magnitude > 0.0f && rb == null)
             {
-                transform.position += initialVelocity * Time.deltaTime;
+                transform.position += (initialVelocity.x * transform.right
+                                     + initialVelocity.y * transform.up
+                                     + initialVelocity.z * transform.forward)
+                                     * Time.deltaTime;
             }
 
             if(toFollow != null)
@@ -290,7 +295,10 @@ namespace vbg
                         movement.y = 0.0f;
                     }
                     movement.Normalize();
-                    force += movement * forceNorm;
+                    force += (movement.x * transform.right
+                             + movement.y * transform.up
+                             + movement.z * transform.forward)
+                             * forceNorm;
                 }
 
                 if(rb != null)
