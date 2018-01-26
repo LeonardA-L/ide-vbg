@@ -46,11 +46,11 @@ namespace vbg
         public Vector3 pushForceVector;
         [Tooltip("Norm of the push force vector")]
         public float pushForceNorm = 0.0f;
-        [Tooltip("NOT IMPLEMENTED")]
+        [Tooltip("The force pushes the activator away instead of using pushForceVector")]
         public bool pushForceIsOmnidirectional;
         [Tooltip("Should the push force lift the player or not")]
         public bool pushForceNoY = true;
-        [Tooltip("NOT IMPLEMENTED")]
+        [Tooltip("Ratio for the decrease from the center of the GameEffect")]
         public float pushForceDecreaseLength = 0.0f;
         [Header("Switch")]
         [Tooltip("Name of the switch the GameEffect will toggle")]
@@ -286,7 +286,7 @@ namespace vbg
                 float forceNorm = pushForceNorm;
                 if (pushForceDecreaseLength > 0.0f)
                 {
-                    float distRatio = (cc.transform.position - transform.position).magnitude / pushForceDecreaseLength;
+                    float distRatio = pushForceDecreaseLength / (cc.transform.position - transform.position).magnitude;
                     forceNorm *= distRatio;
                 }
                 if (pushForceVector.magnitude > 0.0f)
