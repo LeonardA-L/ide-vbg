@@ -166,6 +166,11 @@ namespace vbg
             }
         }
 
+        private void OnCollisionEnter(Collision collision)
+        {
+            OnTriggerEnter(collision.collider);
+        }
+
         private void OnTriggerEnter(UnityEngine.Collider other)
         {
 
@@ -195,6 +200,11 @@ namespace vbg
                 cc.RegisterGameEffect(this);
                 // TODO process here ?
             }
+        }
+
+        private void OnCollisionExit(Collision collision)
+        {
+            OnTriggerExit(collision.collider);
         }
 
         private void OnTriggerExit(UnityEngine.Collider other)

@@ -242,30 +242,6 @@ namespace vbg
             activeGameEffects.Remove(ge);
         }
 
-        void OnControllerColliderHit(ControllerColliderHit hit)
-        {
-            if (hit.gameObject.tag == GameManager.Constants.TAG_GAMEEFFECT)
-            {
-                GameEffect ge = hit.gameObject.GetComponent<GameEffect>();
-                Debug.Assert(ge != null);
-                VBGCharacterController geOwner = ge.GetOwner();
-
-                if (ge.IsOwnerActive() == GameEffect.OwnerActive.NO && geOwner == this)
-                {
-                    return;
-                }
-
-                if (ge.IsOwnerActive() == GameEffect.OwnerActive.OWNER_ONLY && geOwner != this)
-                {
-                    return;
-                }
-
-                RegisterGameEffect(ge);
-                ge.RegisterCharacter(this);
-                // TODO process here ?
-            }
-        }
-
         public void Damage(float intensity)
         {
             if(health == null || health.IsDead())
