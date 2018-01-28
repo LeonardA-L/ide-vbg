@@ -17,6 +17,8 @@ namespace vbg
             public readonly static string TAG_DYNAMIC = "Dynamic";
             public readonly static string TAG_GAMEEFFECT = "GameEffect";
 
+            public readonly static string LAYER_COLLIDERS = "Colliders";
+
         }
 
         protected static GameManager instance;

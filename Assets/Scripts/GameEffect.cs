@@ -46,6 +46,8 @@ namespace vbg
         public OwnerActive ownerActive = OwnerActive.NO;
         [Tooltip("Should the game effect destroy its parent when it dies (is it embedded)")]
         public bool destroyParent = false;
+        [Tooltip("Should the game effect destroy itself when it encounters a collision")]
+        public bool destroyOnWall = false;
         [Tooltip("Should the game effect process every frame or only when colliding with a character")]
         public ProcessMode processMode = ProcessMode.ON_COLLISION;
         [Header("Health impact")]
@@ -241,6 +243,10 @@ namespace vbg
                     dy.RegisterGameEffect(this);
                 }
                 // TODO process here ?
+            }
+            else if (destroyOnWall && other.gameObject.layer == LayerMask.NameToLayer(GameManager.Constants.LAYER_COLLIDERS))
+            {
+                Finish();
             }
         }
 
