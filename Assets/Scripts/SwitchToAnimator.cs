@@ -27,13 +27,13 @@ namespace vbg
 
         void Update()
         {
-            if (init || GameManager.Instance == null)
+            if (init || SwitchManager.Instance == null)
             {
                 return;
             }
             init = true;
             Debug.Assert(switchName != null && switchName != "");
-            GameManager.Instance.RegisterSwitchListener(switchName, Callback);
+            SwitchManager.Instance.RegisterSwitchListener(switchName, Callback);
         }
 
         void Callback(bool switchValue)

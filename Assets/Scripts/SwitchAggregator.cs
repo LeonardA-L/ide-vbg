@@ -24,7 +24,7 @@ namespace vbg
 
         private void Update()
         {
-            if (init || GameManager.Instance == null)
+            if (init || SwitchManager.Instance == null)
             {
                 return;
             }
@@ -32,7 +32,7 @@ namespace vbg
 
             foreach (string s in andSwitches)
             {
-                GameManager.Instance.RegisterSwitchListener(s, Callback);
+                SwitchManager.Instance.RegisterSwitchListener(s, Callback);
             }
         }
         
@@ -42,10 +42,10 @@ namespace vbg
 
             foreach(string s in andSwitches)
             {
-                value = value && GameManager.Instance.GetSwitch(s);
+                value = value && SwitchManager.Instance.GetSwitch(s);
             }
 
-            GameManager.Instance.SetSwitch(outSwitch, value);
+            SwitchManager.Instance.SetSwitch(outSwitch, value);
         }
     }
 }

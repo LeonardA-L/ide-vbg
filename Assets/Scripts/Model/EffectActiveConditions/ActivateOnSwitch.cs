@@ -14,12 +14,12 @@ namespace vbg
 
         void Update()
         {
-            if (init || GameManager.Instance == null)
+            if (init || SwitchManager.Instance == null)
             {
                 return;
             }
             init = true;
-            GameManager.Instance.RegisterSwitchListener(switchName, Callback);
+            SwitchManager.Instance.RegisterSwitchListener(switchName, Callback);
         }
 
         public override bool IsActive(VBGCharacterController cc)

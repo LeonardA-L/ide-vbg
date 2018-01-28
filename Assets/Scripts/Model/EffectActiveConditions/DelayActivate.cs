@@ -27,12 +27,12 @@ namespace vbg
                 delay -= Time.deltaTime;
             }
 
-            if (init || GameManager.Instance == null)
+            if (init || SwitchManager.Instance == null)
             {
                 return;
             }
             init = true;
-            GameManager.Instance.RegisterSwitchListener(switchStart, Callback);
+            SwitchManager.Instance.RegisterSwitchListener(switchStart, Callback);
 
         }
 

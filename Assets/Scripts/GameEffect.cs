@@ -98,7 +98,7 @@ namespace vbg
 
             if(unstable && !lastFrameProcessed)
             {
-                GameManager.Instance.SetSwitch(switchName, !switchValue);
+                SwitchManager.Instance.SetSwitch(switchName, !switchValue);
             }
 
             lastFrameProcessed = false;
@@ -303,7 +303,7 @@ namespace vbg
             {
                 return;
             }
-            GameManager.Instance.SetSwitch(switchName, switchValue);
+            SwitchManager.Instance.SetSwitch(switchName, switchValue);
         }
 
         private void ProcessPushForce(Transform tr, Rigidbody rb, ref Vector3 characterMovement)
