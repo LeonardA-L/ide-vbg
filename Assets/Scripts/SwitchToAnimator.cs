@@ -10,9 +10,14 @@ namespace vbg
         public string boolName;
         [Tooltip("Name of the trigger parameter to update in the animator")]
         public string triggerName;
+        [Tooltip("Name of the float parameter to update in the animator")]
+        public string floatName;
 
         [Tooltip("Name of the switch to listen to")]
         public string switchName;
+
+        [Tooltip("Name of the Value to listen to")]
+        public string valueName;
 
         [Tooltip("Animator to update")]
         public Animator animator;
@@ -32,11 +37,17 @@ namespace vbg
                 return;
             }
             init = true;
-            Debug.Assert(switchName != null && switchName != "");
-            SwitchManager.Instance.RegisterSwitchListener(switchName, Callback);
+            if (switchName != null & switchName != "")
+            {
+                SwitchManager.Instance.RegisterSwitchListener(switchName, CallbackSwitch);
+            }
+            if (valueName != null & valueName != "")
+            {
+                SwitchManager.Instance.RegisterValueListener(valueName, CallbackValue);
+            }
         }
 
-        void Callback(bool switchValue)
+        void CallbackSwitch(bool switchValue)
         {
             if(triggerName != null && triggerName != "")
             {
@@ -46,6 +57,14 @@ namespace vbg
             if (boolName != null && boolName != "")
             {
                 animator.SetBool(boolName, switchValue);
+            }
+        }
+
+        void CallbackValue(float floatValue)
+        {
+            if (floatName != null && floatName != "")
+            {
+                animator.SetFloat(floatName, floatValue);
             }
         }
     }

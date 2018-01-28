@@ -21,6 +21,20 @@ namespace vbg
             ALWAYS
         }
 
+        public enum FloatValueMode
+        {
+            NONE,
+            ABSOLUTE,
+            RELATIVE
+        }
+
+        public enum FloatValueUpdate
+        {
+            ONCE,
+            PER_FRAME,
+            PER_SECOND
+        }
+
         // Parameters
         [Tooltip("A prefab to instantiate when the game effect finishes")]
         public GameObject finishPrefab;
@@ -58,7 +72,19 @@ namespace vbg
         [Tooltip("Value of the switch the GameEffect will set when processed (in most cases, true)")]
         public bool switchValue = true;
         [Tooltip("Should the GameEffect toggle the switch back when it's not being processed")]
-        public bool unstable = false;
+        public bool unstableSwitch = false;
+        [Header("Value")]
+        [Tooltip("Name of the value the GameEffect will update")]
+        public string valueName;
+        [Tooltip("How should the value be updated (NONE, ABSOLUTE, RELATIVE)")]
+        public FloatValueMode updateMode;
+        [Tooltip("Absolute or Relative value the GameEffect will set when triggered")]
+        public float valueUpdate = 0;
+        [Tooltip("Should the GameEffect revert the update to the value when it's not being processed (only in ONCE mode)")]
+        public bool unstableValue = false;
+        [Tooltip("Rate at which the value is updated")]
+        public FloatValueUpdate updateRate = FloatValueUpdate.ONCE;
+        private bool hasValueBeenUpdated = false;
 
         GameEffectExit[] exitConditions;
         GameEffectActivate[] activateConditions;
@@ -96,9 +122,15 @@ namespace vbg
                 return;
             }
 
-            if(unstable && !lastFrameProcessed)
+            if(unstableSwitch && !lastFrameProcessed)
             {
                 SwitchManager.Instance.SetSwitch(switchName, !switchValue);
+            }
+
+            if (unstableValue && !lastFrameProcessed && hasValueBeenUpdated && updateRate == FloatValueUpdate.ONCE)
+            {
+                SwitchManager.Instance.SetValue(valueName, (float)SwitchManager.Instance.GetValue(valueName) - valueUpdate);
+                hasValueBeenUpdated = false;
             }
 
             lastFrameProcessed = false;
@@ -306,6 +338,24 @@ namespace vbg
             SwitchManager.Instance.SetSwitch(switchName, switchValue);
         }
 
+        private void ProcessValue()
+        {
+            if (valueName == null || valueName == "" || updateMode == FloatValueMode.NONE || (hasValueBeenUpdated && updateRate == FloatValueUpdate.ONCE))
+            {
+                return;
+            }
+
+            float newValue = valueUpdate * (updateRate == FloatValueUpdate.PER_SECOND ? Time.deltaTime : 1.0f);
+            hasValueBeenUpdated = true;
+
+            if(updateMode == FloatValueMode.RELATIVE)
+            {
+                newValue += (float)SwitchManager.Instance.GetValue(valueName);
+            }
+
+            SwitchManager.Instance.SetValue(valueName, newValue);
+        }
+
         private void ProcessPushForce(Transform tr, Rigidbody rb, ref Vector3 characterMovement)
         {
             if (pushForceNorm > 0.0f)
@@ -373,6 +423,7 @@ namespace vbg
             lastFrameProcessed = true;
 
             ProcessSwitch();
+            ProcessValue();
             // Call last
             AfterProcessCommon();
         }
@@ -395,6 +446,7 @@ namespace vbg
             ProcessPushForce(tr, rb, ref characterMovement);
             ProcessHealth(cc);
             ProcessSwitch();
+            ProcessValue();
             // Call last
             AfterProcessCommon();
         }
