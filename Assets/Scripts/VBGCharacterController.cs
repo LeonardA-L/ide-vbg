@@ -6,7 +6,7 @@ namespace vbg
 {
     [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(Animator))]
-    public class VBGCharacterController : MonoBehaviour
+    public class VBGCharacterController : MonoBehaviour, IDynamic
     {
 
         public struct Constants

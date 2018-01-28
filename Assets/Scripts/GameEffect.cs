@@ -62,7 +62,7 @@ namespace vbg
 
         GameEffectExit[] exitConditions;
         GameEffectActivate[] activateConditions;
-        List<VBGCharacterController> impactedCharacters;
+        List<IDynamic> impactedCharacters;
         private bool toDelete = false;
         private Transform toFollow;
         private bool followForward;
@@ -77,7 +77,7 @@ namespace vbg
         {
             exitConditions = GetComponents<GameEffectExit>();
             activateConditions = GetComponents<GameEffectActivate>();
-            impactedCharacters = new List<VBGCharacterController>();
+            impactedCharacters = new List<IDynamic>();
 
             rb = GetComponent<Rigidbody>();
             if(initialVelocity.magnitude > 0.0f && rb != null)
@@ -148,9 +148,9 @@ namespace vbg
         {
             Debug.Log("Finish");
             impactedCharacters.RemoveAll(item => item == null);
-            foreach (VBGCharacterController cc in impactedCharacters)
+            foreach (IDynamic dy in impactedCharacters)
             {
-                cc.UnRegisterGameEffect(this);
+                dy.UnRegisterGameEffect(this);
             }
             if(destroyParent)
             {
@@ -174,19 +174,22 @@ namespace vbg
         private void OnTriggerEnter(UnityEngine.Collider other)
         {
 
-
             if (other.gameObject.tag == GameManager.Constants.TAG_CHARACTER
-                || other.gameObject.tag == GameManager.Constants.TAG_NONPLAYER_CHARACTER)
+                || other.gameObject.tag == GameManager.Constants.TAG_DYNAMIC)
             {
                 VBGCharacterController cc = other.gameObject.GetComponent<VBGCharacterController>();
-                Debug.Assert(cc != null);
+                Dynamic dy = other.gameObject.GetComponent<Dynamic>();
+                if (cc == null && dy == null)
+                {
+                    return;
+                }
 
                 if (!IsActive(cc))
                 {
                     return;
                 }
 
-                if (ownerActive == OwnerActive.NO && cc == owner)
+                if (ownerActive == OwnerActive.NO && cc != null && cc == owner)
                 {
                     return;
                 }
@@ -196,8 +199,15 @@ namespace vbg
                     return;
                 }
 
-                RegisterCharacter(cc);
-                cc.RegisterGameEffect(this);
+                if (cc != null)
+                {
+                    RegisterDynamic(cc);
+                    cc.RegisterGameEffect(this);
+                } else
+                {
+                    UnRegisterDynamic(dy);
+                    dy.RegisterGameEffect(this);
+                }
                 // TODO process here ?
             }
         }
@@ -212,10 +222,15 @@ namespace vbg
 
 
             if (other.gameObject.tag == GameManager.Constants.TAG_CHARACTER
-                || other.gameObject.tag == GameManager.Constants.TAG_NONPLAYER_CHARACTER)
+                || other.gameObject.tag == GameManager.Constants.TAG_DYNAMIC)
             {
                 VBGCharacterController cc = other.gameObject.GetComponent<VBGCharacterController>();
-                Debug.Assert(cc != null);
+                Dynamic dy = other.gameObject.GetComponent<Dynamic>();
+                if (cc == null && dy == null)
+                {
+                    Debug.Log("Both Null");
+                    return;
+                }
 
                 if (!IsActive(cc))
                 {
@@ -232,23 +247,36 @@ namespace vbg
                     return;
                 }
 
-                UnRegisterCharacter(cc);
-                cc.UnRegisterGameEffect(this);
+                if (cc != null)
+                {
+                    UnRegisterDynamic(cc);
+                    cc.UnRegisterGameEffect(this);
+                }
+                else
+                {
+                    UnRegisterDynamic(dy);
+                    dy.UnRegisterGameEffect(this);
+                }
             }
         }
 
-        public void RegisterCharacter(VBGCharacterController cc)
+        public void RegisterDynamic(IDynamic dy)
         {
-            impactedCharacters.Add(cc);
+            impactedCharacters.Add(dy);
         }
 
-        public void UnRegisterCharacter(VBGCharacterController cc)
+        public void UnRegisterDynamic(IDynamic dy)
         {
-            impactedCharacters.Remove(cc);
+            impactedCharacters.Remove(dy);
         }
 
         private void ProcessHealth(VBGCharacterController cc)
         {
+            if(cc == null)
+            {
+                return;
+            }
+
             if (healthImpact != 0.0f)
             {
                 if (owner != null)
@@ -278,7 +306,7 @@ namespace vbg
             GameManager.Instance.SetSwitch(switchName, switchValue);
         }
 
-        private void ProcessPushForce(VBGCharacterController cc, Rigidbody rb, ref Vector3 characterMovement)
+        private void ProcessPushForce(Transform tr, Rigidbody rb, ref Vector3 characterMovement)
         {
             if (pushForceNorm > 0.0f)
             {
@@ -286,7 +314,7 @@ namespace vbg
                 float forceNorm = pushForceNorm;
                 if (pushForceDecreaseLength > 0.0f)
                 {
-                    float distRatio = pushForceDecreaseLength / (cc.transform.position - transform.position).magnitude;
+                    float distRatio = pushForceDecreaseLength / (tr.transform.position - transform.position).magnitude;
                     forceNorm *= distRatio;
                 }
                 if (pushForceVector.magnitude > 0.0f)
@@ -299,7 +327,7 @@ namespace vbg
                 }
                 else if (pushForceIsOmnidirectional)
                 {
-                    Vector3 movement = (cc.transform.position - transform.position);
+                    Vector3 movement = (tr.transform.position - transform.position);
                     if (pushForceNoY)
                     {
                         movement.y = 0.0f;
@@ -349,18 +377,22 @@ namespace vbg
             AfterProcessCommon();
         }
 
-        public void ProcessOnCollision(VBGCharacterController cc, Rigidbody rb, ref Vector3 characterMovement)
+        public void ProcessOnCollision(IDynamic idy, Rigidbody rb, ref Vector3 characterMovement)
         {
-            Debug.Log("Process On Collision " + gameObject.name);
+            //Debug.Log("Process On Collision " + gameObject.name);
 
-            if(!IsActive(cc))
+            VBGCharacterController cc = idy as VBGCharacterController;
+            Dynamic dy = idy as Dynamic;
+            Transform tr = cc != null ? cc.transform : dy.transform;
+
+            if (!IsActive(cc))
             {
                 return;
             }
 
             lastFrameProcessed = true;
 
-            ProcessPushForce(cc, rb, ref characterMovement);
+            ProcessPushForce(tr, rb, ref characterMovement);
             ProcessHealth(cc);
             ProcessSwitch();
             // Call last
