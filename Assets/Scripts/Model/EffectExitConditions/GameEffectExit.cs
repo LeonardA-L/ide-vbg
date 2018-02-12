@@ -22,5 +22,7 @@ namespace vbg
         {
             return false;
         }
+
+        public virtual void Reset() {}
     }
 }

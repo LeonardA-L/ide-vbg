@@ -9,10 +9,16 @@ namespace vbg
     {
         [Tooltip("Number of times the GameEffect should process begore being killed")]
         public int times = 1;
+        public int currentTimes = 1;
 
         public override bool AfterProcess() {
-            times--;
-            return times == 0;
+            currentTimes--;
+            return currentTimes == 0;
+        }
+
+        public override void Reset()
+        {
+            currentTimes = times;
         }
     }
 }

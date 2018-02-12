@@ -15,12 +15,13 @@ namespace vbg
         {
         }
 
-        public override bool IsActive(VBGCharacterController cc) {
-            if(cc == null && activator == null)
+        public override bool IsActive(VBGCharacterController cc)
+        {
+            if (cc == null && activator == null)
             {
                 return false;
             }
-            if(cc != null)
+            if (cc != null)
             {
                 activator = cc;
             }

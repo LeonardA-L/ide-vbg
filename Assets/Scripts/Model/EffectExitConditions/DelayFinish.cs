@@ -9,10 +9,16 @@ namespace vbg
     {
         [Tooltip("Delay before the effect is killed, in s")]
         public float delay = 10;
+        public float currentDelay = 10;
 
         public override bool AfterUpdate() {
-            delay -= Time.deltaTime;
-            return delay <= 0;
+            currentDelay -= Time.deltaTime;
+            return currentDelay <= 0;
+        }
+
+        public override void Reset()
+        {
+            currentDelay = delay;
         }
     }
 }

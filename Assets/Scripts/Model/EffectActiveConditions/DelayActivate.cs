@@ -9,6 +9,7 @@ namespace vbg
     {
         [Tooltip("Delay before the effect is activated, in s")]
         public float delay = 10;
+        public float currentDelay = 10;
         [Tooltip("Optional. Name of a switch to wait on before starting the timer")]
         public string switchStart;
         private bool isTimerActive = false;
@@ -16,7 +17,7 @@ namespace vbg
 
         private void Start()
         {
-            isTimerActive = !(switchStart != null && switchStart != "");
+            Reset();
             init = isTimerActive;
         }
 
@@ -24,7 +25,7 @@ namespace vbg
         {
             if (isTimerActive)
             {
-                delay -= Time.deltaTime;
+                currentDelay -= Time.deltaTime;
             }
 
             if (init || SwitchManager.Instance == null)
@@ -38,12 +39,18 @@ namespace vbg
 
         public override bool IsActive(VBGCharacterController cc)
         {
-            return delay <= 0;
+            return currentDelay <= 0;
         }
 
         private void Callback(bool switchValue)
         {
             isTimerActive = switchValue;
+        }
+
+        public override void Reset()
+        {
+            isTimerActive = !(switchStart != null && switchStart != "");
+            currentDelay = delay;
         }
     }
 }

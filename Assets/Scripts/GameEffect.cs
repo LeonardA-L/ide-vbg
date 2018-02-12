@@ -50,6 +50,8 @@ namespace vbg
         public bool destroyOnWall = false;
         [Tooltip("Should the game effect process every frame or only when colliding with a character")]
         public ProcessMode processMode = ProcessMode.ON_COLLISION;
+        [Tooltip("When the game effect finishes, it will be reset instead of destroyed")]
+        public bool resetNotFinish = false;
         [Header("Health impact")]
         [Tooltip("How much health difference the character will get (negative: dammage, positive: heal)")]
         public float healthImpact = 0.0f;
@@ -124,16 +126,7 @@ namespace vbg
                 return;
             }
 
-            if(unstableSwitch && !lastFrameProcessed)
-            {
-                SwitchManager.Instance.SetSwitch(switchName, !switchValue);
-            }
-
-            if (unstableValue && !lastFrameProcessed && hasValueBeenUpdated && updateRate == FloatValueUpdate.ONCE)
-            {
-                SwitchManager.Instance.SetValue(valueName, (float)SwitchManager.Instance.GetValue(valueName) - valueUpdate);
-                hasValueBeenUpdated = false;
-            }
+            Unstables();
 
             lastFrameProcessed = false;
 
@@ -186,17 +179,55 @@ namespace vbg
             {
                 dy.UnRegisterGameEffect(this);
             }
-            if(destroyParent)
+
+            if (!resetNotFinish)
             {
-                GameObject.Destroy(transform.parent.gameObject);
+                if (destroyParent)
+                {
+                    GameObject.Destroy(transform.parent.gameObject);
+                }
+                GameObject.Destroy(gameObject);
             }
-            GameObject.Destroy(gameObject);
+            else
+            {
+                Reset();
+            }
 
             if (finishPrefab != null)
             {
                 GameObject finishObject = GameObject.Instantiate(finishPrefab);
                 finishObject.transform.position = transform.position;
                 finishObject.transform.rotation = transform.rotation;
+            }
+
+            toDelete = false;
+        }
+
+        private void Unstables()
+        {
+            if (unstableSwitch && !lastFrameProcessed)
+            {
+                SwitchManager.Instance.SetSwitch(switchName, !switchValue);
+            }
+
+            if (unstableValue && !lastFrameProcessed && hasValueBeenUpdated && updateRate == FloatValueUpdate.ONCE)
+            {
+                SwitchManager.Instance.SetValue(valueName, (float)SwitchManager.Instance.GetValue(valueName) - valueUpdate);
+                hasValueBeenUpdated = false;
+            }
+        }
+
+        private void Reset()
+        {
+            Unstables();
+
+            foreach (GameEffectExit gee in exitConditions)
+            {
+                gee.Reset();
+            }
+            foreach (GameEffectActivate gea in activateConditions)
+            {
+                gea.Reset();
             }
         }
 
