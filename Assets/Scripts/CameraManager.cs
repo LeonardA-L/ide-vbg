@@ -58,7 +58,7 @@ namespace vbg
             if (m_currentMode == CameraType.SCENE)
             {
                 m_cam.position = Vector3.Lerp(m_cam.position, m_cameraSceneSettings.position, m_positionSmooth);
-                if(m_aimAtCenter)
+                if(m_aimAtCenter && PlayerManager.Instance.GetPlayersInGame() > 0)
                 {
                     Vector3 cameraToBarycenter = PlayerManager.Instance.GetPlayerBarycenter() - m_cam.position;
                     m_cam.forward = Vector3.Lerp(m_cam.forward, cameraToBarycenter, m_rotationSmooth);
