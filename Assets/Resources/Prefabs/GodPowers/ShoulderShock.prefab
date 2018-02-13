@@ -142,6 +142,9 @@ MonoBehaviour:
   owner: {fileID: 0}
   ownerActive: 0
   destroyParent: 1
+  destroyOnWall: 0
+  processMode: 0
+  resetNotFinish: 0
   healthImpact: -15
   impactPerFrame: 0
   friendlyFire: 0
@@ -150,6 +153,14 @@ MonoBehaviour:
   pushForceIsOmnidirectional: 0
   pushForceNoY: 0
   pushForceDecreaseLength: 0
+  switchName: 
+  switchValue: 1
+  unstableSwitch: 0
+  valueName: 
+  updateMode: 0
+  valueUpdate: 0
+  unstableValue: 0
+  updateRate: 0
 --- !u!114 &114919371662202072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -162,3 +173,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0.5
+  currentDelay: 0.5
