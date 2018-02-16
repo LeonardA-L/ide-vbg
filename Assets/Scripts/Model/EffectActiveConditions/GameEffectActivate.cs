@@ -13,7 +13,7 @@ namespace vbg
             // TODO get GameEffect component ?
         }
 
-        public virtual bool IsActive(VBGCharacterController cc)
+        public virtual bool IsActive(IDynamic idy)
         {
             return false;
         }

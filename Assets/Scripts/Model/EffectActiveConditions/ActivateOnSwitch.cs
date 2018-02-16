@@ -22,7 +22,7 @@ namespace vbg
             SwitchManager.Instance.RegisterSwitchListener(switchName, Callback);
         }
 
-        public override bool IsActive(VBGCharacterController cc)
+        public override bool IsActive(IDynamic idy)
         {
             return isActive;
         }

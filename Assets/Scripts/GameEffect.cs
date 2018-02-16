@@ -249,7 +249,8 @@ namespace vbg
                     return;
                 }
 
-                if (!IsActive(cc))
+                IDynamic idy = cc == null ? (IDynamic) dy : cc;
+                if (!IsActive(idy))
                 {
                     return;
                 }
@@ -300,8 +301,9 @@ namespace vbg
                     Debug.Log("Both Null");
                     return;
                 }
-                
-                if (!IsActive(cc))
+
+                IDynamic idy = cc == null ? (IDynamic) dy : cc;
+                if (!IsActive(idy))
                 {
                     return;
                 }
@@ -315,10 +317,11 @@ namespace vbg
                 {
                     return;
                 }
-                if (other.gameObject.tag == GameManager.Constants.TAG_DYNAMIC)
-                    Debug.Log("Hey E");
+
                 if (cc != null)
                 {
+                    if (other.gameObject.tag == GameManager.Constants.TAG_DYNAMIC)
+                        Debug.Log("Hey E");
                     UnRegisterDynamic(cc);
                     cc.UnRegisterGameEffect(this);
                 }
@@ -473,8 +476,8 @@ namespace vbg
             VBGCharacterController cc = idy as VBGCharacterController;
             Dynamic dy = idy as Dynamic;
             Transform tr = cc != null ? cc.transform : dy.transform;
-
-            if (!IsActive(cc))
+            
+            if (!IsActive(idy))
             {
                 return;
             }
@@ -504,11 +507,11 @@ namespace vbg
             owner = _owner;
         }
 
-        private bool IsActive(VBGCharacterController cc)
+        private bool IsActive(IDynamic idy)
         {
             foreach (GameEffectActivate gea in activateConditions)
             {
-                if (!gea.IsActive(cc))
+                if (!gea.IsActive(idy))
                 {
                     return false;
                 }

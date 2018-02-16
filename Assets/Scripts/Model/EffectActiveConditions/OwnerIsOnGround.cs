@@ -15,7 +15,7 @@ namespace vbg
             Debug.Assert(owner);
         }
 
-        public override bool IsActive(VBGCharacterController cc)
+        public override bool IsActive(IDynamic idy)
         {
             return owner.isGrounded;
         }

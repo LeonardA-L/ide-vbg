@@ -15,15 +15,15 @@ namespace vbg
         {
         }
 
-        public override bool IsActive(VBGCharacterController cc)
+        public override bool IsActive(IDynamic idy)
         {
-            if (cc == null && activator == null)
+            if (idy == null && activator == null)
             {
                 return false;
             }
-            if (cc != null)
+            if (idy != null)
             {
-                activator = cc;
+                activator = (VBGCharacterController) idy;
             }
             return activator.character == target;
         }

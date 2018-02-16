@@ -24,7 +24,7 @@ namespace vbg
             SwitchManager.Instance.RegisterValueListener(valueName, Callback);
         }
 
-        public override bool IsActive(VBGCharacterController cc)
+        public override bool IsActive(IDynamic idy)
         {
             return isActive;
         }

@@ -37,7 +37,7 @@ namespace vbg
 
         }
 
-        public override bool IsActive(VBGCharacterController cc)
+        public override bool IsActive(IDynamic idy)
         {
             return currentDelay <= 0;
         }
