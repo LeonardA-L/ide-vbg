@@ -289,24 +289,24 @@ namespace vbg
         private void OnTriggerExit(UnityEngine.Collider other)
         {
 
-
             if (other.gameObject.tag == GameManager.Constants.TAG_CHARACTER
                 || other.gameObject.tag == GameManager.Constants.TAG_DYNAMIC)
             {
                 VBGCharacterController cc = other.gameObject.GetComponent<VBGCharacterController>();
                 Dynamic dy = other.gameObject.GetComponent<Dynamic>();
+
                 if (cc == null && dy == null)
                 {
                     Debug.Log("Both Null");
                     return;
                 }
-
+                
                 if (!IsActive(cc))
                 {
                     return;
                 }
 
-                if (ownerActive == OwnerActive.NO && cc == owner)
+                if (ownerActive == OwnerActive.NO && cc != null && cc == owner)
                 {
                     return;
                 }
@@ -315,7 +315,8 @@ namespace vbg
                 {
                     return;
                 }
-
+                if (other.gameObject.tag == GameManager.Constants.TAG_DYNAMIC)
+                    Debug.Log("Hey E");
                 if (cc != null)
                 {
                     UnRegisterDynamic(cc);
