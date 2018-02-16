@@ -136,11 +136,18 @@ namespace vbg
             ProcessCooldown(specialDefense);
             ProcessCooldown(specialMovement);
             ProcessCooldown(specialSpecial);
+
+            ProcessCooldown(movement);
+            ProcessCooldown(defense);
+            ProcessCooldown(special);
         }
 
         private void ProcessCooldown(GameEffectCommand gec)
         {
-            gec.timer = Mathf.Clamp(gec.timer - Time.deltaTime, 0.0f, 1000);
+            if (gec != null)
+            {
+                gec.timer = Mathf.Clamp(gec.timer - Time.deltaTime, 0.0f, 1000);
+            }
         }
 
         void FixedUpdate()
@@ -177,6 +184,7 @@ namespace vbg
                 case Action.SPE_DEFENSE:
                 case Action.SPE_MOVEMENT:
                 case Action.SPE_SPECIAL:
+                case Action.MOVEMENT:
                     TriggerGameEffect(action);
                     break;
             }
@@ -200,6 +208,9 @@ namespace vbg
                     break;
                 case Action.SPE_SPECIAL:
                     command = specialSpecial;
+                    break;
+                case Action.MOVEMENT:
+                    command = movement;
                     break;
                 default:
                     Debug.Assert(false, "No prefab provided");

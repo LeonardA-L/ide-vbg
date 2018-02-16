@@ -2433,7 +2433,9 @@ MonoBehaviour:
   owner: {fileID: 114948721891901264}
   ownerActive: 0
   destroyParent: 0
+  destroyOnWall: 0
   processMode: 0
+  resetNotFinish: 0
   healthImpact: -75
   impactPerFrame: 0
   friendlyFire: 1
@@ -2444,7 +2446,12 @@ MonoBehaviour:
   pushForceDecreaseLength: 0
   switchName: 
   switchValue: 0
-  unstable: 0
+  unstableSwitch: 0
+  valueName: 
+  updateMode: 0
+  valueUpdate: 0
+  unstableValue: 0
+  updateRate: 0
 --- !u!114 &114729763658898972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2499,8 +2506,9 @@ MonoBehaviour:
     timer: 0
     child: 0
   movement:
-    toInstanciate: {fileID: 0}
-    cooldown: 2
+    toInstanciate: {fileID: 1125280295800404, guid: c4c044015aa1ea040a0bb95ce60fabf4,
+      type: 2}
+    cooldown: 0
     timer: 0
     child: 0
   defense:
