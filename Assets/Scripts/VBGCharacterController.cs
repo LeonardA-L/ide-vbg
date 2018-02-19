@@ -114,7 +114,6 @@ namespace vbg
                     bodyMovement += lastMove * lastInputNorm * speed;
                 }
             }
-            Debug.Log(lastDirection);
             transform.forward = Vector3.Lerp(transform.forward, lastDirection, rotationSpeedFactor);
 
             // Apply GameEffects

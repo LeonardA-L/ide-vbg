@@ -7,6 +7,7 @@ namespace vbg
     public class SpawnPoint : MonoBehaviour
     {
         public bool start = false;
+        public bool spawnpoint = true;
 
         public bool IsStartPoint()
         {

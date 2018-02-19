@@ -157,16 +157,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
+  owner: {fileID: 0}
   ownerActive: 0
+  destroyParent: 0
+  destroyOnWall: 0
+  processMode: 0
+  resetNotFinish: 0
   healthImpact: 0
   impactPerFrame: 0
   friendlyFire: 0
-  owner: {fileID: 0}
   pushForceVector: {x: 0, y: 0, z: 0}
   pushForceNorm: 0
   pushForceIsOmnidirectional: 0
   pushForceNoY: 1
   pushForceDecreaseLength: 0
+  switchName: 
+  switchValue: 1
+  unstableSwitch: 0
+  valueName: 
+  updateMode: 0
+  valueUpdate: 0
+  unstableValue: 0
+  updateRate: 0
+  toHotspot: {fileID: 0}
+  teleportWithRotation: 0
+  preserveMomentum: 0
 --- !u!114 &114482546189830634
 MonoBehaviour:
   m_ObjectHideFlags: 1

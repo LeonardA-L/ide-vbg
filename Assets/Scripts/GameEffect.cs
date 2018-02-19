@@ -88,6 +88,15 @@ namespace vbg
         public bool unstableValue = false;
         [Tooltip("Rate at which the value is updated")]
         public FloatValueUpdate updateRate = FloatValueUpdate.ONCE;
+        [Header("Teleport")]
+        //public bool automaticNearestSpawnPoint = false;
+        [Tooltip("Hotspot to teleport the object to")]
+        public Transform toHotspot;
+        [Tooltip("Use hotspot rotation when teleporting")]
+        public bool teleportWithRotation;
+        [Tooltip("Preserve momentum of the object when teleporting")]
+        public bool preserveMomentum = false;
+
         private bool hasValueBeenUpdated = false;
 
         GameEffectExit[] exitConditions;
@@ -320,8 +329,6 @@ namespace vbg
 
                 if (cc != null)
                 {
-                    if (other.gameObject.tag == GameManager.Constants.TAG_DYNAMIC)
-                        Debug.Log("Hey E");
                     UnRegisterDynamic(cc);
                     cc.UnRegisterGameEffect(this);
                 }
@@ -440,6 +447,23 @@ namespace vbg
             }
         }
 
+        public void ProcessTeleport(Transform tr, Rigidbody rb)
+        {
+            if (toHotspot)
+            {
+                tr.position = toHotspot.position;
+                if (!preserveMomentum)
+                {
+                    rb.velocity = new Vector3();
+                    rb.angularVelocity = new Vector3();
+                }
+                if(teleportWithRotation)
+                {
+                    tr.rotation = toHotspot.rotation;
+                }
+            }
+        }
+
         private void AfterProcessCommon()
         {
             foreach (GameEffectExit gee in exitConditions)
@@ -488,6 +512,7 @@ namespace vbg
             ProcessHealth(cc);
             ProcessSwitch();
             ProcessValue();
+            ProcessTeleport(tr, rb);
             // Call last
             AfterProcessCommon();
         }
