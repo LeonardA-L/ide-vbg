@@ -329,8 +329,6 @@ namespace vbg
 
                 if (cc != null)
                 {
-                    if (other.gameObject.tag == GameManager.Constants.TAG_DYNAMIC)
-                        Debug.Log("Hey E");
                     UnRegisterDynamic(cc);
                     cc.UnRegisterGameEffect(this);
                 }
