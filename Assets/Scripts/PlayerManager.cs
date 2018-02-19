@@ -70,10 +70,10 @@ namespace vbg
             GameObject characterPrefab;
             switch (playerID)
             {
-                case 0:
+                case 1:
                     characterPrefab = artemisPrefab;
                     break;
-                case 1:
+                case 0:
                     characterPrefab = hephaestusPrefab;
                     break;
                 case 2:
