@@ -2410,7 +2410,9 @@ MonoBehaviour:
   owner: {fileID: 114839949136165432}
   ownerActive: 0
   destroyParent: 0
+  destroyOnWall: 0
   processMode: 0
+  resetNotFinish: 0
   healthImpact: -75
   impactPerFrame: 0
   friendlyFire: 1
@@ -2421,7 +2423,15 @@ MonoBehaviour:
   pushForceDecreaseLength: 0
   switchName: 
   switchValue: 0
-  unstable: 0
+  unstableSwitch: 0
+  valueName: 
+  updateMode: 0
+  valueUpdate: 0
+  unstableValue: 0
+  updateRate: 0
+  toHotspot: {fileID: 0}
+  teleportWithRotation: 0
+  preserveMomentum: 0
 --- !u!114 &114367454564958724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2473,7 +2483,7 @@ MonoBehaviour:
   Ground:
     serializedVersion: 2
     m_Bits: 256
-  character: 2
+  character: 1
   specialAttack:
     toInstanciate: {fileID: 1628685058097148, guid: 0fbe126792703de4a834d73be4995a59,
       type: 2}
