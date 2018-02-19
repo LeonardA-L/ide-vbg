@@ -49,6 +49,7 @@ namespace vbg
         public struct Request
         {
             public Vector3 move;
+            public Vector3 direction;
             public float inputNorm;
             public Action action;
         }
@@ -77,6 +78,7 @@ namespace vbg
 
         // Members
         private Vector3 lastDirection;
+        private Vector3 lastMove;
         private float lastInputNorm;
         private Action action;
         private List<GameEffect> activeGameEffects;
@@ -109,11 +111,11 @@ namespace vbg
             {
                 //if(!attack && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking"))
                 {
-                    bodyMovement += lastDirection * lastInputNorm * speed;
+                    bodyMovement += lastMove * lastInputNorm * speed;
                 }
             }
-
-            transform.forward = Vector3.Lerp(transform.forward, lastDirection, rotationSpeedFactor * lastInputNorm);
+            Debug.Log(lastDirection);
+            transform.forward = Vector3.Lerp(transform.forward, lastDirection, rotationSpeedFactor);
 
             // Apply GameEffects
             activeGameEffects.RemoveAll(item => item == null);
@@ -161,9 +163,13 @@ namespace vbg
             {
                 return;
             }
+            if (_req.direction.magnitude > 0.0f)
+            {
+                lastDirection = _req.direction.normalized;
+            }
             if (_req.move.magnitude > 0.0f)
             {
-                lastDirection = _req.move.normalized;
+                lastMove = _req.move.normalized;
             }
             lastInputNorm = _req.inputNorm;
 

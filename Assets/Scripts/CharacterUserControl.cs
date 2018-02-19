@@ -11,6 +11,7 @@ namespace vbg
         private Transform m_Cam;                  // A reference to the main camera in the scenes transform
         private Vector3 m_CamForward;             // The current forward direction of the camera
         private Vector3 m_Move;
+        private Vector3 m_Dir;
 
         private float prevModifier;
 
@@ -51,7 +52,10 @@ namespace vbg
             // read inputs
             float h = Input.GetAxis("Horizontal" + GetControllersuffix());
             float v = Input.GetAxis("Vertical" + GetControllersuffix());
+            float hr = Input.GetAxis("RHorizontal" + GetControllersuffix());
+            float vr = Input.GetAxis("RVertical" + GetControllersuffix());
             Vector2 joy = new Vector2(h, v);
+            Vector2 joyR = new Vector2(hr, vr);
             bool attack = Input.GetButtonDown("Attack" + GetControllersuffix());
             bool defense = Input.GetButtonDown("Defense" + GetControllersuffix());
             bool movement = Input.GetButtonDown("Movement" + GetControllersuffix());
@@ -67,6 +71,13 @@ namespace vbg
                 // calculate camera relative direction to move:
                 m_CamForward = Vector3.Scale(m_Cam.forward, new Vector3(1, 0, 1)).normalized;
                 m_Move = v * m_CamForward + h * m_Cam.right;
+                m_Dir = m_Move;
+
+                if (m_Move.magnitude == 0.0f && joyR.magnitude > 0.3f)
+                {
+                    m_Dir = vr * m_CamForward + hr * m_Cam.right;
+                    //Debug.Log(m_Move.magnitude);
+                }
             }
 
             VBGCharacterController.Action action = VBGCharacterController.Action.NONE;
@@ -112,6 +123,7 @@ namespace vbg
             VBGCharacterController.Request request = new VBGCharacterController.Request
             {
                 move = m_Move,
+                direction = m_Dir,
                 inputNorm = joy.magnitude,
                 action = action
             };
