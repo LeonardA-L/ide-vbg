@@ -101,6 +101,9 @@ namespace vbg
                 switchesPubSub.Add(name, new List<SwitchCallback>());
             }
             switchesPubSub[name].Add(callback);
+
+            // First call
+            callback(GetSwitch(name));
         }
 
         public bool GetSwitch(string name)

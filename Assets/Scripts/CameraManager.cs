@@ -84,7 +84,7 @@ namespace vbg
                 Vector3 hotspotToCenter = (centerPosition - m_hotspotStart.position);
 
                 float dot = Vector3.Dot(hotspotToCenter, hotspotsSegment) / hotspotsSegment.magnitude / hotspotsSegment.magnitude;
-                Debug.Log(dot);
+                //Debug.Log(dot);
                 dot = Mathf.Clamp(dot, 0.0f, 0.999f);
 
                 m_actualRatio = Mathf.Lerp(m_actualRatio, dot, m_actualRatio >= 0.0f ? 0.1f : 1.0f);

@@ -15,7 +15,7 @@ namespace vbg
         {
             if (idy == null)
             {
-                return false;
+                return true;
             }
             Dynamic dy = idy as Dynamic;
             return dy != null;

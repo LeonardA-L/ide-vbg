@@ -15,7 +15,7 @@ namespace vbg
         {
             if (idy == null)
             {
-                return false;
+                return true;
             }
             VBGCharacterController cc = idy as VBGCharacterController;
             return cc != null;

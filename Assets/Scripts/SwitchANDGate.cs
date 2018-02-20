@@ -4,13 +4,10 @@ using UnityEngine;
 
 namespace vbg
 {
-    public class SwitchAggregator : MonoBehaviour
+    public class SwitchANDGate : MonoBehaviour
     {
 
         public List<string> andSwitches;
-        private List<string> orSwitches;
-
-        private List<string> notSwitches;
 
         public string outSwitch;
 
