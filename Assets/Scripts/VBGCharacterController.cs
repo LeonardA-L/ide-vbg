@@ -226,7 +226,7 @@ namespace vbg
                     return;
             }
 
-            if (command == null)
+            if (command.toInstanciate == null)
                 return;
 
             if(command.timer > 0.0f)
