@@ -190,6 +190,7 @@ namespace vbg
                 case Action.SPE_MOVEMENT:
                 case Action.SPE_SPECIAL:
                 case Action.MOVEMENT:
+                case Action.DEFENSE:
                     TriggerGameEffect(action);
                     break;
             }
@@ -217,10 +218,16 @@ namespace vbg
                 case Action.MOVEMENT:
                     command = movement;
                     break;
+                case Action.DEFENSE:
+                    command = defense;
+                    break;
                 default:
                     Debug.Assert(false, "No prefab provided");
                     return;
             }
+
+            if (command == null)
+                return;
 
             if(command.timer > 0.0f)
             {

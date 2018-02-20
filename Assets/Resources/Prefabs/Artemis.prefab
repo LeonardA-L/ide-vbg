@@ -1790,7 +1790,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1409938460915610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.917782, y: 1.1451397e-17, z: 19.56855}
+  m_LocalPosition: {x: -0.49230957, y: 4.395849e-17, z: 20.62901}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4087921795428008}
@@ -2452,6 +2452,9 @@ MonoBehaviour:
   valueUpdate: 0
   unstableValue: 0
   updateRate: 0
+  toHotspot: {fileID: 0}
+  teleportWithRotation: 0
+  preserveMomentum: 0
 --- !u!114 &114729763658898972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2482,26 +2485,22 @@ MonoBehaviour:
     m_Bits: 256
   character: 2
   specialAttack:
-    toInstanciate: {fileID: 1778091153758932, guid: 1aa7efbf53fc76a47885c96e6b71074a,
-      type: 2}
+    toInstanciate: {fileID: 0}
     cooldown: 2
     timer: 0
     child: 0
   specialMovement:
-    toInstanciate: {fileID: 1923744890027746, guid: c8707246929b1be43baba2fa01b03765,
-      type: 2}
+    toInstanciate: {fileID: 0}
     cooldown: 2
     timer: 0
     child: 1
   specialDefense:
-    toInstanciate: {fileID: 1735137292521736, guid: 4c0fa72b41fbe714ca3a307eafc5b2de,
-      type: 2}
+    toInstanciate: {fileID: 0}
     cooldown: 2
     timer: 0
     child: 0
   specialSpecial:
-    toInstanciate: {fileID: 1763979341736754, guid: 24b3fd89970c53b4cafb88091114bda8,
-      type: 2}
+    toInstanciate: {fileID: 0}
     cooldown: 2
     timer: 0
     child: 0
@@ -2512,10 +2511,11 @@ MonoBehaviour:
     timer: 0
     child: 0
   defense:
-    toInstanciate: {fileID: 0}
+    toInstanciate: {fileID: 1923744890027746, guid: c8707246929b1be43baba2fa01b03765,
+      type: 2}
     cooldown: 2
     timer: 0
-    child: 0
+    child: 1
   special:
     toInstanciate: {fileID: 0}
     cooldown: 2
