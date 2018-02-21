@@ -130,11 +130,6 @@ namespace vbg
         // Update is called once per frame
         void Update()
         {
-            if (!IsActive(null))
-            {
-                return;
-            }
-
             Unstables();
 
             lastFrameProcessed = false;
@@ -146,6 +141,16 @@ namespace vbg
                     toDelete = true;
                     break;
                 }
+            }
+
+            if (toDelete)
+            {
+                Finish();
+            }
+
+            if (!IsActive(null))
+            {
+                return;
             }
 
             if (initialVelocity.magnitude > 0.0f && rb == null)
@@ -167,11 +172,6 @@ namespace vbg
                 {
                     transform.rotation = toFollow.rotation;
                 }
-            }
-
-            if (toDelete)
-            {
-                Finish();
             }
 
             if(processMode == ProcessMode.ALWAYS)

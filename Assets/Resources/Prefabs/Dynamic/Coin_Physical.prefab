@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 54025879282307466}
   - component: {fileID: 114281251336190336}
   - component: {fileID: 114810186627934552}
-  - component: {fileID: 114078098219662594}
+  - component: {fileID: 114578989615078606}
   m_Layer: 0
   m_Name: Coin_Physical
   m_TagString: Untagged
@@ -114,17 +114,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114078098219662594
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1188652331024494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7f0f60c5c7a9914a92925d781ee3794, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114281251336190336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -163,6 +152,20 @@ MonoBehaviour:
   toHotspot: {fileID: 0}
   teleportWithRotation: 0
   preserveMomentum: 0
+--- !u!114 &114578989615078606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1188652331024494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa1c807bb39e0d8499ba564dd985625b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allowedTags:
+  - Player
+  revertList: 0
 --- !u!114 &114810186627934552
 MonoBehaviour:
   m_ObjectHideFlags: 1
