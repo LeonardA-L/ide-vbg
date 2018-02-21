@@ -350,9 +350,9 @@ namespace vbg
             impactedCharacters.Remove(dy);
         }
 
-        private void ProcessHealth(VBGCharacterController cc)
+        private void ProcessHealth(IDynamic idy, string tag)
         {
-            if(cc == null)
+            if(idy == null)
             {
                 return;
             }
@@ -361,18 +361,19 @@ namespace vbg
             {
                 if (owner != null)
                 {
-                    if(!friendlyFire && owner.tag == cc.tag)
+                    if(!friendlyFire && owner.tag == tag)
                     {
                         return;
                     }
                 }
+
                 if (healthImpact < 0.0f)
                 {
-                    cc.Damage(healthImpact * (impactPerFrame ? 1 : Time.deltaTime));
+                    idy.Damage(healthImpact * (impactPerFrame ? 1 : Time.deltaTime));
                 }
                 else
                 {
-                    cc.Heal(healthImpact * (impactPerFrame ? 1 : Time.deltaTime));
+                    idy.Heal(healthImpact * (impactPerFrame ? 1 : Time.deltaTime));
                 }
             }
         }
@@ -500,7 +501,8 @@ namespace vbg
             VBGCharacterController cc = idy as VBGCharacterController;
             Dynamic dy = idy as Dynamic;
             Transform tr = cc != null ? cc.transform : dy.transform;
-            
+            GameObject go = cc != null ? cc.gameObject : dy.gameObject;
+
             if (!IsActive(idy))
             {
                 return;
@@ -509,7 +511,7 @@ namespace vbg
             lastFrameProcessed = true;
 
             ProcessPushForce(tr, rb, ref characterMovement);
-            ProcessHealth(cc);
+            ProcessHealth(idy, go.tag);
             ProcessSwitch();
             ProcessValue();
             ProcessTeleport(tr, rb);

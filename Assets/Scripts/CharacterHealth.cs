@@ -8,11 +8,11 @@ namespace vbg
     {
 
         public float health;
+        public float threshold = 0.0f;
 
         // Use this for initialization
         void Start()
         {
-            health = VBGCharacterController.Constants.CHARACTER_START_HEALTH;
             // TODO set start health from stats / armor / whatever
         }
 
@@ -25,6 +25,10 @@ namespace vbg
         public void Damage(float intensity)
         {
             // TODO calculate actual blow with stats/def/armor/...
+            if(Mathf.Abs(intensity) < threshold)
+            {
+                return;
+            }
             health += intensity;
             health = ClampHealth();
         }

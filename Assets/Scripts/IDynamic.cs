@@ -8,5 +8,7 @@ namespace vbg
     {
         void RegisterGameEffect(GameEffect ge);
         void UnRegisterGameEffect(GameEffect ge);
+        void Damage(float intensity);
+        void Heal(float intensity);
     }
 }
