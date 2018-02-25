@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1265,7 +1265,7 @@ Prefab:
     - target: {fileID: 114862659393816468, guid: 4d2e60ca5abdb0040a9972452d913252,
         type: 2}
       propertyPath: healthImpact
-      value: 10
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4270894829414984, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
       propertyPath: m_LocalScale.x
@@ -1315,6 +1315,11 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114862659393816468, guid: 4d2e60ca5abdb0040a9972452d913252,
+        type: 2}
+      propertyPath: switchImpact.name
+      value: p3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65262338370141322, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
@@ -1888,25 +1893,35 @@ MonoBehaviour:
   destroyOnWall: 0
   processMode: 1
   resetNotFinish: 1
-  healthImpact: 0
-  impactPerFrame: 0
-  friendlyFire: 0
-  pushForceVector: {x: 0, y: 0, z: 0}
-  pushForceNorm: 0
-  pushForceIsOmnidirectional: 0
-  pushForceNoY: 1
-  pushForceDecreaseLength: 0
-  switchName: BridgeTimer2
-  switchValue: 1
-  unstableSwitch: 1
-  valueName: 
-  updateMode: 0
-  valueUpdate: 0
-  unstableValue: 0
-  updateRate: 0
-  toHotspot: {fileID: 0}
-  teleportWithRotation: 0
-  preserveMomentum: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 1
+    name: BridgeTimer2
+    newValue: 1
+    unstable: 1
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
 --- !u!4 &296299151
 Transform:
   m_ObjectHideFlags: 0
@@ -2320,7 +2335,7 @@ Prefab:
     - target: {fileID: 114862659393816468, guid: 4d2e60ca5abdb0040a9972452d913252,
         type: 2}
       propertyPath: healthImpact
-      value: 10
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4270894829414984, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
       propertyPath: m_LocalScale.x
@@ -2370,6 +2385,11 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114862659393816468, guid: 4d2e60ca5abdb0040a9972452d913252,
+        type: 2}
+      propertyPath: switchImpact.name
+      value: p2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 23161682594667780, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
@@ -4281,7 +4301,7 @@ Prefab:
     - target: {fileID: 114862659393816468, guid: 4d2e60ca5abdb0040a9972452d913252,
         type: 2}
       propertyPath: healthImpact
-      value: 10
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4270894829414984, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
       propertyPath: m_LocalScale.x
@@ -4331,6 +4351,11 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114862659393816468, guid: 4d2e60ca5abdb0040a9972452d913252,
+        type: 2}
+      propertyPath: switchImpact.name
+      value: p4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 23161682594667780, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
@@ -5105,25 +5130,35 @@ MonoBehaviour:
   destroyOnWall: 0
   processMode: 1
   resetNotFinish: 0
-  healthImpact: 0
-  impactPerFrame: 0
-  friendlyFire: 0
-  pushForceVector: {x: 0, y: 0, z: 0}
-  pushForceNorm: 0
-  pushForceIsOmnidirectional: 0
-  pushForceNoY: 1
-  pushForceDecreaseLength: 0
-  switchName: 
-  switchValue: 1
-  unstableSwitch: 0
-  valueName: Compteur
-  updateMode: 1
-  valueUpdate: 0
-  unstableValue: 0
-  updateRate: 0
-  toHotspot: {fileID: 0}
-  teleportWithRotation: 0
-  preserveMomentum: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 0
+    name: 
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 1
+    name: Compteur
+    updateMode: 1
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
 --- !u!4 &976101956
 Transform:
   m_ObjectHideFlags: 0
@@ -6458,7 +6493,7 @@ Prefab:
     - target: {fileID: 114862659393816468, guid: 4d2e60ca5abdb0040a9972452d913252,
         type: 2}
       propertyPath: healthImpact
-      value: 10
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4270894829414984, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
       propertyPath: m_LocalScale.x
@@ -6500,6 +6535,11 @@ Prefab:
     - target: {fileID: 4015788777012510, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114862659393816468, guid: 4d2e60ca5abdb0040a9972452d913252,
+        type: 2}
+      propertyPath: switchImpact.name
+      value: p1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 23161682594667780, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
@@ -7474,6 +7514,11 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 0.19999999
       objectReference: {fileID: 0}
+    - target: {fileID: 114862659393816468, guid: 4d2e60ca5abdb0040a9972452d913252,
+        type: 2}
+      propertyPath: switchImpact.name
+      value: SwitchBridge2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
   m_IsPrefabParent: 0
@@ -8041,6 +8086,16 @@ Prefab:
     - target: {fileID: 4270894829414984, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
       propertyPath: m_LocalScale.z
       value: 1.9139726
+      objectReference: {fileID: 0}
+    - target: {fileID: 114862659393816468, guid: 4d2e60ca5abdb0040a9972452d913252,
+        type: 2}
+      propertyPath: switchImpact.active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114862659393816468, guid: 4d2e60ca5abdb0040a9972452d913252,
+        type: 2}
+      propertyPath: switchImpact.name
+      value: SwitchBridge
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
@@ -8820,25 +8875,35 @@ MonoBehaviour:
   destroyOnWall: 0
   processMode: 1
   resetNotFinish: 0
-  healthImpact: 0
-  impactPerFrame: 0
-  friendlyFire: 0
-  pushForceVector: {x: 0, y: 0, z: 0}
-  pushForceNorm: 0
-  pushForceIsOmnidirectional: 0
-  pushForceNoY: 1
-  pushForceDecreaseLength: 0
-  switchName: ActivateTimer2
-  switchValue: 1
-  unstableSwitch: 0
-  valueName: 
-  updateMode: 0
-  valueUpdate: 0
-  unstableValue: 0
-  updateRate: 0
-  toHotspot: {fileID: 0}
-  teleportWithRotation: 0
-  preserveMomentum: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 1
+    name: ActivateTimer2
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
 --- !u!4 &1859435964
 Transform:
   m_ObjectHideFlags: 0
@@ -9631,25 +9696,35 @@ MonoBehaviour:
   destroyOnWall: 0
   processMode: 1
   resetNotFinish: 1
-  healthImpact: 0
-  impactPerFrame: 0
-  friendlyFire: 0
-  pushForceVector: {x: 0, y: 0, z: 0}
-  pushForceNorm: 0
-  pushForceIsOmnidirectional: 0
-  pushForceNoY: 1
-  pushForceDecreaseLength: 0
-  switchName: BridgeTimer
-  switchValue: 1
-  unstableSwitch: 1
-  valueName: 
-  updateMode: 0
-  valueUpdate: 0
-  unstableValue: 0
-  updateRate: 0
-  toHotspot: {fileID: 0}
-  teleportWithRotation: 0
-  preserveMomentum: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 1
+    name: BridgeTimer
+    newValue: 1
+    unstable: 1
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
 --- !u!4 &1958847507
 Transform:
   m_ObjectHideFlags: 0

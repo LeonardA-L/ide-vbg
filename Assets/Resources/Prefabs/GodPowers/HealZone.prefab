@@ -101,14 +101,32 @@ MonoBehaviour:
   owner: {fileID: 0}
   ownerActive: 1
   destroyParent: 0
-  healthImpact: 10
-  impactPerFrame: 0
-  friendlyFire: 1
-  pushForceVector: {x: 0, y: 0, z: 0}
-  pushForceNorm: 0
-  pushForceIsOmnidirectional: 0
-  pushForceNoY: 1
-  pushForceDecreaseLength: 0
+  destroyOnWall: 0
+  processMode: 0
+  resetNotFinish: 0
+  healthImpact:
+    active: 1
+    impact: 10
+    impactPerFrame: 0
+    friendlyFire: 1
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchName: 
+  switchValue: 1
+  unstableSwitch: 0
+  valueName: 
+  updateMode: 0
+  valueUpdate: 0
+  unstableValue: 0
+  updateRate: 0
+  toHotspot: {fileID: 0}
+  teleportWithRotation: 0
+  preserveMomentum: 0
 --- !u!114 &114762302255645516
 MonoBehaviour:
   m_ObjectHideFlags: 1

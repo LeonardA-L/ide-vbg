@@ -162,14 +162,18 @@ MonoBehaviour:
   destroyOnWall: 1
   processMode: 0
   resetNotFinish: 0
-  healthImpact: -15
-  impactPerFrame: 1
-  friendlyFire: 1
-  pushForceVector: {x: 0, y: 0, z: 0}
-  pushForceNorm: 0
-  pushForceIsOmnidirectional: 0
-  pushForceNoY: 0
-  pushForceDecreaseLength: 0
+  healthImpact:
+    active: 1
+    impact: -15
+    impactPerFrame: 1
+    friendlyFire: 1
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
   switchName: 
   switchValue: 1
   unstableSwitch: 0

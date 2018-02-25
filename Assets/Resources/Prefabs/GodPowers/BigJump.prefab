@@ -119,11 +119,13 @@ MonoBehaviour:
   healthImpact: 0
   impactPerFrame: 1
   friendlyFire: 0
-  pushForceVector: {x: 0, y: 40, z: 1}
-  pushForceNorm: 50
-  pushForceIsOmnidirectional: 0
-  pushForceNoY: 0
-  pushForceDecreaseLength: 0
+  pushForce:
+    active: 1
+    pushForceVector: {x: 0, y: 40, z: 1}
+    pushForceNorm: 50
+    pushForceIsOmnidirectional: 0
+    pushForceNoY: 0
+    pushForceDecreaseLength: 0
   switchName: 
   switchValue: 1
   unstableSwitch: 0

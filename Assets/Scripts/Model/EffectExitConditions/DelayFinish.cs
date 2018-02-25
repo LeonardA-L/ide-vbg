@@ -11,7 +11,7 @@ namespace vbg
         public float delay = 10;
         public float currentDelay = 10;
 
-        public override bool AfterUpdate() {
+        public override bool AfterProcess() {
             currentDelay -= Time.deltaTime;
             return currentDelay <= 0;
         }

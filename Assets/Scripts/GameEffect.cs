@@ -8,6 +8,80 @@ namespace vbg
     public class GameEffect : MonoBehaviour
     {
 
+        [System.Serializable]
+        public class PushForce
+        {
+            [Tooltip("Is Push Force Active")]
+            public bool active = false;
+            [Tooltip("Force that impacts the character that takes the game effect. Normalized")]
+            public Vector3 pushForceVector;
+            [Tooltip("Norm of the push force vector")]
+            public float pushForceNorm = 0.0f;
+            [Tooltip("The force pushes the activator away instead of using pushForceVector")]
+            public bool pushForceIsOmnidirectional;
+            [Tooltip("Should the push force lift the player or not")]
+            public bool pushForceNoY = true;
+            [Tooltip("Ratio for the decrease from the center of the GameEffect")]
+            public float pushForceDecreaseLength = 0.0f;
+        }
+
+        [System.Serializable]
+        public class HealthImpact
+        {
+            [Tooltip("Is Health Impact Active")]
+            public bool active = false;
+            [Tooltip("How much health difference the character will get (negative: dammage, positive: heal)")]
+            public float impact = 0.0f;
+            [Tooltip("Is the health impact per frame or per second")]
+            public bool impactPerFrame = false;
+            [Tooltip("Is friendly fire enabled")]
+            public bool friendlyFire = false;
+        }
+
+        [System.Serializable]
+        public class SwitchImpact
+        {
+            [Tooltip("Is Switch Impact Active")]
+            public bool active = false;
+            [Tooltip("Name of the switch the GameEffect will toggle")]
+            public string name;
+            [Tooltip("Value of the switch the GameEffect will set when processed (in most cases, true)")]
+            public bool newValue = true;
+            [Tooltip("Should the GameEffect toggle the switch back when it's not being processed")]
+            public bool unstable = false;
+        }
+
+        [System.Serializable]
+        public class ValueImpact
+        {
+            [Tooltip("Is Value Impact Active")]
+            public bool active = false;
+            [Tooltip("Name of the value the GameEffect will update")]
+            public string name;
+            [Tooltip("How should the value be updated (NONE, ABSOLUTE, RELATIVE)")]
+            public FloatValueMode updateMode;
+            [Tooltip("Absolute or Relative value the GameEffect will set when triggered")]
+            public float update = 0;
+            [Tooltip("Should the GameEffect revert the update to the value when it's not being processed (only in ONCE mode)")]
+            public bool unstable = false;
+            [Tooltip("Rate at which the value is updated")]
+            public FloatValueUpdate updateRate = FloatValueUpdate.ONCE;
+        }
+
+        [System.Serializable]
+        public class Teleport
+        {
+            [Tooltip("Is Teleport Active")]
+            public bool active = false;
+            //public bool automaticNearestSpawnPoint = false;
+            [Tooltip("Hotspot to teleport the object to")]
+            public Transform toHotspot;
+            [Tooltip("Use hotspot rotation when teleporting")]
+            public bool useHotspotRotation;
+            [Tooltip("Preserve momentum of the object when teleporting")]
+            public bool preserveMomentum = false;
+        }
+
         public enum OwnerActive
         {
             NO,
@@ -52,50 +126,14 @@ namespace vbg
         public ProcessMode processMode = ProcessMode.ON_COLLISION;
         [Tooltip("When the game effect finishes, it will be reset instead of destroyed")]
         public bool resetNotFinish = false;
-        [Header("Health impact")]
-        [Tooltip("How much health difference the character will get (negative: dammage, positive: heal)")]
-        public float healthImpact = 0.0f;
-        [Tooltip("Is the health impact per frame or per second")]
-        public bool impactPerFrame = false;
-        [Tooltip("Is friendly fire enabled")]
-        public bool friendlyFire = false;
-        [Header("Push Force")]
-        [Tooltip("Force that impacts the character that takes the game effect. Normalized")]
-        public Vector3 pushForceVector;
-        [Tooltip("Norm of the push force vector")]
-        public float pushForceNorm = 0.0f;
-        [Tooltip("The force pushes the activator away instead of using pushForceVector")]
-        public bool pushForceIsOmnidirectional;
-        [Tooltip("Should the push force lift the player or not")]
-        public bool pushForceNoY = true;
-        [Tooltip("Ratio for the decrease from the center of the GameEffect")]
-        public float pushForceDecreaseLength = 0.0f;
-        [Header("Switch")]
-        [Tooltip("Name of the switch the GameEffect will toggle")]
-        public string switchName;
-        [Tooltip("Value of the switch the GameEffect will set when processed (in most cases, true)")]
-        public bool switchValue = true;
-        [Tooltip("Should the GameEffect toggle the switch back when it's not being processed")]
-        public bool unstableSwitch = false;
-        [Header("Value")]
-        [Tooltip("Name of the value the GameEffect will update")]
-        public string valueName;
-        [Tooltip("How should the value be updated (NONE, ABSOLUTE, RELATIVE)")]
-        public FloatValueMode updateMode;
-        [Tooltip("Absolute or Relative value the GameEffect will set when triggered")]
-        public float valueUpdate = 0;
-        [Tooltip("Should the GameEffect revert the update to the value when it's not being processed (only in ONCE mode)")]
-        public bool unstableValue = false;
-        [Tooltip("Rate at which the value is updated")]
-        public FloatValueUpdate updateRate = FloatValueUpdate.ONCE;
-        [Header("Teleport")]
-        //public bool automaticNearestSpawnPoint = false;
-        [Tooltip("Hotspot to teleport the object to")]
-        public Transform toHotspot;
-        [Tooltip("Use hotspot rotation when teleporting")]
-        public bool teleportWithRotation;
-        [Tooltip("Preserve momentum of the object when teleporting")]
-        public bool preserveMomentum = false;
+
+        [Header("Impacts")]
+        public HealthImpact healthImpact;
+        public PushForce pushForce;
+        public SwitchImpact switchImpact;
+        public ValueImpact valueImpact;
+        public Teleport teleport;
+        
 
         private bool hasValueBeenUpdated = false;
 
@@ -134,18 +172,18 @@ namespace vbg
 
             lastFrameProcessed = false;
 
-            foreach (GameEffectExit gee in exitConditions)
-            {
-                if(gee.AfterUpdate())
-                {
-                    toDelete = true;
-                    break;
-                }
-            }
 
             if (toDelete)
             {
                 Finish();
+            }
+            foreach (GameEffectExit gee in exitConditions)
+            {
+                if (gee.AfterUpdate())
+                {
+                    toDelete = true;
+                    break;
+                }
             }
 
             if (!IsActive(null))
@@ -214,14 +252,14 @@ namespace vbg
 
         private void Unstables()
         {
-            if (unstableSwitch && !lastFrameProcessed)
+            if (switchImpact.unstable && !lastFrameProcessed)
             {
-                SwitchManager.Instance.SetSwitch(switchName, !switchValue);
+                SwitchManager.Instance.SetSwitch(switchImpact.name, !switchImpact.newValue);
             }
 
-            if (unstableValue && !lastFrameProcessed && hasValueBeenUpdated && updateRate == FloatValueUpdate.ONCE)
+            if (valueImpact.unstable && !lastFrameProcessed && hasValueBeenUpdated && valueImpact.updateRate == FloatValueUpdate.ONCE)
             {
-                SwitchManager.Instance.SetValue(valueName, (float)SwitchManager.Instance.GetValue(valueName) - valueUpdate);
+                SwitchManager.Instance.SetValue(valueImpact.name, (float)SwitchManager.Instance.GetValue(valueImpact.name) - valueImpact.update);
                 hasValueBeenUpdated = false;
             }
         }
@@ -352,82 +390,95 @@ namespace vbg
 
         private void ProcessHealth(IDynamic idy, string tag)
         {
+            if (!healthImpact.active)
+                return;
+
             if(idy == null)
             {
                 return;
             }
 
-            if (healthImpact != 0.0f)
+            if (healthImpact.impact != 0.0f)
             {
                 if (owner != null)
                 {
-                    if(!friendlyFire && owner.tag == tag)
+                    if(!healthImpact.friendlyFire && owner.tag == tag)
                     {
                         return;
                     }
                 }
 
-                if (healthImpact < 0.0f)
+                if (healthImpact.impact< 0.0f)
                 {
-                    idy.Damage(healthImpact * (impactPerFrame ? 1 : Time.deltaTime));
+                    idy.Damage(healthImpact.impact * (healthImpact.impactPerFrame ? 1 : Time.deltaTime));
                 }
                 else
                 {
-                    idy.Heal(healthImpact * (impactPerFrame ? 1 : Time.deltaTime));
+                    idy.Heal(healthImpact.impact * (healthImpact.impactPerFrame ? 1 : Time.deltaTime));
                 }
             }
         }
 
         private void ProcessSwitch()
         {
-            if(switchName == null || switchName == "")
+            if (!switchImpact.active)
+                return;
+            
+            if(switchImpact.name == null || switchImpact.name == "")
             {
                 return;
             }
-            SwitchManager.Instance.SetSwitch(switchName, switchValue);
+
+            SwitchManager.Instance.SetSwitch(switchImpact.name, switchImpact.newValue);
         }
 
         private void ProcessValue()
         {
-            if (valueName == null || valueName == "" || updateMode == FloatValueMode.NONE || (hasValueBeenUpdated && updateRate == FloatValueUpdate.ONCE))
+            if (!valueImpact.active)
+                return;
+
+            if (valueImpact.name == null || valueImpact.name == "" || valueImpact.updateMode == FloatValueMode.NONE || (hasValueBeenUpdated && valueImpact.updateRate == FloatValueUpdate.ONCE))
             {
                 return;
             }
 
-            float newValue = valueUpdate * (updateRate == FloatValueUpdate.PER_SECOND ? Time.deltaTime : 1.0f);
+            float newValue = valueImpact.update * (valueImpact.updateRate == FloatValueUpdate.PER_SECOND ? Time.deltaTime : 1.0f);
             hasValueBeenUpdated = true;
 
-            if(updateMode == FloatValueMode.RELATIVE)
+            if(valueImpact.updateMode == FloatValueMode.RELATIVE)
             {
-                newValue += (float)SwitchManager.Instance.GetValue(valueName);
+                newValue += (float)SwitchManager.Instance.GetValue(valueImpact.name);
             }
 
-            SwitchManager.Instance.SetValue(valueName, newValue);
+            SwitchManager.Instance.SetValue(valueImpact.name, newValue);
         }
 
         private void ProcessPushForce(Transform tr, Rigidbody rb, ref Vector3 characterMovement)
         {
-            if (pushForceNorm > 0.0f)
+            if (!pushForce.active)
+                return;
+
+            if (pushForce.pushForceNorm > 0.0f)
             {
                 Vector3 force = new Vector3();
-                float forceNorm = pushForceNorm;
-                if (pushForceDecreaseLength > 0.0f)
+                float forceNorm = pushForce.pushForceNorm;
+                if (pushForce.pushForceDecreaseLength > 0.0f)
                 {
-                    float distRatio = pushForceDecreaseLength / (tr.transform.position - transform.position).magnitude;
+                    float distRatio = pushForce.pushForceDecreaseLength / (tr.transform.position - transform.position).magnitude;
                     forceNorm *= distRatio;
                 }
-                if (pushForceVector.magnitude > 0.0f)
+                if (pushForce.pushForceVector.magnitude > 0.0f)
                 {
-                    Vector3 normalizedPF = pushForceVector.normalized;
+                    Vector3 normalizedPF = pushForce.pushForceVector.normalized;
                     force +=  (normalizedPF.x * transform.right
                              + normalizedPF.y * transform.up
                              + normalizedPF.z * transform.forward)
                              * forceNorm;
                 }
-                else if (pushForceIsOmnidirectional)
+                else if (pushForce.pushForceIsOmnidirectional)
                 {
                     Vector3 movement = (tr.transform.position - transform.position);
-                    if (pushForceNoY)
+                    if (pushForce.pushForceNoY)
                     {
                         movement.y = 0.0f;
                     }
@@ -450,17 +501,17 @@ namespace vbg
 
         public void ProcessTeleport(Transform tr, Rigidbody rb)
         {
-            if (toHotspot)
+            if (teleport.toHotspot)
             {
-                tr.position = toHotspot.position;
-                if (!preserveMomentum)
+                tr.position = teleport.toHotspot.position;
+                if (!teleport.preserveMomentum)
                 {
                     rb.velocity = new Vector3();
                     rb.angularVelocity = new Vector3();
                 }
-                if(teleportWithRotation)
+                if(teleport.useHotspotRotation)
                 {
-                    tr.rotation = toHotspot.rotation;
+                    tr.rotation = teleport.toHotspot.rotation;
                 }
             }
         }

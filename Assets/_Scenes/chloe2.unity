@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -377,7 +377,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &21113548
 MeshRenderer:
@@ -458,6 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 111ded54215117c4fabdb0a47c997e19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  finishPrefab: {fileID: 0}
 --- !u!1 &51376699
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,7 +545,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &51376703
 MonoBehaviour:
@@ -560,7 +561,7 @@ MonoBehaviour:
   boolName: LightBool
   triggerName: 
   floatName: 
-  switchName: ArtemisPlate
+  switchName: artemisPlate
   valueName: 
   animator: {fileID: 51376700}
 --- !u!114 &51376704
@@ -582,25 +583,35 @@ MonoBehaviour:
   destroyOnWall: 0
   processMode: 0
   resetNotFinish: 0
-  healthImpact: 0
-  impactPerFrame: 0
-  friendlyFire: 0
-  pushForceVector: {x: 0, y: 0, z: 0}
-  pushForceNorm: 0
-  pushForceIsOmnidirectional: 0
-  pushForceNoY: 1
-  pushForceDecreaseLength: 0
-  switchName: ArtemisLight
-  switchValue: 1
-  unstableSwitch: 0
-  valueName: 
-  updateMode: 0
-  valueUpdate: 0
-  unstableValue: 0
-  updateRate: 0
-  toHotspot: {fileID: 0}
-  teleportWithRotation: 0
-  preserveMomentum: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 1
+    name: ArtemisLight
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
 --- !u!114 &51376705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -889,7 +900,7 @@ Transform:
   - {fileID: 1562433901}
   - {fileID: 1239986666}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &270051633 stripped
 Transform:
@@ -924,7 +935,7 @@ Transform:
   - {fileID: 582820476}
   - {fileID: 1519345934}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &290494019
 Prefab:
@@ -963,7 +974,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4585618401128232, guid: f3774b05046b82545ae86c79978edc9b, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3774b05046b82545ae86c79978edc9b, type: 2}
@@ -1248,7 +1259,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &450414191
 Rigidbody:
@@ -1276,6 +1287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 111ded54215117c4fabdb0a47c997e19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  finishPrefab: {fileID: 0}
 --- !u!1 &460678667
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,7 +1383,7 @@ Transform:
   - {fileID: 897347672}
   - {fileID: 386107333}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &557089612
 Prefab:
@@ -1899,7 +1911,7 @@ Transform:
   - {fileID: 18823862}
   - {fileID: 270051633}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &797180218
 GameObject:
@@ -1932,7 +1944,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &797180220
 MeshRenderer:
@@ -2013,6 +2025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 111ded54215117c4fabdb0a47c997e19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  finishPrefab: {fileID: 0}
 --- !u!1 &814479857
 GameObject:
   m_ObjectHideFlags: 0
@@ -2043,7 +2056,7 @@ Transform:
   - {fileID: 317695665}
   - {fileID: 1690842780}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &897347671
 GameObject:
@@ -2159,7 +2172,7 @@ Transform:
   - {fileID: 3222864}
   - {fileID: 976116963}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &941577444
 Prefab:
@@ -2478,7 +2491,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1011477857
 MeshRenderer:
@@ -2559,6 +2572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 111ded54215117c4fabdb0a47c997e19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  finishPrefab: {fileID: 0}
 --- !u!1 &1023937955
 GameObject:
   m_ObjectHideFlags: 0
@@ -2587,7 +2601,7 @@ Transform:
   - {fileID: 1009702300}
   - {fileID: 677150679}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1026415346
 Prefab:
@@ -2700,25 +2714,35 @@ MonoBehaviour:
   destroyOnWall: 0
   processMode: 1
   resetNotFinish: 1
-  healthImpact: 0
-  impactPerFrame: 0
-  friendlyFire: 0
-  pushForceVector: {x: 0, y: 0, z: 0}
-  pushForceNorm: 0
-  pushForceIsOmnidirectional: 0
-  pushForceNoY: 1
-  pushForceDecreaseLength: 0
-  switchName: doorSwitch
-  switchValue: 1
-  unstableSwitch: 1
-  valueName: 
-  updateMode: 0
-  valueUpdate: 2
-  unstableValue: 0
-  updateRate: 0
-  toHotspot: {fileID: 0}
-  teleportWithRotation: 0
-  preserveMomentum: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 1
+    name: doorSwitch
+    newValue: 1
+    unstable: 1
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
 --- !u!4 &1030617094
 Transform:
   m_ObjectHideFlags: 0
@@ -2730,7 +2754,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1092807156
 GameObject:
@@ -2767,7 +2791,7 @@ MonoBehaviour:
   boolName: LightBool
   triggerName: 
   floatName: 
-  switchName: AresPlate
+  switchName: aresPlate
   valueName: 
   animator: {fileID: 1092807158}
 --- !u!95 &1092807158
@@ -2834,7 +2858,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1092807161
 MonoBehaviour:
@@ -2867,25 +2891,35 @@ MonoBehaviour:
   destroyOnWall: 0
   processMode: 0
   resetNotFinish: 0
-  healthImpact: 0
-  impactPerFrame: 0
-  friendlyFire: 0
-  pushForceVector: {x: 0, y: 0, z: 0}
-  pushForceNorm: 0
-  pushForceIsOmnidirectional: 0
-  pushForceNoY: 1
-  pushForceDecreaseLength: 0
-  switchName: AresLight
-  switchValue: 1
-  unstableSwitch: 1
-  valueName: 
-  updateMode: 0
-  valueUpdate: 0
-  unstableValue: 0
-  updateRate: 0
-  toHotspot: {fileID: 0}
-  teleportWithRotation: 0
-  preserveMomentum: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 1
+    name: AresLight
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
 --- !u!135 &1092807163
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3194,23 +3228,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4247435193642080, guid: c5f7bc77ca755bd4ea3084879ade4121, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.77805454
-      objectReference: {fileID: 0}
-    - target: {fileID: 4247435193642080, guid: c5f7bc77ca755bd4ea3084879ade4121, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.8081998
-      objectReference: {fileID: 0}
-    - target: {fileID: 4247435193642080, guid: c5f7bc77ca755bd4ea3084879ade4121, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.05000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 114125908412951170, guid: c5f7bc77ca755bd4ea3084879ade4121,
-        type: 2}
-      propertyPath: switchName
-      value: AresPlate
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5f7bc77ca755bd4ea3084879ade4121, type: 2}
   m_IsPrefabParent: 0
@@ -3382,7 +3399,7 @@ Transform:
   m_LocalScale: {x: 1.8529638, y: 1, z: 0.9507007}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1273976529
 GameObject:
@@ -3528,7 +3545,7 @@ Transform:
   - {fileID: 1105899920}
   - {fileID: 1956506900}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &1347569980 stripped
 Transform:
@@ -3584,25 +3601,35 @@ MonoBehaviour:
   destroyOnWall: 0
   processMode: 1
   resetNotFinish: 0
-  healthImpact: 0
-  impactPerFrame: 0
-  friendlyFire: 0
-  pushForceVector: {x: 0, y: 0, z: 0}
-  pushForceNorm: 0
-  pushForceIsOmnidirectional: 0
-  pushForceNoY: 1
-  pushForceDecreaseLength: 0
-  switchName: 
-  switchValue: 1
-  unstableSwitch: 0
-  valueName: doorValue
-  updateMode: 1
-  valueUpdate: 0
-  unstableValue: 0
-  updateRate: 0
-  toHotspot: {fileID: 0}
-  teleportWithRotation: 0
-  preserveMomentum: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 0
+    name: 
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 1
+    name: doorValue
+    updateMode: 1
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
 --- !u!4 &1354483324
 Transform:
   m_ObjectHideFlags: 0
@@ -4244,7 +4271,7 @@ Transform:
   m_LocalScale: {x: 1.8529638, y: 1, z: 0.9507007}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1619069714
 GameObject:
@@ -4309,7 +4336,7 @@ MonoBehaviour:
   boolName: LightBool
   triggerName: 
   floatName: 
-  switchName: HephaistosPlate
+  switchName: hephaistosPlate
   valueName: 
   animator: {fileID: 1646323097}
 --- !u!95 &1646323097
@@ -4376,7 +4403,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1646323100
 MonoBehaviour:
@@ -4409,25 +4436,35 @@ MonoBehaviour:
   destroyOnWall: 0
   processMode: 0
   resetNotFinish: 0
-  healthImpact: 0
-  impactPerFrame: 0
-  friendlyFire: 0
-  pushForceVector: {x: 0, y: 0, z: 0}
-  pushForceNorm: 0
-  pushForceIsOmnidirectional: 0
-  pushForceNoY: 1
-  pushForceDecreaseLength: 0
-  switchName: HephaistosLight
-  switchValue: 1
-  unstableSwitch: 1
-  valueName: 
-  updateMode: 0
-  valueUpdate: 0
-  unstableValue: 0
-  updateRate: 0
-  toHotspot: {fileID: 0}
-  teleportWithRotation: 0
-  preserveMomentum: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 1
+    name: HephaistosLight
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
 --- !u!135 &1646323102
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4671,7 +4708,7 @@ Transform:
   m_LocalScale: {x: 1.060432, y: 1, z: 0.51844203}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1675414752 stripped
 Transform:
@@ -4802,7 +4839,7 @@ MonoBehaviour:
   boolName: LightBool
   triggerName: 
   floatName: 
-  switchName: ApolloPlate
+  switchName: apolloPlate
   valueName: 
   animator: {fileID: 1718084628}
 --- !u!95 &1718084628
@@ -4869,7 +4906,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1718084631
 MonoBehaviour:
@@ -4902,25 +4939,35 @@ MonoBehaviour:
   destroyOnWall: 0
   processMode: 0
   resetNotFinish: 0
-  healthImpact: 0
-  impactPerFrame: 0
-  friendlyFire: 0
-  pushForceVector: {x: 0, y: 0, z: 0}
-  pushForceNorm: 0
-  pushForceIsOmnidirectional: 0
-  pushForceNoY: 1
-  pushForceDecreaseLength: 0
-  switchName: ApolloLight
-  switchValue: 1
-  unstableSwitch: 1
-  valueName: 
-  updateMode: 0
-  valueUpdate: 0
-  unstableValue: 0
-  updateRate: 0
-  toHotspot: {fileID: 0}
-  teleportWithRotation: 0
-  preserveMomentum: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 1
+    name: ApolloLight
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
 --- !u!135 &1718084633
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5080,7 +5127,7 @@ Transform:
   m_LocalScale: {x: 0.6512864, y: 1, z: 0.6679429}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1876660026
 GameObject:
@@ -5489,7 +5536,7 @@ Transform:
   m_LocalScale: {x: 3, y: 1.1196768, z: 3.8724957}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1987611216
 MonoBehaviour:
@@ -5536,7 +5583,7 @@ Transform:
   - {fileID: 1701744386}
   - {fileID: 83403605}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2062826386
 GameObject:
@@ -5568,104 +5615,7 @@ Transform:
   - {fileID: 1134753446}
   - {fileID: 752616020}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2078081034
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 2078081038}
-  - component: {fileID: 2078081037}
-  - component: {fileID: 2078081036}
-  - component: {fileID: 2078081035}
-  m_Layer: 0
-  m_Name: CrateSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &2078081035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2078081034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43275866f290b0b4c9b6e319deb5b106, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  times: 1
-  currentTimes: 1
---- !u!114 &2078081036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2078081034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 499b1b518470d484ba8f1dbfe26c2929, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 1
-  currentDelay: 10
-  switchStart: 
---- !u!114 &2078081037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2078081034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c60818e15baa5c54a8664a5ea40b70d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  finishPrefab: {fileID: 1414424633400368, guid: f3774b05046b82545ae86c79978edc9b,
-    type: 2}
-  initialVelocity: {x: 0, y: 0, z: 0}
-  owner: {fileID: 0}
-  ownerActive: 0
-  destroyParent: 0
-  destroyOnWall: 0
-  processMode: 1
-  resetNotFinish: 1
-  healthImpact: 0
-  impactPerFrame: 0
-  friendlyFire: 0
-  pushForceVector: {x: 0, y: 0, z: 0}
-  pushForceNorm: 0
-  pushForceIsOmnidirectional: 0
-  pushForceNoY: 1
-  pushForceDecreaseLength: 0
-  switchName: 
-  switchValue: 1
-  unstableSwitch: 0
-  valueName: 
-  updateMode: 0
-  valueUpdate: 0
-  unstableValue: 0
-  updateRate: 0
-  toHotspot: {fileID: 0}
-  teleportWithRotation: 0
-  preserveMomentum: 0
---- !u!4 &2078081038
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2078081034}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.7, y: 6.79, z: 19.31}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2081006265
 GameObject:

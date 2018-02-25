@@ -1403,7 +1403,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1207334482692204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2337147, y: 4.469631e-17, z: 20.51867}
+  m_LocalPosition: {x: 6.027549, y: -5.7652556e-17, z: 25.792881}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4689323320223958}
@@ -2413,14 +2413,18 @@ MonoBehaviour:
   destroyOnWall: 0
   processMode: 0
   resetNotFinish: 0
-  healthImpact: -75
-  impactPerFrame: 0
-  friendlyFire: 1
-  pushForceVector: {x: 0, y: 0, z: 0}
-  pushForceNorm: 0
-  pushForceIsOmnidirectional: 0
-  pushForceNoY: 1
-  pushForceDecreaseLength: 0
+  healthImpact:
+    active: 1
+    impact: -75
+    impactPerFrame: 0
+    friendlyFire: 1
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
   switchName: 
   switchValue: 0
   unstableSwitch: 0
@@ -2444,6 +2448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  threshold: 0
 --- !u!114 &114497365830229046
 MonoBehaviour:
   m_ObjectHideFlags: 1

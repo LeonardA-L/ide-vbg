@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1183,7 +1183,7 @@ Prefab:
     - target: {fileID: 114862659393816468, guid: 4d2e60ca5abdb0040a9972452d913252,
         type: 2}
       propertyPath: healthImpact
-      value: 10
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4270894829414984, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
       propertyPath: m_LocalScale.x
@@ -1233,6 +1233,11 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114862659393816468, guid: 4d2e60ca5abdb0040a9972452d913252,
+        type: 2}
+      propertyPath: switchImpact.name
+      value: p3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65262338370141322, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
@@ -2264,7 +2269,7 @@ Prefab:
     - target: {fileID: 114862659393816468, guid: 4d2e60ca5abdb0040a9972452d913252,
         type: 2}
       propertyPath: healthImpact
-      value: 10
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4270894829414984, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
       propertyPath: m_LocalScale.x
@@ -2314,6 +2319,11 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114862659393816468, guid: 4d2e60ca5abdb0040a9972452d913252,
+        type: 2}
+      propertyPath: switchImpact.name
+      value: p2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 23161682594667780, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
@@ -3133,6 +3143,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 607140229}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &622341509 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4293705535635530, guid: 6ba3efd03e1568a419230ee633428104,
+    type: 2}
+  m_PrefabInternal: {fileID: 628302157}
 --- !u!1001 &628302157
 Prefab:
   m_ObjectHideFlags: 0
@@ -3177,6 +3192,11 @@ Prefab:
       propertyPath: toHotspot
       value: 
       objectReference: {fileID: 720451255}
+    - target: {fileID: 114521674410938186, guid: 6ba3efd03e1568a419230ee633428104,
+        type: 2}
+      propertyPath: teleport.toHotspot
+      value: 
+      objectReference: {fileID: 622341509}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ba3efd03e1568a419230ee633428104, type: 2}
   m_IsPrefabParent: 0
@@ -4190,7 +4210,7 @@ Prefab:
     - target: {fileID: 114862659393816468, guid: 4d2e60ca5abdb0040a9972452d913252,
         type: 2}
       propertyPath: healthImpact
-      value: 10
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4270894829414984, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
       propertyPath: m_LocalScale.x
@@ -4240,6 +4260,11 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114862659393816468, guid: 4d2e60ca5abdb0040a9972452d913252,
+        type: 2}
+      propertyPath: switchImpact.name
+      value: p4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 23161682594667780, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
@@ -4941,25 +4966,35 @@ MonoBehaviour:
   destroyOnWall: 0
   processMode: 1
   resetNotFinish: 0
-  healthImpact: 0
-  impactPerFrame: 0
-  friendlyFire: 0
-  pushForceVector: {x: 0, y: 0, z: 0}
-  pushForceNorm: 0
-  pushForceIsOmnidirectional: 0
-  pushForceNoY: 1
-  pushForceDecreaseLength: 0
-  switchName: 
-  switchValue: 1
-  unstableSwitch: 0
-  valueName: Compteur
-  updateMode: 1
-  valueUpdate: 0
-  unstableValue: 0
-  updateRate: 0
-  toHotspot: {fileID: 0}
-  teleportWithRotation: 0
-  preserveMomentum: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 0
+    name: 
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 1
+    name: Compteur
+    updateMode: 1
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
 --- !u!4 &976101956
 Transform:
   m_ObjectHideFlags: 0
@@ -5715,7 +5750,7 @@ MonoBehaviour:
   aresPrefab: {fileID: 1207334482692204, guid: 8fbed48592678b247a2ac75542849ba8, type: 2}
   artemisPrefab: {fileID: 1409938460915610, guid: 36b13ee441d1c7240a85e500b296170c,
     type: 2}
-  hephaestusPrefab: {fileID: 1409938460915610, guid: 629f05f60230c5747a0b99ffaa18bb9b,
+  hephaestusPrefab: {fileID: 1409938460915610, guid: 43d71e26d3a489049b57a101fd3289c9,
     type: 2}
   apolloPrefab: {fileID: 1219708322459502, guid: ccdd3432244e5b047a9199bbc2bb70f0,
     type: 2}
@@ -5754,8 +5789,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7f9ec79b29f174b87e664cefb51065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugSwitches: 0
-  debugValues: 0
+  debugSwitches: 1
+  debugValues: 1
 --- !u!1 &1113113433
 GameObject:
   m_ObjectHideFlags: 0
@@ -6428,7 +6463,7 @@ Prefab:
     - target: {fileID: 114862659393816468, guid: 4d2e60ca5abdb0040a9972452d913252,
         type: 2}
       propertyPath: healthImpact
-      value: 10
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4270894829414984, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
       propertyPath: m_LocalScale.x
@@ -6470,6 +6505,11 @@ Prefab:
     - target: {fileID: 4015788777012510, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114862659393816468, guid: 4d2e60ca5abdb0040a9972452d913252,
+        type: 2}
+      propertyPath: switchImpact.name
+      value: p1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 23161682594667780, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
@@ -7470,6 +7510,11 @@ Prefab:
       propertyPath: unstableSwitch
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114862659393816468, guid: 4d2e60ca5abdb0040a9972452d913252,
+        type: 2}
+      propertyPath: switchImpact.name
+      value: SwitchBridge
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
   m_IsPrefabParent: 0
@@ -8041,6 +8086,11 @@ Prefab:
       propertyPath: toHotspot
       value: 
       objectReference: {fileID: 932490549}
+    - target: {fileID: 114667972816761360, guid: b929ededcab409947aac7085bb1068d5,
+        type: 2}
+      propertyPath: teleport.toHotspot
+      value: 
+      objectReference: {fileID: 1696614391}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b929ededcab409947aac7085bb1068d5, type: 2}
   m_IsPrefabParent: 0
@@ -9436,25 +9486,35 @@ MonoBehaviour:
   destroyOnWall: 0
   processMode: 1
   resetNotFinish: 1
-  healthImpact: 0
-  impactPerFrame: 0
-  friendlyFire: 0
-  pushForceVector: {x: 0, y: 0, z: 0}
-  pushForceNorm: 0
-  pushForceIsOmnidirectional: 0
-  pushForceNoY: 1
-  pushForceDecreaseLength: 0
-  switchName: BridgeTimer
-  switchValue: 1
-  unstableSwitch: 1
-  valueName: 
-  updateMode: 0
-  valueUpdate: 0
-  unstableValue: 0
-  updateRate: 0
-  toHotspot: {fileID: 0}
-  teleportWithRotation: 0
-  preserveMomentum: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 1
+    name: BridgeTimer
+    newValue: 1
+    unstable: 1
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
 --- !u!4 &1958847507
 Transform:
   m_ObjectHideFlags: 0

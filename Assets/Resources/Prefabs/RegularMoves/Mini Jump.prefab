@@ -145,11 +145,13 @@ MonoBehaviour:
   healthImpact: 0
   impactPerFrame: 0
   friendlyFire: 0
-  pushForceVector: {x: 0, y: 3, z: 1}
-  pushForceNorm: 600
-  pushForceIsOmnidirectional: 0
-  pushForceNoY: 0
-  pushForceDecreaseLength: 0
+  pushForce:
+    active: 1
+    pushForceVector: {x: 0, y: 3, z: 1}
+    pushForceNorm: 600
+    pushForceIsOmnidirectional: 0
+    pushForceNoY: 0
+    pushForceDecreaseLength: 0
   switchName: 
   switchValue: 1
   unstableSwitch: 0
@@ -158,6 +160,9 @@ MonoBehaviour:
   valueUpdate: 0
   unstableValue: 0
   updateRate: 0
+  toHotspot: {fileID: 0}
+  teleportWithRotation: 0
+  preserveMomentum: 0
 --- !u!114 &114853622150188080
 MonoBehaviour:
   m_ObjectHideFlags: 1
