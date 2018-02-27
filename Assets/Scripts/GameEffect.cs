@@ -82,19 +82,6 @@ namespace vbg
             public bool preserveMomentum = false;
         }
 
-        public enum OwnerActive
-        {
-            NO,
-            YES,
-            OWNER_ONLY
-        }
-
-        public enum ProcessMode
-        {
-            ON_COLLISION,
-            ALWAYS
-        }
-
         public enum FloatValueMode
         {
             NONE,
@@ -116,14 +103,12 @@ namespace vbg
         public Vector3 initialVelocity;
         [Tooltip("Owner the object belongs to. This field is filled automatically if the GE is an action")]
         public VBGCharacterController owner;
-        [Tooltip("Is the effect active on its owner (in most cases, no) (if there is no owner, everyone is impacted)")]
-        public OwnerActive ownerActive = OwnerActive.NO;
         [Tooltip("Should the game effect destroy its parent when it dies (is it embedded)")]
         public bool destroyParent = false;
         [Tooltip("Should the game effect destroy itself when it encounters a collision")]
         public bool destroyOnWall = false;
-        [Tooltip("Should the game effect process every frame or only when colliding with a character")]
-        public ProcessMode processMode = ProcessMode.ON_COLLISION;
+        //[Tooltip("Should the game effect process every frame or only when colliding with a character")]
+        //public ProcessMode processMode = ProcessMode.ON_COLLISION;
         [Tooltip("When the game effect finishes, it will be reset instead of destroyed")]
         public bool resetNotFinish = false;
 
@@ -140,6 +125,7 @@ namespace vbg
         GameEffectExit[] exitConditions;
         GameEffectActivate[] activateConditions;
         List<IDynamic> impactedCharacters;
+        private IDynamic activator;
         private bool toDelete = false;
         private Transform toFollow;
         private bool followForward;
@@ -186,6 +172,20 @@ namespace vbg
                 }
             }
 
+            if (toFollow != null)
+            {
+                transform.position = toFollow.position;
+
+                if (followForward)
+                {
+                    transform.forward = toFollow.forward;
+                }
+                else if (followRotation)
+                {
+                    transform.rotation = toFollow.rotation;
+                }
+            }
+
             if (!IsActive(null))
             {
                 return;
@@ -199,23 +199,7 @@ namespace vbg
                                      * Time.deltaTime;
             }
 
-            if(toFollow != null)
-            {
-                transform.position = toFollow.position;
-
-                if(followForward)
-                {
-                    transform.forward = toFollow.forward;
-                } else if (followRotation)
-                {
-                    transform.rotation = toFollow.rotation;
-                }
-            }
-
-            if(processMode == ProcessMode.ALWAYS)
-            {
-                ProcessAlways();
-            }
+            ProcessAlways();
         }
 
         void Finish()
@@ -296,18 +280,9 @@ namespace vbg
                     return;
                 }
 
-                IDynamic idy = cc == null ? (IDynamic) dy : cc;
+                IDynamic idy = cc ?? (IDynamic)dy;
+                activator = idy;
                 if (!IsActive(idy))
-                {
-                    return;
-                }
-
-                if (ownerActive == OwnerActive.NO && cc != null && cc == owner)
-                {
-                    return;
-                }
-
-                if (ownerActive == OwnerActive.OWNER_ONLY && cc != owner)
                 {
                     return;
                 }
@@ -352,17 +327,7 @@ namespace vbg
                 IDynamic idy = cc == null ? (IDynamic) dy : cc;
                 if (!IsActive(idy))
                 {
-                    return;
-                }
-
-                if (ownerActive == OwnerActive.NO && cc != null && cc == owner)
-                {
-                    return;
-                }
-
-                if (ownerActive == OwnerActive.OWNER_ONLY && cc != owner)
-                {
-                    return;
+                    //return;
                 }
 
                 if (cc != null)
@@ -375,6 +340,8 @@ namespace vbg
                     UnRegisterDynamic(dy);
                     dy.UnRegisterGameEffect(this);
                 }
+
+                activator = null;
             }
         }
 
@@ -570,11 +537,6 @@ namespace vbg
             AfterProcessCommon();
         }
 
-        public OwnerActive IsOwnerActive()
-        {
-            return ownerActive;
-        }
-
         public VBGCharacterController GetOwner()
         {
             return owner;
@@ -583,6 +545,11 @@ namespace vbg
         public void SetOwner(VBGCharacterController _owner)
         {
             owner = _owner;
+        }
+
+        public IDynamic GetActivator()
+        {
+            return activator;
         }
 
         private bool IsActive(IDynamic idy)

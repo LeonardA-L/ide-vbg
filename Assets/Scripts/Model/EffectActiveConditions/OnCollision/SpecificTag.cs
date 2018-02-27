@@ -4,7 +4,8 @@ using UnityEngine;
 
 namespace vbg
 {
-    [AddComponentMenu("GameEffect/ActivateConditions/Specific Tag")]
+    [AddComponentMenu("GameEffect/ActivateConditions/OnCollision/Specific Tag")]
+    [RequireComponent(typeof(OnCollision))]
     public class SpecificTag : GameEffectActivate
     {
         [Tooltip("Only Activator with one of these tags will be able to activate this GameEffect")]

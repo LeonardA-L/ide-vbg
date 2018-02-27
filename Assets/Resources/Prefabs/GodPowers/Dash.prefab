@@ -25,6 +25,8 @@ GameObject:
   - component: {fileID: 114129860572513320}
   - component: {fileID: 114283065146681096}
   - component: {fileID: 114010743986453216}
+  - component: {fileID: 114164519925785518}
+  - component: {fileID: 114124466900529656}
   m_Layer: 0
   m_Name: Dash
   m_TagString: GameEffect
@@ -39,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1410900066037384}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.132705, y: 0.5, z: 19.703964}
+  m_LocalPosition: {x: 3.894183, y: -2.3713285e-17, z: -11.164097}
   m_LocalScale: {x: 0.6964658, y: 1, z: 0.17527579}
   m_Children: []
   m_Father: {fileID: 0}
@@ -111,6 +113,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 0.1
   currentDelay: 0.1
+--- !u!114 &114124466900529656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1410900066037384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068857111d7f5e14aa0cbcc12eeb7fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114129860572513320
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,14 +138,14 @@ MonoBehaviour:
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
-  ownerActive: 2
   destroyParent: 0
   destroyOnWall: 0
-  processMode: 0
   resetNotFinish: 0
-  healthImpact: 0
-  impactPerFrame: 1
-  friendlyFire: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
   pushForce:
     active: 1
     pushForceVector: {x: 0, y: 1, z: 10}
@@ -140,17 +153,34 @@ MonoBehaviour:
     pushForceIsOmnidirectional: 0
     pushForceNoY: 0
     pushForceDecreaseLength: 0
-  switchName: 
-  switchValue: 1
-  unstableSwitch: 0
-  valueName: 
-  updateMode: 0
-  valueUpdate: 0
-  unstableValue: 0
-  updateRate: 0
-  toHotspot: {fileID: 0}
-  teleportWithRotation: 0
-  preserveMomentum: 0
+  switchImpact:
+    active: 0
+    name: 
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
+--- !u!114 &114164519925785518
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1410900066037384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3084a4cb85c5434db60aa147c9298a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114283065146681096
 MonoBehaviour:
   m_ObjectHideFlags: 1

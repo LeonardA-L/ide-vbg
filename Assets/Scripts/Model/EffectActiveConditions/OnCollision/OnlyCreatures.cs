@@ -4,8 +4,9 @@ using UnityEngine;
 
 namespace vbg
 {
-    [AddComponentMenu("GameEffect/ActivateConditions/Only Objects")]
-    public class OnlyObjects : GameEffectActivate
+    [AddComponentMenu("GameEffect/ActivateConditions/OnCollision/Only Creatures")]
+    [RequireComponent(typeof(OnCollision))]
+    public class OnlyCreatures : GameEffectActivate
     {
         void Start()
         {
@@ -17,8 +18,8 @@ namespace vbg
             {
                 return true;
             }
-            Dynamic dy = idy as Dynamic;
-            return dy != null;
+            VBGCharacterController cc = idy as VBGCharacterController;
+            return cc != null;
         }
     }
 }

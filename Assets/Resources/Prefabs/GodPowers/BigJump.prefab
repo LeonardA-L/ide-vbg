@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 23823750092149252}
   - component: {fileID: 114757126638475454}
   - component: {fileID: 114847217328214810}
+  - component: {fileID: 114104696761241184}
+  - component: {fileID: 114026444234938482}
   m_Layer: 0
   m_Name: BigJump
   m_TagString: GameEffect
@@ -38,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1923744890027746}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.686871, y: 0.5, z: 19.187521}
+  m_LocalPosition: {x: 5.7478914, y: -2.4177402e-17, z: -11.122293}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,6 +99,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114026444234938482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1923744890027746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3084a4cb85c5434db60aa147c9298a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114104696761241184
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1923744890027746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068857111d7f5e14aa0cbcc12eeb7fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114757126638475454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,14 +135,14 @@ MonoBehaviour:
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
-  ownerActive: 2
   destroyParent: 0
   destroyOnWall: 0
-  processMode: 0
   resetNotFinish: 0
-  healthImpact: 0
-  impactPerFrame: 1
-  friendlyFire: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
   pushForce:
     active: 1
     pushForceVector: {x: 0, y: 40, z: 1}
@@ -126,17 +150,23 @@ MonoBehaviour:
     pushForceIsOmnidirectional: 0
     pushForceNoY: 0
     pushForceDecreaseLength: 0
-  switchName: 
-  switchValue: 1
-  unstableSwitch: 0
-  valueName: 
-  updateMode: 0
-  valueUpdate: 0
-  unstableValue: 0
-  updateRate: 0
-  toHotspot: {fileID: 0}
-  teleportWithRotation: 0
-  preserveMomentum: 0
+  switchImpact:
+    active: 0
+    name: 
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
 --- !u!114 &114847217328214810
 MonoBehaviour:
   m_ObjectHideFlags: 1

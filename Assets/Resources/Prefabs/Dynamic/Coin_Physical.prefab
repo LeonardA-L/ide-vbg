@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 54025879282307466}
   - component: {fileID: 114281251336190336}
   - component: {fileID: 114810186627934552}
+  - component: {fileID: 114523144053414790}
   - component: {fileID: 114578989615078606}
   m_Layer: 0
   m_Name: Coin_Physical
@@ -40,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1188652331024494}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.89, y: 1.22, z: 16.02}
+  m_LocalPosition: {x: -4.6578374, y: -3.6929118e-17, z: 24.372944}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -128,10 +129,8 @@ MonoBehaviour:
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
-  ownerActive: 0
   destroyParent: 0
   destroyOnWall: 0
-  processMode: 0
   resetNotFinish: 0
   healthImpact:
     active: 0
@@ -157,9 +156,22 @@ MonoBehaviour:
     update: 1
     unstable: 0
     updateRate: 0
-  toHotspot: {fileID: 0}
-  teleportWithRotation: 0
-  preserveMomentum: 0
+  teleport:
+    active: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
+--- !u!114 &114523144053414790
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1188652331024494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068857111d7f5e14aa0cbcc12eeb7fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114578989615078606
 MonoBehaviour:
   m_ObjectHideFlags: 1

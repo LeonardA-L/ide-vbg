@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 23074678196419664}
   - component: {fileID: 114684455485837450}
   - component: {fileID: 114762302255645516}
+  - component: {fileID: 114040920961482520}
+  - component: {fileID: 114902633341230268}
   m_Layer: 0
   m_Name: HealZone
   m_TagString: GameEffect
@@ -38,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1882697391419768}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.13, y: 0, z: 16.65}
+  m_LocalPosition: {x: 1.4783257, y: -2.3046064e-17, z: -11.2241955}
   m_LocalScale: {x: 2.5319095, y: 2.5319102, z: 2.5319102}
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,6 +87,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1882697391419768}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114040920961482520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1882697391419768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7f0f60c5c7a9914a92925d781ee3794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114684455485837450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,10 +112,8 @@ MonoBehaviour:
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
-  ownerActive: 1
   destroyParent: 0
   destroyOnWall: 0
-  processMode: 0
   resetNotFinish: 0
   healthImpact:
     active: 1
@@ -116,17 +127,23 @@ MonoBehaviour:
     pushForceIsOmnidirectional: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
-  switchName: 
-  switchValue: 1
-  unstableSwitch: 0
-  valueName: 
-  updateMode: 0
-  valueUpdate: 0
-  unstableValue: 0
-  updateRate: 0
-  toHotspot: {fileID: 0}
-  teleportWithRotation: 0
-  preserveMomentum: 0
+  switchImpact:
+    active: 0
+    name: 
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
 --- !u!114 &114762302255645516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,6 +153,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e147ff2e25a63b47ba24773c9e2120e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114902633341230268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1882697391419768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068857111d7f5e14aa0cbcc12eeb7fe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!136 &136480858782744680

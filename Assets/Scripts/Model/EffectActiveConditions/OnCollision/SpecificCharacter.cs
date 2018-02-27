@@ -4,7 +4,8 @@ using UnityEngine;
 
 namespace vbg
 {
-    [AddComponentMenu("GameEffect/ActivateConditions/Specific Character")]
+    [AddComponentMenu("GameEffect/ActivateConditions/OnCollision/Specific Character")]
+    [RequireComponent(typeof(OnCollision))]
     public class SpecificCharacter : GameEffectActivate
     {
         [Tooltip("Only Character to be able to activate this GameEffect")]

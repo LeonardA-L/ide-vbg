@@ -7,10 +7,11 @@ namespace vbg
     [RequireComponent(typeof(GameEffect))]
     public class GameEffectActivate : MonoBehaviour
     {
+        protected GameEffect gameEffect;
 
         void Start()
         {
-            // TODO get GameEffect component ?
+            gameEffect = GetComponent<GameEffect>();
         }
 
         public virtual bool IsActive(IDynamic idy)

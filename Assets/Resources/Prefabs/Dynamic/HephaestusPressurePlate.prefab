@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 65425735937710246}
   - component: {fileID: 114022818051252682}
   - component: {fileID: 114594738852035262}
+  - component: {fileID: 114326931660682860}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: GameEffect
@@ -67,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1243441347091348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.46, y: -0.055, z: 17.63}
+  m_LocalPosition: {x: -0.1744237, y: -5.3272043e-17, z: 25.8944}
   m_LocalScale: {x: 2, y: 0.2, z: 2}
   m_Children:
   - {fileID: 4261006217019292}
@@ -153,10 +154,8 @@ MonoBehaviour:
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
-  ownerActive: 0
   destroyParent: 0
   destroyOnWall: 0
-  processMode: 0
   resetNotFinish: 0
   healthImpact:
     active: 0
@@ -182,9 +181,22 @@ MonoBehaviour:
     update: 0
     unstable: 0
     updateRate: 0
-  toHotspot: {fileID: 0}
-  teleportWithRotation: 0
-  preserveMomentum: 0
+  teleport:
+    active: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
+--- !u!114 &114326931660682860
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422744430904358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068857111d7f5e14aa0cbcc12eeb7fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114594738852035262
 MonoBehaviour:
   m_ObjectHideFlags: 1

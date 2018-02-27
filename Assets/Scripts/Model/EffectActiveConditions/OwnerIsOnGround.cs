@@ -17,7 +17,7 @@ namespace vbg
 
         public override bool IsActive(IDynamic idy)
         {
-            return owner.isGrounded;
+            return owner != null && owner.isGrounded;
         }
     }
 }
