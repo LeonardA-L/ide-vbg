@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 23399732594367816}
   - component: {fileID: 114175001139765008}
   - component: {fileID: 114358130574132066}
+  - component: {fileID: 114647887805590900}
   - component: {fileID: 54700707261946688}
   - component: {fileID: 114338249050961676}
   m_Layer: 0
@@ -157,10 +158,8 @@ MonoBehaviour:
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 5, z: 20}
   owner: {fileID: 0}
-  ownerActive: 0
   destroyParent: 1
   destroyOnWall: 1
-  processMode: 0
   resetNotFinish: 0
   healthImpact:
     active: 1
@@ -174,17 +173,23 @@ MonoBehaviour:
     pushForceIsOmnidirectional: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
-  switchName: 
-  switchValue: 1
-  unstableSwitch: 0
-  valueName: 
-  updateMode: 0
-  valueUpdate: 0
-  unstableValue: 0
-  updateRate: 0
-  toHotspot: {fileID: 0}
-  teleportWithRotation: 0
-  preserveMomentum: 0
+  switchImpact:
+    active: 0
+    name: 
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
 --- !u!114 &114338249050961676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -210,3 +215,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   times: 1
   currentTimes: 1
+--- !u!114 &114647887805590900
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1123465278882356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068857111d7f5e14aa0cbcc12eeb7fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
