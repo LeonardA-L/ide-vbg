@@ -65,6 +65,8 @@ namespace vbg
             bool modifierActive = modifier > 0.6f && modifier >= prevModifier;
             prevModifier = modifier;
 
+            bool directionActive = false;
+
             // calculate move direction to pass to character
             if (m_Cam != null)
             {
@@ -76,6 +78,7 @@ namespace vbg
                 if (m_Move.magnitude == 0.0f && joyR.magnitude > 0.3f)
                 {
                     m_Dir = vr * m_CamForward + hr * m_Cam.right;
+                    directionActive = true;
                     //Debug.Log(m_Move.magnitude);
                 }
             }
@@ -125,7 +128,8 @@ namespace vbg
                 move = m_Move,
                 direction = m_Dir,
                 inputNorm = joy.magnitude,
-                action = action
+                action = action,
+                directionNorm = directionActive ? joyR.magnitude : 0.0f
             };
 
             // pass all parameters to the character control script

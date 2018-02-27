@@ -19,6 +19,7 @@ namespace vbg
 
             public readonly static string LAYER_COLLIDERS = "Colliders";
 
+            public readonly static float HUD_COMPASS_FADEOUT = 0.2f;    // s
         }
 
         protected static GameManager instance;

@@ -497,7 +497,7 @@ namespace vbg
 
         public void ProcessAlways()
         {
-            Debug.Log("Process Always " + gameObject.name);
+            //Debug.Log("Process Always " + gameObject.name);
 
             if (!IsActive(null))
             {

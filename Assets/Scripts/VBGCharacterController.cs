@@ -51,6 +51,7 @@ namespace vbg
             public Vector3 move;
             public Vector3 direction;
             public float inputNorm;
+            public float directionNorm;
             public Action action;
         }
 
@@ -58,6 +59,7 @@ namespace vbg
         private Rigidbody rb;
         private CharacterHealth health;
         private Animator animator;
+        private HUDHelper hudHelper;
 
         // Parameters
         public float speed = 6;
@@ -80,6 +82,7 @@ namespace vbg
         private Vector3 lastDirection;
         private Vector3 lastMove;
         private float lastInputNorm;
+        private float lastDirectionNorm;
         private Action action;
         private List<GameEffect> activeGameEffects;
         private bool weaponIsActive;
@@ -94,6 +97,7 @@ namespace vbg
             activeGameEffects = new List<GameEffect>();
             health = GetComponent<CharacterHealth>();
             animator = GetComponent<Animator>();
+            hudHelper = GetComponent<HUDHelper>();
             weaponIsActive = false;
             isGrounded = true;
         }
@@ -171,8 +175,9 @@ namespace vbg
                 lastMove = _req.move.normalized;
             }
             lastInputNorm = _req.inputNorm;
+            lastDirectionNorm = _req.directionNorm;
 
-            if(_req.action != Action.NONE)
+            if (_req.action != Action.NONE)
             {
                 action = _req.action;
             }
@@ -289,6 +294,11 @@ namespace vbg
             {
                 return weaponIsActive;
             }
+        }
+
+        public float GetDirectionNorm()
+        {
+            return lastDirectionNorm;
         }
     }
 }
