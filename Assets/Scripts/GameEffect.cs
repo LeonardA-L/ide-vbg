@@ -111,6 +111,8 @@ namespace vbg
         //public ProcessMode processMode = ProcessMode.ON_COLLISION;
         [Tooltip("When the game effect finishes, it will be reset instead of destroyed")]
         public bool resetNotFinish = false;
+        [Tooltip("When checked, the game effect will remain activated even if its activation conditions fail")]
+        public bool stable = false;
 
         [Header("Impacts")]
         public HealthImpact healthImpact;
@@ -130,6 +132,7 @@ namespace vbg
         private Transform toFollow;
         private bool followForward;
         private bool followRotation;
+        private bool processedOnce = false;
 
         private bool lastFrameProcessed = false;
 
@@ -485,6 +488,7 @@ namespace vbg
 
         private void AfterProcessCommon()
         {
+            processedOnce = true;
             foreach (GameEffectExit gee in exitConditions)
             {
                 if (gee.AfterProcess())
@@ -554,6 +558,10 @@ namespace vbg
 
         private bool IsActive(IDynamic idy)
         {
+            if(IsStableAndActivated())
+            {
+                return true;
+            }
             foreach (GameEffectActivate gea in activateConditions)
             {
                 if (!gea.IsActive(idy))
@@ -571,6 +579,11 @@ namespace vbg
             toFollow = _transform;
             followForward = _followForward;
             followRotation = _followRotation;
+        }
+
+        public bool IsStableAndActivated()
+        {
+            return processedOnce && stable;
         }
     }
 }

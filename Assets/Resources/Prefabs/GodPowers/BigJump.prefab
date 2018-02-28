@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114847217328214810}
   - component: {fileID: 114104696761241184}
   - component: {fileID: 114026444234938482}
+  - component: {fileID: 114268762971055310}
   m_Layer: 0
   m_Name: BigJump
   m_TagString: GameEffect
@@ -121,6 +122,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 068857111d7f5e14aa0cbcc12eeb7fe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114268762971055310
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1923744890027746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 051eeeb4f36defa42ac28313dda7e5fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114757126638475454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,6 +150,7 @@ MonoBehaviour:
   destroyParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
+  stable: 1
   healthImpact:
     active: 0
     impact: 0
