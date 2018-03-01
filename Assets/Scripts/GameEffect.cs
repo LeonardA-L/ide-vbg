@@ -274,7 +274,8 @@ namespace vbg
         {
 
             if (other.gameObject.tag == GameManager.Constants.TAG_CHARACTER
-                || other.gameObject.tag == GameManager.Constants.TAG_DYNAMIC)
+                || other.gameObject.tag == GameManager.Constants.TAG_DYNAMIC
+                || other.gameObject.tag == GameManager.Constants.TAG_ENNEMY)
             {
                 VBGCharacterController cc = other.gameObject.GetComponent<VBGCharacterController>();
                 Dynamic dy = other.gameObject.GetComponent<Dynamic>();
@@ -316,7 +317,8 @@ namespace vbg
         {
 
             if (other.gameObject.tag == GameManager.Constants.TAG_CHARACTER
-                || other.gameObject.tag == GameManager.Constants.TAG_DYNAMIC)
+                || other.gameObject.tag == GameManager.Constants.TAG_DYNAMIC
+                || other.gameObject.tag == GameManager.Constants.TAG_ENNEMY)
             {
                 VBGCharacterController cc = other.gameObject.GetComponent<VBGCharacterController>();
                 Dynamic dy = other.gameObject.GetComponent<Dynamic>();

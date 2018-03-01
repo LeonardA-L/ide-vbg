@@ -6,6 +6,7 @@ namespace vbg
 {
     [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(Animator))]
+    [RequireComponent(typeof(CharacterHealth))]
     public class VBGCharacterController : MonoBehaviour, IDynamic
     {
 

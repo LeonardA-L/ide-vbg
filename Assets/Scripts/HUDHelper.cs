@@ -24,7 +24,7 @@ namespace vbg
         // Update is called once per frame
         void Update()
         {
-            Debug.Log(compass);
+            //Debug.Log(compass);
             if(compass != null)
             {
                 UpdateCompass();
@@ -34,7 +34,7 @@ namespace vbg
         private void UpdateCompass()
         {
             float dirNorm = controller.GetDirectionNorm();
-            Debug.Log(dirNorm);
+            //Debug.Log(dirNorm);
             if (dirNorm > 0.0f)
             {
                 timer = GameManager.Constants.HUD_COMPASS_FADEOUT;
@@ -44,7 +44,7 @@ namespace vbg
                 timer -= Time.deltaTime;
             }
             timer = Mathf.Clamp(timer, 0.0f, GameManager.Constants.HUD_COMPASS_FADEOUT);
-            Debug.Log(timer);
+            //Debug.Log(timer);
             compass.SetBool("Active", timer > 0.0f);
         }
     }

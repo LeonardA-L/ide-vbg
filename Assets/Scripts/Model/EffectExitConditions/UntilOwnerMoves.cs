@@ -22,7 +22,7 @@ namespace vbg
                 }
                 isInit = true;
                 initPosition = owner.transform.position;
-                Debug.Log(owner.name);
+                //Debug.Log(owner.name);
             }
 
             if((owner.transform.position - initPosition).magnitude > 0.05f)

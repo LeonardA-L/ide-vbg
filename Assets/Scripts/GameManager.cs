@@ -15,6 +15,7 @@ namespace vbg
         {
             public readonly static string TAG_CHARACTER = "Player";
             public readonly static string TAG_DYNAMIC = "Dynamic";
+            public readonly static string TAG_ENNEMY = "Ennemy";
             public readonly static string TAG_GAMEEFFECT = "GameEffect";
 
             public readonly static string LAYER_COLLIDERS = "Colliders";
