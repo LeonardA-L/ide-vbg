@@ -54,6 +54,14 @@ namespace vbg
             public float inputNorm;
             public float directionNorm;
             public Action action;
+            public void Init()
+            {
+                move = Vector3.zero;
+                direction = Vector3.zero;
+                inputNorm = 0.0f;
+                directionNorm = 0.0f;
+                action = Action.NONE;
+            }
         }
 
         // Components
@@ -189,6 +197,7 @@ namespace vbg
             switch(action)
             {
                 case Action.ATTACK:
+                    Debug.Log("Attack !");
                     animator.SetTrigger("Attack");
                 break;
                 case Action.SPE_ATTACK:

@@ -1048,6 +1048,7 @@ GameObject:
   - component: {fileID: 114795355744153602}
   - component: {fileID: 114290241945267454}
   - component: {fileID: 114803978299918668}
+  - component: {fileID: 114205907329238738}
   m_Layer: 0
   m_Name: Sword
   m_TagString: GameEffect
@@ -1452,7 +1453,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1207334482692204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5754683, y: -3.9502397e-17, z: 24.612505}
+  m_LocalPosition: {x: 10.472446, y: 3.3669285e-17, z: 17.56734}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4689323320223958}
@@ -2502,6 +2503,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114205907329238738
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1742290888480744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff93a6b26832ea48a257b251ac22533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114288608461417206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2530,6 +2542,7 @@ MonoBehaviour:
   destroyParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
+  stable: 0
   healthImpact:
     active: 1
     impact: -75
