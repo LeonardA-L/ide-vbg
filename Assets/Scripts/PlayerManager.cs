@@ -113,9 +113,14 @@ namespace vbg
             return barycenter;
         }
 
-        public int GetPlayersInGame()
+        public int GetPlayersInGameAmount()
         {
             return playersInGame;
+        }
+
+        public List<VBGCharacterController> GetAllPlayersInGame()
+        {
+            return players;
         }
     }
 }

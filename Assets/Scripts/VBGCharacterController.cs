@@ -197,7 +197,6 @@ namespace vbg
             switch(action)
             {
                 case Action.ATTACK:
-                    Debug.Log("Attack !");
                     animator.SetTrigger("Attack");
                 break;
                 case Action.SPE_ATTACK:

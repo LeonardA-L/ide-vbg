@@ -8,16 +8,23 @@ namespace vbg
     public class CharacterAIControl : MonoBehaviour
     {
         public Transform m_target;
+        private Transform m_bestTarget;
         private VBGCharacterController m_character; // A reference to the ThirdPersonCharacter on the object
         private CharacterHealth m_health; // A reference to the ThirdPersonCharacter on the object
         private NavMeshPath m_path;
         private Animator m_aiAnimator;
 
-        enum VBGAIState
+        private ChildCollider m_earRange;
+
+        public VBGAIState m_currentState;
+        public float m_elapsedInCurrentState;
+
+        public enum VBGAIState
         {
             IDLE,
+            PICK_TARGET,
             REACH_TARGET,
-            ATTACK
+            ATTACK,
         }
 
         // Use this for initialization
@@ -26,6 +33,9 @@ namespace vbg
             m_path = new NavMeshPath();
             m_character = GetComponent<VBGCharacterController>();
             m_aiAnimator = transform.Find("AI").GetComponent<Animator>();
+            Transform earRangeGO = transform.Find("EarRange");
+            m_earRange = earRangeGO ? earRangeGO.GetComponent<ChildCollider>() : null;
+            m_health = GetComponent<CharacterHealth>();
         }
 
         // Update is called once per frame
@@ -36,26 +46,75 @@ namespace vbg
 
             m_aiAnimator.SetFloat("Health", m_health.GetHealth());
 
+            ComputeBestTarget();
+            if(m_bestTarget == null)
+            {
+                m_target = null;
+            }
+
+            m_aiAnimator.SetBool("BetterTargetAvailable", m_target != m_bestTarget);
+
             if (m_target != null)
             {
-                m_aiAnimator.SetTrigger("HasTarget");
-
                 Vector3 distance = m_target.transform.position - transform.position;
 
                 m_aiAnimator.SetBool("TargetInAttackReach", distance.magnitude < 2.5f);
+            } else
+            {
+                m_aiAnimator.SetBool("TargetInAttackReach", false);
+                m_aiAnimator.SetTrigger("NoTarget");
             }
 
             FSMFrame(ref request);
+
+            m_aiAnimator.SetFloat("EslapsedTimeInState", m_elapsedInCurrentState);
 
             m_character.Move(request);
 
         }
 
+        void ComputeBestTarget()
+        {
+            m_bestTarget = null;
+            float minScore = float.MaxValue;
+
+            List<VBGCharacterController> potentialTargets = PlayerManager.Instance.GetAllPlayersInGame();
+            if(m_earRange != null)
+            {
+                potentialTargets = m_earRange.GetCharactersInRange();
+            }
+
+            foreach(VBGCharacterController ch in potentialTargets)
+            {
+                if(ch.tag != this.tag)
+                {
+                    if (m_bestTarget == null || TargetScore(ch) < minScore)
+                    {
+                        m_bestTarget = ch.transform;
+                    }
+                }
+            }
+        }
+
+        float TargetScore(VBGCharacterController cc)
+        {
+            return (cc.transform.position - transform.position).magnitude;
+        }
+
         void FSMFrame(ref VBGCharacterController.Request _request)
         {
-            VBGAIState currentState = GetCurrentState();
+            VBGAIState lastState = m_currentState;
+            m_currentState = GetCurrentState();
 
-            switch(currentState)
+            if(m_currentState != lastState)
+            {
+                m_elapsedInCurrentState = 0.0f;
+            } else
+            {
+                m_elapsedInCurrentState += Time.deltaTime;
+            }
+
+            switch(m_currentState)
             {
                 case VBGAIState.ATTACK:
                     StateAttack(ref _request);
@@ -63,6 +122,9 @@ namespace vbg
                 case VBGAIState.REACH_TARGET:
                     StateReachTarget(ref _request);
                 break;
+                case VBGAIState.PICK_TARGET:
+                    PickTarget(ref _request);
+                    break;
                 case VBGAIState.IDLE:
                 default:
                     StateIdle(ref _request);
@@ -78,6 +140,8 @@ namespace vbg
                 return VBGAIState.IDLE;
             if (state.IsName("ReachTarget"))
                 return VBGAIState.REACH_TARGET;
+            if (state.IsName("PickTarget"))
+                return VBGAIState.PICK_TARGET;
             if (state.IsName("Attack"))
                 return VBGAIState.ATTACK;
 
@@ -137,6 +201,20 @@ namespace vbg
 
         void StateIdle(ref VBGCharacterController.Request _request)
         {
+            m_target = null;
+        }
+
+        void PickTarget(ref VBGCharacterController.Request _request)
+        {
+            ComputeBestTarget();
+            if(m_bestTarget != null)
+            {
+                m_target = m_bestTarget;
+                m_aiAnimator.SetTrigger("Success");
+            } else
+            {
+                m_aiAnimator.SetTrigger("Failure");
+            }
         }
     }
 }

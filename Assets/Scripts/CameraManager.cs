@@ -66,7 +66,7 @@ namespace vbg
             if (m_currentMode == CameraType.SCENE)
             {
                 m_cam.position = Vector3.Lerp(m_cam.position, m_cameraToFollow.position, m_positionSmooth);
-                if(m_aimAtCenter && PlayerManager.Instance.GetPlayersInGame() > 0)
+                if(m_aimAtCenter && PlayerManager.Instance.GetPlayersInGameAmount() > 0)
                 {
                     Vector3 cameraToBarycenter = PlayerManager.Instance.GetPlayerBarycenter() - m_cam.position;
                     m_cam.forward = Vector3.Lerp(m_cam.forward, cameraToBarycenter, m_rotationSmooth);
@@ -76,7 +76,7 @@ namespace vbg
                 }
             }
 
-            if (m_currentMode == CameraType.ANIMATED && PlayerManager.Instance.GetPlayersInGame() > 0)
+            if (m_currentMode == CameraType.ANIMATED && PlayerManager.Instance.GetPlayersInGameAmount() > 0)
             {
                 // Compute position ratio
                 Vector3 centerPosition = PlayerManager.Instance.GetPlayerBarycenter();
