@@ -169,8 +169,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1264534017314214}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.19, y: 0, z: 14.29}
+  m_LocalRotation: {x: -0, y: -0.1996896, z: -0, w: 0.97985923}
+  m_LocalPosition: {x: 5.859245, y: -14.149204, z: -22.030401}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4076682935170604}
@@ -181,7 +181,7 @@ Transform:
   - {fileID: 4327400526462068}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -23.038002, z: 0}
 --- !u!4 &4259054938995488
 Transform:
   m_ObjectHideFlags: 1
@@ -488,8 +488,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ad7ed69a4757040808f735d6e7dc63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.8
-  rotationSpeedFactor: 0.1
+  speed: 2.5
+  rotationSpeedFactor: 0.08
   groundChecker: {fileID: 4076682935170604}
   Ground:
     serializedVersion: 2
@@ -600,7 +600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9bb02040104824a97555c6df5681d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 40
   threshold: 0
 --- !u!135 &135673109335987216
 SphereCollider:

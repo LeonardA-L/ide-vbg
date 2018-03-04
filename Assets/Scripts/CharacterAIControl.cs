@@ -45,6 +45,7 @@ namespace vbg
             request.Init();
 
             m_aiAnimator.SetFloat("Health", m_health.GetHealth());
+            m_aiAnimator.SetBool("IsDead", m_health.IsDead());
 
             ComputeBestTarget();
             if(m_bestTarget == null)

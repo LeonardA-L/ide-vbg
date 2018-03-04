@@ -6,7 +6,7 @@ namespace vbg
     {
         void Start()
         {
-            GetComponent<MeshRenderer>().enabled = GameManager.DebugConstants.SHOW_COLLIDERS_INGAME && Debug.isDebugBuild;
+            GetComponent<MeshRenderer>().enabled = GameManager.Instance.showCollidersInGame && Debug.isDebugBuild;
         }
     }
 }

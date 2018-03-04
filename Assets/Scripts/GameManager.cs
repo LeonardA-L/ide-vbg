@@ -6,6 +6,8 @@ namespace vbg
 {
     public class GameManager : MonoBehaviour
     {
+
+        public bool showCollidersInGame = DebugConstants.SHOW_COLLIDERS_INGAME;
         public struct DebugConstants
         {
             public readonly static bool SHOW_COLLIDERS_INGAME = true;
