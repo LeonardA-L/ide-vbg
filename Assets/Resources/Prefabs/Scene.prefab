@@ -118,14 +118,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1207294117489148}
-  m_LocalRotation: {x: 0.14475703, y: -0.8513773, z: 0.3098759, w: 0.3977173}
-  m_LocalPosition: {x: 16.399717, y: 3.2006893, z: 5.254507}
+  m_LocalRotation: {x: 0.16196807, y: -0.8370499, z: 0.34671736, w: 0.39102554}
+  m_LocalPosition: {x: 13.65, y: 10.17, z: 24.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4158140888828190}
   m_Father: {fileID: 4855185462108202}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 40, y: -129.921, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: -129.921, z: 0}
 --- !u!4 &4158140888828190
 Transform:
   m_ObjectHideFlags: 1
@@ -163,7 +163,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4855185462108202}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4837041001813956
 Transform:
@@ -176,7 +176,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4855185462108202}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!4 &4855185462108202
 Transform:
@@ -185,12 +185,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1061582991882470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.449717, y: 9.069311, z: 24.165493}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4081398296059798}
-  - {fileID: 4837041001813956}
   - {fileID: 4763849377376982}
+  - {fileID: 4837041001813956}
   - {fileID: 4218723099328454}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -291,6 +291,7 @@ MonoBehaviour:
   destroyParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
+  stable: 0
   healthImpact:
     active: 0
     impact: 0
@@ -355,6 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 206a3925dd489bb40979108a5634c536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showCollidersInGame: 0
 --- !u!114 &114337940415824672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -382,7 +384,7 @@ MonoBehaviour:
   aresPrefab: {fileID: 1207334482692204, guid: 8fbed48592678b247a2ac75542849ba8, type: 2}
   artemisPrefab: {fileID: 1409938460915610, guid: 36b13ee441d1c7240a85e500b296170c,
     type: 2}
-  hephaestusPrefab: {fileID: 1409938460915610, guid: 43d71e26d3a489049b57a101fd3289c9,
+  hephaestusPrefab: {fileID: 1111775559832274, guid: be0fa06da3c59e74fb4e51252d1f3d72,
     type: 2}
   apolloPrefab: {fileID: 1219708322459502, guid: ccdd3432244e5b047a9199bbc2bb70f0,
     type: 2}
