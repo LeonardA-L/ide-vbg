@@ -57,7 +57,11 @@ namespace vbg
 
         private void UpdateDeathTimer()
         {
-            float ratio = controller.GetDeathTimer() / VBGCharacterController.Constants.DEATH_REVIVE_TIME;
+            float ratio = 0.0f;
+            if (controller.IsDead())
+            {
+                ratio = 1 - (controller.GetDeathTimer() / VBGCharacterController.Constants.DEATH_REVIVE_TIME);
+            }
             deathTimer.fillAmount = ratio;
         }
     }

@@ -150,7 +150,7 @@ namespace vbg
 
             // Cooldowns
             // TODO in list
-            if (health.IsDead())
+            if (health.IsDead() && tag == GameManager.Constants.TAG_PLAYER)
             {
                 float reviveSpeed = GetReviveSpeed();
                 deathTimer = Mathf.Clamp(deathTimer - (reviveSpeed * Time.deltaTime), 0.0f, Constants.DEATH_REVIVE_TIME);
@@ -353,6 +353,10 @@ namespace vbg
 
             foreach(VBGCharacterController player in players)
             {
+                if(player == this)
+                {
+                    continue;
+                }
                 float distance = (player.transform.position - transform.position).magnitude;
 
                 if(distance < Constants.DEATH_REVIVE_RADIUS)
@@ -367,6 +371,11 @@ namespace vbg
             }
 
             return ret;
+        }
+
+        public bool IsDead()
+        {
+            return health.IsDead();
         }
     }
 }

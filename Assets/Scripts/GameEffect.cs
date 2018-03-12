@@ -273,7 +273,7 @@ namespace vbg
         private void OnTriggerEnter(UnityEngine.Collider other)
         {
 
-            if (other.gameObject.tag == GameManager.Constants.TAG_CHARACTER
+            if (other.gameObject.tag == GameManager.Constants.TAG_PLAYER
                 || other.gameObject.tag == GameManager.Constants.TAG_DYNAMIC
                 || other.gameObject.tag == GameManager.Constants.TAG_ENNEMY)
             {
@@ -316,7 +316,7 @@ namespace vbg
         private void OnTriggerExit(UnityEngine.Collider other)
         {
 
-            if (other.gameObject.tag == GameManager.Constants.TAG_CHARACTER
+            if (other.gameObject.tag == GameManager.Constants.TAG_PLAYER
                 || other.gameObject.tag == GameManager.Constants.TAG_DYNAMIC
                 || other.gameObject.tag == GameManager.Constants.TAG_ENNEMY)
             {
