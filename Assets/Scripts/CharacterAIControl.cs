@@ -25,6 +25,7 @@ namespace vbg
             PICK_TARGET,
             REACH_TARGET,
             ATTACK,
+            DIE,
         }
 
         // Use this for initialization
@@ -145,6 +146,8 @@ namespace vbg
                 return VBGAIState.PICK_TARGET;
             if (state.IsName("Attack"))
                 return VBGAIState.ATTACK;
+            if (state.IsName("Die"))
+                return VBGAIState.DIE;
 
             Debug.Assert(false, "Getting current state failed");
             return VBGAIState.IDLE;
