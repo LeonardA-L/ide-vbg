@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace vbg
 {
     public class HUDHelper : MonoBehaviour
     {
         private Animator compass;
+        public Image deathTimer;
         private VBGCharacterController controller;
         private float timer = 0.0f;
 
@@ -29,6 +31,11 @@ namespace vbg
             {
                 UpdateCompass();
             }
+
+            if (deathTimer != null)
+            {
+                UpdateDeathTimer();
+            }
         }
 
         private void UpdateCompass()
@@ -46,6 +53,12 @@ namespace vbg
             timer = Mathf.Clamp(timer, 0.0f, GameManager.Constants.HUD_COMPASS_FADEOUT);
             //Debug.Log(timer);
             compass.SetBool("Active", timer > 0.0f);
+        }
+
+        private void UpdateDeathTimer()
+        {
+            float ratio = controller.GetDeathTimer() / VBGCharacterController.Constants.DEATH_REVIVE_TIME;
+            deathTimer.fillAmount = ratio;
         }
     }
 }

@@ -15,6 +15,8 @@ namespace vbg
 
             public readonly static float CHARACTER_START_HEALTH = 100.0f;
             public readonly static int ANIMATOR_LAYER_ATTACK = 0;
+            public readonly static float DEATH_REVIVE_TIME = 5.0f;
+            public readonly static float DEATH_REVIVE_RADIUS = 2.0f;
         }
 
         [System.Serializable]
@@ -97,6 +99,7 @@ namespace vbg
         private bool weaponIsActive;
         private Vector3 bodyMovement;
         public bool isGrounded;
+        private float deathTimer = 0.0f;
 
 
         // Use this for initialization
@@ -116,6 +119,7 @@ namespace vbg
         {
             isGrounded = Physics.CheckSphere(groundChecker.position, groundChecker.localPosition.y + 0.1f, Ground, QueryTriggerInteraction.Ignore);
             weaponIsActive = animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking");
+
             // Apply movement
             bodyMovement = rb.velocity;
             ProcessAction();
@@ -146,6 +150,12 @@ namespace vbg
 
             // Cooldowns
             // TODO in list
+            if (health.IsDead())
+            {
+                float reviveSpeed = GetReviveSpeed();
+                deathTimer = Mathf.Clamp(deathTimer - (reviveSpeed * Time.deltaTime), 0.0f, Constants.DEATH_REVIVE_TIME);
+            }
+
             ProcessCooldown(specialAttack);
             ProcessCooldown(specialDefense);
             ProcessCooldown(specialMovement);
@@ -154,6 +164,11 @@ namespace vbg
             ProcessCooldown(movement);
             ProcessCooldown(defense);
             ProcessCooldown(special);
+            
+            if(health.IsDead() && deathTimer == 0.0f)
+            {
+                Revive();
+            }
         }
 
         private void ProcessCooldown(GameEffectCommand gec)
@@ -286,6 +301,21 @@ namespace vbg
                 return;
             }
             health.Damage(intensity);
+
+            if(health.GetHealth() == 0.0f)
+            {
+                Die();
+            }
+        }
+
+        private void Die()
+        {
+            deathTimer = Constants.DEATH_REVIVE_TIME;
+        }
+
+        private void Revive()
+        {
+            health.SetHealth(Constants.CHARACTER_START_HEALTH);
         }
 
         public void Heal(float intensity)
@@ -308,6 +338,35 @@ namespace vbg
         public float GetDirectionNorm()
         {
             return lastDirectionNorm;
+        }
+
+        public float GetDeathTimer()
+        {
+            return deathTimer;
+        }
+
+        private int GetReviveSpeed()
+        {
+            int ret = -1;
+
+            List<VBGCharacterController> players = PlayerManager.Instance.GetAllPlayersInGame();
+
+            foreach(VBGCharacterController player in players)
+            {
+                float distance = (player.transform.position - transform.position).magnitude;
+
+                if(distance < Constants.DEATH_REVIVE_RADIUS)
+                {
+                    ret++;
+                }
+            }
+
+            if(ret == 0)
+            {
+                ret = -1;
+            }
+
+            return ret;
         }
     }
 }

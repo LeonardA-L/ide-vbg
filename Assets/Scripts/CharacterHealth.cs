@@ -44,6 +44,12 @@ namespace vbg
             return health;
         }
 
+        public void SetHealth(float _health)
+        {
+            health = _health;
+            health = ClampHealth();
+        }
+
         public bool IsDead()
         {
             return health <= 0.0f;
