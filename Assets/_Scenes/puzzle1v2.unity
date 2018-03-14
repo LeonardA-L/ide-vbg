@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1868,6 +1868,7 @@ MonoBehaviour:
   destroyParent: 0
   destroyOnWall: 0
   resetNotFinish: 1
+  stable: 0
   healthImpact:
     active: 0
     impact: 0
@@ -3584,7 +3585,7 @@ Transform:
   m_Children:
   - {fileID: 605721806}
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &695860196
 MonoBehaviour:
@@ -4757,7 +4758,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4514964322431204, guid: dac2a3d054786184993c85c447a62503, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 28.15
+      value: 17.3
       objectReference: {fileID: 0}
     - target: {fileID: 4514964322431204, guid: dac2a3d054786184993c85c447a62503, type: 2}
       propertyPath: m_LocalRotation.x
@@ -5010,6 +5011,7 @@ MonoBehaviour:
   destroyParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
+  stable: 0
   healthImpact:
     active: 0
     impact: 0
@@ -7954,7 +7956,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4270894829414984, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
       propertyPath: m_RootOrder
-      value: 35
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 1663780173902246, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
       propertyPath: m_Name
@@ -8709,6 +8711,7 @@ MonoBehaviour:
   destroyParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
+  stable: 0
   healthImpact:
     active: 0
     impact: 0
@@ -9447,6 +9450,7 @@ MonoBehaviour:
   destroyParent: 0
   destroyOnWall: 0
   resetNotFinish: 1
+  stable: 0
   healthImpact:
     active: 0
     impact: 0
