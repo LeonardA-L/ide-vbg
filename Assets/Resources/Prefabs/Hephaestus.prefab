@@ -1557,7 +1557,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1111775559832274}
   m_LocalRotation: {x: -0, y: -0.9999333, z: -0, w: 0.01155148}
-  m_LocalPosition: {x: 4.202652, y: -0.0036621094, z: 14.941942}
+  m_LocalPosition: {x: 3.12, y: -0.0036621094, z: 17.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4617916785678168}
@@ -2326,6 +2326,7 @@ MonoBehaviour:
     pushForceIsOmnidirectional: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
+    resetMomentum: 0
   switchImpact:
     active: 0
     name: 
@@ -2519,10 +2520,11 @@ MonoBehaviour:
     timer: 0
     child: 0
   special:
-    toInstanciate: {fileID: 0}
+    toInstanciate: {fileID: 1095968749421036, guid: b24890bd481954d4c94cff359b62939d,
+      type: 2}
     cooldown: 2
     timer: 0
-    child: 0
+    child: 1
   isGrounded: 0
 --- !u!136 &136046995169629902
 CapsuleCollider:

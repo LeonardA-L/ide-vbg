@@ -23,6 +23,8 @@ namespace vbg
             public bool pushForceNoY = true;
             [Tooltip("Ratio for the decrease from the center of the GameEffect")]
             public float pushForceDecreaseLength = 0.0f;
+            //[Tooltip("Resets the momentum of the target when it is first activated")]
+            //public bool resetMomentum = false;
         }
 
         [System.Serializable]
@@ -82,6 +84,19 @@ namespace vbg
             public bool preserveMomentum = false;
         }
 
+        [System.Serializable]
+        public class AnimatorImpact
+        {
+            [Tooltip("Is Animator Impact Active")]
+            public bool active = false;
+            [Tooltip("Animator to impact. If none, will try to fetch the owner's animator")]
+            public Animator animator;
+
+            [Tooltip("Name of the trigger parameter to update in the animator")]
+            public string triggerName;
+            
+        }
+
         public enum FloatValueMode
         {
             NONE,
@@ -120,7 +135,8 @@ namespace vbg
         public SwitchImpact switchImpact;
         public ValueImpact valueImpact;
         public Teleport teleport;
-        
+        public AnimatorImpact animatorImpact;
+
 
         private bool hasValueBeenUpdated = false;
 
@@ -232,6 +248,11 @@ namespace vbg
                 GameObject finishObject = GameObject.Instantiate(finishPrefab);
                 finishObject.transform.position = transform.position;
                 finishObject.transform.rotation = transform.rotation;
+
+                GameEffect ge = finishObject.GetComponent<GameEffect>();
+                if (ge != null) {
+                    ge.SetOwner(owner);
+                }
             }
 
             toDelete = false;
@@ -430,6 +451,12 @@ namespace vbg
             if (!pushForce.active)
                 return;
 
+            /*if (pushForce.resetMomentum && !lastFrameProcessed)
+            {
+                Debug.Log("Go");
+                rb.velocity = new Vector3();
+            }*/
+
             if (pushForce.pushForceNorm > 0.0f)
             {
                 Vector3 force = new Vector3();
@@ -473,6 +500,9 @@ namespace vbg
 
         public void ProcessTeleport(Transform tr, Rigidbody rb)
         {
+            if (!teleport.active)
+                return;
+
             if (teleport.toHotspot)
             {
                 tr.position = teleport.toHotspot.position;
@@ -488,9 +518,31 @@ namespace vbg
             }
         }
 
+        public void ProcessAnimator()
+        {
+            if (!animatorImpact.active)
+                return;
+
+            Animator animator = animatorImpact.animator;
+
+            if(animator == null && owner != null)
+            {
+                animator = owner.GetComponent<Animator>();
+            }
+
+            if(animator == null)
+            {
+                Debug.Assert(false, "No animator provided nor found");
+                return;
+            }
+
+            animator.SetTrigger(animatorImpact.triggerName);
+        }
+
         private void AfterProcessCommon()
         {
             processedOnce = true;
+            lastFrameProcessed = true;
             foreach (GameEffectExit gee in exitConditions)
             {
                 if (gee.AfterProcess())
@@ -510,10 +562,9 @@ namespace vbg
                 return;
             }
 
-            lastFrameProcessed = true;
-
             ProcessSwitch();
             ProcessValue();
+            ProcessAnimator();
             // Call last
             AfterProcessCommon();
         }
@@ -532,13 +583,12 @@ namespace vbg
                 return;
             }
 
-            lastFrameProcessed = true;
-
             ProcessPushForce(tr, rb, ref characterMovement);
             ProcessHealth(idy, go.tag);
             ProcessSwitch();
             ProcessValue();
             ProcessTeleport(tr, rb);
+            ProcessAnimator();
             // Call last
             AfterProcessCommon();
         }

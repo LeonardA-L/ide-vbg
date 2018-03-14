@@ -26,6 +26,7 @@ namespace vbg
             REACH_TARGET,
             ATTACK,
             DIE,
+            SPECIAL,
         }
 
         // Use this for initialization
@@ -90,8 +91,9 @@ namespace vbg
             {
                 if(ch.tag != this.tag)
                 {
-                    if (m_bestTarget == null || TargetScore(ch) < minScore)
+                    if (!ch.IsDead() && (m_bestTarget == null || TargetScore(ch) < minScore))
                     {
+                        Debug.Log(ch);
                         m_bestTarget = ch.transform;
                     }
                 }
@@ -125,7 +127,10 @@ namespace vbg
                     StateReachTarget(ref _request);
                 break;
                 case VBGAIState.PICK_TARGET:
-                    PickTarget(ref _request);
+                    StatePickTarget(ref _request);
+                    break;
+                case VBGAIState.SPECIAL:
+                    StateSpecial(ref _request);
                     break;
                 case VBGAIState.IDLE:
                 default:
@@ -148,6 +153,8 @@ namespace vbg
                 return VBGAIState.ATTACK;
             if (state.IsName("Die"))
                 return VBGAIState.DIE;
+            if (state.IsName("Special"))
+                return VBGAIState.SPECIAL;
 
             Debug.Assert(false, "Getting current state failed");
             return VBGAIState.IDLE;
@@ -208,7 +215,13 @@ namespace vbg
             m_target = null;
         }
 
-        void PickTarget(ref VBGCharacterController.Request _request)
+        void StateSpecial(ref VBGCharacterController.Request _request)
+        {
+            TurnTo(m_target, ref _request);
+            _request.action = VBGCharacterController.Action.SPECIAL;
+        }
+
+        void StatePickTarget(ref VBGCharacterController.Request _request)
         {
             ComputeBestTarget();
             if(m_bestTarget != null)
