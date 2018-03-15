@@ -90,17 +90,17 @@ namespace vbg
         public GameEffectCommand special;
 
         // Members
-        private Vector3 lastDirection;
-        private Vector3 lastMove;
-        private float lastInputNorm;
-        private float lastDirectionNorm;
-        private Action action;
+        public Vector3 lastDirection;
+        public Vector3 lastMove;
+        public float lastInputNorm;
+        public float lastDirectionNorm;
+        public Action action;
         private List<GameEffect> activeGameEffects;
         private bool weaponIsActive;
         private Vector3 bodyMovement;
         public bool isGrounded;
         private float deathTimer = 0.0f;
-        private bool canMove = true;
+        public bool canMove = true;
 
 
         // Use this for initialization
