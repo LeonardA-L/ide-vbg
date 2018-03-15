@@ -10,7 +10,7 @@ namespace vbg
     {
         public override bool IsActive(IDynamic idy)
         {
-            return gameEffect.GetActivator() != null && (Object)gameEffect.GetActivator() != gameEffect.GetOwner();
+            return idy != null && (idy as VBGCharacterController) != gameEffect.GetOwner();
         }
     }
 }

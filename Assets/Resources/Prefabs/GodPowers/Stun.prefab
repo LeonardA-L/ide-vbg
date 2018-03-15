@@ -23,11 +23,11 @@ GameObject:
   - component: {fileID: 65709283738218954}
   - component: {fileID: 23997107856225808}
   - component: {fileID: 114932657888980032}
-  - component: {fileID: 114273600650356126}
-  - component: {fileID: 114038768837945108}
-  - component: {fileID: 114076188602782760}
+  - component: {fileID: 114708117070136478}
+  - component: {fileID: 114949102121568532}
+  - component: {fileID: 114714851593106132}
   m_Layer: 0
-  m_Name: Whirlwind
+  m_Name: Stun
   m_TagString: GameEffect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114038768837945108
+--- !u!114 &114708117070136478
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -107,10 +107,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1450889429623136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3084a4cb85c5434db60aa147c9298a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 068857111d7f5e14aa0cbcc12eeb7fe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114076188602782760
+--- !u!114 &114714851593106132
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -123,17 +123,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 4
   currentDelay: 4
---- !u!114 &114273600650356126
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1450889429623136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 068857111d7f5e14aa0cbcc12eeb7fe6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114932657888980032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,10 +171,10 @@ MonoBehaviour:
     useHotspotRotation: 0
     preserveMomentum: 0
   animatorImpact:
-    active: 1
+    active: 0
     animator: {fileID: 0}
     triggerName: 
-    boolName: Whirlwind
+    boolName: 
   ownerImpact:
     active: 1
     paralyse: 1
@@ -193,3 +182,14 @@ MonoBehaviour:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+--- !u!114 &114949102121568532
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1450889429623136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3084a4cb85c5434db60aa147c9298a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

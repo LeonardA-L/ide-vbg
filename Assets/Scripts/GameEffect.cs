@@ -109,6 +109,16 @@ namespace vbg
             public bool paralyse;
         }
 
+        [System.Serializable]
+        public class CreatureImpact
+        {
+            [Tooltip("Is Creature Impact Active")]
+            public bool active = false;
+            [Tooltip("Animator to impact. If none, will try to fetch the owner's animator")]
+            public GameObject addGameEffect;
+            public bool asOwner = true;
+        }
+
         public enum FloatValueMode
         {
             NONE,
@@ -149,14 +159,14 @@ namespace vbg
         public Teleport teleport;
         public AnimatorImpact animatorImpact;
         public OwnerImpact ownerImpact;
+        public CreatureImpact creatureImpact;
 
 
         private bool hasValueBeenUpdated = false;
 
         GameEffectExit[] exitConditions;
         GameEffectActivate[] activateConditions;
-        List<IDynamic> impactedCharacters;
-        private IDynamic activator;
+        List<IDynamic> impactedCharacters = new List<IDynamic>();
         private bool toDelete = false;
         private Transform toFollow;
         private bool followForward;
@@ -172,7 +182,6 @@ namespace vbg
         {
             exitConditions = GetComponents<GameEffectExit>();
             activateConditions = GetComponents<GameEffectActivate>();
-            impactedCharacters = new List<IDynamic>();
 
             rb = GetComponent<Rigidbody>();
             if(initialVelocity.magnitude > 0.0f && rb != null)
@@ -326,38 +335,45 @@ namespace vbg
 
         private void OnTriggerEnter(UnityEngine.Collider other)
         {
-            Debug.Log(other.gameObject.name);
+            TriggerGameEffect(other.gameObject);
+        }
 
-            if (other.gameObject.tag == GameManager.Constants.TAG_PLAYER
-                || other.gameObject.tag == GameManager.Constants.TAG_DYNAMIC
-                || other.gameObject.tag == GameManager.Constants.TAG_ENNEMY)
+        public void TriggerGameEffect(GameObject other)
+        {
+            Debug.Log(this.gameObject.name + " " +other.name);
+
+            if (other.tag == GameManager.Constants.TAG_PLAYER
+                || other.tag == GameManager.Constants.TAG_DYNAMIC
+                || other.tag == GameManager.Constants.TAG_ENNEMY)
             {
-                VBGCharacterController cc = other.gameObject.GetComponent<VBGCharacterController>();
-                Dynamic dy = other.gameObject.GetComponent<Dynamic>();
+                Debug.Log("in A");
+                VBGCharacterController cc = other.GetComponent<VBGCharacterController>();
+                Dynamic dy = other.GetComponent<Dynamic>();
                 if (cc == null && dy == null)
                 {
                     return;
                 }
 
                 IDynamic idy = cc ?? (IDynamic)dy;
-                activator = idy;
-                if (!IsActive(idy))
+                /*if (!IsActive(idy))
                 {
                     return;
-                }
+                }*/
+                Debug.Log("in B");
 
                 if (cc != null)
                 {
                     RegisterDynamic(cc);
                     cc.RegisterGameEffect(this);
-                } else
+                }
+                else
                 {
                     UnRegisterDynamic(dy);
                     dy.RegisterGameEffect(this);
                 }
                 // TODO process here ?
             }
-            else if (destroyOnWall && other.gameObject.tag != GameManager.Constants.TAG_NONTRIGGERCOLLIDER)
+            else if (destroyOnWall && other.tag != GameManager.Constants.TAG_NONTRIGGERCOLLIDER)
             {
                 Finish();
             }
@@ -371,12 +387,17 @@ namespace vbg
         private void OnTriggerExit(UnityEngine.Collider other)
         {
 
-            if (other.gameObject.tag == GameManager.Constants.TAG_PLAYER
-                || other.gameObject.tag == GameManager.Constants.TAG_DYNAMIC
-                || other.gameObject.tag == GameManager.Constants.TAG_ENNEMY)
+            UnTriggerGameEffect(other.gameObject);
+        }
+
+        public void UnTriggerGameEffect(GameObject other)
+        {
+            if (other.tag == GameManager.Constants.TAG_PLAYER
+                || other.tag == GameManager.Constants.TAG_DYNAMIC
+                || other.tag == GameManager.Constants.TAG_ENNEMY)
             {
-                VBGCharacterController cc = other.gameObject.GetComponent<VBGCharacterController>();
-                Dynamic dy = other.gameObject.GetComponent<Dynamic>();
+                VBGCharacterController cc = other.GetComponent<VBGCharacterController>();
+                Dynamic dy = other.GetComponent<Dynamic>();
 
                 if (cc == null && dy == null)
                 {
@@ -384,7 +405,7 @@ namespace vbg
                     return;
                 }
 
-                IDynamic idy = cc == null ? (IDynamic) dy : cc;
+                IDynamic idy = cc == null ? (IDynamic)dy : cc;
                 if (!IsActive(idy))
                 {
                     //return;
@@ -400,8 +421,6 @@ namespace vbg
                     UnRegisterDynamic(dy);
                     dy.UnRegisterGameEffect(this);
                 }
-
-                activator = null;
             }
         }
 
@@ -584,6 +603,31 @@ namespace vbg
             owner.SetParalyzed(ownerImpact.paralyse);
         }
 
+        public void ProcessCreatureImpact(Transform tr, VBGCharacterController cc, Rigidbody rb)
+        {
+            if (!creatureImpact.active)
+                return;
+
+            if (creatureImpact.addGameEffect != null && tr.Find(creatureImpact.addGameEffect.name + "(Clone)") == null)
+            {
+                GameObject go = GameObject.Instantiate(creatureImpact.addGameEffect, tr);
+                GameEffect ge = go.GetComponent<GameEffect>();
+
+                go.transform.localPosition = new Vector3();
+
+                if(creatureImpact.asOwner)
+                {
+                    ge.SetOwner(cc);
+                }
+
+                // Force trigger of the gameEffect
+                Debug.Log("Oyo " + tr.gameObject + " " + owner + " " + this);
+
+                //rb.MovePosition(rb.position + new Vector3(0, 0.001f, 0));
+                ge.TriggerGameEffect(tr.gameObject);
+            }
+        }
+
         private void AfterProcessCommon()
         {
             processedOnce = true;
@@ -636,6 +680,7 @@ namespace vbg
             ProcessTeleport(tr, rb);
             ProcessAnimator();
             ProcessOwnerImpact();
+            ProcessCreatureImpact(tr, cc, rb);
             // Call last
             AfterProcessCommon();
         }
@@ -648,11 +693,6 @@ namespace vbg
         public void SetOwner(VBGCharacterController _owner)
         {
             owner = _owner;
-        }
-
-        public IDynamic GetActivator()
-        {
-            return activator;
         }
 
         private bool IsActive(IDynamic idy)

@@ -1917,7 +1917,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1409938460915610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.16503143, y: -0.0036621094, z: 17.059612}
+  m_LocalPosition: {x: 7.212515, y: -0.0036621094, z: 16.61124}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4087921795428008}
@@ -2686,6 +2686,18 @@ MonoBehaviour:
     toHotspot: {fileID: 0}
     useHotspotRotation: 0
     preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+  ownerImpact:
+    active: 0
+    paralyse: 0
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
 --- !u!114 &114628244511359938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2744,7 +2756,8 @@ MonoBehaviour:
     timer: 0
     child: 0
   specialMovement:
-    toInstanciate: {fileID: 0}
+    toInstanciate: {fileID: 1655200729219574, guid: bf1651d935bec91429da026625a30c78,
+      type: 2}
     cooldown: 2
     timer: 0
     child: 1

@@ -133,8 +133,9 @@ namespace vbg
 
             // Apply GameEffects
             activeGameEffects.RemoveAll(item => item == null);
-            foreach (GameEffect ge in activeGameEffects)
+            for (int idx = 0; idx < activeGameEffects.Count; idx++)
             {
+                GameEffect ge = activeGameEffects[idx];
                 ge.ProcessOnCollision(this, rb, ref bodyMovement);
             }
 
