@@ -155,9 +155,10 @@ MonoBehaviour:
   destroyParent: 1
   destroyOnWall: 0
   resetNotFinish: 0
+  stable: 0
   healthImpact:
     active: 1
-    impact: -15
+    impact: -30
     impactPerFrame: 0
     friendlyFire: 0
   pushForce:
@@ -184,6 +185,10 @@ MonoBehaviour:
     toHotspot: {fileID: 0}
     useHotspotRotation: 0
     preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
 --- !u!114 &114919371662202072
 MonoBehaviour:
   m_ObjectHideFlags: 1

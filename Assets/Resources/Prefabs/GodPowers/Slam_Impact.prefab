@@ -200,7 +200,6 @@ MonoBehaviour:
     pushForceIsOmnidirectional: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
-    resetMomentum: 0
   switchImpact:
     active: 0
     name: 
@@ -218,6 +217,10 @@ MonoBehaviour:
     toHotspot: {fileID: 0}
     useHotspotRotation: 0
     preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
 --- !u!114 &114454663347003152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -249,7 +252,7 @@ MonoBehaviour:
   stable: 0
   healthImpact:
     active: 1
-    impact: -10
+    impact: -30
     impactPerFrame: 0
     friendlyFire: 1
   pushForce:
@@ -259,7 +262,6 @@ MonoBehaviour:
     pushForceIsOmnidirectional: 1
     pushForceNoY: 1
     pushForceDecreaseLength: 2
-    resetMomentum: 0
   switchImpact:
     active: 0
     name: 
@@ -277,6 +279,10 @@ MonoBehaviour:
     toHotspot: {fileID: 0}
     useHotspotRotation: 0
     preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
 --- !u!114 &114778775202836674
 MonoBehaviour:
   m_ObjectHideFlags: 1

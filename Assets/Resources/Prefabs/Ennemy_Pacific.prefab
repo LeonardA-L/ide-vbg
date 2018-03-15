@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 114025976208094658}
   m_Layer: 0
   m_Name: EarRange
-  m_TagString: NonTriggerCollider
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,8 +208,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1063977961058550}
-  m_LocalRotation: {x: -0, y: -0.1996896, z: -0, w: 0.97985923}
-  m_LocalPosition: {x: 2.7626667, y: -0.0036621094, z: 22.458927}
+  m_LocalRotation: {x: -0, y: -0.6887247, z: -0, w: 0.72502303}
+  m_LocalPosition: {x: 7.92, y: -3.0334684e-18, z: 31.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4445260817341804}
@@ -220,7 +220,7 @@ Transform:
   - {fileID: 4216854269647674}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -23.038002, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -87.05801, z: 0}
 --- !u!4 &4861242636504166
 Transform:
   m_ObjectHideFlags: 1
@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9bb02040104824a97555c6df5681d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 40
+  health: 100
   threshold: 0
 --- !u!114 &114235759530370818
 MonoBehaviour:
@@ -564,7 +564,7 @@ MonoBehaviour:
   stable: 0
   healthImpact:
     active: 1
-    impact: -50
+    impact: -40
     impactPerFrame: 0
     friendlyFire: 1
   pushForce:

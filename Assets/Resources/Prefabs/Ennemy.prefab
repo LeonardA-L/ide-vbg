@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 114742913356539436}
   m_Layer: 0
   m_Name: EarRange
-  m_TagString: NonTriggerCollider
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -169,8 +169,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1264534017314214}
-  m_LocalRotation: {x: -0, y: -0.1996896, z: -0, w: 0.97985923}
-  m_LocalPosition: {x: 8.402578, y: -0.0036621094, z: 20.768614}
+  m_LocalRotation: {x: -0, y: 0.93380684, z: -0, w: 0.35777757}
+  m_LocalPosition: {x: -15.64, y: 9.5743813e-17, z: 36.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4076682935170604}
@@ -181,7 +181,7 @@ Transform:
   - {fileID: 4327400526462068}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -23.038002, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 138.072, z: 0}
 --- !u!4 &4259054938995488
 Transform:
   m_ObjectHideFlags: 1
@@ -450,7 +450,7 @@ MonoBehaviour:
   stable: 0
   healthImpact:
     active: 1
-    impact: -50
+    impact: -20
     impactPerFrame: 0
     friendlyFire: 1
   pushForce:
@@ -604,7 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9bb02040104824a97555c6df5681d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 40
+  health: 100
   threshold: 0
 --- !u!135 &135673109335987216
 SphereCollider:
@@ -616,7 +616,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136596943894083888
 CapsuleCollider:
