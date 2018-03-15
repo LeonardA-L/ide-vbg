@@ -12,6 +12,9 @@ namespace vbg
 
         private void OnTriggerEnter(UnityEngine.Collider _collider)
         {
+            if (_collider.gameObject.tag != GameManager.Constants.TAG_PLAYER)
+                return;
+
             Transform cameraSettings = transform.Find("Camera");
             CameraManager.Instance.SetAnimatedSettings(cameraSettings, hotspotStart, hotspotEnd, cameraAnimator);
         }
