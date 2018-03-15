@@ -94,7 +94,19 @@ namespace vbg
 
             [Tooltip("Name of the trigger parameter to update in the animator")]
             public string triggerName;
-            
+
+            [Tooltip("Name of the Boolean parameter to activate while the effect is processed")]
+            public string boolName;
+
+        }
+
+        [System.Serializable]
+        public class OwnerImpact
+        {
+            [Tooltip("Is Owner Impact Active")]
+            public bool active = false;
+            [Tooltip("Animator to impact. If none, will try to fetch the owner's animator")]
+            public bool paralyse;
         }
 
         public enum FloatValueMode
@@ -136,6 +148,7 @@ namespace vbg
         public ValueImpact valueImpact;
         public Teleport teleport;
         public AnimatorImpact animatorImpact;
+        public OwnerImpact ownerImpact;
 
 
         private bool hasValueBeenUpdated = false;
@@ -224,6 +237,14 @@ namespace vbg
         void Finish()
         {
             Debug.Log("Finish");
+
+            Unstables();
+
+            if (ownerImpact.active && owner != null)
+            {
+                owner.SetParalyzed(false);
+            }
+
             impactedCharacters.RemoveAll(item => item == null);
             foreach (IDynamic dy in impactedCharacters)
             {
@@ -269,6 +290,18 @@ namespace vbg
             {
                 SwitchManager.Instance.SetValue(valueImpact.name, (float)SwitchManager.Instance.GetValue(valueImpact.name) - valueImpact.update);
                 hasValueBeenUpdated = false;
+            }
+
+            if(animatorImpact.boolName != null && animatorImpact.boolName != "")
+            {
+                Animator animator = animatorImpact.animator;
+
+                if (animator == null && owner != null)
+                {
+                    animator = owner.GetComponent<Animator>();
+                }
+
+                animator.SetBool(animatorImpact.boolName, false);
             }
         }
 
@@ -537,7 +570,18 @@ namespace vbg
                 return;
             }
 
-            animator.SetTrigger(animatorImpact.triggerName);
+            if(animatorImpact.triggerName != "")
+                animator.SetTrigger(animatorImpact.triggerName);
+            if (animatorImpact.boolName != "")
+                animator.SetBool(animatorImpact.boolName, true);
+        }
+
+        public void ProcessOwnerImpact()
+        {
+            if (!ownerImpact.active || owner == null)
+                return;
+
+            owner.SetParalyzed(ownerImpact.paralyse);
         }
 
         private void AfterProcessCommon()
@@ -566,6 +610,7 @@ namespace vbg
             ProcessSwitch();
             ProcessValue();
             ProcessAnimator();
+            ProcessOwnerImpact();
             // Call last
             AfterProcessCommon();
         }
@@ -590,6 +635,7 @@ namespace vbg
             ProcessValue();
             ProcessTeleport(tr, rb);
             ProcessAnimator();
+            ProcessOwnerImpact();
             // Call last
             AfterProcessCommon();
         }

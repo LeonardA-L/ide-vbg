@@ -1557,7 +1557,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1111775559832274}
   m_LocalRotation: {x: -0, y: -0.9999333, z: -0, w: 0.01155148}
-  m_LocalPosition: {x: 7.634676, y: -0.0036621094, z: 16.796152}
+  m_LocalPosition: {x: 5.523426, y: -0.0036621094, z: 20.37889}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4617916785678168}
@@ -2347,6 +2347,10 @@ MonoBehaviour:
     active: 0
     animator: {fileID: 0}
     triggerName: 
+    boolName: 
+  ownerImpact:
+    active: 0
+    paralyse: 0
 --- !u!114 &114176078295320644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2488,11 +2492,11 @@ MonoBehaviour:
     m_Bits: 256
   character: 3
   specialAttack:
-    toInstanciate: {fileID: 1778091153758932, guid: 1aa7efbf53fc76a47885c96e6b71074a,
+    toInstanciate: {fileID: 1450889429623136, guid: c8bd9d8483103b14cbab23a820ea1ea6,
       type: 2}
-    cooldown: 2
+    cooldown: 6
     timer: 0
-    child: 0
+    child: 1
   specialMovement:
     toInstanciate: {fileID: 1778091153758932, guid: 275c21519af30364b8a815dd88745af8,
       type: 2}

@@ -100,6 +100,7 @@ namespace vbg
         private Vector3 bodyMovement;
         public bool isGrounded;
         private float deathTimer = 0.0f;
+        private bool canMove = true;
 
 
         // Use this for initialization
@@ -118,20 +119,17 @@ namespace vbg
         void Update()
         {
             isGrounded = Physics.CheckSphere(groundChecker.position, groundChecker.localPosition.y + 0.1f, Ground, QueryTriggerInteraction.Ignore);
-            weaponIsActive = animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking");
+            weaponIsActive = animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking") || animator.GetCurrentAnimatorStateInfo(0).IsName("Whirlwind");
 
             // Apply movement
             bodyMovement = rb.velocity;
             ProcessAction();
             //
-            //if (isGrounded)
+            if(canMove)
             {
-                //if(!attack && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking"))
-                {
-                    bodyMovement += lastMove * lastInputNorm * speed;
-                }
+                bodyMovement += lastMove * lastInputNorm * speed;
+                transform.forward = Vector3.Lerp(transform.forward, lastDirection, rotationSpeedFactor);
             }
-            transform.forward = Vector3.Lerp(transform.forward, lastDirection, rotationSpeedFactor);
 
             // Apply GameEffects
             activeGameEffects.RemoveAll(item => item == null);
@@ -380,6 +378,11 @@ namespace vbg
         public bool IsDead()
         {
             return health.IsDead();
+        }
+
+        public void SetParalyzed(bool _paralyzed)
+        {
+            canMove = !_paralyzed;
         }
     }
 }
