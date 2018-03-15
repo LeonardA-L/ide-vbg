@@ -323,7 +323,7 @@ namespace vbg
                 }
                 // TODO process here ?
             }
-            else if (destroyOnWall && other.gameObject.layer == LayerMask.NameToLayer(GameManager.Constants.LAYER_COLLIDERS))
+            else if (destroyOnWall)
             {
                 Finish();
             }
