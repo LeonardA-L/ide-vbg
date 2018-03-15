@@ -1557,7 +1557,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1111775559832274}
   m_LocalRotation: {x: -0, y: -0.9999333, z: -0, w: 0.01155148}
-  m_LocalPosition: {x: 3.12, y: -0.0036621094, z: 17.19}
+  m_LocalPosition: {x: 7.634676, y: -0.0036621094, z: 16.796152}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4617916785678168}
@@ -2326,7 +2326,6 @@ MonoBehaviour:
     pushForceIsOmnidirectional: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
-    resetMomentum: 0
   switchImpact:
     active: 0
     name: 
@@ -2344,6 +2343,10 @@ MonoBehaviour:
     toHotspot: {fileID: 0}
     useHotspotRotation: 0
     preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
 --- !u!114 &114176078295320644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2491,7 +2494,7 @@ MonoBehaviour:
     timer: 0
     child: 0
   specialMovement:
-    toInstanciate: {fileID: 1410900066037384, guid: cf2aa9c394ce4854db4a4bf9e6197d22,
+    toInstanciate: {fileID: 1778091153758932, guid: 275c21519af30364b8a815dd88745af8,
       type: 2}
     cooldown: 2
     timer: 0

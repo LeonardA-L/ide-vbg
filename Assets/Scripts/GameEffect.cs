@@ -205,17 +205,17 @@ namespace vbg
                 }
             }
 
-            if (!IsActive(null))
-            {
-                return;
-            }
-
             if (initialVelocity.magnitude > 0.0f && rb == null)
             {
                 transform.position += (initialVelocity.x * transform.right
                                      + initialVelocity.y * transform.up
                                      + initialVelocity.z * transform.forward)
                                      * Time.deltaTime;
+            }
+
+            if (!IsActive(null))
+            {
+                return;
             }
 
             ProcessAlways();
