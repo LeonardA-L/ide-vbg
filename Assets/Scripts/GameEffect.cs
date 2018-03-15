@@ -293,6 +293,7 @@ namespace vbg
 
         private void OnTriggerEnter(UnityEngine.Collider other)
         {
+            Debug.Log(other.gameObject.name);
 
             if (other.gameObject.tag == GameManager.Constants.TAG_PLAYER
                 || other.gameObject.tag == GameManager.Constants.TAG_DYNAMIC
@@ -323,7 +324,7 @@ namespace vbg
                 }
                 // TODO process here ?
             }
-            else if (destroyOnWall)
+            else if (destroyOnWall && other.gameObject.tag != GameManager.Constants.TAG_NONTRIGGERCOLLIDER)
             {
                 Finish();
             }

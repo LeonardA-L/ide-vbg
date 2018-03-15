@@ -93,7 +93,6 @@ namespace vbg
                 {
                     if (!ch.IsDead() && (m_bestTarget == null || TargetScore(ch) < minScore))
                     {
-                        Debug.Log(ch);
                         m_bestTarget = ch.transform;
                     }
                 }
