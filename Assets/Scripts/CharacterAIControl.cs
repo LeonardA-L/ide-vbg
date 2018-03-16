@@ -18,6 +18,8 @@ namespace vbg
 
         public VBGAIState m_currentState;
         public float m_elapsedInCurrentState;
+        public List<Transform> m_patrolHotspots = new List<Transform>();
+        public int m_currentPatrolTargetPoint = 0;
 
         public enum VBGAIState
         {
@@ -27,6 +29,9 @@ namespace vbg
             ATTACK,
             DIE,
             SPECIAL,
+
+            IDLE_GET_POINT,
+            IDLE_REACH_POINT,
         }
 
         // Use this for initialization
@@ -131,6 +136,12 @@ namespace vbg
                 case VBGAIState.SPECIAL:
                     StateSpecial(ref _request);
                     break;
+                case VBGAIState.IDLE_GET_POINT:
+                    StateIdleGetPoint(ref _request);
+                    break;
+                case VBGAIState.IDLE_REACH_POINT:
+                    StateIdleReachPoint(ref _request);
+                    break;
                 case VBGAIState.IDLE:
                 default:
                     StateIdle(ref _request);
@@ -154,6 +165,10 @@ namespace vbg
                 return VBGAIState.DIE;
             if (state.IsName("Special"))
                 return VBGAIState.SPECIAL;
+            if (state.IsName("Idle.GetPoint"))
+                return VBGAIState.IDLE_GET_POINT;
+            if (state.IsName("Idle.ReachPoint"))
+                return VBGAIState.IDLE_REACH_POINT;
 
             Debug.Assert(false, "Getting current state failed");
             return VBGAIState.IDLE;
@@ -230,6 +245,29 @@ namespace vbg
             } else
             {
                 m_aiAnimator.SetTrigger("Failure");
+            }
+        }
+
+        void StateIdleGetPoint(ref VBGCharacterController.Request _request)
+        {
+            if (m_patrolHotspots.Count == 0 || m_patrolHotspots[m_currentPatrolTargetPoint] == null)
+            {
+                m_aiAnimator.SetTrigger("Failure");
+            } else
+            {
+                m_aiAnimator.SetTrigger("Success");
+            }
+        }
+
+        void StateIdleReachPoint(ref VBGCharacterController.Request _request)
+        {
+            Transform patrolHotspot = m_patrolHotspots[m_currentPatrolTargetPoint];
+            GoTo(patrolHotspot, ref _request);
+            
+            if((transform.position - patrolHotspot.position).magnitude < 1.0f)
+            {
+                m_currentPatrolTargetPoint = (m_currentPatrolTargetPoint + 1) % m_patrolHotspots.Count;
+                m_aiAnimator.SetTrigger("Success");
             }
         }
     }
