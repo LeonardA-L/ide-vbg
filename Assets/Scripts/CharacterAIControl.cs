@@ -67,10 +67,12 @@ namespace vbg
                 Vector3 distance = m_target.transform.position - transform.position;
 
                 m_aiAnimator.SetBool("TargetInAttackReach", distance.magnitude < 2.5f);
-            } else
+                m_aiAnimator.SetBool("NoTarget", false);
+            }
+            else
             {
                 m_aiAnimator.SetBool("TargetInAttackReach", false);
-                m_aiAnimator.SetTrigger("NoTarget");
+                m_aiAnimator.SetBool("NoTarget", true);
             }
 
             FSMFrame(ref request);
