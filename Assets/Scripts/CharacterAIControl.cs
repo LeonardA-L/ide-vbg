@@ -162,7 +162,6 @@ namespace vbg
         void GoTo(Transform t, ref VBGCharacterController.Request _request)
         {
             NavMesh.CalculatePath(transform.position, t.position, NavMesh.AllAreas, m_path);
-            //Debug.Log(m_path.status);
 
             bool wantsToMove = false;
 
@@ -225,6 +224,7 @@ namespace vbg
             ComputeBestTarget();
             if(m_bestTarget != null)
             {
+                Debug.Log("Best " + m_bestTarget);
                 m_target = m_bestTarget;
                 m_aiAnimator.SetTrigger("Success");
             } else

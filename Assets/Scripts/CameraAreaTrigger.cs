@@ -14,6 +14,9 @@ namespace vbg
 
         private void OnTriggerEnter(UnityEngine.Collider _collider)
         {
+            if (_collider.gameObject.tag != GameManager.Constants.TAG_PLAYER)
+                return;
+
             Transform cameraSettings = transform.Find("Camera");
             CameraManager.Instance.SetSceneSettings(cameraSettings, m_aimAtCenter, m_positionSmooth, m_rotationSmooth);
         }

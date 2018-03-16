@@ -340,13 +340,12 @@ namespace vbg
 
         public void TriggerGameEffect(GameObject other)
         {
-            Debug.Log(this.gameObject.name + " " +other.name);
+            //Debug.Log(this.gameObject.name + " " +other.name);
 
             if (other.tag == GameManager.Constants.TAG_PLAYER
                 || other.tag == GameManager.Constants.TAG_DYNAMIC
                 || other.tag == GameManager.Constants.TAG_ENNEMY)
             {
-                Debug.Log("in A");
                 VBGCharacterController cc = other.GetComponent<VBGCharacterController>();
                 Dynamic dy = other.GetComponent<Dynamic>();
                 if (cc == null && dy == null)
@@ -359,7 +358,6 @@ namespace vbg
                 {
                     return;
                 }*/
-                Debug.Log("in B");
 
                 if (cc != null)
                 {
@@ -621,9 +619,6 @@ namespace vbg
                 }
 
                 // Force trigger of the gameEffect
-                Debug.Log("Oyo " + tr.gameObject + " " + owner + " " + this);
-
-                //rb.MovePosition(rb.position + new Vector3(0, 0.001f, 0));
                 ge.TriggerGameEffect(tr.gameObject);
             }
         }

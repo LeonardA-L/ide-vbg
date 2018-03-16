@@ -133,9 +133,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1832151662387486}
-  m_LocalRotation: {x: -0, y: -0.7454095, z: -0, w: -0.6666069}
-  m_LocalPosition: {x: -4.39, y: 26.95458, z: 20.22}
-  m_LocalScale: {x: 1.0000005, y: 1, z: 1.0000005}
+  m_LocalRotation: {x: -0, y: -0.7075927, z: -0, w: 0.7066206}
+  m_LocalPosition: {x: 7.88, y: 26.86, z: 1.28}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children:
   - {fileID: 4556331799405408}
   - {fileID: 4786815436685620}
@@ -420,7 +420,13 @@ MonoBehaviour:
     cooldown: 2
     timer: 0
     child: 0
+  lastDirection: {x: 0, y: 0, z: 0}
+  lastMove: {x: 0, y: 0, z: 0}
+  lastInputNorm: 0
+  lastDirectionNorm: 0
+  action: 0
   isGrounded: 0
+  canMove: 1
 --- !u!135 &135799973776440080
 SphereCollider:
   m_ObjectHideFlags: 1
