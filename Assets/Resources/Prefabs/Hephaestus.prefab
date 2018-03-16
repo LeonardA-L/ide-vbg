@@ -1557,7 +1557,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1111775559832274}
   m_LocalRotation: {x: -0, y: -0.9999333, z: -0, w: 0.01155148}
-  m_LocalPosition: {x: 1.9682121, y: -0.0036621094, z: 19.195534}
+  m_LocalPosition: {x: 7.8677845, y: -0.0036621094, z: 24.339409}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4617916785678168}
@@ -2498,7 +2498,7 @@ MonoBehaviour:
   specialAttack:
     toInstanciate: {fileID: 1450889429623136, guid: c8bd9d8483103b14cbab23a820ea1ea6,
       type: 2}
-    cooldown: 6
+    cooldown: 1
     timer: 0
     child: 1
   specialMovement:
@@ -2536,7 +2536,13 @@ MonoBehaviour:
     cooldown: 2
     timer: 0
     child: 1
+  lastDirection: {x: 0, y: 0, z: 0}
+  lastMove: {x: 0, y: 0, z: 0}
+  lastInputNorm: 0
+  lastDirectionNorm: 0
+  action: 0
   isGrounded: 0
+  canMove: 1
 --- !u!136 &136046995169629902
 CapsuleCollider:
   m_ObjectHideFlags: 1
