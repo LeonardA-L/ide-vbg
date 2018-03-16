@@ -132,13 +132,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1051970868742856}
-  m_LocalRotation: {x: -0.0013884045, y: -0.0379138, z: 0.019731276, w: 0.99908525}
-  m_LocalPosition: {x: 19.970005, y: -5.33, z: -2.8800068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4081398296059798}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -0.07300001, y: -4.348, z: 2.266}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4218723099328454
 Transform:
   m_ObjectHideFlags: 1
@@ -325,6 +325,14 @@ MonoBehaviour:
     active: 0
     animator: {fileID: 0}
     triggerName: 
+    boolName: 
+  ownerImpact:
+    active: 0
+    paralyse: 0
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
 --- !u!114 &114112489521666842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -360,7 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 206a3925dd489bb40979108a5634c536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showCollidersInGame: 0
+  showCollidersInGame: 1
 --- !u!114 &114337940415824672
 MonoBehaviour:
   m_ObjectHideFlags: 1
