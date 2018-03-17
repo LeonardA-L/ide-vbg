@@ -16,7 +16,8 @@ namespace vbg
         public struct Constants
         {
             public readonly static float DEFAULT_LERP_POSITION = 0.05f;
-            public readonly static float DEFAULT_LERP_ROTATION = 0.05f;
+            public readonly static float DEFAULT_LERP_ROTATION = 0.01f;
+            public readonly static float DEFAULT_FOLLOW_DISTANCE = 15.0f;
         }
 
         private Transform m_cam;
@@ -25,6 +26,7 @@ namespace vbg
         private bool m_aimAtCenter;
         private float m_positionSmooth;
         private float m_rotationSmooth;
+        private float m_cameraFollowDistance;
 
         private Animator m_refAnimator;
         private Transform m_hotspotStart;
@@ -58,6 +60,7 @@ namespace vbg
             m_currentMode = CameraType.FOLLOW;
             m_positionSmooth = Constants.DEFAULT_LERP_POSITION;
             m_rotationSmooth = Constants.DEFAULT_LERP_ROTATION;
+            m_cameraFollowDistance = Constants.DEFAULT_FOLLOW_DISTANCE;
         }
 
         // Update is called once per frame
@@ -99,7 +102,14 @@ namespace vbg
 
             if (m_currentMode == CameraType.FOLLOW)
             {
+                if (PlayerManager.Instance.GetPlayersInGameAmount() > 0)
+                {
+                    Vector3 barycenter = PlayerManager.Instance.GetPlayerBarycenter();
+                    Vector3 cameraToBarycenter = barycenter - m_cam.position;
+                    //m_cam.forward = Vector3.Lerp(m_cam.forward, cameraToBarycenter, m_rotationSmooth);
 
+                    m_cam.transform.position = Vector3.Lerp(m_cam.transform.position, barycenter - m_cam.forward * m_cameraFollowDistance, Constants.DEFAULT_LERP_POSITION);
+                }
             }
         }
 
