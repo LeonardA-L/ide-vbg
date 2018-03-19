@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114045927358697396}
   - component: {fileID: 114474227563230776}
   - component: {fileID: 114650666752290236}
+  - component: {fileID: 114525911287083680}
   m_Layer: 0
   m_Name: WindForce
   m_TagString: GameEffect
@@ -152,6 +153,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 3200
   currentDelay: 3200
+--- !u!114 &114525911287083680
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1193388794202482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff93a6b26832ea48a257b251ac22533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114650666752290236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -180,6 +192,7 @@ MonoBehaviour:
   destroyParent: 1
   destroyOnWall: 0
   resetNotFinish: 0
+  stable: 0
   healthImpact:
     active: 0
     impact: 0
@@ -209,3 +222,15 @@ MonoBehaviour:
     toHotspot: {fileID: 0}
     useHotspotRotation: 0
     preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+  ownerImpact:
+    active: 0
+    paralyse: 0
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
