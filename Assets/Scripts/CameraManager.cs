@@ -17,7 +17,7 @@ namespace vbg
         {
             public readonly static float DEFAULT_LERP_POSITION = 0.05f;
             public readonly static float DEFAULT_LERP_ROTATION = 0.01f;
-            public readonly static float DEFAULT_FOLLOW_DISTANCE = 15.0f;
+            public readonly static float DEFAULT_FOLLOW_DISTANCE = 20.0f;
         }
 
         private Transform m_cam;
