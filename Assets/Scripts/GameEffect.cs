@@ -301,7 +301,7 @@ namespace vbg
                 hasValueBeenUpdated = false;
             }
 
-            if(animatorImpact.boolName != null && animatorImpact.boolName != "")
+            if(!lastFrameProcessed && animatorImpact.boolName != null && animatorImpact.boolName != "")
             {
                 Animator animator = animatorImpact.animator;
 
@@ -590,7 +590,12 @@ namespace vbg
             if(animatorImpact.triggerName != "")
                 animator.SetTrigger(animatorImpact.triggerName);
             if (animatorImpact.boolName != "")
+            {
+                Debug.Log(animator);
+                Debug.Log(animatorImpact.boolName);
+                //Debug.Log(animator.GetBool(animatorImpact.boolName));
                 animator.SetBool(animatorImpact.boolName, true);
+            }
         }
 
         public void ProcessOwnerImpact()
