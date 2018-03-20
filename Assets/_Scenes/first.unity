@@ -357,11 +357,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114015716380391050, guid: be0fa06da3c59e74fb4e51252d1f3d72,
-        type: 2}
-      propertyPath: audioImpact.startEvent
-      value: Event_HEPHA_ATK
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be0fa06da3c59e74fb4e51252d1f3d72, type: 2}
   m_IsPrefabParent: 0
@@ -1001,6 +996,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1131521869 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1214173891743344, guid: d3cb73929fc4ebc498f51dcc6790eec4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1193995841}
+--- !u!114 &1131521873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1131521869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a0400c2d426c9a41bd47861f29699d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  bankName: VBG_MAIN_SBK
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  valueGuid: f8388cadc0cfa84a96ef7d6560236bbf
 --- !u!1001 &1193995841
 Prefab:
   m_ObjectHideFlags: 0
