@@ -36,10 +36,5 @@ namespace vbg
             AkSoundEngine.PostEvent(_eventName, _gameObject);
         }
 
-        public static void SPostEvent(string _eventName)
-        {
-            instance.PostEvent(_eventName, null);
-        }
-
     }
 }

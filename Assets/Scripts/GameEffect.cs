@@ -182,6 +182,7 @@ namespace vbg
         private bool followForward;
         private bool followRotation;
         private bool processedOnce = false;
+        private bool processedOnceThisCycle = false;
 
         private bool lastFrameProcessed = false;
 
@@ -206,9 +207,6 @@ namespace vbg
         void Update()
         {
             Unstables();
-
-            lastFrameProcessed = false;
-
 
             if (toDelete)
             {
@@ -247,6 +245,11 @@ namespace vbg
 
             if (!IsActive(null))
             {
+                if(!lastFrameProcessed)
+                {
+                    processedOnceThisCycle = false;
+                }
+                lastFrameProcessed = false;
                 return;
             }
 
@@ -625,7 +628,7 @@ namespace vbg
 
         public void ProcessAudioImpact()
         {
-            if (!audioImpact.active || audioImpact.startEvent == null || audioImpact.startEvent == "")
+            if (!audioImpact.active || audioImpact.startEvent == null || audioImpact.startEvent == "" || processedOnceThisCycle)
                 return;
 
             SoundManager.Instance.PostEvent(audioImpact.startEvent, transform.parent.gameObject);
@@ -656,6 +659,7 @@ namespace vbg
         private void AfterProcessCommon()
         {
             processedOnce = true;
+            processedOnceThisCycle = true;
             lastFrameProcessed = true;
             foreach (GameEffectExit gee in exitConditions)
             {
@@ -673,6 +677,7 @@ namespace vbg
 
             if (!IsActive(null))
             {
+                lastFrameProcessed = false;
                 return;
             }
 
