@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 114230951527404984}
   - component: {fileID: 114337940415824672}
   - component: {fileID: 114642736992690250}
+  - component: {fileID: 114134247394433866}
   m_Layer: 0
   m_Name: ScriptHolder
   m_TagString: Untagged
@@ -383,6 +384,10 @@ MonoBehaviour:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+  audioImpact:
+    active: 0
+    startEvent: 
+    endEvent: 
 --- !u!114 &114112489521666842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -392,6 +397,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 208819d6bf4da044f996b0fdac26489c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114134247394433866
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1574184204782154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52ec6a7eae8eb234aafbeba1d9a26784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114214699084351834

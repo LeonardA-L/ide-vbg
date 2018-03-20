@@ -119,6 +119,15 @@ namespace vbg
             public bool asOwner = true;
         }
 
+        [System.Serializable]
+        public class AudioImpact
+        {
+            [Tooltip("Is Audio Impact Active")]
+            public bool active = false;
+            public string startEvent;
+            public string endEvent;
+        }
+
         public enum FloatValueMode
         {
             NONE,
@@ -160,6 +169,7 @@ namespace vbg
         public AnimatorImpact animatorImpact;
         public OwnerImpact ownerImpact;
         public CreatureImpact creatureImpact;
+        public AudioImpact audioImpact;
 
 
         private bool hasValueBeenUpdated = false;
@@ -254,6 +264,11 @@ namespace vbg
                 owner.SetParalyzed(false);
             }
 
+            if(audioImpact.active && audioImpact.endEvent != null && audioImpact.endEvent != "")
+            {
+                SoundManager.Instance.PostEvent(audioImpact.endEvent, transform.parent.gameObject);
+            }
+
             impactedCharacters.RemoveAll(item => item == null);
             foreach (IDynamic dy in impactedCharacters)
             {
@@ -326,6 +341,8 @@ namespace vbg
             {
                 gea.Reset();
             }
+
+            processedOnce = false;
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -606,6 +623,14 @@ namespace vbg
             owner.SetParalyzed(ownerImpact.paralyse);
         }
 
+        public void ProcessAudioImpact()
+        {
+            if (!audioImpact.active || audioImpact.startEvent == null || audioImpact.startEvent == "")
+                return;
+
+            SoundManager.Instance.PostEvent(audioImpact.startEvent, transform.parent.gameObject);
+        }
+
         public void ProcessCreatureImpact(Transform tr, VBGCharacterController cc, Rigidbody rb)
         {
             if (!creatureImpact.active)
@@ -655,6 +680,7 @@ namespace vbg
             ProcessValue();
             ProcessAnimator();
             ProcessOwnerImpact();
+            ProcessAudioImpact();
             // Call last
             AfterProcessCommon();
         }
@@ -681,6 +707,7 @@ namespace vbg
             ProcessAnimator();
             ProcessOwnerImpact();
             ProcessCreatureImpact(tr, cc, rb);
+            ProcessAudioImpact();
             // Call last
             AfterProcessCommon();
         }

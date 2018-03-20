@@ -23,26 +23,22 @@ namespace vbg
             }
         }
 
-        public bool wwiseIsActivated = false;
-
-        public bool NamespaceExists(string className)
-        {
-            Type type = Type.GetType(className);
-            return type != null;
-        }
-
         private void Start()
         {
             instance = this;
-            wwiseIsActivated = NamespaceExists("AkSoundEngine");
-            Debug.Log("Wwise is activated: " + wwiseIsActivated);
-
-            //AkSoundEngine.IsInitialized();
         }
 
-        public static void PostEvent(string _eventName, GameObject _gameObject)
+        public void PostEvent(string _eventName, GameObject _gameObject)
         {
+            if (!AkSoundEngine.IsInitialized())
+                return;
+
             AkSoundEngine.PostEvent(_eventName, _gameObject);
+        }
+
+        public static void SPostEvent(string _eventName)
+        {
+            instance.PostEvent(_eventName, null);
         }
 
     }

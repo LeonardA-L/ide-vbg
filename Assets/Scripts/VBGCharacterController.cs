@@ -385,5 +385,11 @@ namespace vbg
         {
             canMove = !_paralyzed;
         }
+
+        public void PostAudioEvent(string _eventName)
+        {
+            Debug.Log("Posting " + _eventName);
+            SoundManager.Instance.PostEvent(_eventName, this.gameObject);
+        }
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44492987, g: 0.4945038, b: 0.57364905, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -356,6 +356,11 @@ Prefab:
     - target: {fileID: 4315801680726792, guid: be0fa06da3c59e74fb4e51252d1f3d72, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114015716380391050, guid: be0fa06da3c59e74fb4e51252d1f3d72,
+        type: 2}
+      propertyPath: audioImpact.startEvent
+      value: Event_HEPHA_ATK
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be0fa06da3c59e74fb4e51252d1f3d72, type: 2}
@@ -979,6 +984,10 @@ MonoBehaviour:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+  audioImpact:
+    active: 0
+    startEvent: 
+    endEvent: 
 --- !u!4 &1030617094
 Transform:
   m_ObjectHideFlags: 0
@@ -1030,18 +1039,6 @@ Prefab:
     - target: {fileID: 4855185462108202, guid: d3cb73929fc4ebc498f51dcc6790eec4, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081398296059798, guid: d3cb73929fc4ebc498f51dcc6790eec4, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 20.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081398296059798, guid: d3cb73929fc4ebc498f51dcc6790eec4, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 12.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081398296059798, guid: d3cb73929fc4ebc498f51dcc6790eec4, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 13.41
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d3cb73929fc4ebc498f51dcc6790eec4, type: 2}
@@ -1327,6 +1324,10 @@ MonoBehaviour:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+  audioImpact:
+    active: 0
+    startEvent: 
+    endEvent: 
 --- !u!4 &2078081038
 Transform:
   m_ObjectHideFlags: 0
