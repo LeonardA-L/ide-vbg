@@ -197,7 +197,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4038885834580400, guid: 55a670dd55b29cf48bc4cfec812623b9, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.041568756
+      value: -0.04156876
       objectReference: {fileID: 0}
     - target: {fileID: 4038885834580400, guid: 55a670dd55b29cf48bc4cfec812623b9, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1314,6 +1314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 148761146}
   - component: {fileID: 148761147}
+  - component: {fileID: 148761148}
   m_Layer: 0
   m_Name: Elevator
   m_TagString: Untagged
@@ -1328,7 +1329,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 148761145}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.423, y: 3.378, z: 18.602}
+  m_LocalPosition: {x: 10.423, y: 3.13, z: 18.602}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 621597407}
@@ -1356,6 +1357,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &148761148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 148761145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d77dd4da7311284c8fb767549b274b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boolName: ElevatorOn
+  triggerName: 
+  floatName: 
+  switchName: 
+  valueName: 
+  animator: {fileID: 148761147}
 --- !u!1001 &162403425
 Prefab:
   m_ObjectHideFlags: 0
@@ -12193,8 +12211,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1649568940}
   m_LocalRotation: {x: 0.021107567, y: -0.03289976, z: -0.087083414, w: 0.99543387}
-  m_LocalPosition: {x: 0.70608187, y: -1.2670709, z: -3.699255}
-  m_LocalScale: {x: 5.411204, y: 0.10891768, z: 1.9722227}
+  m_LocalPosition: {x: -0.96, y: -0.97, z: -3.8}
+  m_LocalScale: {x: 2.8107822, y: 0.10891768, z: 1.9722227}
   m_Children: []
   m_Father: {fileID: 1628101915}
   m_RootOrder: 0
@@ -12483,7 +12501,7 @@ Prefab:
     - target: {fileID: 114862659393816468, guid: 4d2e60ca5abdb0040a9972452d913252,
         type: 2}
       propertyPath: switchImpact.name
-      value: SwitchBridge
+      value: ElevatorOn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d2e60ca5abdb0040a9972452d913252, type: 2}
