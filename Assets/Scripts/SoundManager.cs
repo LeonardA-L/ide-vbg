@@ -14,6 +14,8 @@ namespace vbg
 
     public class SoundManager : MonoBehaviour
     {
+        public bool disable = false;
+
         protected static SoundManager instance;
         public static SoundManager Instance
         {
@@ -31,6 +33,9 @@ namespace vbg
         public void PostEvent(string _eventName, GameObject _gameObject)
         {
             if (!AkSoundEngine.IsInitialized())
+                return;
+
+            if(disable)
                 return;
 
             AkSoundEngine.PostEvent(_eventName, _gameObject);

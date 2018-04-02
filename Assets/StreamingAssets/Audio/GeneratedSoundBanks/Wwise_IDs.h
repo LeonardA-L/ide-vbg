@@ -14,20 +14,60 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID EVENT_HEPHA_ATK = 82851639U;
+        static const AkUniqueID EVENT_VBG_PORT = 2451167397U;
+        static const AkUniqueID PLAY_FOOTSTEPS_HEAVY = 145704183U;
+        static const AkUniqueID PLAY_FOOTSTEPS_LIGHT = 2827287670U;
     } // namespace EVENTS
+
+    namespace STATES
+    {
+        namespace GAMEPLAY_PHASE
+        {
+            static const AkUniqueID GROUP = 2407702553U;
+
+            namespace STATE
+            {
+                static const AkUniqueID ACTIF = 2247125562U;
+                static const AkUniqueID PASSIF = 2831715831U;
+            } // namespace STATE
+        } // namespace GAMEPLAY_PHASE
+
+    } // namespace STATES
+
+    namespace SWITCHES
+    {
+        namespace SW_FOOTSTEPS_TEXTURE
+        {
+            static const AkUniqueID GROUP = 3069673431U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID DIRT = 2195636714U;
+                static const AkUniqueID STONE = 1216965916U;
+                static const AkUniqueID WOOD = 2058049674U;
+            } // namespace SWITCH
+        } // namespace SW_FOOTSTEPS_TEXTURE
+
+        namespace SW_M_VBG_PROGRESS
+        {
+            static const AkUniqueID GROUP = 1698089957U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID FINAL = 565529991U;
+                static const AkUniqueID INTRO = 1125500713U;
+                static const AkUniqueID THEME = 1319017392U;
+                static const AkUniqueID THEMEACC = 1935897315U;
+                static const AkUniqueID THEMPROG = 4037860975U;
+            } // namespace SWITCH
+        } // namespace SW_M_VBG_PROGRESS
+
+    } // namespace SWITCHES
 
     namespace GAME_PARAMETERS
     {
-        static const AkUniqueID SS_AIR_FEAR = 1351367891U;
-        static const AkUniqueID SS_AIR_FREEFALL = 3002758120U;
-        static const AkUniqueID SS_AIR_FURY = 1029930033U;
-        static const AkUniqueID SS_AIR_MONTH = 2648548617U;
-        static const AkUniqueID SS_AIR_PRESENCE = 3847924954U;
-        static const AkUniqueID SS_AIR_RPM = 822163944U;
-        static const AkUniqueID SS_AIR_SIZE = 3074696722U;
-        static const AkUniqueID SS_AIR_STORM = 3715662592U;
-        static const AkUniqueID SS_AIR_TIMEOFDAY = 3203397129U;
-        static const AkUniqueID SS_AIR_TURBULENCE = 4160247818U;
+        static const AkUniqueID DEBUG_SPEEDPLAYBACK = 2967529081U;
+        static const AkUniqueID RTPC_DISTVILLAGE = 3879816141U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS
@@ -40,6 +80,7 @@ namespace AK
     {
         static const AkUniqueID CHARA = 434268486U;
         static const AkUniqueID HEPHA = 2461340601U;
+        static const AkUniqueID M = 84696434U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
         static const AkUniqueID SFX = 393239870U;
     } // namespace BUSSES
