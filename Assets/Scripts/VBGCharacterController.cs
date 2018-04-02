@@ -78,6 +78,7 @@ namespace vbg
         public Transform groundChecker;
         public LayerMask Ground;
         public Character character;
+        public bool destroyOnDie = false;
 
         // Special attacks
         public GameEffectCommand specialAttack;
@@ -314,6 +315,11 @@ namespace vbg
         private void Die()
         {
             deathTimer = Constants.DEATH_REVIVE_TIME;
+            rb.drag = 20.0f;
+            if(destroyOnDie)
+            {
+                Destroy(gameObject);
+            }
         }
 
         private void Revive()
