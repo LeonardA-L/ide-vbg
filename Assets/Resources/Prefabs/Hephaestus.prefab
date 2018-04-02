@@ -49,12 +49,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4806059491366128}
+  - component: {fileID: 65688503240312684}
   - component: {fileID: 114015716380391050}
   - component: {fileID: 114670760585467900}
   - component: {fileID: 114213456411531074}
   - component: {fileID: 114002346934506662}
-  - component: {fileID: 65688503240312684}
-  - component: {fileID: 54597303853355006}
   m_Layer: 0
   m_Name: HammerEffect
   m_TagString: GameEffect
@@ -1557,7 +1556,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1111775559832274}
-  m_LocalRotation: {x: -0, y: -0.9999333, z: -0, w: 0.01155148}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 11.595499, y: -0.0036621094, z: 19.769232}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
@@ -1567,7 +1566,7 @@ Transform:
   - {fileID: 4777702357391746}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -178.67601, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!4 &4341810568829282
 Transform:
   m_ObjectHideFlags: 1
@@ -2239,21 +2238,6 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 2
---- !u!54 &54597303853355006
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1040907662247998}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 1
-  m_Constraints: 126
   m_CollisionDetection: 2
 --- !u!65 &65688503240312684
 BoxCollider:

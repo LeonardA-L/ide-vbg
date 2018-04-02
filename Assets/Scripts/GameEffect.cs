@@ -260,7 +260,7 @@ namespace vbg
         {
             Debug.Log("Finish");
 
-            Unstables();
+            Unstables(true);
 
             if (ownerImpact.active && owner != null)
             {
@@ -306,7 +306,7 @@ namespace vbg
             toDelete = false;
         }
 
-        private void Unstables()
+        private void Unstables(bool finish = false)
         {
             if (switchImpact.unstable && !lastFrameProcessed)
             {
@@ -319,7 +319,7 @@ namespace vbg
                 hasValueBeenUpdated = false;
             }
 
-            if(!lastFrameProcessed && animatorImpact.boolName != null && animatorImpact.boolName != "")
+            if((!lastFrameProcessed || finish) && animatorImpact.boolName != null && animatorImpact.boolName != "")
             {
                 Animator animator = animatorImpact.animator;
 
