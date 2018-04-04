@@ -45,5 +45,10 @@ namespace vbg {
         {
             Application.Quit();
         }
+
+        public void QuitToMenu()
+        {
+            LaunchScene(Scene.MENU);
+        }
     }
 }

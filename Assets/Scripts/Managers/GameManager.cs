@@ -10,7 +10,7 @@ namespace vbg
         public bool showCollidersInGame = DebugConstants.SHOW_COLLIDERS_INGAME;
         private bool pause = false;
         private float originalTimeScale = 0.0f;
-        public bool pauseButtonIsDown = false;
+        private bool pauseButtonIsDown = false;
         public struct DebugConstants
         {
             public readonly static bool SHOW_COLLIDERS_INGAME = true;
@@ -41,6 +41,8 @@ namespace vbg
         private List<SpawnPoint> spawnPoints;
         private List<SpawnPoint> startPoints;
 
+        private UIController uiController;
+
         // Use this for initialization
         void Start()
         {
@@ -48,6 +50,8 @@ namespace vbg
             originalTimeScale = Time.timeScale;
             spawnPoints = new List<SpawnPoint>();
             startPoints = new List<SpawnPoint>();
+
+            uiController = GetComponent<UIController>();
 
             SpawnPoint[] spawns = (SpawnPoint[])FindObjectsOfType(typeof(SpawnPoint));
             foreach (SpawnPoint spawn in spawns)
@@ -90,13 +94,16 @@ namespace vbg
         public void Pause()
         {
             Time.timeScale = 0;
+            uiController.SetPauseMenu(true);
             pause = true;
         }
 
         public void Play()
         {
             Time.timeScale = originalTimeScale;
+            uiController.SetPauseMenu(false);
             pause = false;
         }
+
     }
 }
