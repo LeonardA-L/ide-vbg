@@ -8,6 +8,9 @@ namespace vbg
     {
 
         public bool showCollidersInGame = DebugConstants.SHOW_COLLIDERS_INGAME;
+        private bool pause = false;
+        private float originalTimeScale = 0.0f;
+        public bool pauseButtonIsDown = false;
         public struct DebugConstants
         {
             public readonly static bool SHOW_COLLIDERS_INGAME = true;
@@ -42,6 +45,7 @@ namespace vbg
         void Start()
         {
             instance = this;
+            originalTimeScale = Time.timeScale;
             spawnPoints = new List<SpawnPoint>();
             startPoints = new List<SpawnPoint>();
 
@@ -61,11 +65,38 @@ namespace vbg
         // Update is called once per frame
         void Update()
         {
+
+            if (!pauseButtonIsDown && Input.GetButton("Pause"))
+            {
+                pauseButtonIsDown = true;
+                if (pause)
+                {
+                    Play();
+                }
+                else
+                {
+                    Pause();
+                }
+            }
+            pauseButtonIsDown = Input.GetButton("Pause");
+
         }
 
         public SpawnPoint GetStartPoint(int _idx)
         {
             return startPoints[_idx % startPoints.Count];
+        }
+
+        public void Pause()
+        {
+            Time.timeScale = 0;
+            pause = true;
+        }
+
+        public void Play()
+        {
+            Time.timeScale = originalTimeScale;
+            pause = false;
         }
     }
 }
