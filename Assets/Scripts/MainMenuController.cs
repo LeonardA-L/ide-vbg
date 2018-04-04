@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MenuManager : MonoBehaviour {
+public class MainMenuController : MonoBehaviour {
     public Animator cameraAnimator;
 
     public List<Button> heads;
