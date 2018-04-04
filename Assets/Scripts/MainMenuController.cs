@@ -14,7 +14,7 @@ namespace vbg
         // Use this for initialization
         void Start()
         {
-
+            Time.timeScale = 1;
         }
 
         public void MoveTo(string scene)

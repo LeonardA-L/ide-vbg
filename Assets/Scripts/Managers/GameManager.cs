@@ -9,7 +9,6 @@ namespace vbg
 
         public bool showCollidersInGame = DebugConstants.SHOW_COLLIDERS_INGAME;
         private bool pause = false;
-        private float originalTimeScale = 0.0f;
         private bool pauseButtonIsDown = false;
         public struct DebugConstants
         {
@@ -47,7 +46,6 @@ namespace vbg
         void Start()
         {
             instance = this;
-            originalTimeScale = Time.timeScale;
             spawnPoints = new List<SpawnPoint>();
             startPoints = new List<SpawnPoint>();
 
@@ -100,7 +98,7 @@ namespace vbg
 
         public void Play()
         {
-            Time.timeScale = originalTimeScale;
+            Time.timeScale = 1;
             uiController.SetPauseMenu(false);
             pause = false;
         }
