@@ -322,7 +322,7 @@ namespace vbg
             }
         }
 
-        private void Revive()
+        public void Revive()
         {
             health.SetHealth(Constants.CHARACTER_START_HEALTH);
         }
