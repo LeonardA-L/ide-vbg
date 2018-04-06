@@ -108,6 +108,8 @@ namespace vbg
                     Vector3 cameraToBarycenter = barycenter - m_cam.position;
                     //m_cam.forward = Vector3.Lerp(m_cam.forward, cameraToBarycenter, m_rotationSmooth);
 
+                    m_cam.forward = Vector3.Lerp(m_cam.forward, m_cameraToFollow.forward, m_rotationSmooth);
+
                     m_cam.transform.position = Vector3.Lerp(m_cam.transform.position, barycenter - m_cam.forward * m_cameraFollowDistance, Constants.DEFAULT_LERP_POSITION);
                 }
             }
@@ -118,6 +120,16 @@ namespace vbg
             m_cameraToFollow = _newCameraToFollow;
             m_currentMode = CameraType.SCENE;
             m_aimAtCenter = _aimAtCenter;
+
+            m_positionSmooth = _overridePositionSmooth;
+            m_rotationSmooth = _overrideRotationSmooth;
+        }
+
+        public void SetFollowSettings(Transform _newCameraToFollow, float _distance, float _overridePositionSmooth = 0.0f, float _overrideRotationSmooth = 0.0f)
+        {
+            m_cameraToFollow = _newCameraToFollow;
+            m_currentMode = CameraType.FOLLOW;
+            m_cameraFollowDistance = _distance;
 
             m_positionSmooth = _overridePositionSmooth;
             m_rotationSmooth = _overrideRotationSmooth;
