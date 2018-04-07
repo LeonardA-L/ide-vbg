@@ -119,7 +119,7 @@ namespace vbg
         // Update is called once per frame
         void Update()
         {
-            isGrounded = Physics.CheckSphere(groundChecker.position, groundChecker.localPosition.y + 0.1f, Ground, QueryTriggerInteraction.Ignore);
+            isGrounded = Physics.CheckSphere(groundChecker.position, groundChecker.localPosition.y + 0.15f, Ground, QueryTriggerInteraction.Ignore);
             weaponIsActive = animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking") || animator.GetCurrentAnimatorStateInfo(0).IsName("Whirlwind");
 
             // Apply movement
