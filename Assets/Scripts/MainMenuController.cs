@@ -41,5 +41,10 @@ namespace vbg
         {
             SceneManager.Instance.LaunchScene(SceneManager.Scene.DEMO);
         }
+
+        public void StartArena()
+        {
+            SceneManager.Instance.LaunchScene(SceneManager.Scene.ARENA);
+        }
     }
 }

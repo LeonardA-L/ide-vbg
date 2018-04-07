@@ -16,7 +16,7 @@ namespace vbg
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetKey("r"))
+            if (Input.GetButton("r"))
             {
                 foreach (VBGCharacterController p in PlayerManager.Instance.GetAllPlayersInGame())
                 {

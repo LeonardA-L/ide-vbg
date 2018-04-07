@@ -103,7 +103,6 @@ namespace vbg
         private float deathTimer = 0.0f;
         public bool canMove = true;
 
-
         // Use this for initialization
         void Start()
         {
@@ -119,6 +118,7 @@ namespace vbg
         // Update is called once per frame
         void Update()
         {
+
             isGrounded = Physics.CheckSphere(groundChecker.position, groundChecker.localPosition.y + 0.15f, Ground, QueryTriggerInteraction.Ignore);
             weaponIsActive = animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking") || animator.GetCurrentAnimatorStateInfo(0).IsName("Whirlwind");
 
@@ -168,6 +168,10 @@ namespace vbg
             if(health.IsDead() && deathTimer == 0.0f)
             {
                 Revive();
+
+                // HACK KAWAII CAFE
+                if(GameManager.Instance.isArena)
+                    transform.position = GameManager.Instance.GetStartPoint((int)(Random.value * 40)).transform.position;
             }
         }
 
@@ -316,6 +320,7 @@ namespace vbg
         {
             deathTimer = Constants.DEATH_REVIVE_TIME;
             rb.drag = 20.0f;
+            GameManager.Instance.OnDeath(this);
             if(destroyOnDie)
             {
                 Destroy(gameObject);
@@ -356,6 +361,12 @@ namespace vbg
 
         private int GetReviveSpeed()
         {
+            // HACK KAWAII CAFE
+            return 2;
+
+            if (!GameManager.Instance.allowRevive)
+                return 0;
+
             int ret = -1;
 
             List<VBGCharacterController> players = PlayerManager.Instance.GetAllPlayersInGame();
@@ -385,6 +396,11 @@ namespace vbg
         public bool IsDead()
         {
             return health.IsDead();
+        }
+
+        public CharacterHealth GetHealth()
+        {
+            return health;
         }
 
         public void SetParalyzed(bool _paralyzed)

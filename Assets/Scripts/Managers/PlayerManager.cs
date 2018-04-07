@@ -99,6 +99,12 @@ namespace vbg
             players.Add(tpuc.GetComponent<VBGCharacterController>());
 
             playersInGame++;
+
+            VSFightingMap vs = GetComponent<VSFightingMap>();
+            if (vs != null)
+            {
+                vs.NewPlayer(tpuc.GetComponent<VBGCharacterController>());
+            }
         }
 
         public Vector3 GetPlayerBarycenter()

@@ -10,7 +10,8 @@ namespace vbg
         {
             FOLLOW,
             SCENE,
-            ANIMATED
+            ANIMATED,
+            NONE
         }
 
         public struct Constants
@@ -57,7 +58,7 @@ namespace vbg
 
             m_actualRatio = -1;
 
-            m_currentMode = CameraType.FOLLOW;
+            m_currentMode = CameraType.NONE;
             m_positionSmooth = Constants.DEFAULT_LERP_POSITION;
             m_rotationSmooth = Constants.DEFAULT_LERP_ROTATION;
             m_cameraFollowDistance = Constants.DEFAULT_FOLLOW_DISTANCE;
@@ -108,7 +109,8 @@ namespace vbg
                     Vector3 cameraToBarycenter = barycenter - m_cam.position;
                     //m_cam.forward = Vector3.Lerp(m_cam.forward, cameraToBarycenter, m_rotationSmooth);
 
-                    m_cam.forward = Vector3.Lerp(m_cam.forward, m_cameraToFollow.forward, m_rotationSmooth);
+                    if(m_cameraToFollow != null)
+                        m_cam.forward = Vector3.Lerp(m_cam.forward, m_cameraToFollow.forward, m_rotationSmooth);
 
                     m_cam.transform.position = Vector3.Lerp(m_cam.transform.position, barycenter - m_cam.forward * m_cameraFollowDistance, Constants.DEFAULT_LERP_POSITION);
                 }

@@ -13,7 +13,7 @@ namespace vbg
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetKey(keyName))
+            if (Input.GetButton(keyName))
             {
                 SwitchManager.Instance.SetSwitch(switchName, true);
             }

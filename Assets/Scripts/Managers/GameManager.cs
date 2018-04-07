@@ -8,6 +8,8 @@ namespace vbg
     {
 
         public bool showCollidersInGame = DebugConstants.SHOW_COLLIDERS_INGAME;
+        public bool allowRevive = true;
+        public bool isArena = false;
         private bool pause = false;
         private bool pauseButtonIsDown = false;
         public struct DebugConstants
@@ -101,6 +103,15 @@ namespace vbg
             Time.timeScale = 1;
             uiController.SetPauseMenu(false);
             pause = false;
+        }
+
+        public void OnDeath(VBGCharacterController player)
+        {
+            VSFightingMap vs = GetComponent<VSFightingMap>();
+            if(vs != null)
+            {
+                vs.OnDeath(player);
+            }
         }
 
     }
