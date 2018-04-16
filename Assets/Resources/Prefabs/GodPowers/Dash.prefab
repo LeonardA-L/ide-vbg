@@ -141,6 +141,8 @@ MonoBehaviour:
   destroyParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
+  stable: 0
+  activateOncePerActivator: 0
   healthImpact:
     active: 0
     impact: 0
@@ -151,6 +153,7 @@ MonoBehaviour:
     pushForceVector: {x: 0, y: 1, z: 10}
     pushForceNorm: 500
     pushForceIsOmnidirectional: 0
+    ownerAsReference: 1
     pushForceNoY: 0
     pushForceDecreaseLength: 0
   switchImpact:
@@ -170,6 +173,22 @@ MonoBehaviour:
     toHotspot: {fileID: 0}
     useHotspotRotation: 0
     preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+  ownerImpact:
+    active: 0
+    paralyse: 0
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
+  audioImpact:
+    active: 0
+    startEvent: 
+    endEvent: 
 --- !u!114 &114164519925785518
 MonoBehaviour:
   m_ObjectHideFlags: 1

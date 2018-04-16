@@ -538,7 +538,7 @@ namespace vbg
             {
                 Transform refTransform = pushForce.ownerAsReference ? owner.transform : transform;
                 Vector3 force = new Vector3();
-                float forceNorm = pushForce.pushForceNorm;
+                float forceNorm = pushForce.pushForceNorm * rb.mass;
                 if (pushForce.pushForceDecreaseLength > 0.0f)
                 {
                     float distRatio = pushForce.pushForceDecreaseLength / (tr.transform.position - refTransform.position).magnitude;

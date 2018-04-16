@@ -174,10 +174,6 @@ namespace vbg
             if(health.IsDead() && deathTimer == 0.0f)
             {
                 Revive();
-
-                // HACK KAWAII CAFE
-                if(GameManager.Instance.isArena)
-                    transform.position = GameManager.Instance.GetStartPoint((int)(Random.value * 40)).transform.position;
             }
         }
 
@@ -372,9 +368,6 @@ namespace vbg
 
         private int GetReviveSpeed()
         {
-            // HACK KAWAII CAFE
-            return 2;
-
             if (!GameManager.Instance.allowRevive)
                 return 0;
 

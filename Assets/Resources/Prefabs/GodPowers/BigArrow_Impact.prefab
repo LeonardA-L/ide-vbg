@@ -165,6 +165,7 @@ MonoBehaviour:
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
+  activateOncePerActivator: 0
   healthImpact:
     active: 0
     impact: 0
@@ -175,6 +176,7 @@ MonoBehaviour:
     pushForceVector: {x: 0, y: 0, z: 0}
     pushForceNorm: 0
     pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
   switchImpact:
@@ -228,6 +230,7 @@ MonoBehaviour:
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
+  activateOncePerActivator: 0
   healthImpact:
     active: 1
     impact: -30
@@ -236,8 +239,9 @@ MonoBehaviour:
   pushForce:
     active: 1
     pushForceVector: {x: 0, y: 0, z: 1}
-    pushForceNorm: 20
+    pushForceNorm: 100
     pushForceIsOmnidirectional: 1
+    ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 2
   switchImpact:
