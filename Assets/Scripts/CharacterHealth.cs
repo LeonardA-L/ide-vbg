@@ -9,6 +9,8 @@ namespace vbg
 
         public float health;
         public float threshold = 0.0f;
+        public float impactThreshold = -1.0f;
+        public float impactMultiplier = 1.0f;
 
         // Use this for initialization
         void Start()
@@ -58,6 +60,26 @@ namespace vbg
         private float ClampHealth()
         {
             return Mathf.Clamp(health, 0.0f, 100.0f);
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if(impactThreshold <= 0.0f)
+            {
+                return;
+            }
+
+            Rigidbody rb = GetComponent<Rigidbody>();
+            Debug.Log(rb.velocity);
+            Vector3 normal = collision.contacts[0].normal;
+            float impact = Mathf.Abs(Mathf.Min(Vector3.Dot(rb.velocity, normal), 0.0f));
+            Debug.Log(impact);
+            impact -= impactThreshold;
+
+            if(impact > 0.0f)
+            {
+                Damage(-impact * impactMultiplier);
+            }
         }
     }
 }
