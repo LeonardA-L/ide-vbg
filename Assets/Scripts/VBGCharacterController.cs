@@ -126,7 +126,7 @@ namespace vbg
         {
 
             isGrounded = Physics.CheckSphere(groundChecker.position, groundChecker.localPosition.y + 0.15f, Ground, QueryTriggerInteraction.Ignore);
-            weaponIsActive = animator.GetCurrentAnimatorStateInfo((int)AnimatorLayer.UPPER).IsName("Attacking") || animator.GetCurrentAnimatorStateInfo((int)AnimatorLayer.DEFAULT).IsName("Whirlwind");
+            //weaponIsActive = animator.GetCurrentAnimatorStateInfo((int)AnimatorLayer.UPPER).IsName("Attacking") || animator.GetCurrentAnimatorStateInfo((int)AnimatorLayer.DEFAULT).IsName("Whirlwind");
 
             // Apply movement
             bodyMovement = rb.velocity;
@@ -353,6 +353,11 @@ namespace vbg
             {
                 return weaponIsActive;
             }
+        }
+
+        public void SetWeaponActive(int _intValue)
+        {
+            weaponIsActive = _intValue != 0;
         }
 
         public float GetDirectionNorm()

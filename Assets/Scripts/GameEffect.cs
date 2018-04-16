@@ -715,8 +715,10 @@ namespace vbg
             {
                 return;
             }
-
-            activators.Add(idy);
+            if(!activators.Contains(idy))
+            {
+                activators.Add(idy);
+            }
 
             ProcessPushForce(tr, rb, ref characterMovement);
             ProcessHealth(idy, go.tag);
