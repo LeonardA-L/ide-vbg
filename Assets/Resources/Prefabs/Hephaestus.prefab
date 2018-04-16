@@ -49,14 +49,14 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4806059491366128}
+  - component: {fileID: 65688503240312684}
   - component: {fileID: 114015716380391050}
   - component: {fileID: 114670760585467900}
   - component: {fileID: 114213456411531074}
   - component: {fileID: 114002346934506662}
-  - component: {fileID: 65688503240312684}
   m_Layer: 0
   m_Name: HammerEffect
-  m_TagString: Untagged
+  m_TagString: GameEffect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1556,8 +1556,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1111775559832274}
-  m_LocalRotation: {x: -0, y: -0.9999333, z: -0, w: 0.01155148}
-  m_LocalPosition: {x: 11.595499, y: -0.0036621094, z: 19.769232}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
+  m_LocalPosition: {x: 15.946235, y: 0.73438543, z: 8.349036}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4617916785678168}
@@ -1566,7 +1566,7 @@ Transform:
   - {fileID: 4777702357391746}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -178.67601, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!4 &4341810568829282
 Transform:
   m_ObjectHideFlags: 1
@@ -2320,11 +2320,11 @@ MonoBehaviour:
     impactPerFrame: 0
     friendlyFire: 1
   pushForce:
-    active: 0
-    pushForceVector: {x: 0, y: 0, z: 0}
-    pushForceNorm: 0
-    pushForceIsOmnidirectional: 0
-    pushForceNoY: 1
+    active: 1
+    pushForceVector: {x: 0, y: 1, z: 10}
+    pushForceNorm: 30
+    pushForceIsOmnidirectional: 1
+    pushForceNoY: 0
     pushForceDecreaseLength: 0
   switchImpact:
     active: 0
@@ -2499,18 +2499,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   character: 3
+  destroyOnDie: 0
   specialAttack:
     toInstanciate: {fileID: 1450889429623136, guid: c8bd9d8483103b14cbab23a820ea1ea6,
       type: 2}
-    cooldown: 1
+    cooldown: 6
     timer: 0
     child: 1
   specialMovement:
     toInstanciate: {fileID: 1923744890027746, guid: c8707246929b1be43baba2fa01b03765,
       type: 2}
-    cooldown: 2
+    cooldown: 3
     timer: 0
-    child: 0
+    child: 1
   specialDefense:
     toInstanciate: {fileID: 1763979341736754, guid: 24b3fd89970c53b4cafb88091114bda8,
       type: 2}
@@ -2520,7 +2521,7 @@ MonoBehaviour:
   specialSpecial:
     toInstanciate: {fileID: 1735137292521736, guid: 4c0fa72b41fbe714ca3a307eafc5b2de,
       type: 2}
-    cooldown: 4
+    cooldown: 2
     timer: 0
     child: 0
   movement:
@@ -2531,13 +2532,12 @@ MonoBehaviour:
     child: 0
   defense:
     toInstanciate: {fileID: 0}
-    cooldown: 2
+    cooldown: 0.6
     timer: 0
     child: 0
   special:
-    toInstanciate: {fileID: 1095968749421036, guid: b24890bd481954d4c94cff359b62939d,
-      type: 2}
-    cooldown: 2
+    toInstanciate: {fileID: 0}
+    cooldown: 1000
     timer: 0
     child: 1
   lastDirection: {x: 0, y: 0, z: 0}

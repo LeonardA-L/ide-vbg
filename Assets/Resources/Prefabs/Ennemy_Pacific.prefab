@@ -209,7 +209,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1063977961058550}
   m_LocalRotation: {x: -0, y: -0.91633505, z: -0, w: 0.4004124}
-  m_LocalPosition: {x: 6.61, y: 26.950918, z: 8.68}
+  m_LocalPosition: {x: -0.22185326, y: -0.0036621094, z: 12.863024}
   m_LocalScale: {x: 0.7499482, y: 0.75, z: 0.7156073}
   m_Children:
   - {fileID: 4445260817341804}
@@ -472,6 +472,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   character: 0
+  destroyOnDie: 1
   specialAttack:
     toInstanciate: {fileID: 0}
     cooldown: 2
@@ -611,6 +612,10 @@ MonoBehaviour:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+  audioImpact:
+    active: 0
+    startEvent: 
+    endEvent: 
 --- !u!114 &114983866504481590
 MonoBehaviour:
   m_ObjectHideFlags: 1

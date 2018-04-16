@@ -57,7 +57,7 @@ namespace vbg
 
         private float ClampHealth()
         {
-            return Mathf.Clamp(health, 0.0f, 200.0f);
+            return Mathf.Clamp(health, 0.0f, 100.0f);
         }
     }
 }

@@ -11,6 +11,8 @@ namespace vbg
         private Rigidbody rb;
         private CharacterHealth health;
 
+        public float minForceToEnableRigidbody = 0.0f;
+
         [Tooltip("A prefab to instantiate when the object dies")]
         public GameObject finishPrefab;
 
@@ -30,6 +32,13 @@ namespace vbg
             activeGameEffects.RemoveAll(item => item == null);
             foreach (GameEffect ge in activeGameEffects)
             {
+                Debug.Log(ge);
+                if (minForceToEnableRigidbody > 0.0f && ge.pushForce.active && ge.pushForce.pushForceNorm > minForceToEnableRigidbody)
+                {
+                Debug.Log("ok");
+                    rb.isKinematic = false;
+                }
+
                 Vector3 placeholder = new Vector3();
                 ge.ProcessOnCollision(this, rb, ref placeholder);
             }
