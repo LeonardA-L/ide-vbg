@@ -11,6 +11,7 @@ namespace vbg
         public float threshold = 0.0f;
         public float impactThreshold = -1.0f;
         public float impactMultiplier = 1.0f;
+        private Vector3 lastPosition;
 
         // Use this for initialization
         void Start()
@@ -21,6 +22,7 @@ namespace vbg
         // Update is called once per frame
         void Update()
         {
+            lastPosition = transform.position;
             // Poison ?
         }
 
@@ -69,10 +71,12 @@ namespace vbg
                 return;
             }
 
-            Rigidbody rb = GetComponent<Rigidbody>();
-            Debug.Log(rb.velocity);
+            Vector3 velocity = transform.position - lastPosition;
+            velocity /= Time.deltaTime;
+            
             Vector3 normal = collision.contacts[0].normal;
-            float impact = Mathf.Abs(Mathf.Min(Vector3.Dot(rb.velocity, normal), 0.0f));
+            
+            float impact = Mathf.Abs(Mathf.Min(Vector3.Dot(velocity, normal), 0.0f));
             Debug.Log(impact);
             impact -= impactThreshold;
 

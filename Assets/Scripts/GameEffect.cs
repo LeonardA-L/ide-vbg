@@ -19,6 +19,8 @@ namespace vbg
             public float pushForceNorm = 0.0f;
             [Tooltip("The force pushes the activator away instead of using pushForceVector")]
             public bool pushForceIsOmnidirectional;
+            [Tooltip("use the owner's transform as reference instead of the effect's transform")]
+            public bool ownerAsReference = false;
             [Tooltip("Should the push force lift the player or not")]
             public bool pushForceNoY = true;
             [Tooltip("Ratio for the decrease from the center of the GameEffect")]
@@ -159,6 +161,8 @@ namespace vbg
         public bool resetNotFinish = false;
         [Tooltip("When checked, the game effect will remain activated even if its activation conditions fail")]
         public bool stable = false;
+        [Tooltip("When checked, the effect will be processed once per activator per activation cycle only")]
+        public bool activateOncePerActivator = false;
 
         [Header("Impacts")]
         public HealthImpact healthImpact;
@@ -177,6 +181,7 @@ namespace vbg
         GameEffectExit[] exitConditions;
         GameEffectActivate[] activateConditions;
         List<IDynamic> impactedCharacters = new List<IDynamic>();
+        List<IDynamic> activators = new List<IDynamic>();
         private bool toDelete = false;
         private Transform toFollow;
         private bool followForward;
@@ -248,6 +253,7 @@ namespace vbg
                 if(!lastFrameProcessed)
                 {
                     processedOnceThisCycle = false;
+                    activators.Clear();
                 }
                 lastFrameProcessed = false;
                 return;
@@ -530,32 +536,33 @@ namespace vbg
 
             if (pushForce.pushForceNorm > 0.0f)
             {
+                Transform refTransform = pushForce.ownerAsReference ? owner.transform : transform;
                 Vector3 force = new Vector3();
                 float forceNorm = pushForce.pushForceNorm;
                 if (pushForce.pushForceDecreaseLength > 0.0f)
                 {
-                    float distRatio = pushForce.pushForceDecreaseLength / (tr.transform.position - transform.position).magnitude;
+                    float distRatio = pushForce.pushForceDecreaseLength / (tr.transform.position - refTransform.position).magnitude;
                     forceNorm *= distRatio;
                 }
                 if (pushForce.pushForceVector.magnitude > 0.0f)
                 {
                     Vector3 normalizedPF = pushForce.pushForceVector.normalized;
-                    force +=  (normalizedPF.x * transform.right
-                             + normalizedPF.y * transform.up
-                             + normalizedPF.z * transform.forward)
+                    force +=  (normalizedPF.x * refTransform.right
+                             + normalizedPF.y * refTransform.up
+                             + normalizedPF.z * refTransform.forward)
                              * forceNorm;
                 }
                 else if (pushForce.pushForceIsOmnidirectional)
                 {
-                    Vector3 movement = (tr.transform.position - transform.position);
+                    Vector3 movement = (tr.transform.position - refTransform.position);
                     if (pushForce.pushForceNoY)
                     {
                         movement.y = 0.0f;
                     }
                     movement.Normalize();
-                    force += (movement.x * transform.right
-                             + movement.y * transform.up
-                             + movement.z * transform.forward)
+                    force += (movement.x * refTransform.right
+                             + movement.y * refTransform.up
+                             + movement.z * refTransform.forward)
                              * forceNorm;
                 }
 
@@ -703,6 +710,13 @@ namespace vbg
             {
                 return;
             }
+
+            if(activateOncePerActivator && activators.Contains(idy))
+            {
+                return;
+            }
+
+            activators.Add(idy);
 
             ProcessPushForce(tr, rb, ref characterMovement);
             ProcessHealth(idy, go.tag);
