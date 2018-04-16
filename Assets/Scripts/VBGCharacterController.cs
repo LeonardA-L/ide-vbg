@@ -28,6 +28,12 @@ namespace vbg
             public bool child;
         }
 
+        public enum AnimatorLayer
+        {
+            DEFAULT,
+            UPPER
+        }
+
         public enum Action
         {
             NONE,
@@ -120,7 +126,7 @@ namespace vbg
         {
 
             isGrounded = Physics.CheckSphere(groundChecker.position, groundChecker.localPosition.y + 0.15f, Ground, QueryTriggerInteraction.Ignore);
-            weaponIsActive = animator.GetCurrentAnimatorStateInfo(0).IsName("Attacking") || animator.GetCurrentAnimatorStateInfo(0).IsName("Whirlwind");
+            weaponIsActive = animator.GetCurrentAnimatorStateInfo((int)AnimatorLayer.UPPER).IsName("Attacking") || animator.GetCurrentAnimatorStateInfo((int)AnimatorLayer.DEFAULT).IsName("Whirlwind");
 
             // Apply movement
             bodyMovement = rb.velocity;

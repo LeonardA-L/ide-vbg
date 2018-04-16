@@ -32,10 +32,8 @@ namespace vbg
             activeGameEffects.RemoveAll(item => item == null);
             foreach (GameEffect ge in activeGameEffects)
             {
-                Debug.Log(ge);
                 if (minForceToEnableRigidbody > 0.0f && ge.pushForce.active && ge.pushForce.pushForceNorm > minForceToEnableRigidbody)
                 {
-                Debug.Log("ok");
                     rb.isKinematic = false;
                 }
 
