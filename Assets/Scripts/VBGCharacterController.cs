@@ -140,7 +140,7 @@ namespace vbg
                 ge.ProcessOnCollision(this, rb, ref bodyMovement);
             }
 
-            Vector2 groundMovement = bodyMovement;
+            Vector3 groundMovement = bodyMovement;
             groundMovement.y = 0.0f;
             animator.SetBool("Walking", groundMovement.magnitude > 0.3f);
 
