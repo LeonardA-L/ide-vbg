@@ -12,6 +12,7 @@ namespace vbg
         private Vector3 m_CamForward;             // The current forward direction of the camera
         private Vector3 m_Move;
         private Vector3 m_Dir;
+        private bool m_modifierActive;
 
         private float prevModifier;
 
@@ -61,9 +62,14 @@ namespace vbg
             bool movement = Input.GetButtonDown("Movement" + GetControllersuffix());
             bool special = Input.GetButtonDown("Special" + GetControllersuffix());
 
-            float modifier = Input.GetAxis("Modifier" + GetControllersuffix());
-            bool modifierActive = modifier > 0.6f && modifier >= prevModifier;
-            prevModifier = modifier;
+
+            bool modifier = Input.GetButtonDown("Special" + GetControllersuffix());
+
+            if (modifier)
+            {
+                m_modifierActive = !m_modifierActive;
+            }
+            ///prevModifier = modifier;
 
             bool directionActive = false;
 
@@ -85,24 +91,29 @@ namespace vbg
 
             VBGCharacterController.Action action = VBGCharacterController.Action.NONE;
 
-            if(modifierActive)
+            if(m_modifierActive)
             {
                 if(attack)
                 {
                     action = VBGCharacterController.Action.SPE_ATTACK;
+                    m_modifierActive = false;
                 }
-                else if (special)
+                /*else if (special)
                 {
                     action = VBGCharacterController.Action.SPE_SPECIAL;
-                }
+                    m_modifierActive = false;
+                }*/
                 else if (movement)
                 {
                     action = VBGCharacterController.Action.SPE_MOVEMENT;
+                    m_modifierActive = false;
                 }
                 else if(defense)
                 {
                     action = VBGCharacterController.Action.SPE_DEFENSE;
+                    m_modifierActive = false;
                 }
+
             } else
             {
                 if (attack)
@@ -123,6 +134,7 @@ namespace vbg
                 }
             }
 
+
             VBGCharacterController.Request request = new VBGCharacterController.Request
             {
                 move = m_Move,
@@ -130,7 +142,7 @@ namespace vbg
                 inputNorm = joy.magnitude,
                 action = action,
                 directionNorm = directionActive ? joyR.magnitude : 0.0f,
-                modifier = modifierActive
+                modifier = m_modifierActive
             };
 
             // pass all parameters to the character control script
