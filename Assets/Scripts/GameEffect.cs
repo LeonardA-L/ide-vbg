@@ -638,7 +638,7 @@ namespace vbg
             if (!audioImpact.active || audioImpact.startEvent == null || audioImpact.startEvent == "" || processedOnceThisCycle)
                 return;
 
-            SoundManager.Instance.PostEvent(audioImpact.startEvent, transform.parent.gameObject);
+            SoundManager.Instance.PostEvent(audioImpact.startEvent, (transform.parent ?? transform).gameObject);
         }
 
         public void ProcessCreatureImpact(Transform tr, VBGCharacterController cc, Rigidbody rb)

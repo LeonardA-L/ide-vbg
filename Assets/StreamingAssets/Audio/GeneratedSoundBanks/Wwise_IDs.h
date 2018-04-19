@@ -13,14 +13,44 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID AMB_CLAPOTS = 2666046328U;
+        static const AkUniqueID AMB_FALAISE = 3906951489U;
+        static const AkUniqueID AMB_INIT = 1166681548U;
+        static const AkUniqueID AMB_PORT = 2498798531U;
+        static const AkUniqueID AMB_PORT_MER = 366006314U;
+        static const AkUniqueID AMB_VILLAGE = 2699383670U;
         static const AkUniqueID EVENT_HEPHA_ATK = 82851639U;
+        static const AkUniqueID EVENT_INIT = 15463988U;
         static const AkUniqueID EVENT_VBG_PORT = 2451167397U;
+        static const AkUniqueID PLAY_AMB_FALAISE_MOULIN_3D_LOOP = 944459842U;
+        static const AkUniqueID PLAY_AMB_VILLAGE_CIGALES_FORT_2D_LOOP = 2980582648U;
         static const AkUniqueID PLAY_FOOTSTEPS_HEAVY = 145704183U;
         static const AkUniqueID PLAY_FOOTSTEPS_LIGHT = 2827287670U;
+        static const AkUniqueID PLAY_M_VBGPORT_DYNAMIC = 753575706U;
+        static const AkUniqueID PLAY_M_VBGPORT_DYNAMIC_DEMO2 = 3528406010U;
+        static const AkUniqueID PLAY_PASSBY_BOAT = 1842608103U;
+        static const AkUniqueID PLAY_TEST_3D = 2738087332U;
+        static const AkUniqueID TRIGGERZONE_BEGIN_FALAISE = 659911621U;
+        static const AkUniqueID TRIGGERZONE_END_FALAISE = 132196245U;
+        static const AkUniqueID TRIGGERZONE_FALAISE = 274211791U;
+        static const AkUniqueID TRIGGERZONE_PORT = 2638844973U;
+        static const AkUniqueID TRIGGERZONE_PORT_MER = 2513123340U;
+        static const AkUniqueID TRIGGERZONE_VILLAGE = 1600917764U;
     } // namespace EVENTS
 
     namespace STATES
     {
+        namespace CLOCHES_PLAYEDONCE
+        {
+            static const AkUniqueID GROUP = 405198451U;
+
+            namespace STATE
+            {
+                static const AkUniqueID FALSE = 2452206122U;
+                static const AkUniqueID TRUE = 3053630529U;
+            } // namespace STATE
+        } // namespace CLOCHES_PLAYEDONCE
+
         namespace GAMEPLAY_PHASE
         {
             static const AkUniqueID GROUP = 2407702553U;
@@ -31,6 +61,30 @@ namespace AK
                 static const AkUniqueID PASSIF = 2831715831U;
             } // namespace STATE
         } // namespace GAMEPLAY_PHASE
+
+        namespace MAP_ZONE
+        {
+            static const AkUniqueID GROUP = 838332226U;
+
+            namespace STATE
+            {
+                static const AkUniqueID FALAISE = 3168137712U;
+                static const AkUniqueID PORT = 1608679832U;
+                static const AkUniqueID PORT_MER = 1866337637U;
+                static const AkUniqueID VILLAGE = 3945572659U;
+            } // namespace STATE
+        } // namespace MAP_ZONE
+
+        namespace MAP_ZONE_FALAISE
+        {
+            static const AkUniqueID GROUP = 1237485236U;
+
+            namespace STATE
+            {
+                static const AkUniqueID BEGIN = 349818688U;
+                static const AkUniqueID END = 529726532U;
+            } // namespace STATE
+        } // namespace MAP_ZONE_FALAISE
 
     } // namespace STATES
 
@@ -43,6 +97,7 @@ namespace AK
             namespace SWITCH
             {
                 static const AkUniqueID DIRT = 2195636714U;
+                static const AkUniqueID METAL = 2473969246U;
                 static const AkUniqueID STONE = 1216965916U;
                 static const AkUniqueID WOOD = 2058049674U;
             } // namespace SWITCH
@@ -68,6 +123,7 @@ namespace AK
     {
         static const AkUniqueID DEBUG_SPEEDPLAYBACK = 2967529081U;
         static const AkUniqueID RTPC_DISTVILLAGE = 3879816141U;
+        static const AkUniqueID RTPC_GAMEDEFINED_DISTANCE_MOULIN = 1846987439U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS
@@ -78,15 +134,22 @@ namespace AK
 
     namespace BUSSES
     {
+        static const AkUniqueID AMB = 1117531639U;
         static const AkUniqueID CHARA = 434268486U;
+        static const AkUniqueID FALAISE = 3168137712U;
         static const AkUniqueID HEPHA = 2461340601U;
         static const AkUniqueID M = 84696434U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
+        static const AkUniqueID PORT = 1608679832U;
         static const AkUniqueID SFX = 393239870U;
+        static const AkUniqueID VILLAGE = 3945572659U;
     } // namespace BUSSES
 
     namespace AUX_BUSSES
     {
+        static const AkUniqueID AC_FALAISE = 2844349151U;
+        static const AkUniqueID AC_PORT = 2055135965U;
+        static const AkUniqueID AC_VILLAGE = 2725865684U;
         static const AkUniqueID SFX_RVB_EXT = 4102309429U;
     } // namespace AUX_BUSSES
 
