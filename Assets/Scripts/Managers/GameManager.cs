@@ -29,7 +29,7 @@ namespace vbg
 
             public readonly static float HUD_COMPASS_FADEOUT = 0.2f;    // s
 
-            public readonly static float FPS_REF = 60.0f;
+            public readonly static float FPS_REF = 50.0f;
         }
 
         protected static GameManager instance;

@@ -137,16 +137,8 @@ namespace vbg
             //
             if(canMove)
             {
-                bodyMovement += lastMove * lastInputNorm * speed * stableTimeRatio;
+                bodyMovement += lastMove * lastInputNorm * speed;
                 transform.forward = Vector3.Lerp(transform.forward, lastDirection, rotationSpeedFactor * stableTimeRatio);
-            }
-
-            // Apply GameEffects
-            activeGameEffects.RemoveAll(item => item == null);
-            for (int idx = 0; idx < activeGameEffects.Count; idx++)
-            {
-                GameEffect ge = activeGameEffects[idx];
-                ge.ProcessOnCollision(this, rb, ref bodyMovement);
             }
 
             Vector3 groundMovement = bodyMovement;
@@ -194,6 +186,14 @@ namespace vbg
         void FixedUpdate()
         {
             rb.MovePosition(rb.position + bodyMovement * Time.fixedDeltaTime);
+
+            // Apply GameEffects
+            activeGameEffects.RemoveAll(item => item == null);
+            for (int idx = 0; idx < activeGameEffects.Count; idx++)
+            {
+                GameEffect ge = activeGameEffects[idx];
+                ge.ProcessOnCollision(this, rb, ref bodyMovement);
+            }
         }
 
         public void Move(Request _req)
@@ -331,6 +331,9 @@ namespace vbg
             deathTimer = Constants.DEATH_REVIVE_TIME;
             rb.drag = 20.0f;
             GameManager.Instance.OnDeath(this);
+
+            rb.velocity = new Vector3();
+
             if(destroyOnDie)
             {
                 Destroy(gameObject);
@@ -361,7 +364,7 @@ namespace vbg
 
         public void SetWeaponActive(int _intValue)
         {
-            weaponIsActive = _intValue != 0;
+            weaponIsActive = _intValue > 0;
         }
 
         public float GetDirectionNorm()

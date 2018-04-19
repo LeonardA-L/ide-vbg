@@ -539,7 +539,7 @@ namespace vbg
                 Transform refTransform = pushForce.ownerAsReference ? owner.transform : transform;
                 Vector3 force = new Vector3();
                 float forceNorm = pushForce.pushForceNorm * rb.mass;
-                float stableTimeRatio = Time.deltaTime * GameManager.Constants.FPS_REF;
+                float stableTimeRatio = Time.fixedDeltaTime * GameManager.Constants.FPS_REF;
                 if (pushForce.pushForceDecreaseLength > 0.0f)
                 {
                     float distRatio = pushForce.pushForceDecreaseLength / (tr.transform.position - refTransform.position).magnitude;
