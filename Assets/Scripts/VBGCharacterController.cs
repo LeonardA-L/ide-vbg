@@ -62,6 +62,7 @@ namespace vbg
             public float inputNorm;
             public float directionNorm;
             public Action action;
+            public bool modifier;
             public void Init()
             {
                 move = Vector3.zero;
@@ -108,6 +109,7 @@ namespace vbg
         public bool isGrounded;
         private float deathTimer = 0.0f;
         public bool canMove = true;
+        private bool superMode = false;
 
         // Use this for initialization
         void Start()
@@ -154,6 +156,9 @@ namespace vbg
             // Update CC
             //cc.Move(movement * Time.deltaTime);
             animator.SetFloat("Health", health.GetHealth());
+
+            Debug.Log(superMode);
+            animator.SetBool("Bloom", superMode);
 
             // Cooldowns
             // TODO in list
@@ -207,6 +212,8 @@ namespace vbg
             }
             lastInputNorm = _req.inputNorm;
             lastDirectionNorm = _req.directionNorm;
+
+            superMode = _req.modifier;
 
             if (_req.action != Action.NONE)
             {

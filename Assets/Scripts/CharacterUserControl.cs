@@ -129,7 +129,8 @@ namespace vbg
                 direction = m_Dir,
                 inputNorm = joy.magnitude,
                 action = action,
-                directionNorm = directionActive ? joyR.magnitude : 0.0f
+                directionNorm = directionActive ? joyR.magnitude : 0.0f,
+                modifier = modifierActive
             };
 
             // pass all parameters to the character control script
