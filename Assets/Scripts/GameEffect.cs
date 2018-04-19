@@ -539,6 +539,7 @@ namespace vbg
                 Transform refTransform = pushForce.ownerAsReference ? owner.transform : transform;
                 Vector3 force = new Vector3();
                 float forceNorm = pushForce.pushForceNorm * rb.mass;
+                float stableTimeRatio = Time.deltaTime * GameManager.Constants.FPS_REF;
                 if (pushForce.pushForceDecreaseLength > 0.0f)
                 {
                     float distRatio = pushForce.pushForceDecreaseLength / (tr.transform.position - refTransform.position).magnitude;
@@ -550,7 +551,8 @@ namespace vbg
                     force +=  (normalizedPF.x * refTransform.right
                              + normalizedPF.y * refTransform.up
                              + normalizedPF.z * refTransform.forward)
-                             * forceNorm;
+                             * forceNorm
+                             * stableTimeRatio;
                 }
                 else if (pushForce.pushForceIsOmnidirectional)
                 {
@@ -563,7 +565,8 @@ namespace vbg
                     force += (movement.x * refTransform.right
                              + movement.y * refTransform.up
                              + movement.z * refTransform.forward)
-                             * forceNorm;
+                             * forceNorm
+                             * stableTimeRatio;
                 }
 
                 if(rb != null)

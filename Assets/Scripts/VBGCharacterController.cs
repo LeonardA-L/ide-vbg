@@ -124,6 +124,7 @@ namespace vbg
         // Update is called once per frame
         void Update()
         {
+            float stableTimeRatio = Time.deltaTime * GameManager.Constants.FPS_REF;
 
             isGrounded = Physics.CheckSphere(groundChecker.position, groundChecker.localPosition.y + 0.15f, Ground, QueryTriggerInteraction.Ignore);
             //weaponIsActive = animator.GetCurrentAnimatorStateInfo((int)AnimatorLayer.UPPER).IsName("Attacking") || animator.GetCurrentAnimatorStateInfo((int)AnimatorLayer.DEFAULT).IsName("Whirlwind");
@@ -134,8 +135,8 @@ namespace vbg
             //
             if(canMove)
             {
-                bodyMovement += lastMove * lastInputNorm * speed;
-                transform.forward = Vector3.Lerp(transform.forward, lastDirection, rotationSpeedFactor);
+                bodyMovement += lastMove * lastInputNorm * speed * stableTimeRatio;
+                transform.forward = Vector3.Lerp(transform.forward, lastDirection, rotationSpeedFactor * stableTimeRatio);
             }
 
             // Apply GameEffects
