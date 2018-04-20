@@ -99,7 +99,8 @@ namespace vbg
 
             [Tooltip("Name of the Boolean parameter to activate while the effect is processed")]
             public string boolName;
-
+            [Tooltip("Value for the boolean to set")]
+            public bool boolValue = true;
         }
 
         [System.Serializable]
@@ -334,7 +335,7 @@ namespace vbg
                     animator = owner.GetComponent<Animator>();
                 }
 
-                animator.SetBool(animatorImpact.boolName, false);
+                animator.SetBool(animatorImpact.boolName, !animatorImpact.boolValue);
             }
         }
 
@@ -624,7 +625,7 @@ namespace vbg
                 Debug.Log(animator);
                 Debug.Log(animatorImpact.boolName);
                 //Debug.Log(animator.GetBool(animatorImpact.boolName));
-                animator.SetBool(animatorImpact.boolName, true);
+                animator.SetBool(animatorImpact.boolName, animatorImpact.boolValue);
             }
         }
 

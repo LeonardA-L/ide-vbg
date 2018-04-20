@@ -100,6 +100,8 @@ namespace vbg
         public GameEffectCommand defense;
         public GameEffectCommand special;
 
+        public List<GameEffectCommand> additionnalCommands = new List<GameEffectCommand>();
+
         // Members
         public Vector3 lastDirection;
         public Vector3 lastMove;
@@ -229,7 +231,7 @@ namespace vbg
             switch(action)
             {
                 case Action.ATTACK:
-                    animator.SetTrigger("Attack");
+                    animator.SetBool("Attack", true);
                     animator.SetBool("AttackAim", false);
                     break;
                 case Action.SPE_ATTACK:
@@ -241,9 +243,14 @@ namespace vbg
                 case Action.SPECIAL:
                     TriggerGameEffect(action);
                     animator.SetBool("AttackAim", false);
+                    animator.SetBool("SpeAttackAim", false);
                     break;
                 case Action.ATTACK_AIM:
                     animator.SetBool("AttackAim", true);
+                    break;
+                case Action.SPE_ATTACK_AIM:
+                    animator.SetBool("SpeAttackAim", true);
+                    animator.SetBool("SpeAttack", false);
                     break;
             }
 
@@ -281,10 +288,15 @@ namespace vbg
                     return;
             }
 
+            ExecuteCommand(command);
+        }
+
+        private void ExecuteCommand(GameEffectCommand command)
+        {
             if (command.toInstanciate == null)
                 return;
 
-            if(command.timer > 0.0f)
+            if (command.timer > 0.0f)
             {
                 Debug.Log("Too soon");
                 return;
@@ -294,17 +306,23 @@ namespace vbg
 
             GameObject geGameObject = Instantiate(command.toInstanciate);
             GameEffect gameEffect = geGameObject.GetComponent<GameEffect>();
-            if(gameEffect == null)
+            List<GameEffect> effects = new List<GameEffect>();
+            if (gameEffect == null)
             {
-                gameEffect = geGameObject.GetComponentsInChildren<GameEffect>()[0];
+                effects.AddRange(geGameObject.GetComponentsInChildren<GameEffect>());
+            } else
+            {
+                effects.Add(gameEffect);
             }
-            Debug.Assert(gameEffect, "Instantiated prefab has no GameEffect");
 
-            gameEffect.SetOwner(this);
+            foreach (GameEffect ge in effects)
+            {
+                ge.SetOwner(this);
+            }
 
             geGameObject.transform.position = transform.position;
             geGameObject.transform.forward = transform.forward;
-            if(command.child)
+            if (command.child)
             {
                 gameEffect.FollowTransform(transform, true, false);
             }
@@ -437,6 +455,19 @@ namespace vbg
         public void PostAudioEvent(string _eventName)
         {
             SoundManager.Instance.PostEvent(_eventName, this.gameObject);
+        }
+
+        public void ExecuteAdditionnalCommand(int _index)
+        {
+            ExecuteCommand(additionnalCommands[_index]);
+        }
+
+        public void ResetAttackBool()
+        {
+            animator.SetBool("Attack", false);
+            animator.SetBool("AttackAim", false);
+            animator.SetBool("SpeAttackAim", false);
+            animator.SetBool("SpeAttack", false);
         }
     }
 }
