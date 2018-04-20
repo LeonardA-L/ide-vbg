@@ -75,6 +75,7 @@ namespace vbg
 
         // Components
         private Rigidbody rb;
+        private UnityEngine.Collider col;
         private CharacterHealth health;
         private Animator animator;
         private HUDHelper hudHelper;
@@ -119,6 +120,7 @@ namespace vbg
             health = GetComponent<CharacterHealth>();
             animator = GetComponent<Animator>();
             hudHelper = GetComponent<HUDHelper>();
+            col = GetComponent<UnityEngine.Collider>();
             weaponIsActive = false;
             isGrounded = true;
         }
@@ -332,9 +334,10 @@ namespace vbg
             rb.drag = 20.0f;
             GameManager.Instance.OnDeath(this);
 
-            rb.velocity = new Vector3();
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            col.enabled = false;
 
-            if(destroyOnDie)
+            if (destroyOnDie)
             {
                 Destroy(gameObject);
             }
@@ -343,6 +346,8 @@ namespace vbg
         public void Revive()
         {
             health.SetHealth(Constants.CHARACTER_START_HEALTH);
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+            col.enabled = true;
         }
 
         public void Heal(float intensity)
