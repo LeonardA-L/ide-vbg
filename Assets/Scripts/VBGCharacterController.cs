@@ -38,7 +38,9 @@ namespace vbg
         {
             NONE,
             ATTACK,
+            ATTACK_AIM,
             SPE_ATTACK,
+            SPE_ATTACK_AIM,
             MOVEMENT,
             SPE_MOVEMENT,
             DEFENSE,
@@ -228,7 +230,8 @@ namespace vbg
             {
                 case Action.ATTACK:
                     animator.SetTrigger("Attack");
-                break;
+                    animator.SetBool("AttackAim", false);
+                    break;
                 case Action.SPE_ATTACK:
                 case Action.SPE_DEFENSE:
                 case Action.SPE_MOVEMENT:
@@ -237,6 +240,10 @@ namespace vbg
                 case Action.DEFENSE:
                 case Action.SPECIAL:
                     TriggerGameEffect(action);
+                    animator.SetBool("AttackAim", false);
+                    break;
+                case Action.ATTACK_AIM:
+                    animator.SetBool("AttackAim", true);
                     break;
             }
 

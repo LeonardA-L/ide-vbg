@@ -5,6 +5,11 @@ namespace vbg
     [RequireComponent(typeof (VBGCharacterController))]
     public class CharacterUserControl : MonoBehaviour
     {
+        public bool m_aimAttack = false;
+        public bool m_aimSpeAttack = false;
+        private bool m_aimingAttack = false;
+        private bool m_aimingSpeAttack = false;
+
         private int controllerID = -1;
 
         private VBGCharacterController m_Character; // A reference to the ThirdPersonCharacter on the object
@@ -57,6 +62,8 @@ namespace vbg
             Vector2 joy = new Vector2(h, v);
             Vector2 joyR = new Vector2(hr, vr);
             bool attack = Input.GetButtonDown("Attack" + GetControllersuffix());
+            bool attackUp = Input.GetButtonUp("Attack" + GetControllersuffix());
+            bool attackPressed = Input.GetButton("Attack" + GetControllersuffix());
             bool defense = Input.GetButtonDown("Defense" + GetControllersuffix());
             bool movement = Input.GetButtonDown("Movement" + GetControllersuffix());
             bool special = Input.GetButtonDown("Special" + GetControllersuffix());
@@ -87,9 +94,22 @@ namespace vbg
 
             if(modifierActive)
             {
-                if(attack)
+                if (m_aimingSpeAttack && attackUp)
                 {
                     action = VBGCharacterController.Action.SPE_ATTACK;
+                    m_aimingSpeAttack = false;
+                }
+                else if (attack)
+                {
+                    if(m_aimAttack)
+                    {
+                        action = VBGCharacterController.Action.SPE_ATTACK_AIM;
+                        m_aimingSpeAttack = true;
+                    }
+                    else
+                    {
+                        action = VBGCharacterController.Action.SPE_ATTACK;
+                    }
                 }
                 else if (special)
                 {
@@ -105,9 +125,22 @@ namespace vbg
                 }
             } else
             {
-                if (attack)
+                if (m_aimingAttack && attackUp)
                 {
                     action = VBGCharacterController.Action.ATTACK;
+                    m_aimingAttack = false;
+                }
+                else if (attack)
+                {
+                    if (m_aimAttack)
+                    {
+                        action = VBGCharacterController.Action.ATTACK_AIM;
+                        m_aimingAttack = true;
+                    }
+                    else
+                    {
+                        action = VBGCharacterController.Action.ATTACK;
+                    }
                 }
                 else if (special)
                 {
@@ -121,6 +154,15 @@ namespace vbg
                 {
                     action = VBGCharacterController.Action.DEFENSE;
                 }
+            }
+
+            if (m_aimingAttack && attackPressed && action == VBGCharacterController.Action.NONE)
+            {
+                action = VBGCharacterController.Action.ATTACK_AIM;
+            }
+            if (m_aimingAttack && !attackPressed && action == VBGCharacterController.Action.NONE)
+            {
+                action = VBGCharacterController.Action.ATTACK;
             }
 
             VBGCharacterController.Request request = new VBGCharacterController.Request
