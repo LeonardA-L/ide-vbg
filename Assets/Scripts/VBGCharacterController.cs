@@ -151,7 +151,6 @@ namespace vbg
             //cc.Move(movement * Time.deltaTime);
             animator.SetFloat("Health", health.GetHealth());
 
-            Debug.Log(superMode);
             animator.SetBool("Bloom", superMode);
 
             // Cooldowns

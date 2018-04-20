@@ -165,6 +165,8 @@ GameObject:
   - component: {fileID: 114134247394433866}
   - component: {fileID: 114115187845641974}
   - component: {fileID: 114030917798698270}
+  - component: {fileID: 114735076957163396}
+  - component: {fileID: 114817419643824802}
   m_Layer: 0
   m_Name: ScriptHolder
   m_TagString: Untagged
@@ -1078,7 +1080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aresPrefab: {fileID: 1111775559832274, guid: be0fa06da3c59e74fb4e51252d1f3d72, type: 2}
-  artemisPrefab: {fileID: 1111775559832274, guid: be0fa06da3c59e74fb4e51252d1f3d72,
+  artemisPrefab: {fileID: 1196705819576444, guid: 36b13ee441d1c7240a85e500b296170c,
     type: 2}
   hephaestusPrefab: {fileID: 1111775559832274, guid: be0fa06da3c59e74fb4e51252d1f3d72,
     type: 2}
@@ -1169,7 +1171,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   glowType: 0
-  glowTint: {r: 1, g: 0.99310344, b: 0.75, a: 0}
+  glowTint: {r: 1, g: 1, b: 1, a: 0}
   blurSpreadInner: 0.296
   blurIterations: 5
   glowIntensityInner: 0.44
@@ -1291,6 +1293,28 @@ MonoBehaviour:
   saveDecodedBank: 0
   unloadTriggerList: 958ca0ea
   valueGuid: f8388cadc0cfa84a96ef7d6560236bbf
+--- !u!114 &114735076957163396
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1574184204782154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40f32cc04b71f974d93e8281213b0e84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114817419643824802
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1574184204782154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b0b9ce3ca2b50846a6f76827d56bd48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114844549610221606
 MonoBehaviour:
   m_ObjectHideFlags: 1
