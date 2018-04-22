@@ -26,6 +26,8 @@ namespace vbg
             public float cooldown = 2.0f;
             public float timer;
             public bool child;
+            public bool unique;
+            public GameObject previous;
         }
 
         public enum AnimatorLayer
@@ -305,6 +307,11 @@ namespace vbg
 
             command.timer = command.cooldown;
 
+            if(command.unique && command.previous != null)
+            {
+                return;
+            }
+
             GameObject geGameObject = Instantiate(command.toInstanciate);
             GameEffect gameEffect = geGameObject.GetComponent<GameEffect>();
             List<GameEffect> effects = new List<GameEffect>();
@@ -327,6 +334,7 @@ namespace vbg
             {
                 gameEffect.FollowTransform(transform, true, false);
             }
+            command.previous = geGameObject;
         }
 
         public void RegisterGameEffect(GameEffect ge)

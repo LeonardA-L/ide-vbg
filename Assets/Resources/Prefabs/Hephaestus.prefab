@@ -2510,40 +2510,54 @@ MonoBehaviour:
     cooldown: 6
     timer: 0
     child: 1
+    unique: 0
+    previous: {fileID: 0}
   specialMovement:
     toInstanciate: {fileID: 1125280295800404, guid: ea4f90b84747e314e84468862be09660,
       type: 2}
     cooldown: 3
     timer: 0
     child: 1
+    unique: 1
+    previous: {fileID: 0}
   specialDefense:
     toInstanciate: {fileID: 1763979341736754, guid: 24b3fd89970c53b4cafb88091114bda8,
       type: 2}
     cooldown: 8
     timer: 0
     child: 0
+    unique: 0
+    previous: {fileID: 0}
   specialSpecial:
     toInstanciate: {fileID: 1735137292521736, guid: 4c0fa72b41fbe714ca3a307eafc5b2de,
       type: 2}
     cooldown: 2
     timer: 0
     child: 0
+    unique: 0
+    previous: {fileID: 0}
   movement:
     toInstanciate: {fileID: 1125280295800404, guid: c4c044015aa1ea040a0bb95ce60fabf4,
       type: 2}
-    cooldown: 0
-    timer: 0
-    child: 0
+    cooldown: 0.21
+    timer: 0.21
+    child: 1
+    unique: 1
+    previous: {fileID: 0}
   defense:
     toInstanciate: {fileID: 0}
     cooldown: 0.6
     timer: 0
     child: 0
+    unique: 0
+    previous: {fileID: 0}
   special:
     toInstanciate: {fileID: 0}
     cooldown: 1000
     timer: 0
     child: 1
+    unique: 0
+    previous: {fileID: 0}
   additionnalCommands: []
   lastDirection: {x: 0, y: 0, z: 0}
   lastMove: {x: 0, y: 0, z: 0}

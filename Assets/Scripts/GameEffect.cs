@@ -265,7 +265,7 @@ namespace vbg
 
         void Finish()
         {
-            Debug.Log("Finish");
+            //Debug.Log("Finish");
 
             Unstables(true);
 
