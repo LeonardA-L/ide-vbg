@@ -115,6 +115,7 @@ namespace vbg
         private float deathTimer = 0.0f;
         public bool canMove = true;
         private bool superMode = false;
+        public List<Animator> additionalAnimators = new List<Animator>();
 
         // Use this for initialization
         void Start()
@@ -149,13 +150,13 @@ namespace vbg
 
             Vector3 groundMovement = bodyMovement;
             groundMovement.y = 0.0f;
-            animator.SetBool("Walking", groundMovement.magnitude > 0.3f);
+            AnimatorSetBool("Walking", groundMovement.magnitude > 0.3f);
 
             // Update CC
             //cc.Move(movement * Time.deltaTime);
-            animator.SetFloat("Health", health.GetHealth());
+            AnimatorSetFloat("Health", health.GetHealth());
 
-            animator.SetBool("Bloom", superMode);
+            AnimatorSetBool("Bloom", superMode);
 
             // Cooldowns
             // TODO in list
@@ -231,8 +232,8 @@ namespace vbg
             switch(action)
             {
                 case Action.ATTACK:
-                    animator.SetBool("Attack", true);
-                    animator.SetBool("AttackAim", false);
+                    AnimatorSetBool("Attack", true);
+                    AnimatorSetBool("AttackAim", false);
                     break;
                 case Action.SPE_ATTACK:
                 case Action.SPE_DEFENSE:
@@ -242,15 +243,15 @@ namespace vbg
                 case Action.DEFENSE:
                 case Action.SPECIAL:
                     TriggerGameEffect(action);
-                    animator.SetBool("AttackAim", false);
-                    animator.SetBool("SpeAttackAim", false);
+                    AnimatorSetBool("AttackAim", false);
+                    AnimatorSetBool("SpeAttackAim", false);
                     break;
                 case Action.ATTACK_AIM:
-                    animator.SetBool("AttackAim", true);
+                    AnimatorSetBool("AttackAim", true);
                     break;
                 case Action.SPE_ATTACK_AIM:
-                    animator.SetBool("SpeAttackAim", true);
-                    animator.SetBool("SpeAttack", false);
+                    AnimatorSetBool("SpeAttackAim", true);
+                    AnimatorSetBool("SpeAttack", false);
                     break;
             }
 
@@ -464,10 +465,37 @@ namespace vbg
 
         public void ResetAttackBool()
         {
-            animator.SetBool("Attack", false);
-            animator.SetBool("AttackAim", false);
-            animator.SetBool("SpeAttackAim", false);
-            animator.SetBool("SpeAttack", false);
+            AnimatorSetBool("Attack", false);
+            AnimatorSetBool("AttackAim", false);
+            AnimatorSetBool("SpeAttackAim", false);
+            AnimatorSetBool("SpeAttack", false);
+        }
+
+        private void AnimatorSetBool(string _name, bool _value)
+        {
+            animator.SetBool(_name, _value);
+            foreach(Animator a in additionalAnimators)
+            {
+                a.SetBool(_name, _value);
+            }
+        }
+
+        private void AnimatorSetFloat(string _name, float _value)
+        {
+            animator.SetFloat(_name, _value);
+            foreach (Animator a in additionalAnimators)
+            {
+                a.SetFloat(_name, _value);
+            }
+        }
+
+        private void AnimatorSetTrigger(string _name)
+        {
+            animator.SetTrigger(_name);
+            foreach (Animator a in additionalAnimators)
+            {
+                a.SetTrigger(_name);
+            }
         }
     }
 }
