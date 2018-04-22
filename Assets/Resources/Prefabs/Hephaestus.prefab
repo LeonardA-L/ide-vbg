@@ -1556,7 +1556,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1111775559832274}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 13.257, y: -0.0036621094, z: 18.248}
+  m_LocalPosition: {x: 15.050713, y: 1.1823933e-16, z: 22.524975}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4617916785678168}
@@ -2347,6 +2347,7 @@ MonoBehaviour:
     animator: {fileID: 0}
     triggerName: 
     boolName: 
+    boolValue: 1
   ownerImpact:
     active: 0
     paralyse: 0
@@ -2471,6 +2472,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92d1a9c0144ed324e9f33c5728e5a0bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_aimAttack: 0
+  m_aimSpeAttack: 0
 --- !u!114 &114670760585467900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2541,6 +2544,7 @@ MonoBehaviour:
     cooldown: 1000
     timer: 0
     child: 1
+  additionnalCommands: []
   lastDirection: {x: 0, y: 0, z: 0}
   lastMove: {x: 0, y: 0, z: 0}
   lastInputNorm: 0
@@ -2548,6 +2552,7 @@ MonoBehaviour:
   action: 0
   isGrounded: 1
   canMove: 1
+  additionalAnimators: []
 --- !u!136 &136046995169629902
 CapsuleCollider:
   m_ObjectHideFlags: 1
