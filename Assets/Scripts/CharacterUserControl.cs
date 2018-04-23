@@ -9,6 +9,8 @@ namespace vbg
         public bool m_aimSpeAttack = false;
         private bool m_aimingAttack = false;
         private bool m_aimingSpeAttack = false;
+        public bool m_aimSpeDefense = false;
+        private bool m_aimingSpeDefense = false;
 
         private int controllerID = -1;
 
@@ -65,6 +67,8 @@ namespace vbg
             bool attackUp = Input.GetButtonUp("Attack" + GetControllersuffix());
             bool attackPressed = Input.GetButton("Attack" + GetControllersuffix());
             bool defense = Input.GetButtonDown("Defense" + GetControllersuffix());
+            bool defenseUp = Input.GetButtonUp("Defense" + GetControllersuffix());
+            bool defensePressed = Input.GetButton("Defense" + GetControllersuffix());
             bool movement = Input.GetButtonDown("Movement" + GetControllersuffix());
             bool special = Input.GetButtonDown("Special" + GetControllersuffix());
 
@@ -101,7 +105,7 @@ namespace vbg
                 }
                 else if (attack)
                 {
-                    if(m_aimAttack)
+                    if(m_aimSpeAttack)
                     {
                         action = VBGCharacterController.Action.SPE_ATTACK_AIM;
                         m_aimingSpeAttack = true;
@@ -110,6 +114,11 @@ namespace vbg
                     {
                         action = VBGCharacterController.Action.SPE_ATTACK;
                     }
+                }
+                if (m_aimingSpeDefense && defenseUp)
+                {
+                    action = VBGCharacterController.Action.SPE_DEFENSE;
+                    m_aimingSpeDefense = false;
                 }
                 else if (special)
                 {
@@ -121,7 +130,15 @@ namespace vbg
                 }
                 else if(defense)
                 {
-                    action = VBGCharacterController.Action.SPE_DEFENSE;
+                    if (m_aimSpeDefense)
+                    {
+                        action = VBGCharacterController.Action.SPE_DEFENSE_AIM;
+                        m_aimingSpeDefense = true;
+                    }
+                    else
+                    {
+                        action = VBGCharacterController.Action.SPE_DEFENSE;
+                    }
                 }
             } else
             {

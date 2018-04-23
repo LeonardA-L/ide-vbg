@@ -775,6 +775,7 @@ GameObject:
   - component: {fileID: 223937306069856466}
   - component: {fileID: 114779505920560624}
   - component: {fileID: 114184921795547022}
+  - component: {fileID: 95575420096093544}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2819,6 +2820,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95575420096093544
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1698419333937570}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 45199005bd82a754cb2bd0b2d0acc525, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114184921795547022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2976,6 +2994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathTimer: {fileID: 114320900488324232}
+  hudAnimator: {fileID: 95575420096093544}
 --- !u!114 &114779505920560624
 MonoBehaviour:
   m_ObjectHideFlags: 1

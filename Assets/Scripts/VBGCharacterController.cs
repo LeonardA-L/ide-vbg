@@ -47,6 +47,7 @@ namespace vbg
             SPE_MOVEMENT,
             DEFENSE,
             SPE_DEFENSE,
+            SPE_DEFENSE_AIM,
             SPECIAL,
             SPE_SPECIAL
         }
@@ -126,7 +127,11 @@ namespace vbg
             activeGameEffects = new List<GameEffect>();
             health = GetComponent<CharacterHealth>();
             animator = GetComponent<Animator>();
-            hudHelper = GetComponent<HUDHelper>();
+            Transform hudHelperObject = transform.Find("HUD");
+            if (hudHelperObject != null)
+            {
+                hudHelper = hudHelperObject.gameObject.GetComponent<HUDHelper>();
+            }
             col = GetComponent<UnityEngine.Collider>();
             weaponIsActive = false;
             isGrounded = true;
@@ -247,6 +252,7 @@ namespace vbg
                     TriggerGameEffect(action);
                     AnimatorSetBool("AttackAim", false);
                     AnimatorSetBool("SpeAttackAim", false);
+                    AnimatorSetBool("SpeDefenseAim", false);
                     break;
                 case Action.ATTACK_AIM:
                     AnimatorSetBool("AttackAim", true);
@@ -254,6 +260,10 @@ namespace vbg
                 case Action.SPE_ATTACK_AIM:
                     AnimatorSetBool("SpeAttackAim", true);
                     AnimatorSetBool("SpeAttack", false);
+                    break;
+                case Action.SPE_DEFENSE_AIM:
+                    AnimatorSetBool("SpeDefenseAim", true);
+                    AnimatorSetBool("SpeDefense", false);
                     break;
             }
 
@@ -482,7 +492,11 @@ namespace vbg
         private void AnimatorSetBool(string _name, bool _value)
         {
             animator.SetBool(_name, _value);
-            foreach(Animator a in additionalAnimators)
+            if (hudHelper != null)
+            {
+                hudHelper.hudAnimator.SetBool(_name, _value);
+            }
+            foreach (Animator a in additionalAnimators)
             {
                 a.SetBool(_name, _value);
             }
@@ -491,6 +505,10 @@ namespace vbg
         private void AnimatorSetFloat(string _name, float _value)
         {
             animator.SetFloat(_name, _value);
+            if (hudHelper != null)
+            {
+                hudHelper.hudAnimator.SetFloat(_name, _value);
+            }
             foreach (Animator a in additionalAnimators)
             {
                 a.SetFloat(_name, _value);
@@ -500,6 +518,10 @@ namespace vbg
         private void AnimatorSetTrigger(string _name)
         {
             animator.SetTrigger(_name);
+            if (hudHelper != null)
+            {
+                hudHelper.hudAnimator.SetTrigger(_name);
+            }
             foreach (Animator a in additionalAnimators)
             {
                 a.SetTrigger(_name);

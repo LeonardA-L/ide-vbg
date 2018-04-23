@@ -9,6 +9,7 @@ namespace vbg
     {
         private Animator compass;
         public Image deathTimer;
+        public Animator hudAnimator;
         private VBGCharacterController controller;
         private float timer = 0.0f;
 
@@ -63,6 +64,14 @@ namespace vbg
                 ratio = 1 - (controller.GetDeathTimer() / VBGCharacterController.Constants.DEATH_REVIVE_TIME);
             }
             deathTimer.fillAmount = ratio;
+        }
+
+        public Animator HudAnimator
+        {
+            get
+            {
+                return hudAnimator;
+            }
         }
     }
 }
