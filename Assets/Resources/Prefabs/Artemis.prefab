@@ -2416,8 +2416,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1896010426656160}
-  m_LocalRotation: {x: -0, y: -0.82979345, z: -0, w: 0.55807066}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224111200369182722}
@@ -2863,11 +2863,12 @@ MonoBehaviour:
     unique: 0
     previous: {fileID: 0}
   specialMovement:
-    toInstanciate: {fileID: 0}
-    cooldown: 2
+    toInstanciate: {fileID: 1125280295800404, guid: ea4f90b84747e314e84468862be09660,
+      type: 2}
+    cooldown: 3
     timer: 0
-    child: 0
-    unique: 0
+    child: 1
+    unique: 1
     previous: {fileID: 0}
   specialDefense:
     toInstanciate: {fileID: 0}
