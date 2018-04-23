@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace vbg
 {
@@ -131,6 +132,14 @@ namespace vbg
             public string endEvent;
         }
 
+        [System.Serializable]
+        public class ScriptImpact
+        {
+            [Tooltip("Is Script Impact Active")]
+            public bool active = false;
+            public UnityEvent action;
+        }
+
         public enum FloatValueMode
         {
             NONE,
@@ -175,6 +184,7 @@ namespace vbg
         public OwnerImpact ownerImpact;
         public CreatureImpact creatureImpact;
         public AudioImpact audioImpact;
+        public ScriptImpact scriptImpact;
 
 
         private bool hasValueBeenUpdated = false;
@@ -622,8 +632,8 @@ namespace vbg
                 animator.SetTrigger(animatorImpact.triggerName);
             if (animatorImpact.boolName != "")
             {
-                Debug.Log(animator);
-                Debug.Log(animatorImpact.boolName);
+                //Debug.Log(animator);
+                //Debug.Log(animatorImpact.boolName);
                 //Debug.Log(animator.GetBool(animatorImpact.boolName));
                 animator.SetBool(animatorImpact.boolName, animatorImpact.boolValue);
             }
@@ -667,6 +677,14 @@ namespace vbg
             }
         }
 
+        public void ProcessScriptImpact()
+        {
+            if (!scriptImpact.active)
+                return;
+
+            scriptImpact.action.Invoke();
+        }
+
         private void AfterProcessCommon()
         {
             processedOnce = true;
@@ -697,6 +715,7 @@ namespace vbg
             ProcessAnimator();
             ProcessOwnerImpact();
             ProcessAudioImpact();
+            ProcessScriptImpact();
             // Call last
             AfterProcessCommon();
         }
@@ -733,6 +752,7 @@ namespace vbg
             ProcessOwnerImpact();
             ProcessCreatureImpact(tr, cc, rb);
             ProcessAudioImpact();
+            ProcessScriptImpact();
             // Call last
             AfterProcessCommon();
         }
