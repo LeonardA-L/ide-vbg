@@ -39,7 +39,7 @@ namespace vbg
                 // Does the ray intersect any objects excluding the player layer
                 if (Physics.Raycast(position, transform.TransformDirection(Vector3.down), out hit, maxDistance, layerMask))
                 {
-                    Debug.DrawRay(position, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
+                    //Debug.DrawRay(position, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
 
                     if (hit.distance > distance && hit.distance < maxDistance)
                     {
@@ -48,7 +48,6 @@ namespace vbg
                     }
 
                     partsValidations[i] = hit.distance < maxDistance;
-                    Debug.Log(partsValidations[i]);
                 }
             }
             
