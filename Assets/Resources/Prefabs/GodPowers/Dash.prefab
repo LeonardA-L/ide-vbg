@@ -150,8 +150,8 @@ MonoBehaviour:
     friendlyFire: 0
   pushForce:
     active: 1
-    pushForceVector: {x: 0, y: 1, z: 10}
-    pushForceNorm: 500
+    pushForceVector: {x: 0, y: 0, z: 10}
+    pushForceNorm: 800
     pushForceIsOmnidirectional: 0
     ownerAsReference: 1
     pushForceNoY: 0
@@ -178,6 +178,7 @@ MonoBehaviour:
     animator: {fileID: 0}
     triggerName: 
     boolName: 
+    boolValue: 1
   ownerImpact:
     active: 0
     paralyse: 0
@@ -211,5 +212,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43275866f290b0b4c9b6e319deb5b106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  times: 2
+  times: 1
   currentTimes: 1
