@@ -115,6 +115,8 @@ namespace vbg
             public float speedFactor = 1.0f;
             [Tooltip("The effect will add a multiplier to its owner's rotation speed for the time it's activated")]
             public float rotFactor = 1.0f;
+            [Tooltip("The effect will block all actions (jump, attack, skills) on its owner for the time it's activated")]
+            public bool blockActions = false;
         }
 
         [System.Serializable]
@@ -288,9 +290,10 @@ namespace vbg
                 owner.SetParalyzed(false);
                 owner.SetSpeedFactor(1.0f);
                 owner.SetRotFactor(1.0f);
+                owner.SetBlockActions(false);
             }
 
-            if(audioImpact.active && audioImpact.endEvent != null && audioImpact.endEvent != "")
+            if (audioImpact.active && audioImpact.endEvent != null && audioImpact.endEvent != "")
             {
                 SoundManager.Instance.PostEvent(audioImpact.endEvent, transform.parent.gameObject);
             }
@@ -652,7 +655,8 @@ namespace vbg
 
             owner.SetParalyzed(ownerImpact.paralyse);
             owner.SetSpeedFactor(ownerImpact.speedFactor);
-            owner.SetRotFactor(owner.rotationSpeedFactor);
+            owner.SetRotFactor(ownerImpact.rotFactor);
+            owner.SetBlockActions(ownerImpact.blockActions);
         }
 
         public void ProcessAudioImpact()

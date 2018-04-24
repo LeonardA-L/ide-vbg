@@ -121,6 +121,7 @@ namespace vbg
         public List<Animator> additionalAnimators = new List<Animator>();
         public float speedFactor = 1.0f;
         public float rotFactor = 1.0f;
+        public bool blockActions = false;
 
         // Use this for initialization
         void Start()
@@ -238,35 +239,38 @@ namespace vbg
 
         private void ProcessAction()
         {
-            switch(action)
+            if (!blockActions)
             {
-                case Action.ATTACK:
-                    AnimatorSetBool("Attack", true);
-                    AnimatorSetBool("AttackAim", false);
-                    break;
-                case Action.SPE_ATTACK:
-                case Action.SPE_DEFENSE:
-                case Action.SPE_MOVEMENT:
-                case Action.SPE_SPECIAL:
-                case Action.MOVEMENT:
-                case Action.DEFENSE:
-                case Action.SPECIAL:
-                    TriggerGameEffect(action);
-                    AnimatorSetBool("AttackAim", false);
-                    AnimatorSetBool("SpeAttackAim", false);
-                    AnimatorSetBool("SpeDefenseAim", false);
-                    break;
-                case Action.ATTACK_AIM:
-                    AnimatorSetBool("AttackAim", true);
-                    break;
-                case Action.SPE_ATTACK_AIM:
-                    AnimatorSetBool("SpeAttackAim", true);
-                    AnimatorSetBool("SpeAttack", false);
-                    break;
-                case Action.SPE_DEFENSE_AIM:
-                    AnimatorSetBool("SpeDefenseAim", true);
-                    AnimatorSetBool("SpeDefense", false);
-                    break;
+                switch (action)
+                {
+                    case Action.ATTACK:
+                        AnimatorSetBool("Attack", true);
+                        AnimatorSetBool("AttackAim", false);
+                        break;
+                    case Action.SPE_ATTACK:
+                    case Action.SPE_DEFENSE:
+                    case Action.SPE_MOVEMENT:
+                    case Action.SPE_SPECIAL:
+                    case Action.MOVEMENT:
+                    case Action.DEFENSE:
+                    case Action.SPECIAL:
+                        TriggerGameEffect(action);
+                        AnimatorSetBool("AttackAim", false);
+                        AnimatorSetBool("SpeAttackAim", false);
+                        AnimatorSetBool("SpeDefenseAim", false);
+                        break;
+                    case Action.ATTACK_AIM:
+                        AnimatorSetBool("AttackAim", true);
+                        break;
+                    case Action.SPE_ATTACK_AIM:
+                        AnimatorSetBool("SpeAttackAim", true);
+                        AnimatorSetBool("SpeAttack", false);
+                        break;
+                    case Action.SPE_DEFENSE_AIM:
+                        AnimatorSetBool("SpeDefenseAim", true);
+                        AnimatorSetBool("SpeDefense", false);
+                        break;
+                }
             }
 
             action = Action.NONE;
@@ -538,6 +542,11 @@ namespace vbg
         public void SetRotFactor(float _value)
         {
             rotFactor = _value;
+        }
+
+        public void SetBlockActions(bool _value)
+        {
+            blockActions = _value;
         }
     }
 }
