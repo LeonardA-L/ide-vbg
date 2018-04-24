@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1450889429623136}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 22.456242, y: 1.5562558e-17, z: 27.149124}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children:
   - {fileID: 4217615511639444}
@@ -84,7 +84,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114038768837945108
 MonoBehaviour:
@@ -196,6 +196,8 @@ MonoBehaviour:
     speedFactor: 0.2
     rotFactor: 0.8
     blockActions: 1
+    disableGravity: 0
+    velocityEndFactor: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}

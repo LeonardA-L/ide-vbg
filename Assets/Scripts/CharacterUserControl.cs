@@ -182,6 +182,14 @@ namespace vbg
             {
                 action = VBGCharacterController.Action.ATTACK;
             }
+            if (m_aimingSpeDefense && defensePressed && action == VBGCharacterController.Action.NONE)
+            {
+                action = VBGCharacterController.Action.SPE_DEFENSE_AIM;
+            }
+            if (m_aimingSpeDefense && !defensePressed && action == VBGCharacterController.Action.NONE)
+            {
+                action = VBGCharacterController.Action.SPE_DEFENSE;
+            }
 
             VBGCharacterController.Request request = new VBGCharacterController.Request
             {
