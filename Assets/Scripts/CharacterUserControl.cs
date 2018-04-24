@@ -90,6 +90,7 @@ namespace vbg
                 {
                     m_Dir = vr * m_CamForward + hr * m_Cam.right;
                     directionActive = true;
+                    m_Move = m_Dir;
                     //Debug.Log(m_Move.magnitude);
                 }
             }

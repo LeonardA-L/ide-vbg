@@ -77,7 +77,6 @@ namespace vbg
             Vector3 normal = collision.contacts[0].normal;
             
             float impact = Mathf.Abs(Mathf.Min(Vector3.Dot(velocity, normal), 0.0f));
-            Debug.Log(impact);
             impact -= impactThreshold;
 
             if(impact > 0.0f)
