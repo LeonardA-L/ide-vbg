@@ -201,6 +201,7 @@ namespace vbg
         List<IDynamic> activators = new List<IDynamic>();
         private bool toDelete = false;
         private Transform toFollow;
+        private Vector3 followOffset;
         private bool followForward;
         private bool followRotation;
         private bool processedOnce = false;
@@ -255,6 +256,9 @@ namespace vbg
                 {
                     transform.rotation = toFollow.rotation;
                 }
+                transform.position += followOffset.x * transform.right
+                                    + followOffset.y * transform.up
+                                    + followOffset.z * transform.forward;
             }
 
             if (initialVelocity.magnitude > 0.0f && rb == null)
@@ -795,13 +799,15 @@ namespace vbg
             return true;
         }
 
-        public void FollowTransform(Transform _transform, bool _followForward, bool _followRotation)
+        public void FollowTransform(Transform _transform, bool _followForward, bool _followRotation, bool _preserveOffset = false)
         {
             if(followForward || followRotation)
                 Debug.Assert(followForward != followRotation, "FollowForward cannot be equal to FollowRotation");
+            followOffset = _preserveOffset ? transform.localPosition : Vector3.zero;
             toFollow = _transform;
             followForward = _followForward;
             followRotation = _followRotation;
+            Debug.Log(followOffset);
         }
 
         public bool IsStableAndActivated()

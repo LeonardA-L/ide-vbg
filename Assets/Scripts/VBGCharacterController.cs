@@ -348,7 +348,14 @@ namespace vbg
             geGameObject.transform.forward = transform.forward;
             if (command.child)
             {
-                gameEffect.FollowTransform(transform, true, false);
+                if(gameEffect != null)
+                    gameEffect.FollowTransform(transform, true, false);
+                foreach (GameEffect ge in effects)
+                {
+                    if (ge == gameEffect)
+                        continue;
+                    ge.FollowTransform(transform, true, false, true);
+                }
             }
             command.previous = geGameObject;
         }
