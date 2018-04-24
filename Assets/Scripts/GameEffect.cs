@@ -830,7 +830,7 @@ namespace vbg
 
         void OnDestroy()
         {
-            if(!finished)
+            if(!finished && !GameManager.Instance.isQuitting)
                 Finish();
         }
     }

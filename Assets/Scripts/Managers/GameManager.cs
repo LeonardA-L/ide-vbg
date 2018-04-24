@@ -10,6 +10,7 @@ namespace vbg
         public bool showCollidersInGame = DebugConstants.SHOW_COLLIDERS_INGAME;
         public bool allowRevive = true;
         public bool isArena = false;
+        public bool isQuitting = false;
         private bool pause = false;
         private bool pauseButtonIsDown = false;
         public struct DebugConstants
@@ -116,5 +117,9 @@ namespace vbg
             }
         }
 
+        private void OnApplicationQuit()
+        {
+            isQuitting = true;
+        }
     }
 }

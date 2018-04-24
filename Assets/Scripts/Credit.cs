@@ -14,7 +14,7 @@ public class Credit : MonoBehaviour {
 #if UNITY_EDITOR
     void Awake()
     {
-        Debug.Log("Editor causes this Awake");
+        //Debug.Log("Editor causes this Awake");
         GenerateID();
     }
 #endif
@@ -26,7 +26,7 @@ public class Credit : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 #if UNITY_EDITOR
-        Debug.Log(creditStringID);
+        //Debug.Log(creditStringID);
         GenerateID();
 #endif
     }
