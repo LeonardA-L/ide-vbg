@@ -109,8 +109,12 @@ namespace vbg
         {
             [Tooltip("Is Owner Impact Active")]
             public bool active = false;
-            [Tooltip("Animator to impact. If none, will try to fetch the owner's animator")]
+            [Tooltip("The effect will paralyse its owner for the time it's activated")]
             public bool paralyse;
+            [Tooltip("The effect will add a multiplier to its owner's speed for the time it's activated")]
+            public float speedFactor = 1.0f;
+            [Tooltip("The effect will add a multiplier to its owner's rotation speed for the time it's activated")]
+            public float rotFactor = 1.0f;
         }
 
         [System.Serializable]
@@ -282,6 +286,8 @@ namespace vbg
             if (ownerImpact.active && owner != null)
             {
                 owner.SetParalyzed(false);
+                owner.SetSpeedFactor(1.0f);
+                owner.SetRotFactor(1.0f);
             }
 
             if(audioImpact.active && audioImpact.endEvent != null && audioImpact.endEvent != "")
@@ -645,6 +651,8 @@ namespace vbg
                 return;
 
             owner.SetParalyzed(ownerImpact.paralyse);
+            owner.SetSpeedFactor(ownerImpact.speedFactor);
+            owner.SetRotFactor(owner.rotationSpeedFactor);
         }
 
         public void ProcessAudioImpact()

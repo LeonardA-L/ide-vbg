@@ -119,6 +119,8 @@ namespace vbg
         public bool canMove = true;
         private bool superMode = false;
         public List<Animator> additionalAnimators = new List<Animator>();
+        public float speedFactor = 1.0f;
+        public float rotFactor = 1.0f;
 
         // Use this for initialization
         void Start()
@@ -151,8 +153,8 @@ namespace vbg
             //
             if(canMove)
             {
-                bodyMovement += lastMove * lastInputNorm * speed;
-                transform.forward = Vector3.Lerp(transform.forward, lastDirection, rotationSpeedFactor * stableTimeRatio);
+                bodyMovement += lastMove * lastInputNorm * speed * speedFactor;
+                transform.forward = Vector3.Lerp(transform.forward, lastDirection, rotFactor * rotationSpeedFactor * stableTimeRatio);
             }
 
             Vector3 groundMovement = bodyMovement;
@@ -526,6 +528,16 @@ namespace vbg
             {
                 a.SetTrigger(_name);
             }
+        }
+
+        public void SetSpeedFactor(float _value)
+        {
+            speedFactor = _value;
+        }
+
+        public void SetRotFactor(float _value)
+        {
+            rotFactor = _value;
         }
     }
 }
