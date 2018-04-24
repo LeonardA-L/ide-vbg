@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 23949221999170060}
   - component: {fileID: 114797123790053772}
   - component: {fileID: 114045927358697396}
-  - component: {fileID: 114474227563230776}
   - component: {fileID: 114650666752290236}
   - component: {fileID: 114525911287083680}
   m_Layer: 0
@@ -43,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4205165110803068}
   - component: {fileID: 114072372854295808}
+  - component: {fileID: 114876779650740136}
   m_Layer: 0
   m_Name: OwnerImpact
   m_TagString: Untagged
@@ -215,7 +215,7 @@ MonoBehaviour:
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
-  destroyParent: 0
+  destroyParent: 1
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -292,19 +292,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   times: 1
   currentTimes: 1
---- !u!114 &114474227563230776
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1193388794202482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4a1d7df4528f89479064915e674c546, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 6
-  currentDelay: 6
 --- !u!114 &114525911287083680
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -483,3 +470,16 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+--- !u!114 &114876779650740136
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1262642334324914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4a1d7df4528f89479064915e674c546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 7
+  currentDelay: 7

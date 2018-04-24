@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finishPrefab: {fileID: 0}
-  initialVelocity: {x: 0, y: 10, z: 30}
+  initialVelocity: {x: 0, y: 3, z: 25}
   owner: {fileID: 0}
   destroyParent: 1
   destroyOnWall: 1
@@ -239,6 +239,11 @@ MonoBehaviour:
   ownerImpact:
     active: 0
     paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
@@ -247,6 +252,13 @@ MonoBehaviour:
     active: 0
     startEvent: 
     endEvent: 
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!114 &114338249050961676
 MonoBehaviour:
   m_ObjectHideFlags: 1
