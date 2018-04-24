@@ -555,5 +555,15 @@ namespace vbg
         {
             blockActions = _value;
         }
+
+        public void SetGravity(bool _value)
+        {
+            rb.useGravity = _value;
+        }
+
+        public void MultiplyVelocity(float _factor)
+        {
+            rb.velocity *= _factor;
+        }
     }
 }

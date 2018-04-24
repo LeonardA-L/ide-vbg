@@ -61,13 +61,13 @@ namespace vbg
 
         public void RegisterGameEffect(GameEffect ge)
         {
-            Debug.Log("Dynamic Register " + gameObject.name);
+            //Debug.Log("Dynamic Register " + gameObject.name);
             activeGameEffects.Add(ge);
         }
 
         public void UnRegisterGameEffect(GameEffect ge)
         {
-            Debug.Log("Dynamic UnRegister " + gameObject.name);
+            //Debug.Log("Dynamic UnRegister " + gameObject.name);
             activeGameEffects.Remove(ge);
         }
 

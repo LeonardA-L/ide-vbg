@@ -117,6 +117,9 @@ namespace vbg
             public float rotFactor = 1.0f;
             [Tooltip("The effect will block all actions (jump, attack, skills) on its owner for the time it's activated")]
             public bool blockActions = false;
+            public bool disableGravity = false;
+            [Tooltip("Multiply the rigidbody's velocity when the effect ends")]
+            public float velocityEndFactor = 1.0f;
         }
 
         [System.Serializable]
@@ -200,6 +203,7 @@ namespace vbg
         List<IDynamic> impactedCharacters = new List<IDynamic>();
         List<IDynamic> activators = new List<IDynamic>();
         private bool toDelete = false;
+        private bool finished = false;
         private Transform toFollow;
         private Vector3 followOffset;
         private bool followForward;
@@ -285,7 +289,7 @@ namespace vbg
 
         void Finish()
         {
-            //Debug.Log("Finish");
+            Debug.Log("Finish " + name);
 
             Unstables(true);
 
@@ -295,6 +299,8 @@ namespace vbg
                 owner.SetSpeedFactor(1.0f);
                 owner.SetRotFactor(1.0f);
                 owner.SetBlockActions(false);
+                owner.SetGravity(true);
+                owner.MultiplyVelocity(ownerImpact.velocityEndFactor);
             }
 
             if (audioImpact.active && audioImpact.endEvent != null && audioImpact.endEvent != "")
@@ -334,6 +340,7 @@ namespace vbg
             }
 
             toDelete = false;
+            finished = true;
         }
 
         private void Unstables(bool finish = false)
@@ -661,6 +668,7 @@ namespace vbg
             owner.SetSpeedFactor(ownerImpact.speedFactor);
             owner.SetRotFactor(ownerImpact.rotFactor);
             owner.SetBlockActions(ownerImpact.blockActions);
+            owner.SetGravity(!ownerImpact.disableGravity);
         }
 
         public void ProcessAudioImpact()
@@ -720,6 +728,9 @@ namespace vbg
         {
             //Debug.Log("Process Always " + gameObject.name);
 
+            if (finished)
+                return;
+
             if (!IsActive(null))
             {
                 lastFrameProcessed = false;
@@ -739,6 +750,9 @@ namespace vbg
         public void ProcessOnCollision(IDynamic idy, Rigidbody rb, ref Vector3 characterMovement)
         {
             //Debug.Log("Process On Collision " + gameObject.name);
+
+            if (finished)
+                return;
 
             VBGCharacterController cc = idy as VBGCharacterController;
             Dynamic dy = idy as Dynamic;
@@ -807,7 +821,6 @@ namespace vbg
             toFollow = _transform;
             followForward = _followForward;
             followRotation = _followRotation;
-            Debug.Log(followOffset);
         }
 
         public bool IsStableAndActivated()

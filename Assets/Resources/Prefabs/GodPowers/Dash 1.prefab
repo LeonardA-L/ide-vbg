@@ -79,10 +79,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4042275316123352}
   - component: {fileID: 114453352257500930}
-  - component: {fileID: 114688088864695672}
-  - component: {fileID: 114090482857758244}
+  - component: {fileID: 114590132415466562}
   m_Layer: 0
-  m_Name: DestroyParentOnTimer
+  m_Name: OwnerImpact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,7 +107,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1821554142042296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12, y: 0, z: 16}
+  m_LocalPosition: {x: 22, y: 0, z: 19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4677555766341078}
@@ -287,7 +286,7 @@ MonoBehaviour:
   pushForce:
     active: 1
     pushForceVector: {x: 0, y: 0, z: 10}
-    pushForceNorm: 800
+    pushForceNorm: 900
     pushForceIsOmnidirectional: 0
     ownerAsReference: 1
     pushForceNoY: 0
@@ -321,6 +320,8 @@ MonoBehaviour:
     speedFactor: 1
     rotFactor: 1
     blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
@@ -336,19 +337,6 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
---- !u!114 &114090482857758244
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1874723203971416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43275866f290b0b4c9b6e319deb5b106, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  times: 1
-  currentTimes: 1
 --- !u!114 &114270905636002818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -416,11 +404,13 @@ MonoBehaviour:
     boolName: 
     boolValue: 1
   ownerImpact:
-    active: 0
-    paralyse: 0
-    speedFactor: 1
-    rotFactor: 1
-    blockActions: 0
+    active: 1
+    paralyse: 1
+    speedFactor: 0
+    rotFactor: 0
+    blockActions: 1
+    disableGravity: 1
+    velocityEndFactor: 0.1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
@@ -484,6 +474,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3084a4cb85c5434db60aa147c9298a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114590132415466562
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1874723203971416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4a1d7df4528f89479064915e674c546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0.28
+  currentDelay: 0.28
 --- !u!114 &114619929862082032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -545,6 +548,8 @@ MonoBehaviour:
     speedFactor: 1
     rotFactor: 1
     blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
@@ -560,17 +565,3 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
---- !u!114 &114688088864695672
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1874723203971416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 499b1b518470d484ba8f1dbfe26c2929, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0.6
-  currentDelay: 0.6
-  switchStart: 
