@@ -2389,6 +2389,8 @@ MonoBehaviour:
     speedFactor: 1
     rotFactor: 1
     blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
@@ -2576,9 +2578,8 @@ MonoBehaviour:
     unique: 1
     previous: {fileID: 0}
   specialSpecial:
-    toInstanciate: {fileID: 1125280295800404, guid: ea4f90b84747e314e84468862be09660,
-      type: 2}
-    cooldown: 1
+    toInstanciate: {fileID: 0}
+    cooldown: 0
     timer: 0
     child: 0
     unique: 1

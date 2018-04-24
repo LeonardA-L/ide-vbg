@@ -827,5 +827,11 @@ namespace vbg
         {
             return processedOnce && stable;
         }
+
+        void OnDestroy()
+        {
+            if(!finished)
+                Finish();
+        }
     }
 }
