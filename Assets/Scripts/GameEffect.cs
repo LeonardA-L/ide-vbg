@@ -289,9 +289,10 @@ namespace vbg
 
         void Finish()
         {
-            Debug.Log("Finish " + name);
+            //Debug.Log("Finish " + name);
 
             Unstables(true);
+            finished = true;
 
             if (ownerImpact.active && owner != null)
             {
@@ -340,7 +341,6 @@ namespace vbg
             }
 
             toDelete = false;
-            finished = true;
         }
 
         private void Unstables(bool finish = false)
@@ -383,6 +383,8 @@ namespace vbg
             }
 
             processedOnce = false;
+            toDelete = false;
+            finished = false;
         }
 
         private void OnCollisionEnter(Collision collision)
