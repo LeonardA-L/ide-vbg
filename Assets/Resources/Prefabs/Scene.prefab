@@ -668,6 +668,11 @@ MonoBehaviour:
   ownerImpact:
     active: 0
     paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
@@ -676,6 +681,13 @@ MonoBehaviour:
     active: 1
     startEvent: AMB_Init
     endEvent: 
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!114 &114112489521666842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -882,6 +894,11 @@ MonoBehaviour:
   ownerImpact:
     active: 0
     paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
@@ -890,6 +907,13 @@ MonoBehaviour:
     active: 0
     startEvent: 
     endEvent: 
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!114 &114214699084351834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -917,6 +941,7 @@ MonoBehaviour:
   showCollidersInGame: 0
   allowRevive: 1
   isArena: 0
+  isQuitting: 0
 --- !u!114 &114238848725369020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1081,12 +1106,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 056d9da4d2612ee4892484deeba2e9c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aresPrefab: {fileID: 1111775559832274, guid: be0fa06da3c59e74fb4e51252d1f3d72, type: 2}
+  aresPrefab: {fileID: 1196705819576444, guid: 36b13ee441d1c7240a85e500b296170c, type: 2}
   artemisPrefab: {fileID: 1196705819576444, guid: 36b13ee441d1c7240a85e500b296170c,
     type: 2}
-  hephaestusPrefab: {fileID: 1111775559832274, guid: be0fa06da3c59e74fb4e51252d1f3d72,
+  hephaestusPrefab: {fileID: 1196705819576444, guid: 36b13ee441d1c7240a85e500b296170c,
     type: 2}
-  apolloPrefab: {fileID: 1111775559832274, guid: be0fa06da3c59e74fb4e51252d1f3d72,
+  apolloPrefab: {fileID: 1196705819576444, guid: 36b13ee441d1c7240a85e500b296170c,
     type: 2}
 --- !u!114 &114542290616516400
 MonoBehaviour:

@@ -151,8 +151,8 @@ MonoBehaviour:
     friendlyFire: 0
   pushForce:
     active: 1
-    pushForceVector: {x: 0, y: 10, z: 1}
-    pushForceNorm: 700
+    pushForceVector: {x: 0, y: 10, z: 0}
+    pushForceNorm: 800
     pushForceIsOmnidirectional: 0
     ownerAsReference: 0
     pushForceNoY: 0
@@ -179,9 +179,15 @@ MonoBehaviour:
     animator: {fileID: 0}
     triggerName: 
     boolName: 
+    boolValue: 1
   ownerImpact:
     active: 0
     paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
@@ -190,6 +196,13 @@ MonoBehaviour:
     active: 0
     startEvent: 
     endEvent: 
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!114 &114328710055852228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -244,9 +257,15 @@ MonoBehaviour:
     animator: {fileID: 0}
     triggerName: 
     boolName: 
+    boolValue: 1
   ownerImpact:
     active: 0
     paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
@@ -255,6 +274,13 @@ MonoBehaviour:
     active: 0
     startEvent: 
     endEvent: 
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!114 &114350175856538012
 MonoBehaviour:
   m_ObjectHideFlags: 1
