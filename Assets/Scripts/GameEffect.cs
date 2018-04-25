@@ -397,7 +397,7 @@ namespace vbg
 
         public void TriggerGameEffect(GameObject other)
         {
-            //Debug.Log(this.gameObject.name + " " +other.name);
+            Debug.Log(this.gameObject.name + " " +other.name);
 
             if (other.tag == GameManager.Constants.TAG_PLAYER
                 || other.tag == GameManager.Constants.TAG_DYNAMIC

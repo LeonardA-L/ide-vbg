@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114647887805590900}
   - component: {fileID: 114338249050961676}
   - component: {fileID: 54806243428230418}
+  - component: {fileID: 114639569508871964}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Dynamic
@@ -317,6 +318,11 @@ MonoBehaviour:
   ownerImpact:
     active: 0
     paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
@@ -325,6 +331,13 @@ MonoBehaviour:
     active: 0
     startEvent: 
     endEvent: 
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!114 &114175001139765008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -384,6 +397,11 @@ MonoBehaviour:
   ownerImpact:
     active: 0
     paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
@@ -392,6 +410,13 @@ MonoBehaviour:
     active: 0
     startEvent: 
     endEvent: 
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!114 &114241549002964030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -513,6 +538,11 @@ MonoBehaviour:
   ownerImpact:
     active: 0
     paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
@@ -521,6 +551,24 @@ MonoBehaviour:
     active: 0
     startEvent: 
     endEvent: 
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+--- !u!114 &114639569508871964
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1123465278882356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff93a6b26832ea48a257b251ac22533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114647887805590900
 MonoBehaviour:
   m_ObjectHideFlags: 1
