@@ -289,9 +289,10 @@ namespace vbg
 
         void Finish()
         {
-            Debug.Log("Finish " + name);
+            //Debug.Log("Finish " + name);
 
             Unstables(true);
+            finished = true;
 
             if (ownerImpact.active && owner != null)
             {
@@ -340,7 +341,6 @@ namespace vbg
             }
 
             toDelete = false;
-            finished = true;
         }
 
         private void Unstables(bool finish = false)
@@ -383,6 +383,8 @@ namespace vbg
             }
 
             processedOnce = false;
+            toDelete = false;
+            finished = false;
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -397,7 +399,7 @@ namespace vbg
 
         public void TriggerGameEffect(GameObject other)
         {
-            Debug.Log(this.gameObject.name + " " +other.name);
+            //Debug.Log(this.gameObject.name + " " +other.name);
 
             if (other.tag == GameManager.Constants.TAG_PLAYER
                 || other.tag == GameManager.Constants.TAG_DYNAMIC
