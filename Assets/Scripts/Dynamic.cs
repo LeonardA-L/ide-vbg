@@ -12,6 +12,8 @@ namespace vbg
         private CharacterHealth health;
 
         public float minForceToEnableRigidbody = 0.0f;
+        public float chaotic = 0.0f;
+        private Vector3 lastPosition;
 
         [Tooltip("A prefab to instantiate when the object dies")]
         public GameObject finishPrefab;
@@ -22,6 +24,7 @@ namespace vbg
             activeGameEffects = new List<GameEffect>();
             rb = GetComponent<Rigidbody>();
             health = GetComponent<CharacterHealth>();
+            lastPosition = transform.position;
         }
 
         // Update is called once per frame
@@ -45,6 +48,14 @@ namespace vbg
             {
                 Die();
             }
+
+            float chaosDiff = (transform.position - lastPosition).magnitude;
+            if(chaotic != 0.0f || chaosDiff > 0.2f)
+            {
+                float chaos = chaotic * rb.mass / GameManager.Constants.CHAOS_MASS_REFERENCE * chaosDiff;
+                GameManager.Instance.AddChaos(chaos);
+            }
+            lastPosition = transform.position;
         }
 
         private void Die()

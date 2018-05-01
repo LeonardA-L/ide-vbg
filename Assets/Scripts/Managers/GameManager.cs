@@ -31,6 +31,8 @@ namespace vbg
             public readonly static float HUD_COMPASS_FADEOUT = 0.2f;    // s
 
             public readonly static float FPS_REF = 50.0f;
+
+            public readonly static float CHAOS_MASS_REFERENCE = 40;
         }
 
         protected static GameManager instance;
@@ -120,6 +122,12 @@ namespace vbg
         private void OnApplicationQuit()
         {
             isQuitting = true;
+        }
+
+        public void AddChaos(float _diff)
+        {
+            float currentChaos = SwitchManager.Instance.GetValue("Chaos") ?? 0;
+            SwitchManager.Instance.SetValue("Chaos", currentChaos + _diff);
         }
     }
 }
