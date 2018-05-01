@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1670859130330812}
   m_LocalRotation: {x: 0.000000021110168, y: -0.2589576, z: -0.000000005659698, w: 0.9658887}
-  m_LocalPosition: {x: 16.65, y: 24.06, z: 21.25}
+  m_LocalPosition: {x: 6.327023, y: -2.0980268e-17, z: 28.794868}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  chaotic: 1
   finishPrefab: {fileID: 1280908694040676, guid: 9b135e80338599749b57eca95a5504ea,
     type: 2}
 --- !u!114 &114730502310291282
@@ -144,3 +145,4 @@ MonoBehaviour:
   threshold: 0
   impactThreshold: 5
   impactMultiplier: 2
+  chaosOnDeath: 10

@@ -11,6 +11,7 @@ namespace vbg
         public float threshold = 0.0f;
         public float impactThreshold = -1.0f;
         public float impactMultiplier = 1.0f;
+        public float chaosOnDeath = 0.0f;
         private Vector3 lastPosition;
 
         // Use this for initialization

@@ -50,7 +50,7 @@ namespace vbg
             }
 
             float chaosDiff = (transform.position - lastPosition).magnitude;
-            if(chaotic != 0.0f || chaosDiff > 0.2f)
+            if(chaotic != 0.0f && chaosDiff > 0.1f)
             {
                 float chaos = chaotic * rb.mass / GameManager.Constants.CHAOS_MASS_REFERENCE * chaosDiff;
                 GameManager.Instance.AddChaos(chaos);
@@ -65,6 +65,11 @@ namespace vbg
                 GameObject finishObject = GameObject.Instantiate(finishPrefab);
                 finishObject.transform.position = transform.position;
                 finishObject.transform.rotation = transform.rotation;
+            }
+
+            if(health.chaosOnDeath != 0.0f)
+            {
+                GameManager.Instance.AddChaos(health.chaosOnDeath);
             }
 
             Destroy(gameObject);
