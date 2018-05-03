@@ -149,6 +149,15 @@ namespace vbg
             public UnityEvent action;
         }
 
+        [System.Serializable]
+        public class ActiveImpact
+        {
+            [Tooltip("Is Active Impact Active")]
+            public bool active = false;
+            public List<GameObject> objects;
+            public bool activate = true;
+        }
+
         public enum FloatValueMode
         {
             NONE,
@@ -194,7 +203,7 @@ namespace vbg
         public CreatureImpact creatureImpact;
         public AudioImpact audioImpact;
         public ScriptImpact scriptImpact;
-
+        public ActiveImpact activeImpact;
 
         private bool hasValueBeenUpdated = false;
 
@@ -711,6 +720,17 @@ namespace vbg
             scriptImpact.action.Invoke();
         }
 
+        public void ProcessActiveImpact()
+        {
+            if (!activeImpact.active)
+                return;
+
+            foreach(GameObject go in activeImpact.objects)
+            {
+                go.SetActive(activeImpact.activate);
+            }
+        }
+
         private void AfterProcessCommon()
         {
             processedOnce = true;
@@ -745,6 +765,7 @@ namespace vbg
             ProcessOwnerImpact();
             ProcessAudioImpact();
             ProcessScriptImpact();
+            ProcessActiveImpact();
             // Call last
             AfterProcessCommon();
         }
@@ -785,6 +806,7 @@ namespace vbg
             ProcessCreatureImpact(tr, cc, rb);
             ProcessAudioImpact();
             ProcessScriptImpact();
+            ProcessActiveImpact();
             // Call last
             AfterProcessCommon();
         }

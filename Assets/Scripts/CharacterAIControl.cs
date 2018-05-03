@@ -74,8 +74,6 @@ namespace vbg
                 }
                 Vector3 distance = m_target.transform.position - transform.position;
 
-                Debug.DrawLine(m_target.transform.position, m_target.transform.position + (m_attackRange + m_targetDynamic.GetRadius()) * distance.normalized, Color.red, 10.0f);
-
                 m_aiAnimator.SetBool("TargetInAttackReach", distance.magnitude < (m_attackRange + m_targetDynamic.GetRadius()));
                 m_aiAnimator.SetBool("NoTarget", false);
                 m_aiAnimator.SetFloat("TargetDistance", distance.magnitude);
@@ -182,6 +180,8 @@ namespace vbg
                 return VBGAIState.IDLE_GET_POINT;
             if (state.IsName("Idle.ReachPoint"))
                 return VBGAIState.IDLE_REACH_POINT;
+            if (state.IsName("None"))
+                return VBGAIState.IDLE;
 
             Debug.Assert(false, "Getting current state failed");
             return VBGAIState.IDLE;
@@ -190,7 +190,7 @@ namespace vbg
         void GoTo(Transform t, ref VBGCharacterController.Request _request)
         {
             NavMesh.CalculatePath(transform.position, t.position, NavMesh.AllAreas, m_path);
-
+            
             bool wantsToMove = false;
 
             if (m_path.status == NavMeshPathStatus.PathComplete)
@@ -209,8 +209,6 @@ namespace vbg
 
                 VBGCharacterController.Action action = VBGCharacterController.Action.NONE;
 
-                Debug.DrawLine(transform.position, transform.position + direction);
-
                 _request.move = direction;
                 _request.direction = direction;
                 _request.inputNorm = wantsToMove ? 1.0f : 0.0f;
@@ -222,6 +220,8 @@ namespace vbg
 
         void TurnTo(Transform t, ref VBGCharacterController.Request _request)
         {
+            if (t == null)
+                return;
             Vector3 direction = m_target.transform.position - transform.position;
             _request.direction = direction;
             _request.directionNorm = 1.0f;
@@ -244,7 +244,7 @@ namespace vbg
         void StateIdle(ref VBGCharacterController.Request _request)
         {
             m_target = null;
-            m_target = null;
+            m_targetDynamic = null;
         }
 
         void StateSpecial(ref VBGCharacterController.Request _request)
@@ -260,7 +260,7 @@ namespace vbg
             {
                 Debug.Log("Best " + m_bestTarget);
                 m_target = m_bestTarget;
-                m_target = null;
+                m_targetDynamic = null;
                 m_aiAnimator.SetTrigger("Success");
             } else
             {

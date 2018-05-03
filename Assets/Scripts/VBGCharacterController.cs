@@ -123,6 +123,7 @@ namespace vbg
         public float rotFactor = 1.0f;
         public bool blockActions = false;
         private float radius = 1.0f;
+        private bool isPlayer;
 
         // Use this for initialization
         void Start()
@@ -131,6 +132,7 @@ namespace vbg
             activeGameEffects = new List<GameEffect>();
             health = GetComponent<CharacterHealth>();
             animator = GetComponent<Animator>();
+            isPlayer = GetComponent<CharacterUserControl>() != null;
             Transform hudHelperObject = transform.Find("HUD");
             if (hudHelperObject != null)
             {
@@ -421,6 +423,14 @@ namespace vbg
             get
             {
                 return weaponIsActive;
+            }
+        }
+
+        public bool IsPlayer
+        {
+            get
+            {
+                return isPlayer;
             }
         }
 

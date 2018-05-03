@@ -24,7 +24,7 @@ namespace vbg
         {
             VBGCharacterController cc = other.gameObject.GetComponent<VBGCharacterController>();
 
-            if (cc != null)
+            if (cc != null && cc.IsPlayer)
             {
                 m_inRange.Add(cc);
             }
