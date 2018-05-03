@@ -122,6 +122,7 @@ namespace vbg
         public float speedFactor = 1.0f;
         public float rotFactor = 1.0f;
         public bool blockActions = false;
+        private float radius = 1.0f;
 
         // Use this for initialization
         void Start()
@@ -564,6 +565,11 @@ namespace vbg
         public void MultiplyVelocity(float _factor)
         {
             rb.velocity *= _factor;
+        }
+
+        public float GetRadius()
+        {
+            return radius;
         }
     }
 }

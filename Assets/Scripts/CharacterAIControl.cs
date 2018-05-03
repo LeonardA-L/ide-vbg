@@ -13,6 +13,7 @@ namespace vbg
         private CharacterHealth m_health; // A reference to the ThirdPersonCharacter on the object
         private NavMeshPath m_path;
         private Animator m_aiAnimator;
+        private IDynamic m_targetDynamic;
 
         private ChildCollider m_earRange;
 
@@ -20,6 +21,8 @@ namespace vbg
         public float m_elapsedInCurrentState;
         public List<Transform> m_patrolHotspots = new List<Transform>();
         public int m_currentPatrolTargetPoint = 0;
+        public bool m_alwaysResetTarget = true;
+        public float m_attackRange = 1.0f;
 
         public enum VBGAIState
         {
@@ -55,19 +58,27 @@ namespace vbg
             m_aiAnimator.SetBool("IsDead", m_health.IsDead());
 
             ComputeBestTarget();
-            if(m_bestTarget == null)
+            if(m_bestTarget == null && m_alwaysResetTarget)
             {
                 m_target = null;
+                m_targetDynamic = null;
             }
 
             m_aiAnimator.SetBool("BetterTargetAvailable", m_target != m_bestTarget);
 
             if (m_target != null)
             {
+                if(m_targetDynamic == null)
+                {
+                    m_targetDynamic = m_target.GetComponent<IDynamic>();
+                }
                 Vector3 distance = m_target.transform.position - transform.position;
 
-                m_aiAnimator.SetBool("TargetInAttackReach", distance.magnitude < 2.5f);
+                Debug.DrawLine(m_target.transform.position, m_target.transform.position + (m_attackRange + m_targetDynamic.GetRadius()) * distance.normalized, Color.red, 10.0f);
+
+                m_aiAnimator.SetBool("TargetInAttackReach", distance.magnitude < (m_attackRange + m_targetDynamic.GetRadius()));
                 m_aiAnimator.SetBool("NoTarget", false);
+                m_aiAnimator.SetFloat("TargetDistance", distance.magnitude);
             }
             else
             {
@@ -189,11 +200,16 @@ namespace vbg
                 if (m_path.corners.Length > 1)
                 {
                     direction = m_path.corners[1] - m_path.corners[0];
+                } else
+                {
+                    direction = t.position - transform.position;
                 }
                 direction.y = 0.0f;
                 //transform.forward = Vector3.Lerp(transform.forward, direction, 1.0f);
 
                 VBGCharacterController.Action action = VBGCharacterController.Action.NONE;
+
+                Debug.DrawLine(transform.position, transform.position + direction);
 
                 _request.move = direction;
                 _request.direction = direction;
@@ -228,6 +244,7 @@ namespace vbg
         void StateIdle(ref VBGCharacterController.Request _request)
         {
             m_target = null;
+            m_target = null;
         }
 
         void StateSpecial(ref VBGCharacterController.Request _request)
@@ -243,6 +260,7 @@ namespace vbg
             {
                 Debug.Log("Best " + m_bestTarget);
                 m_target = m_bestTarget;
+                m_target = null;
                 m_aiAnimator.SetTrigger("Success");
             } else
             {

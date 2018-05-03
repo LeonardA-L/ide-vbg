@@ -62,7 +62,7 @@ namespace vbg
 
         private float ClampHealth()
         {
-            return Mathf.Clamp(health, 0.0f, 100.0f);
+            return Mathf.Max(health, 0.0f);
         }
 
         private void OnCollisionEnter(Collision collision)

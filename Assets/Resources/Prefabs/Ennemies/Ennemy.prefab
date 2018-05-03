@@ -448,6 +448,7 @@ MonoBehaviour:
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
+  activateOncePerActivator: 0
   healthImpact:
     active: 1
     impact: -45
@@ -458,6 +459,7 @@ MonoBehaviour:
     pushForceVector: {x: 0, y: 0, z: 0}
     pushForceNorm: 0
     pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
   switchImpact:
@@ -482,9 +484,15 @@ MonoBehaviour:
     animator: {fileID: 0}
     triggerName: 
     boolName: 
+    boolValue: 1
   ownerImpact:
     active: 0
     paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
@@ -493,6 +501,13 @@ MonoBehaviour:
     active: 0
     startEvent: 
     endEvent: 
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!114 &114336227731640428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -517,36 +532,51 @@ MonoBehaviour:
     cooldown: 2
     timer: 0
     child: 0
+    unique: 0
+    previous: {fileID: 0}
   specialMovement:
     toInstanciate: {fileID: 0}
     cooldown: 2
     timer: 0
     child: 0
+    unique: 0
+    previous: {fileID: 0}
   specialDefense:
     toInstanciate: {fileID: 0}
     cooldown: 2
     timer: 0
     child: 0
+    unique: 0
+    previous: {fileID: 0}
   specialSpecial:
     toInstanciate: {fileID: 0}
     cooldown: 2
     timer: 0
     child: 0
+    unique: 0
+    previous: {fileID: 0}
   movement:
     toInstanciate: {fileID: 0}
     cooldown: 2
     timer: 0
     child: 0
+    unique: 0
+    previous: {fileID: 0}
   defense:
     toInstanciate: {fileID: 0}
     cooldown: 2
     timer: 0
     child: 0
+    unique: 0
+    previous: {fileID: 0}
   special:
     toInstanciate: {fileID: 0}
     cooldown: 2
     timer: 0
     child: 0
+    unique: 0
+    previous: {fileID: 0}
+  additionnalCommands: []
   lastDirection: {x: 0, y: 0, z: 0}
   lastMove: {x: 0, y: 0, z: 0}
   lastInputNorm: 0
@@ -554,6 +584,10 @@ MonoBehaviour:
   action: 0
   isGrounded: 0
   canMove: 1
+  additionalAnimators: []
+  speedFactor: 1
+  rotFactor: 1
+  blockActions: 0
 --- !u!114 &114448076825609960
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -573,6 +607,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_currentPatrolTargetPoint: 0
+  m_alwaysResetTarget: 0
+  m_attackRange: 1
 --- !u!114 &114528780877458934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -630,6 +666,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   threshold: 0
+  impactThreshold: -1
+  impactMultiplier: 1
+  chaosOnDeath: 0
 --- !u!135 &135673109335987216
 SphereCollider:
   m_ObjectHideFlags: 1

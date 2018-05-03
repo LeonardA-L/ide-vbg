@@ -13,6 +13,7 @@ namespace vbg
 
         public float minForceToEnableRigidbody = 0.0f;
         public float chaotic = 0.0f;
+        public float radius = 1.0f;
         private Vector3 lastPosition;
 
         [Tooltip("A prefab to instantiate when the object dies")]
@@ -103,6 +104,11 @@ namespace vbg
                 return;
             }
             health.Damage(intensity);
+        }
+
+        public float GetRadius()
+        {
+            return radius;
         }
     }
 }
