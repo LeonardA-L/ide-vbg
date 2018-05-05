@@ -61,6 +61,34 @@ namespace vbg
                     }
                 }
             }
+
+            // update player values
+            for (int i = 0; i < players.Count; i++)
+            {
+                VBGCharacterController player = players[i];
+
+                float health = player.GetHealth().GetHealth();
+                SwitchManager.Instance.SetValue("P" + i + "_health", health);
+                SwitchManager.Instance.SetValue("P" + i + "_healthRatio", health / VBGCharacterController.Constants.CHARACTER_START_HEALTH);
+
+                float sAttackTimer = player.specialAttack.timer;
+                float sAttackCooldown = player.specialAttack.cooldown;
+                SwitchManager.Instance.SetValue("P" + i + "_sAttackTimer", sAttackCooldown - sAttackTimer);
+                SwitchManager.Instance.SetValue("P" + i + "_sAttackCooldown", sAttackCooldown);
+                SwitchManager.Instance.SetValue("P" + i + "_sAttackRatio", (sAttackCooldown - sAttackTimer) / sAttackCooldown);
+
+                float sDefenseTimer = player.specialDefense.timer;
+                float sDefenseCooldown = player.specialDefense.cooldown;
+                SwitchManager.Instance.SetValue("P" + i + "_sDefenseTimer", sDefenseCooldown - sDefenseTimer);
+                SwitchManager.Instance.SetValue("P" + i + "_sDefenseCooldown", sDefenseCooldown);
+                SwitchManager.Instance.SetValue("P" + i + "_sDefenseRatio", (sDefenseCooldown - sDefenseTimer) / sDefenseCooldown);
+
+                float sMovementTimer = player.specialMovement.timer;
+                float sMovementCooldown = player.specialMovement.cooldown;
+                SwitchManager.Instance.SetValue("P" + i + "_sMovementTimer", sMovementCooldown - sMovementTimer);
+                SwitchManager.Instance.SetValue("P" + i + "_sMovementCooldown", sMovementCooldown);
+                SwitchManager.Instance.SetValue("P" + i + "_sMovementRatio", (sMovementCooldown - sMovementTimer) / sMovementCooldown);
+            }
         }
 
         private void InitPlayer(int _controllerID)
