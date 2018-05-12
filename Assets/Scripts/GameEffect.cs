@@ -441,6 +441,12 @@ namespace vbg
             }
             else if (destroyOnWall && other.tag != GameManager.Constants.TAG_NONTRIGGERCOLLIDER)
             {
+                if(other.tag == GameManager.Constants.TAG_GAMEEFFECT)
+                {
+                    GameEffect otherGE = other.GetComponent<GameEffect>();
+                    Vector3 v3 = new Vector3();
+                    otherGE.ProcessOnCollision(this.GetComponent<Dynamic>(), null, ref v3);
+                }
                 Finish();
             }
         }
@@ -570,6 +576,7 @@ namespace vbg
             if (!pushForce.active)
                 return;
 
+            Debug.Assert(rb != null, "No Rigidbody passed to PushForce");
             /*if (pushForce.resetMomentum && !lastFrameProcessed)
             {
                 Debug.Log("Go");
@@ -625,6 +632,8 @@ namespace vbg
         {
             if (!teleport.active)
                 return;
+
+            Debug.Assert(rb != null, "No Rigidbody passed to ProcessTeleport");
 
             if (teleport.toHotspot)
             {
@@ -694,6 +703,8 @@ namespace vbg
         {
             if (!creatureImpact.active)
                 return;
+
+            Debug.Assert(rb != null, "No Rigidbody passed to ProcessCreatureImpact");
 
             if (creatureImpact.addGameEffect != null && tr.Find(creatureImpact.addGameEffect.name + "(Clone)") == null)
             {
