@@ -21,15 +21,19 @@ namespace AK
         static const AkUniqueID AMB_VILLAGE = 2699383670U;
         static const AkUniqueID EVENT_HEPHA_ATK = 82851639U;
         static const AkUniqueID EVENT_INIT = 15463988U;
-        static const AkUniqueID EVENT_VBG_PORT = 2451167397U;
         static const AkUniqueID PLAY_AMB_FALAISE_MOULIN_3D_LOOP = 944459842U;
         static const AkUniqueID PLAY_AMB_VILLAGE_CIGALES_FORT_2D_LOOP = 2980582648U;
         static const AkUniqueID PLAY_FOOTSTEPS_HEAVY = 145704183U;
         static const AkUniqueID PLAY_FOOTSTEPS_LIGHT = 2827287670U;
-        static const AkUniqueID PLAY_M_VBGPORT_DYNAMIC = 753575706U;
-        static const AkUniqueID PLAY_M_VBGPORT_DYNAMIC_DEMO2 = 3528406010U;
+        static const AkUniqueID PLAY_M_THEME_VILLAGE_ACC = 2192112178U;
+        static const AkUniqueID PLAY_M_THEME_VILLAGE_BASS = 434724282U;
+        static const AkUniqueID PLAY_M_THEME_VILLAGE_GTR1 = 1860382329U;
+        static const AkUniqueID PLAY_M_THEME_VILLAGE_GTR2 = 1860382330U;
+        static const AkUniqueID PLAY_M_THEME_VILLAGE_PERCUS = 2003000063U;
+        static const AkUniqueID PLAY_M_THEME_VILLAGE_SAZ = 2894506583U;
         static const AkUniqueID PLAY_PASSBY_BOAT = 1842608103U;
         static const AkUniqueID PLAY_TEST_3D = 2738087332U;
+        static const AkUniqueID TEST_M_VILLAGE_DIEGETIQUE = 2918004713U;
         static const AkUniqueID TRIGGERZONE_BEGIN_FALAISE = 659911621U;
         static const AkUniqueID TRIGGERZONE_END_FALAISE = 132196245U;
         static const AkUniqueID TRIGGERZONE_FALAISE = 274211791U;
@@ -46,8 +50,8 @@ namespace AK
 
             namespace STATE
             {
-                static const AkUniqueID FALSE = 2452206122U;
-                static const AkUniqueID TRUE = 3053630529U;
+                static const AkUniqueID CLOCHES_PLAYEDONCE_FALSE = 431645235U;
+                static const AkUniqueID CLOCHES_PLAYEDONCE_TRUE = 1549226682U;
             } // namespace STATE
         } // namespace CLOCHES_PLAYEDONCE
 
@@ -81,8 +85,8 @@ namespace AK
 
             namespace STATE
             {
-                static const AkUniqueID BEGIN = 349818688U;
-                static const AkUniqueID END = 529726532U;
+                static const AkUniqueID FALAISE_BEGIN = 2124917922U;
+                static const AkUniqueID FALAISE_END = 3997991830U;
             } // namespace STATE
         } // namespace MAP_ZONE_FALAISE
 
@@ -102,6 +106,18 @@ namespace AK
                 static const AkUniqueID WOOD = 2058049674U;
             } // namespace SWITCH
         } // namespace SW_FOOTSTEPS_TEXTURE
+
+        namespace SW_INTERACTIVE_OBJECTS
+        {
+            static const AkUniqueID GROUP = 3068589479U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID DEBRIS = 459611840U;
+                static const AkUniqueID DESTRUCTION = 2446376615U;
+                static const AkUniqueID IMPACT = 3257506471U;
+            } // namespace SWITCH
+        } // namespace SW_INTERACTIVE_OBJECTS
 
         namespace SW_M_VBG_PROGRESS
         {
@@ -140,8 +156,12 @@ namespace AK
         static const AkUniqueID HEPHA = 2461340601U;
         static const AkUniqueID M = 84696434U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
+        static const AkUniqueID OBJECTS = 1695690031U;
         static const AkUniqueID PORT = 1608679832U;
+        static const AkUniqueID RVB = 695384145U;
         static const AkUniqueID SFX = 393239870U;
+        static const AkUniqueID SFX_DRY = 129293648U;
+        static const AkUniqueID SFX_RVB = 194138449U;
         static const AkUniqueID VILLAGE = 3945572659U;
     } // namespace BUSSES
 
@@ -150,7 +170,6 @@ namespace AK
         static const AkUniqueID AC_FALAISE = 2844349151U;
         static const AkUniqueID AC_PORT = 2055135965U;
         static const AkUniqueID AC_VILLAGE = 2725865684U;
-        static const AkUniqueID SFX_RVB_EXT = 4102309429U;
     } // namespace AUX_BUSSES
 
     namespace AUDIO_DEVICES
