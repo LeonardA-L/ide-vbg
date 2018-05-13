@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.1790396, g: 0.22418413, b: 0.30599168, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1754,6 +1754,8 @@ MonoBehaviour:
   destroyParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
+  stable: 0
+  activateOncePerActivator: 0
   healthImpact:
     active: 0
     impact: 0
@@ -1764,6 +1766,7 @@ MonoBehaviour:
     pushForceVector: {x: 0, y: 0, z: 0}
     pushForceNorm: 0
     pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
   switchImpact:
@@ -1783,6 +1786,39 @@ MonoBehaviour:
     toHotspot: {fileID: 0}
     useHotspotRotation: 0
     preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+    boolValue: 1
+  ownerImpact:
+    active: 0
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
+  audioImpact:
+    active: 0
+    startEvent: 
+    endEvent: 
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
 --- !u!4 &884866100
 Transform:
   m_ObjectHideFlags: 0
@@ -2081,6 +2117,8 @@ MonoBehaviour:
   destroyParent: 0
   destroyOnWall: 0
   resetNotFinish: 1
+  stable: 0
+  activateOncePerActivator: 0
   healthImpact:
     active: 0
     impact: 0
@@ -2091,6 +2129,7 @@ MonoBehaviour:
     pushForceVector: {x: 0, y: 0, z: 0}
     pushForceNorm: 0
     pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
   switchImpact:
@@ -2110,6 +2149,39 @@ MonoBehaviour:
     toHotspot: {fileID: 0}
     useHotspotRotation: 0
     preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+    boolValue: 1
+  ownerImpact:
+    active: 0
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
+  audioImpact:
+    active: 0
+    startEvent: 
+    endEvent: 
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
 --- !u!4 &1030617094
 Transform:
   m_ObjectHideFlags: 0
@@ -3178,6 +3250,8 @@ MonoBehaviour:
   destroyParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
+  stable: 0
+  activateOncePerActivator: 0
   healthImpact:
     active: 0
     impact: 0
@@ -3188,6 +3262,7 @@ MonoBehaviour:
     pushForceVector: {x: 0, y: 0, z: 0}
     pushForceNorm: 0
     pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
   switchImpact:
@@ -3207,6 +3282,39 @@ MonoBehaviour:
     toHotspot: {fileID: 0}
     useHotspotRotation: 0
     preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+    boolValue: 1
+  ownerImpact:
+    active: 0
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
+  audioImpact:
+    active: 0
+    startEvent: 
+    endEvent: 
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
 --- !u!4 &1354483324
 Transform:
   m_ObjectHideFlags: 0
@@ -3402,6 +3510,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114467173567904214, guid: d3cb73929fc4ebc498f51dcc6790eec4,
+        type: 2}
+      propertyPath: hephaestusPrefab
+      value: 
+      objectReference: {fileID: 1196705819576444, guid: 36b13ee441d1c7240a85e500b296170c,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d3cb73929fc4ebc498f51dcc6790eec4, type: 2}
   m_IsPrefabParent: 0
@@ -4259,7 +4373,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1862412923}
   m_LocalRotation: {x: -0, y: 0.6820558, z: -0, w: 0.73130023}
-  m_LocalPosition: {x: 8.11, y: 5.58, z: 7.52}
+  m_LocalPosition: {x: 8.11, y: 1.84, z: 7.52}
   m_LocalScale: {x: 0.5, y: 1.0761808, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4293,6 +4407,8 @@ MonoBehaviour:
   destroyParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
+  stable: 0
+  activateOncePerActivator: 0
   healthImpact:
     active: 0
     impact: 0
@@ -4303,6 +4419,7 @@ MonoBehaviour:
     pushForceVector: {x: 0, y: 0, z: 0}
     pushForceNorm: 0
     pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
   switchImpact:
@@ -4322,6 +4439,39 @@ MonoBehaviour:
     toHotspot: {fileID: 0}
     useHotspotRotation: 0
     preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+    boolValue: 1
+  ownerImpact:
+    active: 0
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
+  audioImpact:
+    active: 0
+    startEvent: 
+    endEvent: 
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
 --- !u!1 &1876660026
 GameObject:
   m_ObjectHideFlags: 0
@@ -4524,7 +4674,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1916096769}
   m_LocalRotation: {x: -0, y: 0.6820558, z: -0, w: 0.73130023}
-  m_LocalPosition: {x: 1.14, y: 5.24, z: 30.17}
+  m_LocalPosition: {x: 1.14, y: 0.84, z: 30.17}
   m_LocalScale: {x: 0.5, y: 1.0761808, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4558,6 +4708,8 @@ MonoBehaviour:
   destroyParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
+  stable: 0
+  activateOncePerActivator: 0
   healthImpact:
     active: 0
     impact: 0
@@ -4568,6 +4720,7 @@ MonoBehaviour:
     pushForceVector: {x: 0, y: 0, z: 0}
     pushForceNorm: 0
     pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
   switchImpact:
@@ -4587,6 +4740,39 @@ MonoBehaviour:
     toHotspot: {fileID: 0}
     useHotspotRotation: 0
     preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+    boolValue: 1
+  ownerImpact:
+    active: 0
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
+  audioImpact:
+    active: 0
+    startEvent: 
+    endEvent: 
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
 --- !u!1 &1956506899
 GameObject:
   m_ObjectHideFlags: 0
@@ -4797,6 +4983,8 @@ MonoBehaviour:
   destroyParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
+  stable: 0
+  activateOncePerActivator: 0
   healthImpact:
     active: 0
     impact: 0
@@ -4807,6 +4995,7 @@ MonoBehaviour:
     pushForceVector: {x: 0, y: 0, z: 0}
     pushForceNorm: 0
     pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
   switchImpact:
@@ -4826,6 +5015,39 @@ MonoBehaviour:
     toHotspot: {fileID: 0}
     useHotspotRotation: 0
     preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+    boolValue: 1
+  ownerImpact:
+    active: 0
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
+  audioImpact:
+    active: 0
+    startEvent: 
+    endEvent: 
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
 --- !u!1 &2127709438
 GameObject:
   m_ObjectHideFlags: 0
