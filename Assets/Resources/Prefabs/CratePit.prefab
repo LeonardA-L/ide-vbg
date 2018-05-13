@@ -36,8 +36,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1510204860014964}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.17, y: -5.96, z: 15.7}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 17.3, y: -0.2, z: 0.9}
   m_LocalScale: {x: 52.67487, y: 1, z: 50.593777}
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,6 +83,8 @@ MonoBehaviour:
   destroyParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
+  stable: 0
+  activateOncePerActivator: 0
   healthImpact:
     active: 0
     impact: 0
@@ -93,6 +95,7 @@ MonoBehaviour:
     pushForceVector: {x: 0, y: 0, z: 0}
     pushForceNorm: 0
     pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
   switchImpact:
@@ -112,6 +115,42 @@ MonoBehaviour:
     toHotspot: {fileID: 0}
     useHotspotRotation: 0
     preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+    boolValue: 1
+  ownerImpact:
+    active: 0
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
+  audioImpact:
+    active: 1
+    startEvent: HEPHA_ATK
+    endEvent: 
+    useActivatorTransform: 1
+    switchNames: []
+    switchValues: []
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
 --- !u!114 &114980110381186998
 MonoBehaviour:
   m_ObjectHideFlags: 1

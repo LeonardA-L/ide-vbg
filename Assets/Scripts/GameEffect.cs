@@ -139,6 +139,9 @@ namespace vbg
             public bool active = false;
             public string startEvent;
             public string endEvent;
+            public bool useActivatorTransform = false;
+            public List<string> switchNames = new List<string>();
+            public List<string> switchValues = new List<string>();
         }
 
         [System.Serializable]
@@ -691,12 +694,19 @@ namespace vbg
             owner.SetGravity(!ownerImpact.disableGravity);
         }
 
-        public void ProcessAudioImpact()
+        public void ProcessAudioImpact(Transform tr = null)
         {
             if (!audioImpact.active || audioImpact.startEvent == null || audioImpact.startEvent == "" || processedOnceThisCycle)
                 return;
 
-            SoundManager.Instance.PostEvent(audioImpact.startEvent, (transform.parent ?? transform).gameObject);
+            GameObject audioGo = (audioImpact.useActivatorTransform ? tr : transform.parent ?? transform).gameObject;
+
+            for (int i= 0; i < audioImpact.switchNames.Count; i++)
+            {
+                SoundManager.Instance.SetSwitch(audioImpact.startEvent, audioImpact.switchNames[i], audioImpact.switchValues[i], audioGo);
+            }
+
+            SoundManager.Instance.PostEvent(audioImpact.startEvent, audioGo);
         }
 
         public void ProcessCreatureImpact(Transform tr, VBGCharacterController cc, Rigidbody rb)
@@ -815,7 +825,7 @@ namespace vbg
             ProcessAnimator();
             ProcessOwnerImpact();
             ProcessCreatureImpact(tr, cc, rb);
-            ProcessAudioImpact();
+            ProcessAudioImpact(tr);
             ProcessScriptImpact();
             ProcessActiveImpact();
             // Call last

@@ -41,5 +41,16 @@ namespace vbg
             AkSoundEngine.PostEvent(_eventName, _gameObject);
         }
 
+
+        public void SetSwitch(string _eventName, string _switchName, string _switchValue, GameObject _gameObject)
+        {
+            if (!AkSoundEngine.IsInitialized())
+                return;
+
+            if (disable)
+                return;
+
+            AkSoundEngine.SetSwitch(_switchName, _switchValue, _gameObject);
+        }
     }
 }
