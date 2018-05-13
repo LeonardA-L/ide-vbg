@@ -47,6 +47,7 @@ namespace vbg
                     if(null != soundOnEnable && soundOnEnable != "")
                     {
                         SoundManager.Instance.PostEvent(soundOnEnable, gameObject);
+                        soundOnEnable = null;
                     }
                 }
 

@@ -143,9 +143,11 @@ GameObject:
   - component: {fileID: 114379761488915002}
   - component: {fileID: 114148192038705250}
   - component: {fileID: 54335697789936608}
+  - component: {fileID: 114309744112328616}
+  - component: {fileID: 65678041664081970}
   m_Layer: 0
   m_Name: WwiseListener
-  m_TagString: Untagged
+  m_TagString: Dynamic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -187,6 +189,23 @@ GameObject:
   - component: {fileID: 114817419643824802}
   m_Layer: 0
   m_Name: ScriptHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1576454529974480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4391739691555522}
+  - component: {fileID: 114347317304646154}
+  - component: {fileID: 114496405521162456}
+  m_Layer: 0
+  m_Name: InitSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -415,6 +434,19 @@ Transform:
   m_Father: {fileID: 4855185462108202}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4391739691555522
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1576454529974480}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 99.1917, y: 39.31703, z: -19.601559}
+  m_LocalScale: {x: 0.954074, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4855185462108202}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4501759452984972
 Transform:
   m_ObjectHideFlags: 1
@@ -472,6 +504,7 @@ Transform:
   - {fileID: 4037997481859378}
   - {fileID: 4218723099328454}
   - {fileID: 4501759452984972}
+  - {fileID: 4391739691555522}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -554,6 +587,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65678041664081970
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1548098267252850}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!108 &108784102013639054
 Light:
   m_ObjectHideFlags: 1
@@ -706,6 +751,9 @@ MonoBehaviour:
     active: 1
     startEvent: AMB_Init
     endEvent: 
+    useActivatorTransform: 0
+    switchNames: []
+    switchValues: []
   scriptImpact:
     active: 0
     action:
@@ -949,6 +997,9 @@ MonoBehaviour:
     active: 0
     startEvent: 
     endEvent: 
+    useActivatorTransform: 0
+    switchNames: []
+    switchValues: []
   scriptImpact:
     active: 0
     action:
@@ -1048,6 +1099,24 @@ MonoBehaviour:
   m_EffectColor: {r: 0.33088237, g: 0.15745437, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &114309744112328616
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1548098267252850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 111ded54215117c4fabdb0a47c997e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minForceToEnableRigidbody: 0
+  soundOnEnable: 
+  chaotic: 0
+  radius: 1
+  soundActiveEventPlay: 
+  soundActiveEventStop: 
+  finishPrefab: {fileID: 0}
 --- !u!114 &114316617460802526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1082,6 +1151,91 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSwitches: 0
   debugValues: 0
+--- !u!114 &114347317304646154
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1576454529974480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60818e15baa5c54a8664a5ea40b70d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishPrefab: {fileID: 0}
+  initialVelocity: {x: 0, y: 0, z: 0}
+  owner: {fileID: 0}
+  destroyParent: 0
+  destroyOnWall: 0
+  resetNotFinish: 0
+  stable: 0
+  activateOncePerActivator: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 0
+    name: 
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+    boolValue: 1
+  ownerImpact:
+    active: 0
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
+  audioImpact:
+    active: 1
+    startEvent: AMB_Init
+    endEvent: 
+    useActivatorTransform: 0
+    switchNames: []
+    switchValues: []
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
 --- !u!114 &114367153006574404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1157,8 +1311,21 @@ MonoBehaviour:
     type: 2}
   hephaestusPrefab: {fileID: 1111775559832274, guid: be0fa06da3c59e74fb4e51252d1f3d72,
     type: 2}
-  apolloPrefab: {fileID: 1196705819576444, guid: 36b13ee441d1c7240a85e500b296170c,
+  apolloPrefab: {fileID: 1111775559832274, guid: be0fa06da3c59e74fb4e51252d1f3d72,
     type: 2}
+--- !u!114 &114496405521162456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1576454529974480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43275866f290b0b4c9b6e319deb5b106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: 1
+  currentTimes: 1
 --- !u!114 &114542290616516400
 MonoBehaviour:
   m_ObjectHideFlags: 1
