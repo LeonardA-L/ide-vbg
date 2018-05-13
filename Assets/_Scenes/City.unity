@@ -31916,6 +31916,8 @@ MonoBehaviour:
   soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: 
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!65 &1280656786
 BoxCollider:
@@ -42056,7 +42058,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1611857204407946, guid: 9ed92719cc0f9744fad633844b922dc5, type: 2}
       propertyPath: m_Name
-      value: cask (1)
+      value: cask_test
+      objectReference: {fileID: 0}
+    - target: {fileID: 114827920422387516, guid: 9ed92719cc0f9744fad633844b922dc5,
+        type: 2}
+      propertyPath: soundActiveEventPlay
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114827920422387516, guid: 9ed92719cc0f9744fad633844b922dc5,
+        type: 2}
+      propertyPath: soundActiveEventStop
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ed92719cc0f9744fad633844b922dc5, type: 2}
@@ -43602,7 +43614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1858647021
 Transform:
   m_ObjectHideFlags: 0

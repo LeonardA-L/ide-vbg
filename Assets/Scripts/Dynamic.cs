@@ -15,6 +15,10 @@ namespace vbg
         public string soundOnEnable;
         public float chaotic = 0.0f;
         public float radius = 1.0f;
+        private bool soundActive = false;
+        public string soundActiveEventPlay;
+        public string soundActiveEventStop;
+        private List<UnityEngine.Collider> activeColliders = new List<UnityEngine.Collider>();
         private Vector3 lastPosition;
 
         [Tooltip("A prefab to instantiate when the object dies")]
@@ -55,13 +59,32 @@ namespace vbg
                 Die();
             }
 
-            float chaosDiff = (transform.position - lastPosition).magnitude;
-            if(chaotic != 0.0f && chaosDiff > 0.1f)
+            float movingDiff = (transform.position - lastPosition).magnitude;
+            float movingThr = 0.02f;
+            
+            if (movingDiff > movingThr)
             {
-                float chaos = chaotic * rb.mass / GameManager.Constants.CHAOS_MASS_REFERENCE * chaosDiff;
-                GameManager.Instance.AddChaos(chaos);
+                // Add sound
+                if(soundActiveEventPlay != null && soundActiveEventPlay != "" && !soundActive && activeColliders.Count > 0)
+                {
+                    soundActive = true;
+                    SoundManager.Instance.PostEvent(soundActiveEventPlay, gameObject);
+                }
+                // Add chaos
+                if (chaotic != 0.0f)
+                {
+                    float chaos = chaotic * rb.mass / GameManager.Constants.CHAOS_MASS_REFERENCE * movingDiff;
+                    GameManager.Instance.AddChaos(chaos);
+                }
             }
             lastPosition = transform.position;
+
+            // Remove sound
+            if (soundActiveEventStop != null && soundActiveEventStop != "" && soundActive && (activeColliders.Count == 0 || movingDiff < 0.003f))
+            {
+                soundActive = false;
+                SoundManager.Instance.PostEvent(soundActiveEventStop, gameObject);
+            }
         }
 
         private void Die()
@@ -114,6 +137,24 @@ namespace vbg
         public float GetRadius()
         {
             return radius;
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            UnityEngine.Collider col = collision.collider;
+            if(!activeColliders.Contains(col))
+            {
+                activeColliders.Add(col);
+            }
+        }
+
+        private void OnCollisionExit(Collision collision)
+        {
+            UnityEngine.Collider col = collision.collider;
+            if (activeColliders.Contains(col))
+            {
+                activeColliders.Remove(col);
+            }
         }
     }
 }
