@@ -259,7 +259,7 @@ namespace vbg
                     case Action.SPECIAL:
                         TriggerGameEffect(action);
                         AnimatorSetBool("AttackAim", false);
-                        AnimatorSetBool("SpeAttackAim", false);
+                        AnimatorSetBool("SpeAttack", true);
                         AnimatorSetBool("SpeDefenseAim", false);
                         break;
                     case Action.ATTACK_AIM:
