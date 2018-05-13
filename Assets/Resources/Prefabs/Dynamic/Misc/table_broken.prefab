@@ -11,6 +11,23 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1280908694040676}
   m_IsPrefabParent: 1
+--- !u!1 &1083600760125940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4464432163659618}
+  - component: {fileID: 114645183705657402}
+  - component: {fileID: 114430815961182650}
+  m_Layer: 0
+  m_Name: DestroySound
+  m_TagString: GameEffect
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1097483593610886
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,7 +389,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1280908694040676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.1413145, y: -3.9260086e-17, z: 29.618118}
+  m_LocalPosition: {x: 83.329094, y: 59.096336, z: -70.226074}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4571082920084040}
@@ -390,6 +407,7 @@ Transform:
   - {fileID: 4357989135253324}
   - {fileID: 4386104342754812}
   - {fileID: 4463523108434614}
+  - {fileID: 4464432163659618}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -473,6 +491,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4203449040209518}
   m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4464432163659618
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1083600760125940}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4203449040209518}
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4569444956588610
 Transform:
@@ -1616,6 +1647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
   chaotic: 0.5
+  radius: 1
   finishPrefab: {fileID: 0}
 --- !u!114 &114058216555943250
 MonoBehaviour:
@@ -1630,6 +1662,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
   chaotic: 0.5
+  radius: 1
   finishPrefab: {fileID: 0}
 --- !u!114 &114121569418815504
 MonoBehaviour:
@@ -1644,6 +1677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
   chaotic: 0.5
+  radius: 1
   finishPrefab: {fileID: 0}
 --- !u!114 &114140488654956282
 MonoBehaviour:
@@ -1658,6 +1692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
   chaotic: 0.5
+  radius: 1
   finishPrefab: {fileID: 0}
 --- !u!114 &114203315889146446
 MonoBehaviour:
@@ -1672,6 +1707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
   chaotic: 0.5
+  radius: 1
   finishPrefab: {fileID: 0}
 --- !u!114 &114286520862803500
 MonoBehaviour:
@@ -1686,6 +1722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
   chaotic: 0.5
+  radius: 1
   finishPrefab: {fileID: 0}
 --- !u!114 &114338788600922136
 MonoBehaviour:
@@ -1700,6 +1737,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
   chaotic: 0.5
+  radius: 1
   finishPrefab: {fileID: 0}
 --- !u!114 &114430244749490188
 MonoBehaviour:
@@ -1714,7 +1752,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
   chaotic: 0.5
+  radius: 1
   finishPrefab: {fileID: 0}
+--- !u!114 &114430815961182650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1083600760125940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43275866f290b0b4c9b6e319deb5b106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: 1
+  currentTimes: 1
 --- !u!114 &114469234079740894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1728,6 +1780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
   chaotic: 0.5
+  radius: 1
   finishPrefab: {fileID: 0}
 --- !u!114 &114500849977511028
 MonoBehaviour:
@@ -1742,6 +1795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
   chaotic: 0.5
+  radius: 1
   finishPrefab: {fileID: 0}
 --- !u!114 &114510750564387704
 MonoBehaviour:
@@ -1756,7 +1810,90 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
   chaotic: 0.5
+  radius: 1
   finishPrefab: {fileID: 0}
+--- !u!114 &114645183705657402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1083600760125940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60818e15baa5c54a8664a5ea40b70d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishPrefab: {fileID: 0}
+  initialVelocity: {x: 0, y: 0, z: 0}
+  owner: {fileID: 0}
+  destroyParent: 0
+  destroyOnWall: 0
+  resetNotFinish: 0
+  stable: 0
+  activateOncePerActivator: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 0
+    name: 
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+    boolValue: 1
+  ownerImpact:
+    active: 0
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
+  audioImpact:
+    active: 1
+    startEvent: Play_InterObjects_WOODS_LIGHT
+    endEvent: 
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
 --- !u!114 &114777832300646598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1770,6 +1907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
   chaotic: 0.5
+  radius: 1
   finishPrefab: {fileID: 0}
 --- !u!114 &114812138783616546
 MonoBehaviour:
@@ -1784,6 +1922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
   chaotic: 0.5
+  radius: 1
   finishPrefab: {fileID: 0}
 --- !u!114 &114827925065477092
 MonoBehaviour:
@@ -1798,6 +1937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
   chaotic: 0.5
+  radius: 1
   finishPrefab: {fileID: 0}
 --- !u!114 &114925623520231240
 MonoBehaviour:
@@ -1812,4 +1952,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
   chaotic: 0.5
+  radius: 1
   finishPrefab: {fileID: 0}

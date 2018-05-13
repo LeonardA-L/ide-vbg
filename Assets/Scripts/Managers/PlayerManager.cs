@@ -67,6 +67,8 @@ namespace vbg
             {
                 VBGCharacterController player = players[i];
 
+                try
+                {
                 float health = player.GetHealth().GetHealth();
                 SwitchManager.Instance.SetValue("P" + i + "_health", health);
                 SwitchManager.Instance.SetValue("P" + i + "_healthRatio", health / VBGCharacterController.Constants.CHARACTER_START_HEALTH);
@@ -88,6 +90,13 @@ namespace vbg
                 SwitchManager.Instance.SetValue("P" + i + "_sMovementTimer", sMovementCooldown - sMovementTimer);
                 SwitchManager.Instance.SetValue("P" + i + "_sMovementCooldown", sMovementCooldown);
                 SwitchManager.Instance.SetValue("P" + i + "_sMovementRatio", (sMovementCooldown - sMovementTimer) / sMovementCooldown);
+
+
+                }
+                catch(Exception e)
+                {
+
+                }
             }
         }
 

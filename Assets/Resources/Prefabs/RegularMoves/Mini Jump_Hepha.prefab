@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114955475204158372}
   - component: {fileID: 114210170234634408}
   m_Layer: 0
-  m_Name: Mini Jump
+  m_Name: Mini Jump_Hepha
   m_TagString: GameEffect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,8 +193,8 @@ MonoBehaviour:
     addGameEffect: {fileID: 0}
     asOwner: 1
   audioImpact:
-    active: 0
-    startEvent: 
+    active: 1
+    startEvent: HEPHA_JUMP
     endEvent: 
   scriptImpact:
     active: 0
@@ -203,6 +203,10 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
 --- !u!114 &114328710055852228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -281,6 +285,10 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
 --- !u!114 &114350175856538012
 MonoBehaviour:
   m_ObjectHideFlags: 1
