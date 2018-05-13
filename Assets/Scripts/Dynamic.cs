@@ -12,6 +12,7 @@ namespace vbg
         private CharacterHealth health;
 
         public float minForceToEnableRigidbody = 0.0f;
+        public string soundOnEnable;
         public float chaotic = 0.0f;
         public float radius = 1.0f;
         private Vector3 lastPosition;
@@ -39,6 +40,10 @@ namespace vbg
                 if (minForceToEnableRigidbody > 0.0f && ge.pushForce.active && ge.pushForce.pushForceNorm > minForceToEnableRigidbody)
                 {
                     rb.isKinematic = false;
+                    if(null != soundOnEnable && soundOnEnable != "")
+                    {
+                        SoundManager.Instance.PostEvent(soundOnEnable, gameObject);
+                    }
                 }
 
                 Vector3 placeholder = new Vector3();
