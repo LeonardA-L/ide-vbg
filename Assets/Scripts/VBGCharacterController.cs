@@ -147,6 +147,7 @@ namespace vbg
         void Update()
         {
             float stableTimeRatio = Time.deltaTime * GameManager.Constants.FPS_REF;
+            AnimatorSetFloat("RND", Random.Range(0, 100));
 
             isGrounded = Physics.CheckSphere(groundChecker.position, groundChecker.localPosition.y + 0.15f, Ground, QueryTriggerInteraction.Ignore);
             //weaponIsActive = animator.GetCurrentAnimatorStateInfo((int)AnimatorLayer.UPPER).IsName("Attacking") || animator.GetCurrentAnimatorStateInfo((int)AnimatorLayer.DEFAULT).IsName("Whirlwind");
