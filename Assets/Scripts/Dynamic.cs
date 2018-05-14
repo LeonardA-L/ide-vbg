@@ -7,7 +7,7 @@ namespace vbg
     public class Dynamic : MonoBehaviour, IDynamic
     {
 
-        private List<GameEffect> activeGameEffects;
+        private List<GameEffect> activeGameEffects = new List<GameEffect>();
         private Rigidbody rb;
         private CharacterHealth health;
 
@@ -27,7 +27,6 @@ namespace vbg
         // Use this for initialization
         void Start()
         {
-            activeGameEffects = new List<GameEffect>();
             rb = GetComponent<Rigidbody>();
             health = GetComponent<CharacterHealth>();
             lastPosition = transform.position;
@@ -107,7 +106,7 @@ namespace vbg
 
         public void RegisterGameEffect(GameEffect ge)
         {
-            //Debug.Log("Dynamic Register " + gameObject.name);
+            //Debug.Log("Dynamic Register " + ge + " " + gameObject.name + " " + activeGameEffects.Count);
             activeGameEffects.Add(ge);
         }
 

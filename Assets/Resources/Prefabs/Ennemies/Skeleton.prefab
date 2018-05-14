@@ -2130,7 +2130,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1755988341770836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100.64878, y: 43.921833, z: -29.49459}
+  m_LocalPosition: {x: 104.75853, y: 43.921833, z: -29.383678}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children:
   - {fileID: 4140047329851064}
@@ -2540,7 +2540,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   character: 0
-  destroyOnDie: 0
+  destroyOnDie: 1
   specialAttack:
     toInstanciate: {fileID: 0}
     cooldown: 2
@@ -2602,6 +2602,8 @@ MonoBehaviour:
   speedFactor: 1
   rotFactor: 1
   blockActions: 0
+  finishPrefab: {fileID: 1059484546270592, guid: 924f33813e091cf488c34308aff3abc7,
+    type: 2}
 --- !u!114 &114597768277779298
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2749,7 +2751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9bb02040104824a97555c6df5681d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 1
   threshold: 0
   impactThreshold: -1
   impactMultiplier: 1
