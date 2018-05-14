@@ -125,6 +125,9 @@ namespace vbg
         private float radius = 1.0f;
         private bool isPlayer;
 
+        [Tooltip("A prefab to instantiate when the character dies")]
+        public GameObject finishPrefab;
+
         // Use this for initialization
         void Start()
         {
@@ -400,6 +403,13 @@ namespace vbg
             if (destroyOnDie)
             {
                 Destroy(gameObject);
+            }
+
+            if (finishPrefab != null)
+            {
+                GameObject finishObject = GameObject.Instantiate(finishPrefab);
+                finishObject.transform.position = transform.position;
+                finishObject.transform.rotation = transform.rotation;
             }
         }
 
