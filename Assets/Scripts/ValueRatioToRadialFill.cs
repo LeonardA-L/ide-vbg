@@ -27,7 +27,7 @@ namespace vbg
 
         private void Callback(float floatValue)
         {
-            img.fillAmount = Mathf.Lerp(img.fillAmount, floatValue * factor, 0.3f);
+            img.fillAmount = Mathf.Lerp(img.fillAmount, floatValue * factor, 0.9f);
         }
     }
 }
