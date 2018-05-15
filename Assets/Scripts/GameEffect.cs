@@ -78,7 +78,7 @@ namespace vbg
         {
             [Tooltip("Is Teleport Active")]
             public bool active = false;
-            //public bool automaticNearestSpawnPoint = false;
+            public bool toNearestSpawnPoint = false;
             [Tooltip("Hotspot to teleport the object to")]
             public Transform toHotspot;
             [Tooltip("Use hotspot rotation when teleporting")]
@@ -637,6 +637,12 @@ namespace vbg
                 return;
 
             Debug.Assert(rb != null, "No Rigidbody passed to ProcessTeleport");
+
+            if(teleport.toNearestSpawnPoint)
+            {
+                tr.position = GameManager.Instance.GetNearestSpawnPoint(tr).position;
+                return;
+            }
 
             if (teleport.toHotspot)
             {
