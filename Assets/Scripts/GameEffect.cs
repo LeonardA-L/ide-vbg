@@ -642,21 +642,20 @@ namespace vbg
             if(teleport.toNearestSpawnPoint)
             {
                 tr.position = GameManager.Instance.GetNearestSpawnPoint(tr).position;
-                return;
             }
-
-            if (teleport.toHotspot)
+            else if (teleport.toHotspot)
             {
                 tr.position = teleport.toHotspot.position;
-                if (!teleport.preserveMomentum)
-                {
-                    rb.velocity = new Vector3();
-                    rb.angularVelocity = new Vector3();
-                }
-                if(teleport.useHotspotRotation)
-                {
-                    tr.rotation = teleport.toHotspot.rotation;
-                }
+            }
+
+            if (!teleport.preserveMomentum)
+            {
+                rb.velocity = new Vector3();
+                rb.angularVelocity = new Vector3();
+            }
+            if (teleport.useHotspotRotation)
+            {
+                tr.rotation = teleport.toHotspot.rotation;
             }
         }
 
