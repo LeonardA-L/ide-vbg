@@ -114,7 +114,6 @@ namespace vbg
                     else
                     {
                         action = VBGCharacterController.Action.SPE_ATTACK;
-                        m_aimingSpeAttack = false;
                     }
                 }
                 if (m_aimingSpeDefense && defenseUp)
@@ -140,7 +139,6 @@ namespace vbg
                     else
                     {
                         action = VBGCharacterController.Action.SPE_DEFENSE;
-                        m_aimingSpeDefense = false;
                     }
                 }
             } else
@@ -183,7 +181,6 @@ namespace vbg
             if (m_aimingAttack && !attackPressed && action == VBGCharacterController.Action.NONE)
             {
                 action = VBGCharacterController.Action.ATTACK;
-                m_aimingAttack = false;
             }
             if (m_aimingSpeDefense && defensePressed && action == VBGCharacterController.Action.NONE)
             {
@@ -192,7 +189,6 @@ namespace vbg
             if (m_aimingSpeDefense && !defensePressed && action == VBGCharacterController.Action.NONE)
             {
                 action = VBGCharacterController.Action.SPE_DEFENSE;
-                m_aimingSpeDefense = false;
             }
 
             VBGCharacterController.Request request = new VBGCharacterController.Request
