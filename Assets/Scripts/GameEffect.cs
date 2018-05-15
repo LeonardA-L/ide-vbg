@@ -159,6 +159,7 @@ namespace vbg
             public bool active = false;
             public List<GameObject> objects;
             public bool activate = true;
+            public bool destroyActivator = false;
         }
 
         public enum FloatValueMode
@@ -747,7 +748,7 @@ namespace vbg
             scriptImpact.action.Invoke();
         }
 
-        public void ProcessActiveImpact()
+        public void ProcessActiveImpact(GameObject activator)
         {
             if (!activeImpact.active)
                 return;
@@ -755,6 +756,13 @@ namespace vbg
             foreach(GameObject go in activeImpact.objects)
             {
                 go.SetActive(activeImpact.activate);
+            }
+
+            if (activator == null)
+                return;
+            if(activeImpact.destroyActivator)
+            {
+                Destroy(activator);
             }
         }
 
@@ -792,7 +800,7 @@ namespace vbg
             ProcessOwnerImpact();
             ProcessAudioImpact();
             ProcessScriptImpact();
-            ProcessActiveImpact();
+            ProcessActiveImpact(null);
             // Call last
             AfterProcessCommon();
         }
@@ -833,7 +841,7 @@ namespace vbg
             ProcessCreatureImpact(tr, cc, rb);
             ProcessAudioImpact(tr);
             ProcessScriptImpact();
-            ProcessActiveImpact();
+            ProcessActiveImpact(go);
             // Call last
             AfterProcessCommon();
         }
