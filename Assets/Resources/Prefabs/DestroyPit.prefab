@@ -9,95 +9,58 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1059785585297998}
+  m_RootGameObject: {fileID: 1186798984294974}
   m_IsPrefabParent: 1
---- !u!1 &1059785585297998
+--- !u!1 &1186798984294974
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4174748795040918}
-  - component: {fileID: 65429637290709370}
-  - component: {fileID: 114667972816761360}
-  - component: {fileID: 114048486080648182}
-  - component: {fileID: 114336275439651942}
-  - component: {fileID: 114645911004508964}
+  - component: {fileID: 4415640268727424}
+  - component: {fileID: 65810278854196532}
+  - component: {fileID: 114109269413398746}
+  - component: {fileID: 114956266773969932}
+  - component: {fileID: 114882604064061286}
   m_Layer: 0
-  m_Name: DeathPit
+  m_Name: DestroyPit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4174748795040918
+--- !u!4 &4415640268727424
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1059785585297998}
+  m_GameObject: {fileID: 1186798984294974}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.4, y: -2.49, z: 29.9}
-  m_LocalScale: {x: 189.67015, y: 1, z: 155.45694}
+  m_LocalPosition: {x: 8, y: -8.25, z: 36.2}
+  m_LocalScale: {x: 185.55838, y: 1, z: 150.75273}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &65429637290709370
+--- !u!65 &65810278854196532
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1059785585297998}
+  m_GameObject: {fileID: 1186798984294974}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114048486080648182
+--- !u!114 &114109269413398746
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1059785585297998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7f0f60c5c7a9914a92925d781ee3794, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114336275439651942
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1059785585297998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 068857111d7f5e14aa0cbcc12eeb7fe6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114645911004508964
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1059785585297998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa1c807bb39e0d8499ba564dd985625b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allowedTags:
-  - Player
-  revertList: 0
---- !u!114 &114667972816761360
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1059785585297998}
+  m_GameObject: {fileID: 1186798984294974}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c60818e15baa5c54a8664a5ea40b70d8, type: 3}
@@ -137,8 +100,8 @@ MonoBehaviour:
     unstable: 0
     updateRate: 0
   teleport:
-    active: 1
-    toNearestSpawnPoint: 1
+    active: 0
+    toNearestSpawnPoint: 0
     toHotspot: {fileID: 0}
     useHotspotRotation: 0
     preserveMomentum: 0
@@ -164,7 +127,7 @@ MonoBehaviour:
     active: 0
     startEvent: 
     endEvent: 
-    useActivatorTransform: 0
+    useActivatorTransform: 1
     switchNames: []
     switchValues: []
   scriptImpact:
@@ -175,6 +138,29 @@ MonoBehaviour:
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   activeImpact:
-    active: 0
+    active: 1
     objects: []
     activate: 1
+    destroyActivator: 1
+--- !u!114 &114882604064061286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1186798984294974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068857111d7f5e14aa0cbcc12eeb7fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114956266773969932
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1186798984294974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fcb12fc79643347b86a32a5dccac74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
