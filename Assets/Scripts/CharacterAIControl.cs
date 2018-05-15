@@ -189,8 +189,6 @@ namespace vbg
 
         void GoTo(Transform t, ref VBGCharacterController.Request _request)
         {
-            if (t == null)
-                return;
             NavMesh.CalculatePath(transform.position, t.position, NavMesh.AllAreas, m_path);
             
             bool wantsToMove = false;

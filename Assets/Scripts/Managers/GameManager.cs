@@ -129,5 +129,23 @@ namespace vbg
             float currentChaos = SwitchManager.Instance.GetValue("Chaos") ?? 0;
             SwitchManager.Instance.SetValue("Chaos", currentChaos + _diff);
         }
+
+        public Transform GetNearestSpawnPoint(Transform t)
+        {
+            Transform ret = spawnPoints[0].transform;
+
+            float distance = float.MaxValue;
+            foreach(SpawnPoint s in spawnPoints)
+            {
+                float d = (s.transform.position - t.position).magnitude;
+                if (d < distance)
+                {
+                    distance = d;
+                    ret = s.transform;
+                }
+            }
+
+            return ret;
+        }
     }
 }
