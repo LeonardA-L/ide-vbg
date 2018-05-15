@@ -38,13 +38,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1304459436833944}
-  m_LocalRotation: {x: 0.00000016888312, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.51499, y: 0.713, z: 7.034551}
+  m_LocalRotation: {x: 0.00000012251522, y: -0.68828154, z: -0.00000011623914, w: 0.7254438}
+  m_LocalPosition: {x: -4.46, y: -0, z: 46.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -86.98801, z: 0}
 --- !u!23 &23664103918482606
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -127,8 +127,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
-  chaotic: 0
+  soundOnEnable: 
+  chaotic: 1
   radius: 1
+  soundActiveEventPlay: 
+  soundActiveEventStop: 
   finishPrefab: {fileID: 1386331088638366, guid: a6e27548d0d6c004c9e5277e7e01b54a,
     type: 2}
 --- !u!114 &114582508427960850
@@ -146,4 +149,4 @@ MonoBehaviour:
   threshold: 0
   impactThreshold: -1
   impactMultiplier: 1
-  chaosOnDeath: 0
+  chaosOnDeath: 2
