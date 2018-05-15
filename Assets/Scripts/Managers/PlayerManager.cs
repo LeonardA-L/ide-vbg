@@ -71,7 +71,8 @@ namespace vbg
                 {
                     float health = player.GetHealth().GetHealth();
                     SwitchManager.Instance.SetValue("P" + i + "_health", health);
-                    SwitchManager.Instance.SetValue("P" + i + "_health", health);
+                    SwitchManager.Instance.SetValue("P" + i + "_healthMax", VBGCharacterController.Constants.CHARACTER_START_HEALTH);
+                    SwitchManager.Instance.SetValue("P" + i + "_healthRatio", health / VBGCharacterController.Constants.CHARACTER_START_HEALTH);
                     SwitchManager.Instance.SetSwitch("P" + i, true);
 
                     float sAttackTimer = player.specialAttack.timer;

@@ -139,6 +139,7 @@ namespace vbg
                     else
                     {
                         action = VBGCharacterController.Action.SPE_DEFENSE;
+                        m_aimingSpeDefense = false;
                     }
                 }
             } else
@@ -171,6 +172,7 @@ namespace vbg
                 else if (defense)
                 {
                     action = VBGCharacterController.Action.DEFENSE;
+                    m_aimingSpeDefense = false;
                 }
             }
 
@@ -189,6 +191,7 @@ namespace vbg
             if (m_aimingSpeDefense && !defensePressed && action == VBGCharacterController.Action.NONE)
             {
                 action = VBGCharacterController.Action.SPE_DEFENSE;
+                m_aimingSpeDefense = false;
             }
 
             VBGCharacterController.Request request = new VBGCharacterController.Request
