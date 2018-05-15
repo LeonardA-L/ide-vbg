@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1763979341736754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.70344, y: 2.3974286e-16, z: 17.052944}
+  m_LocalPosition: {x: 26.409798, y: 9.479717, z: 22.669085}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4426213915479680}
@@ -88,7 +88,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b4193bef8dea56645b4b019ca686b623, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -190,6 +190,7 @@ MonoBehaviour:
     updateRate: 0
   teleport:
     active: 0
+    toNearestSpawnPoint: 0
     toHotspot: {fileID: 0}
     useHotspotRotation: 0
     preserveMomentum: 0
@@ -202,6 +203,11 @@ MonoBehaviour:
   ownerImpact:
     active: 0
     paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
@@ -210,6 +216,9 @@ MonoBehaviour:
     active: 0
     startEvent: 
     endEvent: 
+    useActivatorTransform: 0
+    switchNames: []
+    switchValues: []
   scriptImpact:
     active: 0
     action:
@@ -217,6 +226,10 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
 --- !u!114 &114482546189830634
 MonoBehaviour:
   m_ObjectHideFlags: 1
