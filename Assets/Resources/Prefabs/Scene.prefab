@@ -163,8 +163,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4855185462108202}
   - component: {fileID: 54065830145847110}
-  - component: {fileID: 114283952819025680}
-  - component: {fileID: 114857206521410096}
+  - component: {fileID: 114766857778977726}
+  - component: {fileID: 114719347787032724}
+  - component: {fileID: 114917396589066930}
   m_Layer: 0
   m_Name: Scene
   m_TagString: Untagged
@@ -1519,11 +1520,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4058628465748836}
+  - component: {fileID: 114379761488915002}
+  - component: {fileID: 114148192038705250}
   - component: {fileID: 54335697789936608}
   - component: {fileID: 114309744112328616}
   - component: {fileID: 65678041664081970}
-  - component: {fileID: 114335517589948652}
-  - component: {fileID: 114394922709737350}
   m_Layer: 0
   m_Name: WwiseListener
   m_TagString: Dynamic
@@ -4278,6 +4279,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114148192038705250
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1548098267252850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26931cb7594c3da4b88e9e9482773c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDefaultListener: 1
+  listenerId: 0
 --- !u!114 &114150245985820214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5017,17 +5031,6 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
   m_ChildControlHeight: 1
---- !u!114 &114283952819025680
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1061582991882470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c548b84961c46e94a9b4db4ce8cda019, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114286605600913872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5280,27 +5283,6 @@ MonoBehaviour:
   target: {fileID: 1490572928635334}
   switchName: P0_sDefenseUnavailable
   revert: 1
---- !u!114 &114335517589948652
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1548098267252850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c28701c6ac6bb94c96a6a0eff1f0d37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 1
-  isStaticObject: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
 --- !u!114 &114336029699487534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5723,6 +5705,27 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114379761488915002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1548098267252850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70254121faba0e44d95f90d0217104c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!114 &114383154270178792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5778,19 +5781,6 @@ MonoBehaviour:
   target: {fileID: 1449692017218282}
   switchName: P1_sAttackUnavailable
   revert: 1
---- !u!114 &114394922709737350
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1548098267252850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ff8fd301d071e24384f0de138f740ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDefaultListener: 1
-  listenerId: 0
 --- !u!114 &114395919226482112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7592,6 +7582,17 @@ MonoBehaviour:
   saveDecodedBank: 0
   unloadTriggerList: 958ca0ea
   valueGuid: f8388cadc0cfa84a96ef7d6560236bbf
+--- !u!114 &114719347787032724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061582991882470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 058ad4843abfb9645ba08fa8503d6ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114723011711823368
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7905,6 +7906,31 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 2
+--- !u!114 &114766857778977726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061582991882470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f47326f530d8b0489e3b6853127704b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basePath: Audio\GeneratedSoundBanks
+  language: English(US)
+  defaultPoolSize: 4096
+  lowerPoolSize: 2048
+  streamingPoolSize: 1024
+  preparePoolSize: 0
+  memoryCutoffThreshold: 0.95
+  monitorPoolSize: 128
+  monitorQueuePoolSize: 64
+  callbackManagerBufferSize: 4
+  spatialAudioPoolSize: 4096
+  maxSoundPropagationDepth: 8
+  diffractionFlags: 11
+  engineLogging: 1
 --- !u!114 &114769856232361676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8397,31 +8423,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   valueName: P1_sDefenseCooldown
   textField: {fileID: 114449334654074826}
---- !u!114 &114857206521410096
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1061582991882470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d36f64db197c34c4aa83e223d0360685, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  basePath: Audio\GeneratedSoundBanks
-  language: English(US)
-  defaultPoolSize: 4096
-  lowerPoolSize: 2048
-  streamingPoolSize: 1024
-  preparePoolSize: 0
-  memoryCutoffThreshold: 0.95
-  monitorPoolSize: 128
-  monitorQueuePoolSize: 64
-  callbackManagerBufferSize: 4
-  spatialAudioPoolSize: 4096
-  maxSoundPropagationDepth: 8
-  diffractionFlags: 11
-  engineLogging: 1
 --- !u!114 &114859335897695180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8812,6 +8813,25 @@ MonoBehaviour:
   target: {fileID: 1576549551502574}
   switchName: P3_sMovementUnavailable
   revert: 0
+--- !u!114 &114917396589066930
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061582991882470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25027f9270bc0164fa1fc0f8d64c0646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  bankName: VBG_MAIN_SBK
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  valueGuid: f8388cadc0cfa84a96ef7d6560236bbf
 --- !u!114 &114923224082167024
 MonoBehaviour:
   m_ObjectHideFlags: 1
