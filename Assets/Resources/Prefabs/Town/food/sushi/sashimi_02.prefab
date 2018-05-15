@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4673382804471260}
   - component: {fileID: 33861221364155268}
   - component: {fileID: 23780915575517108}
-  - component: {fileID: 64000530504747684}
   - component: {fileID: 54462073533351796}
   - component: {fileID: 114556417704880664}
+  - component: {fileID: 65263094786952960}
   m_Layer: 0
   m_Name: sashimi_02
   m_TagString: Dynamic
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1828629131148256}
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.801, y: 0.8057106, z: 46.278}
+  m_LocalPosition: {x: -4.801, y: 0.822, z: 46.259}
   m_LocalScale: {x: 0.03440755, y: 0.03440755, z: 0.03440755}
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,8 +100,8 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!64 &64000530504747684
-MeshCollider:
+--- !u!65 &65263094786952960
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -109,11 +109,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 19a783d7d37cd524da064192d95f9289, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.75, y: 1.6419095, z: 2.519546}
+  m_Center: {x: 0.055261757, y: 0.82095474, z: -2.9166173e-15}
 --- !u!114 &114556417704880664
 MonoBehaviour:
   m_ObjectHideFlags: 1
