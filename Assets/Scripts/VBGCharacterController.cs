@@ -465,7 +465,7 @@ namespace vbg
             if (!GameManager.Instance.allowRevive)
                 return 0;
 
-            int ret = -1;
+            int ret = 0;
 
             List<VBGCharacterController> players = PlayerManager.Instance.GetAllPlayersInGame();
 
