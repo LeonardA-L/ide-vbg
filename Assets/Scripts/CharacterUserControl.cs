@@ -203,7 +203,6 @@ namespace vbg
             if (m_aimingAttack && !attackPressed && action == VBGCharacterController.Action.NONE)
             {
                 action = VBGCharacterController.Action.ATTACK;
-                strafe = true;
             }
             if (m_aimingSpeDefense && defensePressed && action == VBGCharacterController.Action.NONE)
             {
@@ -215,34 +214,11 @@ namespace vbg
                 action = VBGCharacterController.Action.SPE_DEFENSE;
                 m_aimingSpeDefense = false;
                 m_modifierActive = false;
-                strafe = true;
             }
             if(m_aimingSpeAttack && m_strafeSpeAttack)
             {
                 strafe = true;
             }
-
-            switch (action)
-            {
-                case VBGCharacterController.Action.SPE_DEFENSE:
-                case VBGCharacterController.Action.SPE_DEFENSE_AIM:
-                    if (m_strafeSpeDefense)
-                        strafe = true;
-                    break;
-                case VBGCharacterController.Action.SPE_ATTACK:
-                case VBGCharacterController.Action.SPE_ATTACK_AIM:
-                    if (m_strafeSpeAttack)
-                        strafe = true;
-                    break;
-                case VBGCharacterController.Action.ATTACK:
-                case VBGCharacterController.Action.ATTACK_AIM:
-                    if (m_strafeAttack)
-                        strafe = true;
-                    break;
-            }
-
-            if(name == "Player 1")
-            Debug.Log(strafe);
 
             VBGCharacterController.Request request = new VBGCharacterController.Request
             {
