@@ -595,5 +595,10 @@ namespace vbg
         {
             return radius;
         }
+
+        public bool IsStrafe()
+        {
+            return lastStrafe;
+        }
     }
 }
