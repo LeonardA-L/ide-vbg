@@ -12,6 +12,8 @@ namespace vbg
         public bool m_aimSpeDefense = false;
         private bool m_aimingSpeDefense = false;
 
+        private bool m_modifierActive;
+
         private int controllerID = -1;
 
         private VBGCharacterController m_Character; // A reference to the ThirdPersonCharacter on the object
@@ -72,9 +74,16 @@ namespace vbg
             bool movement = Input.GetButtonDown("Movement" + GetControllersuffix());
             bool special = Input.GetButtonDown("Special" + GetControllersuffix());
 
+            /*
             float modifier = Input.GetAxis("Modifier" + GetControllersuffix());
             bool modifierActive = modifier > 0.6f && modifier >= prevModifier;
             prevModifier = modifier;
+            */
+            bool modifier = Input.GetButtonDown("Special" + GetControllersuffix());
+            if (modifier)
+            {
+                m_modifierActive = !m_modifierActive;
+            }
 
             bool directionActive = false;
 
@@ -97,12 +106,13 @@ namespace vbg
 
             VBGCharacterController.Action action = VBGCharacterController.Action.NONE;
 
-            if(modifierActive)
+            if(m_modifierActive)
             {
                 if (m_aimingSpeAttack && attackUp)
                 {
                     action = VBGCharacterController.Action.SPE_ATTACK;
                     m_aimingSpeAttack = false;
+                    m_modifierActive = false;
                 }
                 else if (attack)
                 {
@@ -114,20 +124,23 @@ namespace vbg
                     else
                     {
                         action = VBGCharacterController.Action.SPE_ATTACK;
+                        m_modifierActive = false;
                     }
                 }
                 if (m_aimingSpeDefense && defenseUp)
                 {
                     action = VBGCharacterController.Action.SPE_DEFENSE;
                     m_aimingSpeDefense = false;
+                    m_modifierActive = false;
                 }
-                else if (special)
+                /*else if (special)
                 {
                     action = VBGCharacterController.Action.SPE_SPECIAL;
-                }
+                }*/
                 else if (movement)
                 {
                     action = VBGCharacterController.Action.SPE_MOVEMENT;
+                    m_modifierActive = false;
                 }
                 else if(defense)
                 {
@@ -140,6 +153,7 @@ namespace vbg
                     {
                         action = VBGCharacterController.Action.SPE_DEFENSE;
                         m_aimingSpeDefense = false;
+                        m_modifierActive = false;
                     }
                 }
             } else
@@ -192,6 +206,7 @@ namespace vbg
             {
                 action = VBGCharacterController.Action.SPE_DEFENSE;
                 m_aimingSpeDefense = false;
+                m_modifierActive = false;
             }
 
             VBGCharacterController.Request request = new VBGCharacterController.Request
@@ -201,7 +216,7 @@ namespace vbg
                 inputNorm = joy.magnitude,
                 action = action,
                 directionNorm = directionActive ? joyR.magnitude : 0.0f,
-                modifier = modifierActive
+                modifier = m_modifierActive
             };
 
             // pass all parameters to the character control script
