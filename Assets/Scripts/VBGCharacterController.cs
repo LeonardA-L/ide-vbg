@@ -403,6 +403,8 @@ namespace vbg
             rb.constraints = RigidbodyConstraints.FreezeAll;
             col.enabled = false;
 
+            activeGameEffects.Clear();
+
             if (destroyOnDie)
             {
                 Destroy(gameObject);
@@ -420,6 +422,7 @@ namespace vbg
         {
             health.SetHealth(Constants.CHARACTER_START_HEALTH);
             rb.constraints = RigidbodyConstraints.FreezeRotation;
+            rb.drag = 0.0f;
             col.enabled = true;
         }
 
