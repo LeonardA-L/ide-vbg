@@ -5,6 +5,9 @@ namespace vbg
     [RequireComponent(typeof (VBGCharacterController))]
     public class CharacterUserControl : MonoBehaviour
     {
+        public bool m_strafeAttack = false;
+        public bool m_strafeSpeAttack = false;
+        public bool m_strafeSpeDefense = false;
         public bool m_aimAttack = false;
         public bool m_aimSpeAttack = false;
         private bool m_aimingAttack = false;
@@ -190,24 +193,56 @@ namespace vbg
                 }
             }
 
+            bool strafe = false;
+
             if (m_aimingAttack && attackPressed && action == VBGCharacterController.Action.NONE)
             {
                 action = VBGCharacterController.Action.ATTACK_AIM;
+                strafe = true;
             }
             if (m_aimingAttack && !attackPressed && action == VBGCharacterController.Action.NONE)
             {
                 action = VBGCharacterController.Action.ATTACK;
+                strafe = true;
             }
             if (m_aimingSpeDefense && defensePressed && action == VBGCharacterController.Action.NONE)
             {
                 action = VBGCharacterController.Action.SPE_DEFENSE_AIM;
+                strafe = true;
             }
             if (m_aimingSpeDefense && !defensePressed && action == VBGCharacterController.Action.NONE)
             {
                 action = VBGCharacterController.Action.SPE_DEFENSE;
                 m_aimingSpeDefense = false;
                 m_modifierActive = false;
+                strafe = true;
             }
+            if(m_aimingSpeAttack && m_strafeSpeAttack)
+            {
+                strafe = true;
+            }
+
+            switch (action)
+            {
+                case VBGCharacterController.Action.SPE_DEFENSE:
+                case VBGCharacterController.Action.SPE_DEFENSE_AIM:
+                    if (m_strafeSpeDefense)
+                        strafe = true;
+                    break;
+                case VBGCharacterController.Action.SPE_ATTACK:
+                case VBGCharacterController.Action.SPE_ATTACK_AIM:
+                    if (m_strafeSpeAttack)
+                        strafe = true;
+                    break;
+                case VBGCharacterController.Action.ATTACK:
+                case VBGCharacterController.Action.ATTACK_AIM:
+                    if (m_strafeAttack)
+                        strafe = true;
+                    break;
+            }
+
+            if(name == "Player 1")
+            Debug.Log(strafe);
 
             VBGCharacterController.Request request = new VBGCharacterController.Request
             {
@@ -215,8 +250,9 @@ namespace vbg
                 direction = m_Dir,
                 inputNorm = joy.magnitude,
                 action = action,
-                directionNorm = directionActive ? joyR.magnitude : 0.0f,
-                modifier = m_modifierActive
+                directionNorm = strafe ? 0 : directionActive ? joyR.magnitude : 0.0f,
+                modifier = m_modifierActive,
+                strafe = strafe
             };
 
             // pass all parameters to the character control script

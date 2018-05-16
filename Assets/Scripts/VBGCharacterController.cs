@@ -68,6 +68,7 @@ namespace vbg
             public float directionNorm;
             public Action action;
             public bool modifier;
+            public bool strafe;
             public void Init()
             {
                 move = Vector3.zero;
@@ -110,6 +111,7 @@ namespace vbg
         public Vector3 lastMove;
         public float lastInputNorm;
         public float lastDirectionNorm;
+        public bool lastStrafe = false;
         public Action action;
         private List<GameEffect> activeGameEffects;
         private bool weaponIsActive;
@@ -162,7 +164,7 @@ namespace vbg
             if(canMove)
             {
                 bodyMovement += lastMove * lastInputNorm * speed * speedFactor;
-                transform.forward = Vector3.Lerp(transform.forward, lastDirection, rotFactor * rotationSpeedFactor * stableTimeRatio);
+                transform.forward = Vector3.Lerp(transform.forward, lastDirection, lastStrafe ? 0 : rotFactor * rotationSpeedFactor * stableTimeRatio);
             }
 
             Vector3 groundMovement = bodyMovement;
@@ -235,6 +237,7 @@ namespace vbg
             }
             lastInputNorm = _req.inputNorm;
             lastDirectionNorm = _req.directionNorm;
+            lastStrafe = _req.strafe;
 
             superMode = _req.modifier;
 
