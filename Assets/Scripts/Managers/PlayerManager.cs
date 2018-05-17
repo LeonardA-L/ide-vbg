@@ -161,6 +161,21 @@ namespace vbg
             return barycenter;
         }
 
+        public float GetPlayersRadius()
+        {
+            Vector3 barycenter = GetPlayerBarycenter();
+            float max = 0;
+
+            foreach (VBGCharacterController player in players)
+            {
+                if((player.transform.position - barycenter).magnitude > max)
+                {
+                    max = (player.transform.position - barycenter).magnitude;
+                }
+            }
+            return max;
+        }
+
         public int GetPlayersInGameAmount()
         {
             return playersInGame;
