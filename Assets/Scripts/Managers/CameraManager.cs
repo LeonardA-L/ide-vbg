@@ -27,7 +27,10 @@ namespace vbg
         private bool m_aimAtCenter;
         private float m_positionSmooth;
         private float m_rotationSmooth;
-        private float m_cameraFollowDistance;
+        private float m_enlargeD1 = 3;
+        private float m_enlargeD2 = 10;
+        private float m_enlargeF1 = 25;
+        private float m_enlargeF2 = 45;
 
         private Animator m_refAnimator;
         private Transform m_hotspotStart;
@@ -61,7 +64,6 @@ namespace vbg
             m_currentMode = CameraType.NONE;
             m_positionSmooth = Constants.DEFAULT_LERP_POSITION;
             m_rotationSmooth = Constants.DEFAULT_LERP_ROTATION;
-            m_cameraFollowDistance = Constants.DEFAULT_FOLLOW_DISTANCE;
         }
 
         // Update is called once per frame
@@ -106,13 +108,33 @@ namespace vbg
                 if (PlayerManager.Instance.GetPlayersInGameAmount() > 0)
                 {
                     Vector3 barycenter = PlayerManager.Instance.GetPlayerBarycenter();
+                    float playerRadius = PlayerManager.Instance.GetPlayersRadius();
+                    Debug.Log(playerRadius);
                     Vector3 cameraToBarycenter = barycenter - m_cam.position;
                     //m_cam.forward = Vector3.Lerp(m_cam.forward, cameraToBarycenter, m_rotationSmooth);
 
                     if(m_cameraToFollow != null)
                         m_cam.forward = Vector3.Lerp(m_cam.forward, m_cameraToFollow.forward, m_rotationSmooth);
 
-                    m_cam.transform.position = Vector3.Lerp(m_cam.transform.position, barycenter - m_cam.forward * m_cameraFollowDistance, Constants.DEFAULT_LERP_POSITION);
+                    float followDistance = 25.0f;
+
+                    if(playerRadius < m_enlargeD1)
+                    {
+                        followDistance = m_enlargeF1;
+                    }
+                    else if (playerRadius > m_enlargeD2)
+                    {
+                        followDistance = m_enlargeF2;
+                    } else
+                    {
+                        float a = (m_enlargeF2 - m_enlargeF1) / (m_enlargeD2 - m_enlargeD1);
+                        float b = m_enlargeF1 - m_enlargeD1 * a;
+                        followDistance = a * playerRadius + b;
+                    }
+
+                    Debug.Log(playerRadius + " - " + followDistance);
+
+                    m_cam.transform.position = Vector3.Lerp(m_cam.transform.position, barycenter - m_cam.forward * followDistance, Constants.DEFAULT_LERP_POSITION);
                 }
             }
         }
@@ -127,11 +149,15 @@ namespace vbg
             m_rotationSmooth = _overrideRotationSmooth;
         }
 
-        public void SetFollowSettings(Transform _newCameraToFollow, float _distance, float _overridePositionSmooth = 0.0f, float _overrideRotationSmooth = 0.0f)
+        public void SetFollowSettings(Transform _newCameraToFollow, float _d1, float _d2, float _f1, float _f2, float _overridePositionSmooth = 0.0f, float _overrideRotationSmooth = 0.0f)
         {
             m_cameraToFollow = _newCameraToFollow;
             m_currentMode = CameraType.FOLLOW;
-            m_cameraFollowDistance = _distance;
+
+            m_enlargeD1 = _d1;
+            m_enlargeD2 = _d2;
+            m_enlargeF1 = _f1;
+            m_enlargeF2 = _f2;
 
             m_positionSmooth = _overridePositionSmooth;
             m_rotationSmooth = _overrideRotationSmooth;
