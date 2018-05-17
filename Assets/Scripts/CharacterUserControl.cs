@@ -5,12 +5,17 @@ namespace vbg
     [RequireComponent(typeof (VBGCharacterController))]
     public class CharacterUserControl : MonoBehaviour
     {
+        public bool m_strafeAttack = false;
+        public bool m_strafeSpeAttack = false;
+        public bool m_strafeSpeDefense = false;
         public bool m_aimAttack = false;
         public bool m_aimSpeAttack = false;
         private bool m_aimingAttack = false;
         private bool m_aimingSpeAttack = false;
         public bool m_aimSpeDefense = false;
         private bool m_aimingSpeDefense = false;
+
+        private bool m_modifierActive;
 
         private int controllerID = -1;
 
@@ -72,9 +77,16 @@ namespace vbg
             bool movement = Input.GetButtonDown("Movement" + GetControllersuffix());
             bool special = Input.GetButtonDown("Special" + GetControllersuffix());
 
+            /*
             float modifier = Input.GetAxis("Modifier" + GetControllersuffix());
             bool modifierActive = modifier > 0.6f && modifier >= prevModifier;
             prevModifier = modifier;
+            */
+            bool modifier = Input.GetButtonDown("Special" + GetControllersuffix());
+            if (modifier)
+            {
+                m_modifierActive = !m_modifierActive;
+            }
 
             bool directionActive = false;
 
@@ -97,12 +109,13 @@ namespace vbg
 
             VBGCharacterController.Action action = VBGCharacterController.Action.NONE;
 
-            if(modifierActive)
+            if(m_modifierActive)
             {
                 if (m_aimingSpeAttack && attackUp)
                 {
                     action = VBGCharacterController.Action.SPE_ATTACK;
                     m_aimingSpeAttack = false;
+                    m_modifierActive = false;
                 }
                 else if (attack)
                 {
@@ -114,20 +127,23 @@ namespace vbg
                     else
                     {
                         action = VBGCharacterController.Action.SPE_ATTACK;
+                        m_modifierActive = false;
                     }
                 }
                 if (m_aimingSpeDefense && defenseUp)
                 {
                     action = VBGCharacterController.Action.SPE_DEFENSE;
                     m_aimingSpeDefense = false;
+                    m_modifierActive = false;
                 }
-                else if (special)
+                /*else if (special)
                 {
                     action = VBGCharacterController.Action.SPE_SPECIAL;
-                }
+                }*/
                 else if (movement)
                 {
                     action = VBGCharacterController.Action.SPE_MOVEMENT;
+                    m_modifierActive = false;
                 }
                 else if(defense)
                 {
@@ -139,6 +155,8 @@ namespace vbg
                     else
                     {
                         action = VBGCharacterController.Action.SPE_DEFENSE;
+                        m_aimingSpeDefense = false;
+                        m_modifierActive = false;
                     }
                 }
             } else
@@ -171,12 +189,16 @@ namespace vbg
                 else if (defense)
                 {
                     action = VBGCharacterController.Action.DEFENSE;
+                    m_aimingSpeDefense = false;
                 }
             }
+
+            bool strafe = false;
 
             if (m_aimingAttack && attackPressed && action == VBGCharacterController.Action.NONE)
             {
                 action = VBGCharacterController.Action.ATTACK_AIM;
+                strafe = true;
             }
             if (m_aimingAttack && !attackPressed && action == VBGCharacterController.Action.NONE)
             {
@@ -185,10 +207,17 @@ namespace vbg
             if (m_aimingSpeDefense && defensePressed && action == VBGCharacterController.Action.NONE)
             {
                 action = VBGCharacterController.Action.SPE_DEFENSE_AIM;
+                strafe = true;
             }
             if (m_aimingSpeDefense && !defensePressed && action == VBGCharacterController.Action.NONE)
             {
                 action = VBGCharacterController.Action.SPE_DEFENSE;
+                m_aimingSpeDefense = false;
+                m_modifierActive = false;
+            }
+            if(m_aimingSpeAttack && m_strafeSpeAttack)
+            {
+                strafe = true;
             }
 
             VBGCharacterController.Request request = new VBGCharacterController.Request
@@ -197,8 +226,9 @@ namespace vbg
                 direction = m_Dir,
                 inputNorm = joy.magnitude,
                 action = action,
-                directionNorm = directionActive ? joyR.magnitude : 0.0f,
-                modifier = modifierActive
+                directionNorm = strafe ? 0 : directionActive ? joyR.magnitude : 0.0f,
+                modifier = m_modifierActive,
+                strafe = strafe
             };
 
             // pass all parameters to the character control script

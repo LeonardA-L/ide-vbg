@@ -111,7 +111,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1778091153758932}
   m_LocalRotation: {x: -0, y: -0.7231585, z: -0, w: 0.69068223}
-  m_LocalPosition: {x: -5.0602446, y: 2.8096342e-16, z: 15.196533}
+  m_LocalPosition: {x: 17.789791, y: 1.2500001, z: 33.340717}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4743320383949156}
@@ -128,7 +128,7 @@ Transform:
   m_GameObject: {fileID: 1663758207540266}
   m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
   m_LocalPosition: {x: -0.026, y: 0, z: -0.549}
-  m_LocalScale: {x: 157.24808, y: 285.4541, z: 157.24808}
+  m_LocalScale: {x: 78, y: 143, z: 78}
   m_Children: []
   m_Father: {fileID: 4329971590486600}
   m_RootOrder: 0
@@ -140,8 +140,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1123465278882356}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.77, z: 1}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0.04, y: 1.77, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4052662359874324}
   m_Father: {fileID: 4002775426839714}
@@ -228,7 +228,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1123465278882356}
   serializedVersion: 2
-  m_Mass: 0.2
+  m_Mass: 0.5
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
@@ -258,8 +258,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3, z: 0.1}
-  m_Center: {x: 0, y: 0, z: 0.5}
+  m_Size: {x: 0.3, y: 2, z: 0.1}
+  m_Center: {x: 0, y: -0.47, z: 0}
 --- !u!114 &114110767695550364
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -306,6 +306,7 @@ MonoBehaviour:
     updateRate: 0
   teleport:
     active: 0
+    toNearestSpawnPoint: 0
     toHotspot: {fileID: 0}
     useHotspotRotation: 0
     preserveMomentum: 0
@@ -331,6 +332,9 @@ MonoBehaviour:
     active: 0
     startEvent: 
     endEvent: 
+    useActivatorTransform: 0
+    switchNames: []
+    switchValues: []
   scriptImpact:
     active: 0
     action:
@@ -338,6 +342,11 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
+    destroyActivator: 0
 --- !u!114 &114175001139765008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -385,6 +394,7 @@ MonoBehaviour:
     updateRate: 0
   teleport:
     active: 0
+    toNearestSpawnPoint: 0
     toHotspot: {fileID: 0}
     useHotspotRotation: 0
     preserveMomentum: 0
@@ -410,6 +420,9 @@ MonoBehaviour:
     active: 0
     startEvent: 
     endEvent: 
+    useActivatorTransform: 0
+    switchNames: []
+    switchValues: []
   scriptImpact:
     active: 0
     action:
@@ -417,6 +430,11 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
+    destroyActivator: 0
 --- !u!114 &114241549002964030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -453,6 +471,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
+  chaotic: 0
+  radius: 1
+  soundActiveEventPlay: 
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114358130574132066
 MonoBehaviour:
@@ -526,6 +549,7 @@ MonoBehaviour:
     updateRate: 0
   teleport:
     active: 0
+    toNearestSpawnPoint: 0
     toHotspot: {fileID: 0}
     useHotspotRotation: 0
     preserveMomentum: 0
@@ -551,6 +575,9 @@ MonoBehaviour:
     active: 0
     startEvent: 
     endEvent: 
+    useActivatorTransform: 0
+    switchNames: []
+    switchValues: []
   scriptImpact:
     active: 0
     action:
@@ -558,6 +585,11 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
+    destroyActivator: 0
 --- !u!114 &114639569508871964
 MonoBehaviour:
   m_ObjectHideFlags: 1

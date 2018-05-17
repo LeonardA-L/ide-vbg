@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114647887805590900}
   - component: {fileID: 54700707261946688}
   - component: {fileID: 114338249050961676}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Arrow
   m_TagString: GameEffect
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4026981217503616}
   - component: {fileID: 33287643476536584}
   - component: {fileID: 23877500422145394}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Arrow_Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1778091153758932}
   m_LocalRotation: {x: -0, y: -0.7231585, z: -0, w: 0.69068223}
-  m_LocalPosition: {x: -4.716838, y: 2.9157667e-16, z: 14.718555}
+  m_LocalPosition: {x: 17.50775, y: 1.25, z: 36.27515}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4329971590486600}
@@ -166,9 +166,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!65 &65945683978093284
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -179,8 +179,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3, z: 0.1}
-  m_Center: {x: 0, y: 0, z: 0.5}
+  m_Size: {x: 0.3, y: 2, z: 0.1}
+  m_Center: {x: 0, y: -0.91, z: 0.5}
 --- !u!114 &114175001139765008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,6 +227,7 @@ MonoBehaviour:
     updateRate: 0
   teleport:
     active: 0
+    toNearestSpawnPoint: 0
     toHotspot: {fileID: 0}
     useHotspotRotation: 0
     preserveMomentum: 0
@@ -252,6 +253,9 @@ MonoBehaviour:
     active: 0
     startEvent: 
     endEvent: 
+    useActivatorTransform: 0
+    switchNames: []
+    switchValues: []
   scriptImpact:
     active: 0
     action:
@@ -259,6 +263,11 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
+    destroyActivator: 0
 --- !u!114 &114338249050961676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -271,6 +280,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
+  chaotic: 0
+  radius: 1
+  soundActiveEventPlay: 
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114358130574132066
 MonoBehaviour:
