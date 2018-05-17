@@ -1548,8 +1548,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1196705819576444}
-  m_LocalRotation: {x: -0, y: -0.55807066, z: -0, w: 0.82979345}
-  m_LocalPosition: {x: 17.11781, y: 1.25, z: 34.601524}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.195193, y: -1.0371065e-16, z: 32.520714}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4522660949169312}
@@ -1560,7 +1560,7 @@ Transform:
   - {fileID: 4998491246453654}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -67.845, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4012259205842382
 Transform:
   m_ObjectHideFlags: 1
@@ -3283,6 +3283,7 @@ MonoBehaviour:
   lastMove: {x: 0, y: 0, z: 0}
   lastInputNorm: 0
   lastDirectionNorm: 0
+  lastStrafe: 0
   action: 0
   isGrounded: 1
   canMove: 1
@@ -3426,6 +3427,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92d1a9c0144ed324e9f33c5728e5a0bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_strafeAttack: 1
+  m_strafeSpeAttack: 1
+  m_strafeSpeDefense: 0
   m_aimAttack: 1
   m_aimSpeAttack: 1
   m_aimSpeDefense: 0
@@ -3469,6 +3473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathTimer: {fileID: 114320900488324232}
   hudAnimator: {fileID: 95575420096093544}
+  showCompassOnStrafe: 1
 --- !u!114 &114741959552230230
 MonoBehaviour:
   m_ObjectHideFlags: 1

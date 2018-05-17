@@ -12,6 +12,7 @@ namespace vbg
         public Animator hudAnimator;
         private VBGCharacterController controller;
         private float timer = 0.0f;
+        public bool showCompassOnStrafe = false; // Dirty, dirty hack
 
         // Use this for initialization
         void Start()
@@ -43,7 +44,7 @@ namespace vbg
         {
             float dirNorm = controller.GetDirectionNorm();
             //Debug.Log(dirNorm);
-            if (dirNorm > 0.0f)
+            if (dirNorm > 0.0f || (showCompassOnStrafe && controller.IsStrafe()))
             {
                 timer = GameManager.Constants.HUD_COMPASS_FADEOUT;
             }
