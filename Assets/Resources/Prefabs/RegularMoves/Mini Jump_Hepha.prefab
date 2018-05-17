@@ -58,7 +58,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1125280295800404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.048259, y: 9.428534e-17, z: 23.603767}
+  m_LocalPosition: {x: 2.377715, y: -1.0773369e-16, z: 32.701893}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4940268660625118}
@@ -171,15 +171,16 @@ MonoBehaviour:
     updateRate: 0
   teleport:
     active: 0
+    toNearestSpawnPoint: 0
     toHotspot: {fileID: 0}
     useHotspotRotation: 0
     preserveMomentum: 0
   animatorImpact:
-    active: 0
+    active: 1
     animator: {fileID: 0}
-    triggerName: 
+    triggerName: Jump
     boolName: 
-    boolValue: 1
+    boolValue: 0
   ownerImpact:
     active: 0
     paralyse: 0
@@ -196,6 +197,9 @@ MonoBehaviour:
     active: 1
     startEvent: HEPHA_JUMP
     endEvent: 
+    useActivatorTransform: 0
+    switchNames: []
+    switchValues: []
   scriptImpact:
     active: 0
     action:
@@ -207,6 +211,7 @@ MonoBehaviour:
     active: 0
     objects: []
     activate: 1
+    destroyActivator: 0
 --- !u!114 &114328710055852228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -253,6 +258,7 @@ MonoBehaviour:
     updateRate: 0
   teleport:
     active: 0
+    toNearestSpawnPoint: 0
     toHotspot: {fileID: 0}
     useHotspotRotation: 0
     preserveMomentum: 0
@@ -278,6 +284,9 @@ MonoBehaviour:
     active: 0
     startEvent: 
     endEvent: 
+    useActivatorTransform: 0
+    switchNames: []
+    switchValues: []
   scriptImpact:
     active: 0
     action:
@@ -289,6 +298,7 @@ MonoBehaviour:
     active: 0
     objects: []
     activate: 1
+    destroyActivator: 0
 --- !u!114 &114350175856538012
 MonoBehaviour:
   m_ObjectHideFlags: 1
