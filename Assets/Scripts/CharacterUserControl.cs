@@ -27,6 +27,9 @@ namespace vbg
 
         private float prevModifier;
 
+        private bool m_lastAxisAttackPressed = false;
+        private bool m_lastAxisDefensePressed = false;
+
         string GetControllersuffix()
         {
             return "_P" + controllerID;
@@ -68,14 +71,22 @@ namespace vbg
             float vr = Input.GetAxis("RVertical" + GetControllersuffix());
             Vector2 joy = new Vector2(h, v);
             Vector2 joyR = new Vector2(hr, vr);
-            bool attack = Input.GetButtonDown("Attack" + GetControllersuffix());
-            bool attackUp = Input.GetButtonUp("Attack" + GetControllersuffix());
-            bool attackPressed = Input.GetButton("Attack" + GetControllersuffix());
-            bool defense = Input.GetButtonDown("Defense" + GetControllersuffix());
-            bool defenseUp = Input.GetButtonUp("Defense" + GetControllersuffix());
-            bool defensePressed = Input.GetButton("Defense" + GetControllersuffix());
+            float axisThr = 0.2f;
+
+            bool axisAttackPressed = Input.GetAxis("Attack_ALT" + GetControllersuffix()) > axisThr;
+            bool axisDefensePressed = Input.GetAxis("Attack_ALT" + GetControllersuffix()) < -axisThr;
+
+            bool attack = Input.GetButtonDown("Attack" + GetControllersuffix()) || (axisAttackPressed && !m_lastAxisAttackPressed);
+            bool attackUp = Input.GetButtonUp("Attack" + GetControllersuffix()) || (!axisAttackPressed && m_lastAxisAttackPressed);
+            bool attackPressed = Input.GetButton("Attack" + GetControllersuffix()) || axisAttackPressed;
+            bool defense = Input.GetButtonDown("Defense" + GetControllersuffix()) || (axisDefensePressed && !m_lastAxisDefensePressed);
+            bool defenseUp = Input.GetButtonUp("Defense" + GetControllersuffix()) || (!axisDefensePressed && m_lastAxisDefensePressed);
+            bool defensePressed = Input.GetButton("Defense" + GetControllersuffix()) || axisDefensePressed;
             bool movement = Input.GetButtonDown("Movement" + GetControllersuffix());
             bool special = Input.GetButtonDown("Special" + GetControllersuffix());
+
+            m_lastAxisAttackPressed = axisAttackPressed;
+            m_lastAxisDefensePressed = axisDefensePressed;
 
             /*
             float modifier = Input.GetAxis("Modifier" + GetControllersuffix());

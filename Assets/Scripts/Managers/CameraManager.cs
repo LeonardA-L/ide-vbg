@@ -109,7 +109,7 @@ namespace vbg
                 {
                     Vector3 barycenter = PlayerManager.Instance.GetPlayerBarycenter();
                     float playerRadius = PlayerManager.Instance.GetPlayersRadius();
-                    Debug.Log(playerRadius);
+                    //Debug.Log(playerRadius);
                     Vector3 cameraToBarycenter = barycenter - m_cam.position;
                     //m_cam.forward = Vector3.Lerp(m_cam.forward, cameraToBarycenter, m_rotationSmooth);
 
@@ -132,7 +132,7 @@ namespace vbg
                         followDistance = a * playerRadius + b;
                     }
 
-                    Debug.Log(playerRadius + " - " + followDistance);
+                    //Debug.Log(playerRadius + " - " + followDistance);
 
                     m_cam.transform.position = Vector3.Lerp(m_cam.transform.position, barycenter - m_cam.forward * followDistance, Constants.DEFAULT_LERP_POSITION);
                 }
