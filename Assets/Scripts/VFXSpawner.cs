@@ -9,6 +9,7 @@ namespace vbg
         public GameObject vfxPrefab;
         public bool followParentPosition = false;
         public bool followParentRotation = false;
+        public bool endOnDestroy = true;
 
         private VFX vfx;
 
@@ -28,7 +29,7 @@ namespace vbg
 
         private void OnDestroy()
         {
-            if(vfx != null)
+            if(endOnDestroy && vfx != null)
             {
                 vfx.End();
             }
