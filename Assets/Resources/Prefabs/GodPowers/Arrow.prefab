@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114647887805590900}
   - component: {fileID: 54700707261946688}
   - component: {fileID: 114338249050961676}
+  - component: {fileID: 114557444540798796}
   m_Layer: 15
   m_Name: Arrow
   m_TagString: GameEffect
@@ -119,6 +120,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 5efb305bcaf40934ba24d80e31b5ac64, type: 2}
   m_StaticBatchInfo:
@@ -299,6 +301,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   times: 1
   currentTimes: 1
+--- !u!114 &114557444540798796
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1123465278882356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 023f36611f3a7e1429738d770c339104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114647887805590900
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -235,7 +235,7 @@ namespace vbg
             activateConditions = GetComponents<GameEffectActivate>();
 
             rb = GetComponent<Rigidbody>();
-            if(initialVelocity.magnitude > 0.0f && rb != null)
+            if(initialVelocity.magnitude > 0.0f && rb != null && rb.useGravity)
             {
                 rb.velocity = (initialVelocity.x * transform.right
                              + initialVelocity.y * transform.up
@@ -284,6 +284,12 @@ namespace vbg
                                      + initialVelocity.y * transform.up
                                      + initialVelocity.z * transform.forward)
                                      * Time.deltaTime;
+            }
+            if (initialVelocity.magnitude > 0.0f && rb != null && !rb.useGravity)
+            {
+                rb.velocity = (initialVelocity.x * transform.right
+                             + initialVelocity.y * transform.up
+                             + initialVelocity.z * transform.forward);
             }
 
             if (!IsActive(null))
