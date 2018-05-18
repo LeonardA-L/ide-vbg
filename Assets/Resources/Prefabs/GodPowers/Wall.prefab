@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1763979341736754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.409798, y: 9.479717, z: 22.669085}
+  m_LocalPosition: {x: 15.42757, y: 1.25, z: 32.655926}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4426213915479680}
@@ -69,7 +69,7 @@ Transform:
   m_GameObject: {fileID: 1935898950875742}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.48, z: 0}
-  m_LocalScale: {x: 0.5, y: 3, z: 0.7}
+  m_LocalScale: {x: 0.5, y: 3, z: 1.1}
   m_Children: []
   m_Father: {fileID: 4209948607475612}
   m_RootOrder: 0
@@ -87,6 +87,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b4193bef8dea56645b4b019ca686b623, type: 2}
   m_StaticBatchInfo:
@@ -125,7 +126,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 1.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95122404342847268
 Animator:
@@ -144,6 +145,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114087230314356256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -230,6 +232,7 @@ MonoBehaviour:
     active: 0
     objects: []
     activate: 1
+    destroyActivator: 0
 --- !u!114 &114482546189830634
 MonoBehaviour:
   m_ObjectHideFlags: 1
