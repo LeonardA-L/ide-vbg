@@ -155,6 +155,8 @@ namespace vbg
             AnimatorSetFloat("RND", Random.Range(0, 100));
 
             isGrounded = Physics.CheckSphere(groundChecker.position, groundChecker.localPosition.y + 0.15f, Ground, QueryTriggerInteraction.Ignore);
+            AnimatorSetBool("Grounded", isGrounded);
+
             //weaponIsActive = animator.GetCurrentAnimatorStateInfo((int)AnimatorLayer.UPPER).IsName("Attacking") || animator.GetCurrentAnimatorStateInfo((int)AnimatorLayer.DEFAULT).IsName("Whirlwind");
 
             // Apply movement
@@ -181,6 +183,9 @@ namespace vbg
             Vector3 groundMovement = bodyMovement;
             groundMovement.y = 0.0f;
             AnimatorSetBool("Walking", groundMovement.magnitude > 0.3f);
+            AnimatorSetFloat("WalkingSpeed", groundMovement.magnitude);
+            AnimatorSetFloat("DirectionXForward", Vector3.Dot(groundMovement, transform.forward));
+            AnimatorSetFloat("DirectionXRight", Vector3.Dot(groundMovement, transform.right));
 
             // Update CC
             //cc.Move(movement * Time.deltaTime);
