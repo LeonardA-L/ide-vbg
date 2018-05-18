@@ -19,6 +19,7 @@ namespace vbg
             public readonly static float DEFAULT_LERP_POSITION = 0.05f;
             public readonly static float DEFAULT_LERP_ROTATION = 0.01f;
             public readonly static float DEFAULT_FOLLOW_DISTANCE = 20.0f;
+            public readonly static int CACHED_BARYCENTERS = 10;
         }
 
         private Transform m_cam;
@@ -36,6 +37,10 @@ namespace vbg
         private Transform m_hotspotStart;
         private Transform m_hotspotEnd;
         private float m_actualRatio;
+
+        private List<Vector3> m_cachedBarycenters = new List<Vector3>();
+        public float m_predictionFactor = 1;
+        public float m_speedPredictionFactor = 1.0f;
 
         protected static CameraManager m_instance;
         public static CameraManager Instance
@@ -86,6 +91,7 @@ namespace vbg
             {
                 // Compute position ratio
                 Vector3 centerPosition = PlayerManager.Instance.GetPlayerBarycenter();
+
                 Vector3 hotspotsSegment = (m_hotspotEnd.position - m_hotspotStart.position);
                 Vector3 hotspotToCenter = (centerPosition - m_hotspotStart.position);
 
@@ -108,9 +114,29 @@ namespace vbg
                 if (PlayerManager.Instance.GetPlayersInGameAmount() > 0)
                 {
                     Vector3 barycenter = PlayerManager.Instance.GetPlayerBarycenter();
+
+                    if(m_cachedBarycenters.Count == 0 || m_cachedBarycenters[m_cachedBarycenters.Count - 1] != barycenter)
+                        m_cachedBarycenters.Add(barycenter);
+                    if (m_cachedBarycenters.Count > Constants.CACHED_BARYCENTERS)
+                        m_cachedBarycenters.RemoveAt(0);
+                    float barycenterSpeedFactor = 0;
+
+                    Vector3 predictedPosition = new Vector3();
+                    for(int i=1;i<m_cachedBarycenters.Count; i++)
+                    {
+                        Debug.DrawLine(m_cachedBarycenters[i], m_cachedBarycenters[i] + new Vector3(0, 3, 0), Color.blue);
+                        predictedPosition += (m_cachedBarycenters[i] - m_cachedBarycenters[i-1]).normalized;
+                        barycenterSpeedFactor += (m_cachedBarycenters[i] - m_cachedBarycenters[i - 1]).magnitude;
+                    }
+                    predictedPosition.Normalize();
+                    predictedPosition *= (m_predictionFactor + barycenterSpeedFactor * m_speedPredictionFactor);
+                    Debug.DrawLine(barycenter, barycenter + predictedPosition, Color.red, 2.0f);
+                    barycenter += predictedPosition;
+
+
                     float playerRadius = PlayerManager.Instance.GetPlayersRadius();
                     //Debug.Log(playerRadius);
-                    Vector3 cameraToBarycenter = barycenter - m_cam.position;
+                    Vector3 cameraToBarycenter = predictedPosition - m_cam.position;
                     //m_cam.forward = Vector3.Lerp(m_cam.forward, cameraToBarycenter, m_rotationSmooth);
 
                     if(m_cameraToFollow != null)
