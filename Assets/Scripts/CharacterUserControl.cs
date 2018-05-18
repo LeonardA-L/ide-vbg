@@ -24,6 +24,7 @@ namespace vbg
         private Vector3 m_CamForward;             // The current forward direction of the camera
         private Vector3 m_Move;
         private Vector3 m_Dir;
+        private bool m_strafe;
 
         private float prevModifier;
 
@@ -73,8 +74,8 @@ namespace vbg
             Vector2 joyR = new Vector2(hr, vr);
             float axisThr = 0.2f;
 
-            bool axisAttackPressed = Input.GetAxis("Attack_ALT" + GetControllersuffix()) > axisThr;
-            bool axisDefensePressed = Input.GetAxis("Attack_ALT" + GetControllersuffix()) < -axisThr;
+            bool axisAttackPressed = Input.GetAxis("Attack_ALT" + GetControllersuffix()) < -axisThr;
+            bool axisDefensePressed = Input.GetAxis("Attack_ALT" + GetControllersuffix()) > axisThr;
 
             bool attack = Input.GetButtonDown("Attack" + GetControllersuffix()) || (axisAttackPressed && !m_lastAxisAttackPressed);
             bool attackUp = Input.GetButtonUp("Attack" + GetControllersuffix()) || (!axisAttackPressed && m_lastAxisAttackPressed);
@@ -107,15 +108,8 @@ namespace vbg
                 // calculate camera relative direction to move:
                 m_CamForward = Vector3.Scale(m_Cam.forward, new Vector3(1, 0, 1)).normalized;
                 m_Move = v * m_CamForward + h * m_Cam.right;
-                m_Dir = m_Move;
-
-                if (m_Move.magnitude == 0.0f && joyR.magnitude > 0.3f)
-                {
-                    m_Dir = vr * m_CamForward + hr * m_Cam.right;
-                    directionActive = true;
-                    m_Move = m_Dir;
-                    //Debug.Log(m_Move.magnitude);
-                }
+                m_Dir = vr * m_CamForward + hr * m_Cam.right;
+                directionActive = true;
             }
 
             VBGCharacterController.Action action = VBGCharacterController.Action.NONE;
@@ -237,7 +231,7 @@ namespace vbg
                 direction = m_Dir,
                 inputNorm = joy.magnitude,
                 action = action,
-                directionNorm = strafe ? 0 : directionActive ? joyR.magnitude : 0.0f,
+                directionNorm = joyR.magnitude,
                 modifier = m_modifierActive,
                 strafe = strafe
             };

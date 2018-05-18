@@ -164,7 +164,18 @@ namespace vbg
             if(canMove)
             {
                 bodyMovement += lastMove * lastInputNorm * speed * speedFactor;
-                transform.forward = Vector3.Lerp(transform.forward, lastDirection, lastStrafe ? 0 : rotFactor * rotationSpeedFactor * stableTimeRatio);
+                Vector3 direction = lastMove;
+                if (lastInputNorm == 0.0 || lastStrafe)
+                {
+                    direction = lastDirection;
+                }
+                if(lastStrafe && lastDirectionNorm == 0.0f)
+                {
+                    direction = transform.forward;
+                }
+                transform.forward = Vector3.Lerp(transform.forward, direction, rotFactor * rotationSpeedFactor * stableTimeRatio);
+                lastMove = transform.forward;
+                lastDirection = transform.forward;
             }
 
             Vector3 groundMovement = bodyMovement;
