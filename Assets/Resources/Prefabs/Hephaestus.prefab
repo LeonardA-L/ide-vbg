@@ -2462,6 +2462,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 7bd993881c229af4886763085c6c4c25, type: 2}
   m_StaticBatchInfo:
@@ -2534,6 +2535,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &95714207371880710
 Animator:
   serializedVersion: 3
@@ -2551,6 +2553,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &95764329037013082
 Animator:
   serializedVersion: 3
@@ -2568,6 +2571,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114002346934506662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2748,6 +2752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathTimer: {fileID: 114309417015533684}
   hudAnimator: {fileID: 95475095706312820}
+  showCompassOnStrafe: 0
 --- !u!114 &114213456411531074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3107,7 +3112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  rotationSpeedFactor: 0.25
+  rotationSpeedFactor: 0.15
   groundChecker: {fileID: 4617916785678168}
   Ground:
     serializedVersion: 2
@@ -3248,6 +3253,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: c8b07ad7dfc4b8b43a6601a93ec09e0a, type: 2}
   m_StaticBatchInfo:
@@ -3346,6 +3352,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:

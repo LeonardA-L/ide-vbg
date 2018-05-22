@@ -237,6 +237,65 @@ namespace vbg
             }
         }
 
+        private Vector3 PadMove(Vector3 _move)
+        {
+            Vector3 ret = _move;
+            Vector3 planeForward = Vector3.Cross(Vector3.up, Camera.main.transform.right).normalized;
+            Vector3 planeForwardRot = Quaternion.AngleAxis(45, Vector3.up) * planeForward;
+            Vector3 cameraRightRot = Quaternion.AngleAxis(45, Vector3.up) * Camera.main.transform.right;
+            /*
+            Debug.DrawLine(transform.position + new Vector3(0, 1, 0), transform.position + new Vector3(0, 1, 0) + planeForward * 10, Color.red, 2);
+            Debug.DrawLine(transform.position + new Vector3(0, 1, 0), transform.position + new Vector3(0, 1, 0) + Camera.main.transform.right, Color.blue, 2);
+            Debug.DrawLine(transform.position + new Vector3(0, 1, 0), transform.position + new Vector3(0, 1, 0) + planeForwardRot * 10, Color.cyan, 2);
+            Debug.DrawLine(transform.position + new Vector3(0, 1, 0), transform.position + new Vector3(0, 1, 0) + cameraRightRot * 10, Color.magenta, 2);
+            */
+            float max = -1;
+            // +
+            if(Vector3.Dot(planeForward, _move) > max)
+            {
+                ret = planeForward;
+                max = Vector3.Dot(planeForward, _move);
+            }
+            if (Vector3.Dot(-planeForward, _move) > max)
+            {
+                ret = -planeForward;
+                max = Vector3.Dot(-planeForward, _move);
+            }
+            if (Vector3.Dot(Camera.main.transform.right, _move) > max)
+            {
+                ret = Camera.main.transform.right;
+                max = Vector3.Dot(Camera.main.transform.right, _move);
+            }
+            if (Vector3.Dot(-Camera.main.transform.right, _move) > max)
+            {
+                ret = -Camera.main.transform.right;
+                max = Vector3.Dot(-Camera.main.transform.right, _move);
+            }
+            // x
+            if (Vector3.Dot(planeForwardRot, _move) > max)
+            {
+                ret = planeForwardRot;
+                max = Vector3.Dot(planeForwardRot, _move);
+            }
+            if (Vector3.Dot(-planeForwardRot, _move) > max)
+            {
+                ret = -planeForwardRot;
+                max = Vector3.Dot(-planeForwardRot, _move);
+            }
+            if (Vector3.Dot(cameraRightRot, _move) > max)
+            {
+                ret = cameraRightRot;
+                max = Vector3.Dot(cameraRightRot, _move);
+            }
+            if (Vector3.Dot(-cameraRightRot, _move) > max)
+            {
+                ret = -cameraRightRot;
+                max = Vector3.Dot(-cameraRightRot, _move);
+            }
+
+            return ret;
+        }
+
         public void Move(Request _req)
         {
             if(health.IsDead())
@@ -249,7 +308,7 @@ namespace vbg
             }
             if (_req.move.magnitude > 0.0f)
             {
-                lastMove = _req.move.normalized;
+                lastMove = PadMove(_req.move.normalized);
             }
             lastInputNorm = _req.inputNorm;
             lastDirectionNorm = _req.directionNorm;
