@@ -243,7 +243,7 @@ namespace vbg
             {
                 return;
             }
-            if (_req.direction.magnitude > 0.0f)
+            if (_req.direction.magnitude > 0.0f && _req.action != Action.ATTACK && _req.action != Action.SPE_ATTACK)
             {
                 lastDirection = _req.direction.normalized;
             }

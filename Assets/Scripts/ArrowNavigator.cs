@@ -19,7 +19,7 @@ namespace vbg
         private void OnTriggerEnter(UnityEngine.Collider collision)
         {
             Transform tr = collision.transform;
-            Debug.Log("In " + tr.name + " " + tr.tag);
+            //Debug.Log("In " + tr.name + " " + tr.tag);
             if (tr.gameObject.layer == GameManager.Constants.LAYER_ARROW)
                 return;
             if (tr.gameObject.tag == GameManager.Constants.TAG_ENNEMY)
@@ -34,7 +34,7 @@ namespace vbg
         private void OnTriggerExit(UnityEngine.Collider collision)
         {
             Transform tr = collision.transform;
-            Debug.Log("Out " + tr.name);
+            //Debug.Log("Out " + tr.name);
             if (tr.gameObject.layer == GameManager.Constants.LAYER_ARROW)
                 return;
 
