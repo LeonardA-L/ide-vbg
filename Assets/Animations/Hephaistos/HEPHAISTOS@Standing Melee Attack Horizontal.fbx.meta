@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 48a43e735e55cb440a8e9697a38e4d90
-timeCreated: 1526564810
-licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -158,6 +156,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -192,6 +191,22 @@ ModelImporter:
       events:
       - time: 0.021674309
         functionName: ResetAttackBool
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 70ad7ed69a4757040808f735d6e7dc63,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.3319606
+        functionName: SetWeaponActive
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 70ad7ed69a4757040808f735d6e7dc63,
+          type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.5802092
+        functionName: SetWeaponActive
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 70ad7ed69a4757040808f735d6e7dc63,
           type: 3}
