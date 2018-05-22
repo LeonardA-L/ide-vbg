@@ -20,7 +20,7 @@ namespace vbg
 
             public readonly static int COMBO_STRIKE_FRAME_INF = 2;
             public readonly static int COMBO_STRIKE_FRAME_SUP = 40;
-            public readonly static int COMBO_STRIKE_MAX = 2;
+            public readonly static int COMBO_STRIKE_MAX = 3;
         }
 
         [System.Serializable]
@@ -355,11 +355,11 @@ namespace vbg
                         AnimatorSetBool("Attack", true);
                         AnimatorSetBool("AttackAim", false);
 
-                        if(comboAttackLevel == 1)
+                        if(comboAttackLevel == 2)
                         {
                             AnimatorSetBool("Attack2", true);
                         }
-                        if (comboAttackLevel == 2)
+                        if (comboAttackLevel == 3)
                         {
                             AnimatorSetBool("Attack3", true);
                         }
