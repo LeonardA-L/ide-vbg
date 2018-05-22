@@ -17,6 +17,10 @@ namespace vbg
             public readonly static int ANIMATOR_LAYER_ATTACK = 0;
             public readonly static float DEATH_REVIVE_TIME = 5.0f;
             public readonly static float DEATH_REVIVE_RADIUS = 2.0f;
+
+            public readonly static int COMBO_STRIKE_FRAME_INF = 2;
+            public readonly static int COMBO_STRIKE_FRAME_SUP = 40;
+            public readonly static int COMBO_STRIKE_MAX = 2;
         }
 
         [System.Serializable]
@@ -126,6 +130,9 @@ namespace vbg
         public bool blockActions = false;
         private float radius = 1.0f;
         private bool isPlayer;
+        private long frame = 0;
+        private long comboAttackLastFrame = 0;
+        private int comboAttackLevel = 0;
 
         [Tooltip("A prefab to instantiate when the character dies")]
         public GameObject finishPrefab;
@@ -151,6 +158,7 @@ namespace vbg
         // Update is called once per frame
         void Update()
         {
+            frame++;
             float stableTimeRatio = Time.deltaTime * GameManager.Constants.FPS_REF;
             AnimatorSetFloat("RND", Random.Range(0, 100));
 
@@ -319,6 +327,21 @@ namespace vbg
             if (_req.action != Action.NONE)
             {
                 action = _req.action;
+                if(action == Action.ATTACK
+                    && comboAttackLevel < Constants.COMBO_STRIKE_MAX
+                    && (comboAttackLevel == 0
+                        || ((frame - comboAttackLastFrame) > Constants.COMBO_STRIKE_FRAME_INF 
+                            && (frame - comboAttackLastFrame) <= Constants.COMBO_STRIKE_FRAME_SUP)))
+                {
+                    comboAttackLastFrame = frame;
+                    comboAttackLevel++;
+                    Debug.Log("Combo " + comboAttackLevel);
+                } else if(action != Action.ATTACK_AIM)
+                {
+                    Debug.Log((frame - comboAttackLastFrame));
+                    comboAttackLastFrame = 0;
+                    comboAttackLevel = 0;
+                }
             }
         }
 
@@ -331,6 +354,15 @@ namespace vbg
                     case Action.ATTACK:
                         AnimatorSetBool("Attack", true);
                         AnimatorSetBool("AttackAim", false);
+
+                        if(comboAttackLevel == 1)
+                        {
+                            AnimatorSetBool("Attack2", true);
+                        }
+                        if (comboAttackLevel == 2)
+                        {
+                            AnimatorSetBool("Attack3", true);
+                        }
                         break;
                     case Action.SPE_ATTACK:
                     case Action.SPE_DEFENSE:
@@ -600,6 +632,8 @@ namespace vbg
         public void ResetAttackBool()
         {
             AnimatorSetBool("Attack", false);
+            AnimatorSetBool("Attack2", false);
+            AnimatorSetBool("Attack3", false);
             AnimatorSetBool("AttackAim", false);
             AnimatorSetBool("SpeAttackAim", false);
             AnimatorSetBool("SpeAttack", false);
