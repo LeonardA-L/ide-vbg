@@ -12,7 +12,7 @@ namespace vbg {
             Debug.Assert(nav != null, "No navigator");
 
             Transform target = nav.GetBestTarget();
-            Debug.Log(target);
+            //Debug.Log(target);
             if (target == null)
                 return;
 

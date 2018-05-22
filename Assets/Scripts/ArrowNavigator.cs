@@ -61,26 +61,26 @@ namespace vbg
                     minDist = (tr.position - transform.parent.position).magnitude;
                 }
             }
-            Debug.Log(best);
+            //Debug.Log(best);
             return best;
         }
 
         public Transform GetBestTarget()
         {
-            Debug.Log("Nav " + name);
+            //Debug.Log("Nav " + name);
             m_ennemies.RemoveAll(item => item == null);
-            Debug.Log("Ennemies " + m_ennemies.Count);
+            //Debug.Log("Ennemies " + m_ennemies.Count);
             if (m_ennemies.Count > 0)
             {
                 return GetBestFromList(m_ennemies);
             }
             m_objects.RemoveAll(item => item == null);
-            Debug.Log("Objects " + m_objects.Count);
+            //Debug.Log("Objects " + m_objects.Count);
             if (m_objects.Count > 0)
             {
                 return GetBestFromList(m_objects);
             }
-            Debug.Log("None");
+            //Debug.Log("None");
 
             return null;
         }
