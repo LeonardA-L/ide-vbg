@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace vbg {
     public class ArrowController : MonoBehaviour {
+        public bool lerpDown = false;
+
 
         // Use this for initialization
         void Start() {
@@ -18,9 +20,17 @@ namespace vbg {
 
             Vector3 segment = target.position - transform.position;
             segment.y = 0.0f;
-            Debug.Log("A a " + transform.forward);
+            ///Debug.Log("A a " + transform.forward);
             transform.forward = segment;
-            Debug.Log("A b " + transform.forward);
+            //Debug.Log("A b " + transform.forward);
+        }
+
+        private void Update()
+        {
+            if(lerpDown)
+            {
+                transform.forward = Vector3.Lerp(transform.forward, new Vector3(transform.forward.x, -0.5f, transform.forward.z), 0.01f);
+            }
         }
     }
 }
