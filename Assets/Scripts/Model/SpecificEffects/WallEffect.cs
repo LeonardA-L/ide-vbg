@@ -73,6 +73,9 @@ namespace vbg
                 GameObject w = GameObject.Instantiate(wallPart, wallContainer.transform);
                 w.transform.localPosition = Vector3.zero;
                 w.transform.position += (i - Mathf.Floor(parts / 2.0f)) * new Vector3(partDiameter, 0, 0) + ((parts % 2 == 0) ? new Vector3(partDiameter / 2.0f, 0, 0) : Vector3.zero);
+                Transform parentView = w.transform.Find("Wall_View");
+                Transform view = parentView.transform.Find("Wall_0" + (i + 1));
+                view.gameObject.SetActive(true);
             }
             wallContainer.transform.rotation = transform.rotation;
         }
