@@ -181,7 +181,7 @@ namespace vbg
                 {
                     direction = transform.forward;
                 }
-                transform.forward = Vector3.Lerp(transform.forward, direction, rotFactor * rotationSpeedFactor * stableTimeRatio);
+                transform.forward = Vector3.Slerp(transform.forward, direction, rotFactor * rotationSpeedFactor * stableTimeRatio);
                 lastMove = transform.forward;
                 lastDirection = transform.forward;
             }
