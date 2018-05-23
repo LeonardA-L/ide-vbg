@@ -183,8 +183,9 @@ namespace vbg
                 }
                 transform.forward = Vector3.Slerp(transform.forward, direction, rotFactor * rotationSpeedFactor * stableTimeRatio);
                 transform.forward = new Vector3(transform.forward.x, 0, transform.forward.z);
-                lastMove = transform.forward.normalized;
-                lastDirection = transform.forward.normalized;
+                transform.forward.Normalize();
+                lastMove = transform.forward;
+                lastDirection = transform.forward;
             }
 
             Vector3 groundMovement = bodyMovement;
