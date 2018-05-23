@@ -10,6 +10,7 @@ namespace vbg
         public float partDiameter = 1;
         public float maxDistance = 10.0f;
         public GameObject wallPart;
+        public GameObject ownerImpact;
         public Vector3 offset;
         private bool done = false;
 
@@ -61,6 +62,8 @@ namespace vbg
             wallContainer.name = "Wall";
             wallContainer.transform.position = transform.localPosition;
             wallContainer.transform.position = new Vector3(wallContainer.transform.position.x, altitude, wallContainer.transform.position.z);
+            GameObject owImp = GameObject.Instantiate(ownerImpact, wallContainer.transform);
+            owImp.GetComponent<GameEffect>().SetOwner(GetComponent<GameEffect>().GetOwner());
 
             for (int i = 0; i < parts; i++)
             {

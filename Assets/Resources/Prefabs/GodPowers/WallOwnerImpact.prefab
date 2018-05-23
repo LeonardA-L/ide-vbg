@@ -9,63 +9,44 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1312832615872630}
+  m_RootGameObject: {fileID: 1458753612418424}
   m_IsPrefabParent: 1
---- !u!1 &1312832615872630
+--- !u!1 &1458753612418424
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4369452211911756}
-  - component: {fileID: 114308330285192088}
-  - component: {fileID: 114155480319459682}
-  - component: {fileID: 114411538192601406}
+  - component: {fileID: 4571987666804662}
+  - component: {fileID: 114096010031233480}
+  - component: {fileID: 114407351448171696}
   m_Layer: 0
-  m_Name: WallSpawner
+  m_Name: WallOwnerImpact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4369452211911756
+--- !u!4 &4571987666804662
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1312832615872630}
-  m_LocalRotation: {x: -0, y: 0.25567293, z: -0, w: 0.9667634}
-  m_LocalPosition: {x: 7.9227653, y: 1.9912744e-16, z: 18.8821}
+  m_GameObject: {fileID: 1458753612418424}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.0516157, y: 0, z: 18.019512}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 29.627, z: 0}
---- !u!114 &114155480319459682
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114096010031233480
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1312832615872630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92782bf748900d4408af8c738a58a5e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parts: 6
-  partDiameter: 0.5
-  maxDistance: 1.6
-  wallPart: {fileID: 1763979341736754, guid: 24b3fd89970c53b4cafb88091114bda8, type: 2}
-  ownerImpact: {fileID: 1458753612418424, guid: f9d38760235b9a5429c91e1a16988a6a,
-    type: 2}
-  offset: {x: 0, y: 0, z: 0.8}
---- !u!114 &114308330285192088
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1312832615872630}
+  m_GameObject: {fileID: 1458753612418424}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c60818e15baa5c54a8664a5ea40b70d8, type: 3}
@@ -74,7 +55,7 @@ MonoBehaviour:
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
-  destroyParent: 0
+  destroyParent: 1
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -111,19 +92,19 @@ MonoBehaviour:
     useHotspotRotation: 0
     preserveMomentum: 0
   animatorImpact:
-    active: 0
+    active: 1
     animator: {fileID: 0}
     triggerName: 
-    boolName: 
+    boolName: SpeDefense
     boolValue: 1
   ownerImpact:
-    active: 0
-    paralyse: 0
-    speedFactor: 1
-    rotFactor: 1
-    blockActions: 0
-    disableGravity: 0
-    velocityEndFactor: 1
+    active: 1
+    paralyse: 1
+    speedFactor: 0
+    rotFactor: 0
+    blockActions: 1
+    disableGravity: 1
+    velocityEndFactor: 0.1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
@@ -136,21 +117,10 @@ MonoBehaviour:
     switchNames: []
     switchValues: []
   scriptImpact:
-    active: 1
+    active: 0
     action:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114155480319459682}
-          m_MethodName: CreateWall
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 10
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   activeImpact:
@@ -158,16 +128,16 @@ MonoBehaviour:
     objects: []
     activate: 1
     destroyActivator: 0
---- !u!114 &114411538192601406
+--- !u!114 &114407351448171696
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1312832615872630}
+  m_GameObject: {fileID: 1458753612418424}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43275866f290b0b4c9b6e319deb5b106, type: 3}
+  m_Script: {fileID: 11500000, guid: a4a1d7df4528f89479064915e674c546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  times: 1
-  currentTimes: 1
+  delay: 1.62
+  currentDelay: 1.62
