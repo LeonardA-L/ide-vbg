@@ -50,27 +50,27 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1521994562486360}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.64, y: 2.5192488e-16, z: 27.84}
-  m_LocalScale: {x: 1, y: 1, z: 0.54516}
+  m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 152.87003, y: 50.3, z: 82.48971}
+  m_LocalScale: {x: 0.34116, y: 1, z: 0.54516006}
   m_Children:
   - {fileID: 4765019728210496}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 40.808002, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
 --- !u!4 &4765019728210496
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1622253818530432}
-  m_LocalRotation: {x: -0.32554787, y: -0.010532838, z: 0.0036267913, w: -0.94545996}
-  m_LocalPosition: {x: -0.86, y: 10.8, z: -28.82}
+  m_LocalRotation: {x: 0.14359474, y: -0.79775554, z: 0.33262318, w: 0.4820047}
+  m_LocalPosition: {x: 1.3, y: 28.4, z: 76.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4025914312259928}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 40, y: -358.723, z: 0}
+  m_LocalEulerAnglesHint: {x: 42.000004, y: -115, z: 7.076}
 --- !u!20 &20885983334351262
 Camera:
   m_ObjectHideFlags: 1
@@ -117,7 +117,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 54.82, y: 3.8, z: 62.2}
+  m_Size: {x: 80, y: 10, z: 80}
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &114484898903420070
 MonoBehaviour:
@@ -130,9 +130,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5940600a019d2fc4fba48c553fbfa046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_followDistanceMin: 25
-  m_followDistanceMax: 40
+  m_followDistanceMin: 30
+  m_followDistanceMax: 50
   m_radiusMin: 3
-  m_radiusMax: 8
-  m_positionSmooth: 0.05
+  m_radiusMax: 7
+  m_positionSmooth: 0.013
   m_rotationSmooth: 0.05
