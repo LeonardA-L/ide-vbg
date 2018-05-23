@@ -224,11 +224,11 @@ namespace vbg
 
             VBGCharacterController.Request request = new VBGCharacterController.Request
             {
-                move = m_Move,
-                direction = m_Dir,
-                inputNorm = joy.magnitude,
+                move = m_Move.normalized,
+                direction = m_Dir.normalized,
+                inputNorm = Mathf.Min(1, joy.magnitude),
                 action = action,
-                directionNorm = joyR.magnitude,
+                directionNorm = Mathf.Min(1, joyR.magnitude),
                 modifier = m_modifierActive,
                 strafe = strafe
             };
