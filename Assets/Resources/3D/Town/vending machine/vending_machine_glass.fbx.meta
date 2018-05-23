@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 09fb753e8d9093b448dacf58f0ff5eb6
-timeCreated: 1526375745
-licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -11,7 +9,12 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: vending_machine_glass
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #26'
+    second: {fileID: 2100000, guid: 4c59a49d3cedd9047a3662c2b1b022f9, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -30,6 +33,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5

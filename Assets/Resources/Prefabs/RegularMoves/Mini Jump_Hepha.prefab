@@ -141,7 +141,7 @@ MonoBehaviour:
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
-  activateOncePerActivator: 0
+  activateOncePerActivator: 1
   healthImpact:
     active: 0
     impact: 0
@@ -149,8 +149,8 @@ MonoBehaviour:
     friendlyFire: 0
   pushForce:
     active: 1
-    pushForceVector: {x: 0, y: 6, z: 1}
-    pushForceNorm: 420
+    pushForceVector: {x: 0, y: 6, z: 0}
+    pushForceNorm: 500
     pushForceIsOmnidirectional: 0
     ownerAsReference: 0
     pushForceNoY: 0
@@ -176,9 +176,9 @@ MonoBehaviour:
   animatorImpact:
     active: 1
     animator: {fileID: 0}
-    triggerName: Jump
-    boolName: 
-    boolValue: 0
+    triggerName: 
+    boolName: Jump
+    boolValue: 1
   ownerImpact:
     active: 0
     paralyse: 0

@@ -68,8 +68,8 @@ namespace vbg
             // read inputs
             float h = Input.GetAxis("Horizontal" + GetControllersuffix());
             float v = Input.GetAxis("Vertical" + GetControllersuffix());
-            float hr = Input.GetAxis("RHorizontal" + GetControllersuffix());
-            float vr = Input.GetAxis("RVertical" + GetControllersuffix());
+            float hr = controllerID == 0 ? 0.0f : Input.GetAxis("RHorizontal" + GetControllersuffix());
+            float vr = controllerID == 0 ? 0.0f : Input.GetAxis("RVertical" + GetControllersuffix());
             Vector2 joy = new Vector2(h, v);
             Vector2 joyR = new Vector2(hr, vr);
             float axisThr = 0.2f;
@@ -100,8 +100,6 @@ namespace vbg
                 m_modifierActive = !m_modifierActive;
             }
 
-            bool directionActive = false;
-
             // calculate move direction to pass to character
             if (m_Cam != null)
             {
@@ -109,7 +107,6 @@ namespace vbg
                 m_CamForward = Vector3.Scale(m_Cam.forward, new Vector3(1, 0, 1)).normalized;
                 m_Move = v * m_CamForward + h * m_Cam.right;
                 m_Dir = vr * m_CamForward + hr * m_Cam.right;
-                directionActive = true;
             }
 
             VBGCharacterController.Action action = VBGCharacterController.Action.NONE;
