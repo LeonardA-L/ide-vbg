@@ -606,6 +606,7 @@ namespace vbg
                 }
                 if (pushForce.pushForceVector.magnitude > 0.0f)
                 {
+                    Debug.Assert(!pushForce.pushForceIsOmnidirectional, "Directionnal and Omnidirectional pushforce detected.");
                     Vector3 normalizedPF = pushForce.pushForceVector.normalized;
                     force +=  (normalizedPF.x * refTransform.right
                              + normalizedPF.y * refTransform.up
