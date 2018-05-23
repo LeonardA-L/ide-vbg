@@ -1825,7 +1825,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1111775559832274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.0602283, y: 3.3666084e-16, z: 12.688145}
+  m_LocalPosition: {x: 5.8990564, y: 3.8777544e-16, z: 10.386148}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4617916785678168}
@@ -2604,17 +2604,17 @@ MonoBehaviour:
   activateOncePerActivator: 1
   healthImpact:
     active: 1
-    impact: -20
+    impact: -10
     impactPerFrame: 1
-    friendlyFire: 1
+    friendlyFire: 0
   pushForce:
     active: 1
     pushForceVector: {x: 0, y: 1, z: 10}
-    pushForceNorm: 400
+    pushForceNorm: 500
     pushForceIsOmnidirectional: 1
     ownerAsReference: 1
     pushForceNoY: 1
-    pushForceDecreaseLength: 2
+    pushForceDecreaseLength: 1
   switchImpact:
     active: 0
     name: 
@@ -2775,7 +2775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9bb02040104824a97555c6df5681d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 50
   threshold: 0
   impactThreshold: -1
   impactMultiplier: 0

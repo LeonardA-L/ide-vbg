@@ -23,7 +23,7 @@ namespace vbg
             foreach(VBGCharacterController player in PlayerManager.Instance.GetAllPlayersInGame())
             {
                 Transform img = playerUIs[player].transform.Find("Life").transform;
-                img.localScale = Vector3.Lerp(img.localScale, new Vector3(player.GetHealth().GetHealth() / VBGCharacterController.Constants.CHARACTER_START_HEALTH, img.localScale.y, img.localScale.z), 0.3f);
+                img.localScale = Vector3.Lerp(img.localScale, new Vector3(player.GetHealth().GetHealth() / player.GetHealth().MaxHealth, img.localScale.y, img.localScale.z), 0.3f);
 
             }
         }

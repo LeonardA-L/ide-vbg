@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 54700707261946688}
   - component: {fileID: 114338249050961676}
   - component: {fileID: 114557444540798796}
+  - component: {fileID: 114565869578299362}
   m_Layer: 15
   m_Name: Arrow
   m_TagString: GameEffect
@@ -60,7 +61,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4002775426839714}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +321,7 @@ MonoBehaviour:
   pushForce:
     active: 1
     pushForceVector: {x: 0, y: 0, z: 1}
-    pushForceNorm: 1000
+    pushForceNorm: 500
     pushForceIsOmnidirectional: 1
     ownerAsReference: 0
     pushForceNoY: 0
@@ -420,6 +421,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 023f36611f3a7e1429738d770c339104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lerpDown: 0
+--- !u!114 &114565869578299362
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1123465278882356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff93a6b26832ea48a257b251ac22533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114647887805590900

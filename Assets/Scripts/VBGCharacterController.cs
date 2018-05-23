@@ -12,8 +12,6 @@ namespace vbg
 
         public struct Constants
         {
-
-            public readonly static float CHARACTER_START_HEALTH = 100.0f;
             public readonly static int ANIMATOR_LAYER_ATTACK = 0;
             public readonly static float DEATH_REVIVE_TIME = 5.0f;
             public readonly static float DEATH_REVIVE_RADIUS = 2.0f;
@@ -316,7 +314,8 @@ namespace vbg
             }
             if (_req.move.magnitude > 0.0f)
             {
-                lastMove = PadMove(_req.move.normalized);
+                //lastMove = PadMove(_req.move.normalized);
+                lastMove = (_req.move.normalized);
             }
             lastInputNorm = _req.inputNorm;
             lastDirectionNorm = _req.directionNorm;
@@ -335,10 +334,10 @@ namespace vbg
                 {
                     comboAttackLastFrame = frame;
                     comboAttackLevel++;
-                    Debug.Log("Combo " + comboAttackLevel);
+                    //Debug.Log("Combo " + comboAttackLevel);
                 } else if(action != Action.ATTACK_AIM)
                 {
-                    Debug.Log((frame - comboAttackLastFrame));
+                    //Debug.Log((frame - comboAttackLastFrame));
                     comboAttackLastFrame = 0;
                     comboAttackLevel = 0;
                 }
@@ -527,7 +526,7 @@ namespace vbg
 
         public void Revive()
         {
-            health.SetHealth(Constants.CHARACTER_START_HEALTH);
+            health.SetHealth(health.MaxHealth);
             rb.constraints = RigidbodyConstraints.FreezeRotation;
             rb.drag = 0.0f;
             col.enabled = true;

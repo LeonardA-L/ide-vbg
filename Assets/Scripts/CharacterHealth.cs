@@ -8,6 +8,7 @@ namespace vbg
     {
 
         public float health;
+        private float maxHealth;
         public float threshold = 0.0f;
         public float impactThreshold = -1.0f;
         public float impactMultiplier = 1.0f;
@@ -18,6 +19,7 @@ namespace vbg
         void Start()
         {
             // TODO set start health from stats / armor / whatever
+            maxHealth = health;
         }
 
         // Update is called once per frame
@@ -25,6 +27,14 @@ namespace vbg
         {
             lastPosition = transform.position;
             // Poison ?
+        }
+
+        public float MaxHealth
+        {
+            get
+            {
+                return maxHealth;
+            }
         }
 
         public void Damage(float intensity)
