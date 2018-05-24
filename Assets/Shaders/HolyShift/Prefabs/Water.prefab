@@ -185,6 +185,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: dba33a2bf8b23400bacf323fc2816a51, type: 2}
   m_StaticBatchInfo:
@@ -219,6 +220,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: dba33a2bf8b23400bacf323fc2816a51, type: 2}
   m_StaticBatchInfo:
@@ -253,6 +255,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: dba33a2bf8b23400bacf323fc2816a51, type: 2}
   m_StaticBatchInfo:
@@ -287,6 +290,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: dba33a2bf8b23400bacf323fc2816a51, type: 2}
   m_StaticBatchInfo:
@@ -421,10 +425,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reflectionMask:
-    serializedVersion: 2
     m_Bits: 4294967295
   reflectSkybox: 1
-  clearColor: {r: 1, g: 1, b: 1, a: 1}
+  clearColor:
+    r: 1
+    g: 1
+    b: 1
+    a: 1
   reflectionSampler: _ReflectionTex
   clipPlaneOffset: 0.07
 --- !u!114 &114837165811533896
