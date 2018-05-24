@@ -385,17 +385,31 @@ namespace vbg
                             AnimatorSetBool("Attack3", true);
                         }
                         break;
-                    case Action.SPE_ATTACK:
                     case Action.SPE_DEFENSE:
-                    case Action.SPE_MOVEMENT:
-                    case Action.SPE_SPECIAL:
-                    case Action.MOVEMENT:
-                    case Action.DEFENSE:
-                    case Action.SPECIAL:
                         TriggerGameEffect(action);
+                        AnimatorSetBool("SpeDefense", true);
+                        AnimatorSetBool("SpeDefenseAim", false);
+                        break;
+                    case Action.SPE_ATTACK:
                         AnimatorSetBool("AttackAim", false);
                         AnimatorSetBool("SpeAttack", true);
                         AnimatorSetBool("SpeDefenseAim", false);
+                        TriggerGameEffect(action);
+                        break;
+                    case Action.SPE_MOVEMENT:
+                        TriggerGameEffect(action);
+                        break;
+                    case Action.SPE_SPECIAL:
+                        TriggerGameEffect(action);
+                        break;
+                    case Action.MOVEMENT:
+                        TriggerGameEffect(action);
+                        break;
+                    case Action.DEFENSE:
+                        TriggerGameEffect(action);
+                        break;
+                    case Action.SPECIAL:
+                        TriggerGameEffect(action);
                         break;
                     case Action.ATTACK_AIM:
                         AnimatorSetBool("AttackAim", true);
