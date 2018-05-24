@@ -182,6 +182,8 @@ namespace vbg
                     direction = transform.forward;
                 }
                 transform.forward = Vector3.Slerp(transform.forward, direction, rotFactor * rotationSpeedFactor * stableTimeRatio);
+                transform.forward = new Vector3(transform.forward.x, 0, transform.forward.z);
+                transform.forward.Normalize();
                 lastMove = transform.forward;
                 lastDirection = transform.forward;
             }
@@ -433,6 +435,7 @@ namespace vbg
 
             if (command.timer > 0.0f)
             {
+                AnimatorSetTrigger("CooldownFail");
                 Debug.Log("Too soon");
                 return;
             }
