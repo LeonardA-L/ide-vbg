@@ -260,7 +260,7 @@ namespace vbg
             ComputeBestTarget();
             if(m_bestTarget != null)
             {
-                Debug.Log("Best " + m_bestTarget);
+                //Debug.Log("Best " + m_bestTarget);
                 m_target = m_bestTarget;
                 m_targetDynamic = null;
                 m_aiAnimator.SetTrigger("Success");
