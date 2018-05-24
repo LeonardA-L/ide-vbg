@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4022215420085140}
   - component: {fileID: 114280761748683250}
   m_Layer: 0
-  m_Name: VFXSpawner jumptrail
+  m_Name: VFXSpawner bigjump_leaves
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,18 +65,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1781898757342774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4452296783146610}
+  - component: {fileID: 114582140208408716}
+  m_Layer: 0
+  m_Name: VFXSpawner jumptrail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4022215420085140
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1187421674768686}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4098735902306976}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4098735902306976
 Transform:
@@ -85,13 +101,27 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1125280295800404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.6600742, y: 0.0000016434353, z: 6.139147}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4647662581369960}
+  - {fileID: 4452296783146610}
   - {fileID: 4022215420085140}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4452296783146610
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1781898757342774}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4098735902306976}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4647662581369960
 Transform:
@@ -251,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40012bb8a706d4441b807a01b10bd24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vfxPrefab: {fileID: 1992857089697350, guid: 8898ae7990604b640994c1b3c437b1a7, type: 2}
+  vfxPrefab: {fileID: 1992857089697350, guid: a07e21dfc9492a24c9f3d6c0117ec013, type: 2}
   followParentPosition: 0
   followParentRotation: 0
   endOnDestroy: 0
@@ -270,6 +300,21 @@ MonoBehaviour:
   followParentPosition: 0
   followParentRotation: 0
   endOnDestroy: 1
+--- !u!114 &114582140208408716
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1781898757342774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40012bb8a706d4441b807a01b10bd24c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vfxPrefab: {fileID: 1992857089697350, guid: 8898ae7990604b640994c1b3c437b1a7, type: 2}
+  followParentPosition: 0
+  followParentRotation: 0
+  endOnDestroy: 0
 --- !u!114 &114853622150188080
 MonoBehaviour:
   m_ObjectHideFlags: 1
