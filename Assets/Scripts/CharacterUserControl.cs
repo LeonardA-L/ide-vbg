@@ -52,13 +52,13 @@ namespace vbg
             m_Character = GetComponent<VBGCharacterController>();
         }
 
-        private void Update()
+        /*private void Update()
         {
-        }
+        }*/
 
 
         // Fixed update is called in sync with physics
-        private void FixedUpdate()
+        private void Update()
         {
             if(controllerID < 0)
             {
