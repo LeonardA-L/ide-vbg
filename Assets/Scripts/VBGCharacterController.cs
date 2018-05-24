@@ -495,6 +495,8 @@ namespace vbg
             {
                 return;
             }
+            AnimatorSetTrigger("Damage");
+            AnimatorSetFloat("LastDamage", intensity);
             health.Damage(intensity);
 
             if(health.GetHealth() == 0.0f)
