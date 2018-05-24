@@ -75,7 +75,7 @@ namespace vbg
             float axisThr = 0.2f;
 
             bool axisAttackPressed = Input.GetAxis("Attack_ALT" + GetControllersuffix()) < -axisThr;
-            bool axisDefensePressed = Input.GetAxis("Attack_ALT" + GetControllersuffix()) > axisThr;
+            bool axisDefensePressed = Input.GetAxis("Defense_ALT" + GetControllersuffix()) > axisThr;
 
             bool attack = Input.GetButtonDown("Attack" + GetControllersuffix()) || (axisAttackPressed && !m_lastAxisAttackPressed);
             bool attackUp = Input.GetButtonUp("Attack" + GetControllersuffix()) || (!axisAttackPressed && m_lastAxisAttackPressed);
