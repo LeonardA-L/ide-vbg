@@ -131,6 +131,7 @@ namespace vbg
         private long frame = 0;
         private long comboAttackLastFrame = 0;
         private int comboAttackLevel = 0;
+        public Collider.ColliderType currentGroundType = Collider.ColliderType.DEFAULT;
 
         [Tooltip("A prefab to instantiate when the character dies")]
         public GameObject finishPrefab;
@@ -151,6 +152,7 @@ namespace vbg
             col = GetComponent<UnityEngine.Collider>();
             weaponIsActive = false;
             isGrounded = true;
+            SoundManager.Instance.SetSwitch("", "Footsteps", Collider.TypeToString(currentGroundType), this.gameObject);
         }
 
         // Update is called once per frame
@@ -159,9 +161,6 @@ namespace vbg
             frame++;
             float stableTimeRatio = Time.deltaTime * GameManager.Constants.FPS_REF;
             AnimatorSetFloat("RND", Random.Range(0, 100));
-
-            isGrounded = Physics.CheckSphere(groundChecker.position, groundChecker.localPosition.y + 0.15f, Ground, QueryTriggerInteraction.Ignore);
-            AnimatorSetBool("Grounded", isGrounded);
 
             //weaponIsActive = animator.GetCurrentAnimatorStateInfo((int)AnimatorLayer.UPPER).IsName("Attacking") || animator.GetCurrentAnimatorStateInfo((int)AnimatorLayer.DEFAULT).IsName("Whirlwind");
 
@@ -234,6 +233,27 @@ namespace vbg
 
         void FixedUpdate()
         {
+            //isGrounded = Physics.CheckSphere(groundChecker.position, groundChecker.localPosition.y + 0.15f, Ground, QueryTriggerInteraction.Ignore);
+            RaycastHit hit;
+            Ray groundRay = new Ray(groundChecker.position, -Vector3.up);
+            isGrounded = false;
+            if (Physics.Raycast(groundRay, out hit, groundChecker.localPosition.y + 0.15f, Ground, QueryTriggerInteraction.Ignore))
+            {
+                isGrounded = true;
+                Collider vbgCollider = hit.collider.gameObject.GetComponent<Collider>();
+                Collider.ColliderType newGround = Collider.ColliderType.DEFAULT;
+                if(vbgCollider)
+                {
+                    newGround = vbgCollider.GetGroundType();
+                    if (currentGroundType != newGround)
+                    {
+                        SoundManager.Instance.SetSwitch("", "Footsteps", Collider.TypeToString(newGround), this.gameObject);
+                    }
+                }
+                currentGroundType = newGround;
+            }
+            AnimatorSetBool("Grounded", isGrounded);
+
             rb.MovePosition(rb.position + bodyMovement * Time.fixedDeltaTime);
 
             // Apply GameEffects
