@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 4130095540408486}
   - component: {fileID: 33326982186670328}
   - component: {fileID: 23147572960669698}
+  - component: {fileID: 95458641557145318}
   m_Layer: 0
   m_Name: greek_tile
   m_TagString: Untagged
@@ -53,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1791800011934006}
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 112.08053, y: 50.3, z: -5.09}
+  m_LocalPosition: {x: 18.80716, y: -0.04, z: 19.933683}
   m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_Children:
   - {fileID: 4758839078825424}
@@ -88,7 +89,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: dfb06053521ca1f4ebd3b1faeeadbc03, type: 3}
+  - {fileID: 2100000, guid: ff4052ce40fedef41b8f03014f18da7f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,6 +128,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 1.06, z: 0.8}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &95458641557145318
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1791800011934006}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3653be8216c44b4abb6c1d2f84665a6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114060869488252698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -178,11 +197,12 @@ MonoBehaviour:
     useHotspotRotation: 0
     preserveMomentum: 0
   animatorImpact:
-    active: 0
-    animator: {fileID: 0}
+    active: 1
+    animator: {fileID: 95458641557145318}
     triggerName: 
-    boolName: 
+    boolName: On
     boolValue: 1
+    unstable: 1
   ownerImpact:
     active: 0
     paralyse: 0
