@@ -544,6 +544,7 @@ namespace vbg
             deathTimer = Constants.DEATH_REVIVE_TIME;
             rb.drag = 20.0f;
             GameManager.Instance.OnDeath(this);
+            AnimatorSetTrigger("Dying");
 
             rb.constraints = RigidbodyConstraints.FreezeAll;
             col.enabled = false;
