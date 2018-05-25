@@ -566,6 +566,7 @@ namespace vbg
 
         public void Revive()
         {
+            AnimatorSetTrigger("Reviving");
             health.SetHealth(health.MaxHealth);
             rb.constraints = RigidbodyConstraints.FreezeRotation;
             rb.drag = 0.0f;
