@@ -40,7 +40,8 @@ GameObject:
   - component: {fileID: 4415181421418500}
   - component: {fileID: 33823429062268916}
   - component: {fileID: 23212118085853244}
-  m_Layer: 0
+  - component: {fileID: 64319508094814356}
+  m_Layer: 8
   m_Name: iron_roof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +72,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1948426874800678}
   m_LocalRotation: {x: -0, y: 0.51988703, z: -0, w: 0.8542351}
-  m_LocalPosition: {x: 143.96, y: 41.04, z: 1.63}
+  m_LocalPosition: {x: -93.4, y: 40.05, z: 49.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4415181421418500}
@@ -87,7 +88,7 @@ Transform:
   m_GameObject: {fileID: 1057393407073400}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 2.21, z: -0.03}
-  m_LocalScale: {x: 9.964208, y: 6.0818553, z: 6.8397875}
+  m_LocalScale: {x: 9.964208, y: 4.397085, z: 7.9907894}
   m_Children: []
   m_Father: {fileID: 4138433793974886}
   m_RootOrder: 1
@@ -231,6 +232,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1515909795018856}
   m_Mesh: {fileID: 4300000, guid: 10453bc0b0a13e5439d3198b6d7433f3, type: 3}
+--- !u!64 &64319508094814356
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1515909795018856}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 10453bc0b0a13e5439d3198b6d7433f3, type: 3}
 --- !u!65 &65824015153676642
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -254,3 +269,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2076ca5f53def4ca367acfb735ab38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_groundType: 0
+  hideRenderInGame: 1
