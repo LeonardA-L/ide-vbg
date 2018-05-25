@@ -102,6 +102,8 @@ namespace vbg
             public string boolName;
             [Tooltip("Value for the boolean to set")]
             public bool boolValue = true;
+
+            public bool unstable = false;
         }
 
         [System.Serializable]
@@ -225,6 +227,7 @@ namespace vbg
         private bool processedOnceThisCycle = false;
 
         private bool lastFrameProcessed = false;
+        private bool lastFixedFrameProcessed = false;
 
         Rigidbody rb;
 
@@ -241,6 +244,11 @@ namespace vbg
                              + initialVelocity.y * transform.up
                              + initialVelocity.z * transform.forward);
             }
+        }
+
+        private void FixedUpdate()
+        {
+            lastFixedFrameProcessed = false;
         }
 
         // Update is called once per frame
@@ -364,19 +372,22 @@ namespace vbg
 
         private void Unstables(bool finish = false)
         {
-            if (switchImpact.unstable && !lastFrameProcessed)
+            if (switchImpact.unstable && !lastFrameProcessed && !lastFixedFrameProcessed)
             {
                 SwitchManager.Instance.SetSwitch(switchImpact.name, !switchImpact.newValue);
             }
 
-            if (valueImpact.unstable && !lastFrameProcessed && hasValueBeenUpdated && valueImpact.updateRate == FloatValueUpdate.ONCE)
+            if (valueImpact.unstable && !lastFrameProcessed && !lastFixedFrameProcessed && hasValueBeenUpdated && valueImpact.updateRate == FloatValueUpdate.ONCE)
             {
                 SwitchManager.Instance.SetValue(valueImpact.name, (float)SwitchManager.Instance.GetValue(valueImpact.name) - valueImpact.update);
                 hasValueBeenUpdated = false;
             }
 
-            if((!lastFrameProcessed || finish) && animatorImpact.boolName != null && animatorImpact.boolName != "")
+            if(name == "Trigger")
+                Debug.Log("In A " + lastFrameProcessed + " " + lastFixedFrameProcessed);
+            if (((!animatorImpact.unstable && !lastFrameProcessed) || finish || (animatorImpact.unstable && !lastFixedFrameProcessed)) && animatorImpact.boolName != null && animatorImpact.boolName != "")
             {
+                Debug.Log("In B");
                 Animator animator = animatorImpact.animator;
 
                 if (animator == null && owner != null)
@@ -390,6 +401,7 @@ namespace vbg
 
         private void Reset()
         {
+            Debug.Log("??");
             Unstables();
 
             foreach (GameEffectExit gee in exitConditions)
@@ -776,7 +788,7 @@ namespace vbg
         {
             processedOnce = true;
             processedOnceThisCycle = true;
-            lastFrameProcessed = true;
+            lastFixedFrameProcessed = true;
             foreach (GameEffectExit gee in exitConditions)
             {
                 if (gee.AfterProcess())
