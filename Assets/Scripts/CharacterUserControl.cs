@@ -222,6 +222,11 @@ namespace vbg
                 strafe = true;
             }
 
+            if(m_aimingSpeAttack || m_aimingSpeDefense)
+            {
+                m_modifierActive = true;
+            }
+
             VBGCharacterController.Request request = new VBGCharacterController.Request
             {
                 move = m_Move.normalized,
