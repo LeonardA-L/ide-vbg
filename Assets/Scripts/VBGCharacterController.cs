@@ -402,6 +402,7 @@ namespace vbg
                         AnimatorSetBool("AttackAim", false);
                         AnimatorSetBool("SpeAttack", true);
                         AnimatorSetBool("SpeDefenseAim", false);
+                        AnimatorSetBool("SpeAttackAim", false);
                         TriggerGameEffect(action);
                         break;
                     case Action.SPE_MOVEMENT:
@@ -556,6 +557,7 @@ namespace vbg
             rb.drag = 20.0f;
             GameManager.Instance.OnDeath(this);
             AnimatorSetTrigger("Dying");
+            Debug.Log("Me Dead");
 
             rb.constraints = RigidbodyConstraints.FreezeAll;
             col.enabled = false;
