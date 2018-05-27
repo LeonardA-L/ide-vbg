@@ -70,6 +70,7 @@ GameObject:
   - component: {fileID: 114670760585467900}
   - component: {fileID: 114213456411531074}
   - component: {fileID: 114002346934506662}
+  - component: {fileID: 114842854793281310}
   m_Layer: 0
   m_Name: HammerEffect
   m_TagString: GameEffect
@@ -1825,7 +1826,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1111775559832274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.978779, y: 8.537322e-17, z: 24.005133}
+  m_LocalPosition: {x: 23.001604, y: 2.013606e-16, z: 18.781525}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4617916785678168}
@@ -2776,7 +2777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9bb02040104824a97555c6df5681d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 75
+  health: 100
   threshold: 0
   impactThreshold: -1
   impactMultiplier: 0
@@ -3195,7 +3196,20 @@ MonoBehaviour:
   rotFactor: 1
   blockActions: 0
   currentGroundType: 0
+  invincibility: 0
+  invincibilityMax: 0.6
   finishPrefab: {fileID: 0}
+--- !u!114 &114842854793281310
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1040907662247998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f828fe64ea97a144e88ce9537f01ee3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114887957129211270
 MonoBehaviour:
   m_ObjectHideFlags: 1

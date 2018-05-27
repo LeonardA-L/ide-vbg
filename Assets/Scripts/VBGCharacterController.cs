@@ -134,6 +134,9 @@ namespace vbg
         private long comboAttackLastFrame = 0;
         private int comboAttackLevel = 0;
         public Collider.ColliderType currentGroundType = Collider.ColliderType.DEFAULT;
+        private float invincibility = 0.0f;
+        [Range(0, 2)]
+        public float invincibilityMax = 0.6f;
 
         [Tooltip("A prefab to instantiate when the character dies")]
         public GameObject finishPrefab;
@@ -163,6 +166,8 @@ namespace vbg
             frame++;
             float stableTimeRatio = Time.deltaTime * GameManager.Constants.FPS_REF;
             AnimatorSetFloat("RND", Random.Range(0, 100));
+
+            invincibility = Mathf.Max(invincibility - Time.deltaTime, 0);
 
             //weaponIsActive = animator.GetCurrentAnimatorStateInfo((int)AnimatorLayer.UPPER).IsName("Attacking") || animator.GetCurrentAnimatorStateInfo((int)AnimatorLayer.DEFAULT).IsName("Whirlwind");
 
@@ -544,8 +549,9 @@ namespace vbg
             AnimatorSetTrigger("Damage");
             AnimatorSetFloat("LastDamage", intensity);
             health.Damage(intensity);
+            invincibility = invincibilityMax;
 
-            if(health.GetHealth() == 0.0f)
+            if (health.GetHealth() == 0.0f)
             {
                 Die();
             }
@@ -764,6 +770,14 @@ namespace vbg
         public bool IsStrafe()
         {
             return lastStrafe;
+        }
+
+        public bool IsInvincible
+        {
+            get
+            {
+                return invincibility > 0.0f;
+            }
         }
     }
 }
