@@ -59,7 +59,8 @@ namespace vbg
             APOLLO,
             ARES,
             ARTEMIS,
-            HEPHAESTUS
+            HEPHAESTUS,
+            SKELETON
         }
 
         public struct Request
@@ -105,6 +106,7 @@ namespace vbg
         public GameEffectCommand movement;
         public GameEffectCommand defense;
         public GameEffectCommand special;
+        public GameEffectCommand attack;
 
         public List<GameEffectCommand> additionnalCommands = new List<GameEffectCommand>();
 
@@ -216,8 +218,9 @@ namespace vbg
             ProcessCooldown(movement);
             ProcessCooldown(defense);
             ProcessCooldown(special);
-            
-            if(health.IsDead() && deathTimer == 0.0f)
+            ProcessCooldown(attack);
+
+            if (health.IsDead() && deathTimer == 0.0f)
             {
                 Revive();
             }
@@ -373,16 +376,21 @@ namespace vbg
                 switch (action)
                 {
                     case Action.ATTACK:
-                        AnimatorSetBool("Attack", true);
-                        AnimatorSetBool("AttackAim", false);
-
-                        if(comboAttackLevel == 2)
+                        if (character != Character.HEPHAESTUS)
                         {
-                            AnimatorSetBool("Attack2", true);
-                        }
-                        if (comboAttackLevel == 3)
+                            AnimatorSetBool("Attack", true);
+                            AnimatorSetBool("AttackAim", false);
+                        } else if(character == Character.HEPHAESTUS)
                         {
-                            AnimatorSetBool("Attack3", true);
+                            TriggerGameEffect(action);
+                            /*if (comboAttackLevel == 2)
+                            {
+                                AnimatorSetBool("Attack2", true);
+                            }
+                            if (comboAttackLevel == 3)
+                            {
+                                AnimatorSetBool("Attack3", true);
+                            }*/
                         }
                         break;
                     case Action.SPE_DEFENSE:
@@ -453,6 +461,9 @@ namespace vbg
                     break;
                 case Action.SPECIAL:
                     command = special;
+                    break;
+                case Action.ATTACK:
+                    command = attack;
                     break;
                 default:
                     Debug.Assert(false, "No prefab provided");

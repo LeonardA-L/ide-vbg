@@ -383,11 +383,9 @@ namespace vbg
                 hasValueBeenUpdated = false;
             }
 
-            if(name == "Trigger")
-                Debug.Log("In A " + lastFrameProcessed + " " + lastFixedFrameProcessed);
             if (((!animatorImpact.unstable && !lastFrameProcessed) || finish || (animatorImpact.unstable && !lastFixedFrameProcessed)) && animatorImpact.boolName != null && animatorImpact.boolName != "")
             {
-                Debug.Log("In B");
+                //Debug.Log("In B");
                 Animator animator = animatorImpact.animator;
 
                 if (animator == null && owner != null)
@@ -628,20 +626,22 @@ namespace vbg
                 }
                 else if (pushForce.pushForceIsOmnidirectional)
                 {
-                    Vector3 movement = (tr.transform.position - refTransform.position);
+                    Vector3 movement = (tr.position - refTransform.position);
+                    //Debug.DrawLine(tr.position, tr.position + movement * 2, Color.blue, 2.0f);
                     if (pushForce.pushForceNoY)
                     {
                         movement.y = 0.0f;
                     }
                     movement.Normalize();
-                    force += (movement.x * refTransform.right
+                    /*force += (movement.x * refTransform.right
                              + movement.y * refTransform.up
                              + movement.z * refTransform.forward)
                              * forceNorm
-                             * stableTimeRatio;
+                             * stableTimeRatio;*/
+                    force += movement * forceNorm * stableTimeRatio;
                 }
 
-                if(rb != null)
+                if (rb != null)
                 {
                     rb.AddForce(force);
                 } else
