@@ -173,7 +173,14 @@ namespace vbg
 
             // Apply movement
             bodyMovement = rb.velocity;
-            ProcessAction();
+            if (!IsDead())
+            {
+                ProcessAction();
+            } else
+            {
+                ResetAttackBool();
+                ResetAimBool();
+            }
             //
             if(canMove)
             {
@@ -563,6 +570,8 @@ namespace vbg
             rb.drag = 20.0f;
             GameManager.Instance.OnDeath(this);
             AnimatorSetTrigger("Dying");
+            ResetAttackBool();
+            ResetAimBool();
             Debug.Log("Me Dead");
 
             rb.constraints = RigidbodyConstraints.FreezeAll;
@@ -696,6 +705,13 @@ namespace vbg
             AnimatorSetBool("AttackAim", false);
             AnimatorSetBool("SpeAttackAim", false);
             AnimatorSetBool("SpeAttack", false);
+        }
+
+        public void ResetAimBool()
+        {
+            AnimatorSetBool("SpeAttackAim", false);
+            AnimatorSetBool("AttackAim", false);
+            AnimatorSetBool("SpeDefenseAim", false);
         }
 
         private void AnimatorSetBool(string _name, bool _value)
