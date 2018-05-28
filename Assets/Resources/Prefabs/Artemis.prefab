@@ -3683,11 +3683,12 @@ MonoBehaviour:
     unique: 1
     previous: {fileID: 0}
   defense:
-    toInstanciate: {fileID: 0}
-    cooldown: 2
+    toInstanciate: {fileID: 1857467078708862, guid: e7115addbd80d8f44931ade4350ce94c,
+      type: 2}
+    cooldown: 0
     timer: 0
-    child: 0
-    unique: 0
+    child: 1
+    unique: 1
     previous: {fileID: 0}
   special:
     toInstanciate: {fileID: 0}
@@ -3726,6 +3727,8 @@ MonoBehaviour:
   blockActions: 0
   currentGroundType: 0
   invincibilityMax: 0.6
+  defenseMode: 0
+  defenseModeDeflectFactor: 0.5
   finishPrefab: {fileID: 0}
 --- !u!114 &114223892766572892
 MonoBehaviour:

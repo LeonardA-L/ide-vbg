@@ -137,6 +137,10 @@ namespace vbg
         private float invincibility = 0.0f;
         [Range(0, 2)]
         public float invincibilityMax = 0.6f;
+        public bool defenseMode = false;
+        [Range(0, 1)]
+        public float defenseModeDeflectFactor = 0.5f;
+        private bool canceledDefense = false;
 
         [Tooltip("A prefab to instantiate when the character dies")]
         public GameObject finishPrefab;
@@ -173,14 +177,6 @@ namespace vbg
 
             // Apply movement
             bodyMovement = rb.velocity;
-            if (!IsDead())
-            {
-                ProcessAction();
-            } else
-            {
-                ResetAttackBool();
-                ResetAimBool();
-            }
             //
             if(canMove)
             {
@@ -248,6 +244,17 @@ namespace vbg
 
         void FixedUpdate()
         {
+
+            if (!IsDead())
+            {
+                ProcessAction();
+            }
+            else
+            {
+                ResetDefense();
+                ResetAttackBool();
+                ResetAimBool();
+            }
             //isGrounded = Physics.CheckSphere(groundChecker.position, groundChecker.localPosition.y + 0.15f, Ground, QueryTriggerInteraction.Ignore);
             RaycastHit hit;
             Ray groundRay = new Ray(groundChecker.position, -Vector3.up);
@@ -360,10 +367,10 @@ namespace vbg
 
             superMode = _req.modifier;
 
-            if (_req.action != Action.NONE)
+            //if (_req.action != Action.NONE)
             {
                 action = _req.action;
-                if(action == Action.ATTACK
+                /*if(action == Action.ATTACK
                     && comboAttackLevel < Constants.COMBO_STRIKE_MAX
                     && (comboAttackLevel == 0
                         || ((frame - comboAttackLastFrame) > Constants.COMBO_STRIKE_FRAME_INF 
@@ -377,12 +384,16 @@ namespace vbg
                     //Debug.Log((frame - comboAttackLastFrame));
                     comboAttackLastFrame = 0;
                     comboAttackLevel = 0;
-                }
+                }*/
             }
         }
 
         private void ProcessAction()
         {
+            if (action != Action.DEFENSE)
+            {
+                ResetDefense();
+            }
             if (!blockActions)
             {
                 switch (action)
@@ -427,7 +438,8 @@ namespace vbg
                         TriggerGameEffect(action);
                         break;
                     case Action.DEFENSE:
-                        TriggerGameEffect(action);
+                        if(!canceledDefense)
+                            TriggerGameEffect(action);
                         break;
                     case Action.SPECIAL:
                         TriggerGameEffect(action);
@@ -446,7 +458,8 @@ namespace vbg
                 }
             }
 
-            action = Action.NONE;
+            if(action != Action.DEFENSE)
+                action = Action.NONE;
         }
 
         private void TriggerGameEffect(Action action)
@@ -697,6 +710,16 @@ namespace vbg
             ExecuteCommand(additionnalCommands[_index]);
         }
 
+        public void ResetDefense(bool _cancel = false)
+        {
+            if(defense.previous != null)
+            {
+                defense.previous.GetComponent<GameEffect>().Finish();
+            }
+            canceledDefense = _cancel;
+            defenseMode = false;
+        }
+
         public void ResetAttackBool()
         {
             AnimatorSetBool("Attack", false);
@@ -794,6 +817,11 @@ namespace vbg
             {
                 return invincibility > 0.0f;
             }
+        }
+
+        public void SetDefenseMode(bool _value)
+        {
+            defenseMode = _value;
         }
     }
 }

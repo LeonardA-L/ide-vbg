@@ -122,6 +122,7 @@ namespace vbg
             public bool disableGravity = false;
             [Tooltip("Multiply the rigidbody's velocity when the effect ends")]
             public float velocityEndFactor = 1.0f;
+            public bool enableDefenseMode = true;
         }
 
         [System.Serializable]
@@ -314,7 +315,7 @@ namespace vbg
             ProcessAlways();
         }
 
-        void Finish()
+        public void Finish()
         {
             //Debug.Log("Finish " + name);
 
@@ -329,6 +330,10 @@ namespace vbg
                 owner.SetBlockActions(false);
                 owner.SetGravity(true);
                 owner.MultiplyVelocity(ownerImpact.velocityEndFactor);
+                if(ownerImpact.enableDefenseMode)
+                {
+                    owner.SetDefenseMode(false);
+                }
             }
 
             if (audioImpact.active && audioImpact.endEvent != null && audioImpact.endEvent != "")
@@ -548,7 +553,13 @@ namespace vbg
 
                 if (healthImpact.impact< 0.0f)
                 {
-                    idy.Damage(healthImpact.impact * (healthImpact.impactPerFrame ? 1 : Time.deltaTime));
+                    VBGCharacterController cc = (idy as VBGCharacterController);
+                    float defenseFactor = cc != null ? (cc.defenseMode ? cc.defenseModeDeflectFactor : 1.0f) : 1.0f;
+                    if(defenseFactor != 1.0f)
+                    {
+                        cc.ResetDefense(true);
+                    }
+                    idy.Damage(healthImpact.impact * (healthImpact.impactPerFrame ? 1 : Time.deltaTime) * defenseFactor);
                 }
                 else
                 {
@@ -717,6 +728,10 @@ namespace vbg
             owner.SetRotFactor(ownerImpact.rotFactor);
             owner.SetBlockActions(ownerImpact.blockActions);
             owner.SetGravity(!ownerImpact.disableGravity);
+            if(ownerImpact.enableDefenseMode)
+            {
+                owner.SetDefenseMode(true);
+            }
         }
 
         public void ProcessAudioImpact(Transform tr = null)

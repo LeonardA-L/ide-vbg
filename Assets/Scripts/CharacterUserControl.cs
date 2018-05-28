@@ -80,9 +80,9 @@ namespace vbg
             bool attack = Input.GetButtonDown("Attack" + GetControllersuffix()) || (axisAttackPressed && !m_lastAxisAttackPressed);
             bool attackUp = Input.GetButtonUp("Attack" + GetControllersuffix()) || (!axisAttackPressed && m_lastAxisAttackPressed);
             bool attackPressed = Input.GetButton("Attack" + GetControllersuffix()) || axisAttackPressed;
-            bool defense = Input.GetButtonDown("Defense" + GetControllersuffix()) || (axisDefensePressed && !m_lastAxisDefensePressed);
-            bool defenseUp = Input.GetButtonUp("Defense" + GetControllersuffix()) || (!axisDefensePressed && m_lastAxisDefensePressed);
-            bool defensePressed = Input.GetButton("Defense" + GetControllersuffix()) || axisDefensePressed;
+            bool defense = Input.GetButtonDown("Defense" + GetControllersuffix());
+            bool defenseUp = Input.GetButtonUp("Defense" + GetControllersuffix());
+            bool defensePressed = Input.GetButton("Defense" + GetControllersuffix());
             bool movement = Input.GetButtonDown("Movement" + GetControllersuffix());
             bool special = Input.GetButtonDown("Special" + GetControllersuffix());
 
@@ -188,7 +188,7 @@ namespace vbg
                 {
                     action = VBGCharacterController.Action.MOVEMENT;
                 }
-                else if (defense)
+                else if (defensePressed)
                 {
                     action = VBGCharacterController.Action.DEFENSE;
                     m_aimingSpeDefense = false;
@@ -226,6 +226,7 @@ namespace vbg
             {
                 m_modifierActive = true;
             }
+
 
             VBGCharacterController.Request request = new VBGCharacterController.Request
             {
