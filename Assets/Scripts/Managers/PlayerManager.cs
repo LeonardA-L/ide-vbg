@@ -135,7 +135,9 @@ namespace vbg
             player.name = "Player " + playerID;
 
             CharacterUserControl tpuc = player.GetComponent<CharacterUserControl>();
+            CharacterVibrationController tpv = player.GetComponent<CharacterVibrationController>();
             tpuc.SetController(_controllerID);
+            tpv.SetController(_controllerID);
 
             controllersInGame.Add(_controllerID, tpuc);
             players.Add(tpuc.GetComponent<VBGCharacterController>());

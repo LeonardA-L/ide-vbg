@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
 
 namespace vbg
 {
@@ -122,6 +123,10 @@ namespace vbg
 
         private void OnApplicationQuit()
         {
+            for(int i=0;i<8;i++)
+            {
+                GamePad.SetVibration((PlayerIndex)i, 0, 0);
+            }
             isQuitting = true;
         }
 

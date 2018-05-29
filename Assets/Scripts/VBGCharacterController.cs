@@ -827,5 +827,13 @@ namespace vbg
         {
             defenseMode = _value;
         }
+
+        public bool IsSuperMode
+        {
+            get
+            {
+                return superMode;
+            }
+        }
     }
 }

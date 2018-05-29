@@ -353,6 +353,7 @@ GameObject:
   - component: {fileID: 54997482114044228}
   - component: {fileID: 114223546235330092}
   - component: {fileID: 114710579695487302}
+  - component: {fileID: 114680812455311124}
   m_Layer: 0
   m_Name: Artemis
   m_TagString: Player
@@ -1698,7 +1699,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1196705819576444}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.4891405, y: 3.8680093e-16, z: 10.430035}
+  m_LocalPosition: {x: 152.6601, y: 45.2, z: 85.17092}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4522660949169312}
@@ -3853,6 +3854,19 @@ MonoBehaviour:
   valueName: P1_healthRatio
   img: {fileID: 114295421265474388}
   factor: 1
+--- !u!114 &114680812455311124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1196705819576444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 378eed72db0deea44a9cd662fca2f451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeInTime: 7
+  maxFactor: 0.8
 --- !u!114 &114710579695487302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4215,8 +4229,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: -0.006576538, y: -0.046657085, z: 0.53908867}
-    m_Extent: {x: 0.29965496, y: 0.30032334, z: 0.3725312}
+    m_Center: {x: -0.0065841675, y: -0.046653748, z: 0.5390854}
+    m_Extent: {x: 0.2996543, y: 0.30032483, z: 0.37253228}
   m_DirtyAABB: 0
 --- !u!137 &137150412481242716
 SkinnedMeshRenderer:
@@ -4409,8 +4423,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: 0.006758213, y: 1.3616976, z: -0.0634346}
-    m_Extent: {x: 0.04704674, y: 0.15924878, z: 0.07604625}
+    m_Center: {x: 0.006767273, y: 1.3616943, z: -0.0634346}
+    m_Extent: {x: 0.04704251, y: 0.15924938, z: 0.0760469}
   m_DirtyAABB: 0
 --- !u!137 &137611660843977338
 SkinnedMeshRenderer:
@@ -4504,8 +4518,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: -0.02562809, y: 1.3691676, z: -0.081659794}
-    m_Extent: {x: 0.043841, y: 0.15890713, z: 0.0784055}
+    m_Center: {x: -0.025619507, y: 1.3691673, z: -0.081668854}
+    m_Extent: {x: 0.043837383, y: 0.15890785, z: 0.07840557}
   m_DirtyAABB: 0
 --- !u!137 &137976880800687358
 SkinnedMeshRenderer:
@@ -4551,8 +4565,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: -0.0066900253, y: -0.043379307, z: 0.9349973}
-    m_Extent: {x: 0.21339044, y: 0.20841664, z: 0.08590395}
+    m_Center: {x: -0.006690979, y: -0.043380737, z: 0.93499756}
+    m_Extent: {x: 0.21339022, y: 0.20841688, z: 0.08590398}
   m_DirtyAABB: 0
 --- !u!183 &183007711256638296
 Cloth:
