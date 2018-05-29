@@ -11,6 +11,7 @@ namespace vbg
         [Tooltip("Name of the value to listen to")]
         public string valueName;
         public Image img;
+        public float lerp = 0.3f;
         private bool init = false;
 
         // Update is called once per frame
@@ -26,7 +27,7 @@ namespace vbg
 
         private void Callback(float floatValue)
         {
-            img.transform.localScale = Vector3.Lerp(img.transform.localScale, new Vector3(floatValue, img.transform.localScale.y, img.transform.localScale.z), 0.3f);
+            img.transform.localScale = Vector3.Lerp(img.transform.localScale, new Vector3(floatValue, img.transform.localScale.y, img.transform.localScale.z), lerp);
         }
     }
 }
