@@ -10,7 +10,8 @@ namespace vbg
     {
         public override bool IsActive(IDynamic idy)
         {
-            return idy != null && !(idy as VBGCharacterController).IsInvincible;
+            VBGCharacterController cc = (idy as VBGCharacterController);
+            return cc == null || cc != null && !cc.IsInvincible;
         }
     }
 }
