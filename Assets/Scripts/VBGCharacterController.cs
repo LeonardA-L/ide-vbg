@@ -232,6 +232,11 @@ namespace vbg
             {
                 Revive();
             }
+
+            if(IsDead() && isGrounded)
+            {
+                rb.constraints = RigidbodyConstraints.FreezeAll;
+            }
         }
 
         private void ProcessCooldown(GameEffectCommand gec)
@@ -587,7 +592,6 @@ namespace vbg
             ResetAimBool();
             Debug.Log("Me Dead");
 
-            rb.constraints = RigidbodyConstraints.FreezeAll;
             col.enabled = false;
 
             activeGameEffects.Clear();
