@@ -16,6 +16,8 @@ namespace vbg
         private bool m_aimingSpeDefense = false;
 
         private bool m_modifierActive;
+        private bool m_modifierCanceled;
+        private bool m_triggerModActive = false;
 
         private int controllerID = -1;
 
@@ -29,7 +31,6 @@ namespace vbg
         private float prevModifier;
 
         private bool m_lastAxisAttackPressed = false;
-        private bool m_lastAxisDefensePressed = false;
 
         string GetControllersuffix()
         {
@@ -75,7 +76,6 @@ namespace vbg
             float axisThr = 0.2f;
 
             bool axisAttackPressed = Input.GetAxis("Attack_ALT" + GetControllersuffix()) < -axisThr;
-            bool axisDefensePressed = Input.GetAxis("Defense_ALT" + GetControllersuffix()) > axisThr;
 
             bool attack = Input.GetButtonDown("Attack" + GetControllersuffix()) || (axisAttackPressed && !m_lastAxisAttackPressed);
             bool attackUp = Input.GetButtonUp("Attack" + GetControllersuffix()) || (!axisAttackPressed && m_lastAxisAttackPressed);
@@ -87,17 +87,34 @@ namespace vbg
             bool special = Input.GetButtonDown("Special" + GetControllersuffix());
 
             m_lastAxisAttackPressed = axisAttackPressed;
-            m_lastAxisDefensePressed = axisDefensePressed;
 
-            /*
+            
             float modifier = Input.GetAxis("Modifier" + GetControllersuffix());
             bool modifierActive = modifier > 0.6f && modifier >= prevModifier;
             prevModifier = modifier;
-            */
-            bool modifier = Input.GetButtonDown("Special" + GetControllersuffix());
-            if (modifier)
+
+            if (!modifierActive)
+            {
+                m_modifierCanceled = false;
+                if(m_modifierActive && m_triggerModActive)
+                {
+                    m_modifierActive = false;
+                }
+                m_triggerModActive = false;
+            }
+            if (modifierActive && !m_modifierCanceled)
+            {
+                m_modifierActive = true;
+                m_triggerModActive = true;
+            }
+            
+            if (special)
             {
                 m_modifierActive = !m_modifierActive;
+                if(!m_modifierActive)
+                {
+                    m_modifierCanceled = true;
+                }
             }
 
             // calculate move direction to pass to character
