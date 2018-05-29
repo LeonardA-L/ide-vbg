@@ -14,6 +14,11 @@ namespace vbg
         public float fadeInTime = 7.0f;
         public float maxFactor = 0.8f;
 
+        private float force = 0.0f;
+        private float forceGoal = 0.0f;
+        private float duration = 0.0f;
+        private float lerpFactor = 1.0f;
+
         public void SetController(int _controllerID)
         {
             controllerID = (PlayerIndex)(_controllerID -1);
@@ -30,16 +35,25 @@ namespace vbg
             if (!set)
                 return;
 
-            if(cc.IsSuperMode)
+            
+            if(duration > 0)
             {
-                superModeTime += Time.fixedDeltaTime;
-            } else
-            {
-                superModeTime = 0.0f;
+                duration -= Time.fixedDeltaTime;
+                force = Mathf.Lerp(force, forceGoal, lerpFactor);
+                if(duration <= 0)
+                {
+                    force = 0;
+                }
+                duration = Mathf.Max(duration, 0);
+                GamePad.SetVibration(controllerID, force, force);
             }
-
-            float factor = Mathf.Clamp(superModeTime / fadeInTime * maxFactor, 0.0f, maxFactor);
-            GamePad.SetVibration(controllerID, factor, factor);
         }
+
+        public void SetVibration(float _force, float _duration, float _lerpFactor = 1.0f)
+        {
+            forceGoal = Mathf.Max(_force, forceGoal);
+            duration = Mathf.Max(duration, _duration);
+            lerpFactor = _lerpFactor;
+    }
     }
 }

@@ -10,6 +10,17 @@ namespace vbg
     {
 
         [System.Serializable]
+        public class VibrationImpact
+        {
+            public bool active = false;
+            [Range(0,1)]
+            public float force = 1.0f;
+            public float duration = 1.0f;
+            [Range(0,1)]
+            public float lerp = 1.0f;
+        }
+
+        [System.Serializable]
         public class PushForce
         {
             [Tooltip("Is Push Force Active")]
@@ -123,6 +134,7 @@ namespace vbg
             [Tooltip("Multiply the rigidbody's velocity when the effect ends")]
             public float velocityEndFactor = 1.0f;
             public bool enableDefenseMode = true;
+            public VibrationImpact vibration;
         }
 
         [System.Serializable]
@@ -133,6 +145,7 @@ namespace vbg
             [Tooltip("Animator to impact. If none, will try to fetch the owner's animator")]
             public GameObject addGameEffect;
             public bool asOwner = true;
+            public VibrationImpact vibration;
         }
 
         [System.Serializable]
@@ -720,17 +733,28 @@ namespace vbg
 
         public void ProcessOwnerImpact()
         {
-            if (!ownerImpact.active || owner == null)
+            if (owner == null)
                 return;
 
-            owner.SetParalyzed(ownerImpact.paralyse);
-            owner.SetSpeedFactor(ownerImpact.speedFactor);
-            owner.SetRotFactor(ownerImpact.rotFactor);
-            owner.SetBlockActions(ownerImpact.blockActions);
-            owner.SetGravity(!ownerImpact.disableGravity);
-            if(ownerImpact.enableDefenseMode)
+            if (ownerImpact.active)
             {
-                owner.SetDefenseMode(true);
+                owner.SetParalyzed(ownerImpact.paralyse);
+                owner.SetSpeedFactor(ownerImpact.speedFactor);
+                owner.SetRotFactor(ownerImpact.rotFactor);
+                owner.SetBlockActions(ownerImpact.blockActions);
+                owner.SetGravity(!ownerImpact.disableGravity);
+                if (ownerImpact.enableDefenseMode)
+                {
+                    owner.SetDefenseMode(true);
+                }
+            }
+            if(ownerImpact.vibration.active)
+            {
+                CharacterVibrationController cvc = owner.GetComponent<CharacterVibrationController>();
+                if(cvc != null)
+                {
+                    cvc.SetVibration(ownerImpact.vibration.force, ownerImpact.vibration.duration, ownerImpact.vibration.lerp);
+                }
             }
         }
 

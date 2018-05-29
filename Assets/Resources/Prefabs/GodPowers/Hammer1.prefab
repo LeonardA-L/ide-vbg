@@ -252,10 +252,20 @@ MonoBehaviour:
     disableGravity: 0
     velocityEndFactor: 0
     enableDefenseMode: 0
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -365,10 +375,20 @@ MonoBehaviour:
     disableGravity: 0
     velocityEndFactor: 1
     enableDefenseMode: 0
+    vibration:
+      active: 0
+      force: 0.3
+      duration: 0.1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 0
     startEvent: 
