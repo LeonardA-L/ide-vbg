@@ -2135,7 +2135,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1755988341770836}
   m_LocalRotation: {x: -0, y: -0.5277409, z: -0, w: 0.84940547}
-  m_LocalPosition: {x: 21.625088, y: -1.480165e-16, z: 34.51607}
+  m_LocalPosition: {x: 152.50049, y: 45.2, z: 87.787}
   m_LocalScale: {x: 0.7500001, y: 0.75, z: 0.7500001}
   m_Children:
   - {fileID: 4140047329851064}
@@ -2672,6 +2672,8 @@ MonoBehaviour:
   blockActions: 0
   currentGroundType: 0
   invincibilityMax: 0.4
+  defenseMode: 0
+  defenseModeDeflectFactor: 0.5
   finishPrefab: {fileID: 1059484546270592, guid: 924f33813e091cf488c34308aff3abc7,
     type: 2}
 --- !u!114 &114597768277779298
@@ -2779,10 +2781,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 0.2
+      lerp: 1
   creatureImpact:
-    active: 0
+    active: 1
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 1
+      force: 0.8
+      duration: 0.2
+      lerp: 1
   audioImpact:
     active: 0
     startEvent: 

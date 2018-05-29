@@ -795,6 +795,15 @@ namespace vbg
                 // Force trigger of the gameEffect
                 ge.TriggerGameEffect(tr.gameObject);
             }
+
+            if(creatureImpact.vibration.active && cc != null)
+            {
+                CharacterVibrationController cvc = cc.GetComponent<CharacterVibrationController>();
+                if (cvc != null)
+                {
+                    cvc.SetVibration(creatureImpact.vibration.force, creatureImpact.vibration.duration, creatureImpact.vibration.lerp);
+                }
+            }
         }
 
         public void ProcessScriptImpact()
