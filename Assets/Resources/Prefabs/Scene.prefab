@@ -163,9 +163,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4855185462108202}
   - component: {fileID: 54065830145847110}
-  - component: {fileID: 114551448622848356}
-  - component: {fileID: 114137804314058660}
-  - component: {fileID: 114418808530820864}
+  - component: {fileID: 114817836860485458}
+  - component: {fileID: 114843727652266526}
+  - component: {fileID: 114002665215671680}
   m_Layer: 0
   m_Name: Scene
   m_TagString: Untagged
@@ -1577,11 +1577,11 @@ GameObject:
   - component: {fileID: 54335697789936608}
   - component: {fileID: 114309744112328616}
   - component: {fileID: 65678041664081970}
-  - component: {fileID: 114377348069267192}
-  - component: {fileID: 114008508583462070}
-  m_Layer: 0
+  - component: {fileID: 114343883651629994}
+  - component: {fileID: 114556722094035314}
+  m_Layer: 14
   m_Name: WwiseListener
-  m_TagString: NonTriggerCollider
+  m_TagString: Dynamic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3380,6 +3380,25 @@ MonoBehaviour:
   valueName: P2_sDefenseRatio
   img: {fileID: 114974434910715674}
   factor: 1
+--- !u!114 &114002665215671680
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061582991882470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3197429237c0e8945b39e2ed1a2e0aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  bankName: VBG_MAIN_SBK
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  valueGuid: f8388cadc0cfa84a96ef7d6560236bbf
 --- !u!114 &114004339999176598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3407,19 +3426,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114008508583462070
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1548098267252850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ff8fd301d071e24384f0de138f740ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDefaultListener: 1
-  listenerId: 0
 --- !u!114 &114010945037191424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4012,10 +4018,20 @@ MonoBehaviour:
     disableGravity: 0
     velocityEndFactor: 1
     enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 1
     startEvent: AMB_Init
@@ -4331,31 +4347,6 @@ MonoBehaviour:
   target: {fileID: 1917921476594108}
   switchName: P0
   revert: 0
---- !u!114 &114137804314058660
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1061582991882470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d36f64db197c34c4aa83e223d0360685, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  basePath: Audio\GeneratedSoundBanks
-  language: English(US)
-  defaultPoolSize: 4096
-  lowerPoolSize: 2048
-  streamingPoolSize: 1024
-  preparePoolSize: 0
-  memoryCutoffThreshold: 0.95
-  monitorPoolSize: 128
-  monitorQueuePoolSize: 64
-  callbackManagerBufferSize: 4
-  spatialAudioPoolSize: 4096
-  maxSoundPropagationDepth: 8
-  diffractionFlags: 11
-  engineLogging: 1
 --- !u!114 &114140319106780370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4819,10 +4810,20 @@ MonoBehaviour:
     disableGravity: 0
     velocityEndFactor: 1
     enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -5514,8 +5515,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7f9ec79b29f174b87e664cefb51065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugSwitches: 0
+  debugSwitches: 1
   debugValues: 1
+--- !u!114 &114343883651629994
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1548098267252850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7e07d57262cff41b205cb5c018daf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDefaultListener: 1
+  listenerId: 0
 --- !u!114 &114344951101302996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5664,10 +5678,20 @@ MonoBehaviour:
     disableGravity: 0
     velocityEndFactor: 1
     enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 1
     startEvent: AMB_Init
@@ -5861,27 +5885,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   valueName: P1_health
   textField: {fileID: 114723011711823368}
---- !u!114 &114377348069267192
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1548098267252850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c28701c6ac6bb94c96a6a0eff1f0d37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 1
-  isStaticObject: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
 --- !u!114 &114377985954515506
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6087,25 +6090,6 @@ MonoBehaviour:
   target: {fileID: 1569941597172296}
   switchName: P2_sDefenseUnavailable
   revert: 0
---- !u!114 &114418808530820864
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1061582991882470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a0400c2d426c9a41bd47861f29699d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerList: f7e1664c
-  useOtherObject: 0
-  bankName: VBG_MAIN_SBK
-  decodeBank: 0
-  loadAsynchronous: 0
-  saveDecodedBank: 0
-  unloadTriggerList: 958ca0ea
-  valueGuid: f8388cadc0cfa84a96ef7d6560236bbf
 --- !u!114 &114424570084724964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6837,17 +6821,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114551448622848356
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1061582991882470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c548b84961c46e94a9b4db4ce8cda019, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114553567428623298
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6902,6 +6875,27 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114556722094035314
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1548098267252850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a70b571ab511f5b49a7267cb462359e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!114 &114558545681247536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8451,6 +8445,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b0b9ce3ca2b50846a6f76827d56bd48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114817836860485458
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061582991882470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faca9fb5cba23c34cb52af8de5359e02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basePath: Audio\GeneratedSoundBanks
+  language: English(US)
+  defaultPoolSize: 4096
+  lowerPoolSize: 2048
+  streamingPoolSize: 1024
+  preparePoolSize: 0
+  memoryCutoffThreshold: 0.95
+  monitorPoolSize: 128
+  monitorQueuePoolSize: 64
+  callbackManagerBufferSize: 4
+  spatialAudioPoolSize: 4096
+  maxSoundPropagationDepth: 8
+  diffractionFlags: 11
+  engineLogging: 1
 --- !u!114 &114829653312672162
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8539,6 +8558,17 @@ MonoBehaviour:
   target: {fileID: 1649577721773778}
   switchName: P3_sDefenseUnavailable
   revert: 0
+--- !u!114 &114843727652266526
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061582991882470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec5c754b9572e364c82cc2216b6cb956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114844549610221606
 MonoBehaviour:
   m_ObjectHideFlags: 1
