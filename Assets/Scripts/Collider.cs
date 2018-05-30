@@ -9,7 +9,8 @@ namespace vbg
             DEFAULT,
             STONE,
             WOOD,
-            DIRT
+            DIRT,
+            METAL
         }
 
         public ColliderType m_groundType = ColliderType.DEFAULT;
@@ -19,15 +20,16 @@ namespace vbg
         {
             switch(_type)
             {
-                case ColliderType.STONE:
-                    return "STONE";
                 case ColliderType.WOOD:
                     return "WOOD";
                 case ColliderType.DIRT:
                     return "DIRT";
+                case ColliderType.METAL:
+                    return "METAL";
+                case ColliderType.STONE:
                 case ColliderType.DEFAULT:
                 default:
-                    return "DEFAULT";
+                    return "STONE";
             }
         }
 

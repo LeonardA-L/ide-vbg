@@ -161,7 +161,7 @@ namespace vbg
             col = GetComponent<UnityEngine.Collider>();
             weaponIsActive = false;
             isGrounded = true;
-            SoundManager.Instance.SetSwitch("", "Footsteps", Collider.TypeToString(currentGroundType), this.gameObject);
+            SoundManager.Instance.SetSwitch("", "SW_Footsteps_Texture", Collider.TypeToString(Collider.ColliderType.DEFAULT), this.gameObject);
         }
 
         // Update is called once per frame
@@ -274,7 +274,7 @@ namespace vbg
                     newGround = vbgCollider.GetGroundType();
                     if (currentGroundType != newGround)
                     {
-                        SoundManager.Instance.SetSwitch("", "Footsteps", Collider.TypeToString(newGround), this.gameObject);
+                        SoundManager.Instance.SetSwitch("", "SW_Footsteps_Texture", Collider.TypeToString(newGround), this.gameObject);
                     }
                 }
                 currentGroundType = newGround;
