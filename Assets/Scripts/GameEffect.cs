@@ -477,7 +477,7 @@ namespace vbg
                 }
                 // TODO process here ?
             }
-            else if (destroyOnWall && other.tag != GameManager.Constants.TAG_NONTRIGGERCOLLIDER)
+            else if (destroyOnWall && other.layer != GameManager.Constants.LAYER_SOUND && other.tag != GameManager.Constants.TAG_NONTRIGGERCOLLIDER)
             {
                 if(other.tag == GameManager.Constants.TAG_GAMEEFFECT)
                 {
