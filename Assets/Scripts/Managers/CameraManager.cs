@@ -124,13 +124,13 @@ namespace vbg
                     Vector3 predictedPosition = new Vector3();
                     for(int i=1;i<m_cachedBarycenters.Count; i++)
                     {
-                        Debug.DrawLine(m_cachedBarycenters[i], m_cachedBarycenters[i] + new Vector3(0, 3, 0), Color.blue);
+                        //Debug.DrawLine(m_cachedBarycenters[i], m_cachedBarycenters[i] + new Vector3(0, 3, 0), Color.blue);
                         predictedPosition += (m_cachedBarycenters[i] - m_cachedBarycenters[i-1]).normalized;
                         barycenterSpeedFactor += (m_cachedBarycenters[i] - m_cachedBarycenters[i - 1]).magnitude;
                     }
                     predictedPosition.Normalize();
                     predictedPosition *= (m_predictionFactor + barycenterSpeedFactor * m_speedPredictionFactor);
-                    Debug.DrawLine(barycenter, barycenter + predictedPosition, Color.red, 2.0f);
+                    //Debug.DrawLine(barycenter, barycenter + predictedPosition, Color.red, 2.0f);
                     barycenter += predictedPosition;
 
 
