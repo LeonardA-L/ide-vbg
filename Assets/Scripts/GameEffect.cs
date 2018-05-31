@@ -201,6 +201,7 @@ namespace vbg
         public VBGCharacterController owner;
         [Tooltip("Should the game effect destroy its parent when it dies (is it embedded)")]
         public bool destroyParent = false;
+        public bool destroyParentParent = false;
         [Tooltip("Should the game effect destroy itself when it encounters a collision")]
         public bool destroyOnWall = false;
         //[Tooltip("Should the game effect process every frame or only when colliding with a character")]
@@ -365,6 +366,10 @@ namespace vbg
                 if (destroyParent)
                 {
                     GameObject.Destroy(transform.parent.gameObject);
+                }
+                if(destroyParentParent)
+                {
+                    GameObject.Destroy(transform.parent.parent.gameObject);
                 }
                 GameObject.Destroy(gameObject);
             }
