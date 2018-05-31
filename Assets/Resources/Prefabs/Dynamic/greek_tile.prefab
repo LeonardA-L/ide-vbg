@@ -28,6 +28,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1052480045995374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4200208147711876}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1069450078820250
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,20 +152,20 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1791800011934006}
-  m_LocalRotation: {x: 0.000000021827077, y: -0.002070367, z: -0.000000001118054,
-    w: 0.9999979}
-  m_LocalPosition: {x: 148.80235, y: 45.27, z: 86.77426}
+  m_LocalRotation: {x: 0.000000021833804, y: -0.00872743, z: -9.778959e-10, w: 0.999962}
+  m_LocalPosition: {x: -118.98, y: 36.76, z: 40.28}
   m_LocalScale: {x: 1.4196783, y: 1.4196782, z: 1.4196783}
   m_Children:
   - {fileID: 4758839078825424}
+  - {fileID: 4200208147711876}
   - {fileID: 4354125316985492}
-  - {fileID: 4799174258507246}
   - {fileID: 4719691098720102}
+  - {fileID: 4799174258507246}
   - {fileID: 4606995407912140}
   - {fileID: 4192736720760824}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -0.23700002, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -1, z: 0}
 --- !u!4 &4192736720760824
 Transform:
   m_ObjectHideFlags: 1
@@ -162,8 +177,21 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4130095540408486}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!4 &4200208147711876
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1052480045995374}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4130095540408486}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4354125316985492
 Transform:
   m_ObjectHideFlags: 1
@@ -175,7 +203,7 @@ Transform:
   m_LocalScale: {x: 1.31849, y: 0.095983334, z: 0.110636234}
   m_Children: []
   m_Father: {fileID: 4130095540408486}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4606995407912140
 Transform:
@@ -188,7 +216,7 @@ Transform:
   m_LocalScale: {x: 1.4588614, y: 0.095983334, z: 0.11063883}
   m_Children: []
   m_Father: {fileID: 4130095540408486}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
 --- !u!4 &4719691098720102
 Transform:
@@ -227,7 +255,7 @@ Transform:
   m_LocalScale: {x: 1.31849, y: 0.095983334, z: 0.11063883}
   m_Children: []
   m_Father: {fileID: 4130095540408486}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23147572960669698
 MeshRenderer:
@@ -539,7 +567,7 @@ MonoBehaviour:
     pushForceDecreaseLength: 0
   switchImpact:
     active: 1
-    name: UPtrue
+    name: CraneRotation
     newValue: 1
     unstable: 0
   valueImpact:
@@ -570,14 +598,25 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
-    active: 0
-    startEvent: 
-    endEvent: 
+    active: 1
+    startEvent: Play_PressSwitch
+    endEvent: Play_ReleaseSwitch
     useActivatorTransform: 0
     switchNames: []
     switchValues: []
