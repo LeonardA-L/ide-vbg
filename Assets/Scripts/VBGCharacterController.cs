@@ -28,6 +28,7 @@ namespace vbg
             public float cooldown = 2.0f;
             public float timer;
             public bool child;
+            public bool trueChild;
             public bool unique;
             public GameObject previous;
         }
@@ -523,7 +524,7 @@ namespace vbg
                 return;
             }
 
-            GameObject geGameObject = Instantiate(command.toInstanciate);
+            GameObject geGameObject = Instantiate(command.toInstanciate, command.trueChild ? transform : null);
             GameEffect gameEffect = geGameObject.GetComponent<GameEffect>();
             List<GameEffect> effects = new List<GameEffect>();
             if (gameEffect == null)
