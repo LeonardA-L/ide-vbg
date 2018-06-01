@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1752441256347684}
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.204554, y: -3.9096704e-16, z: 45.45759}
+  m_LocalPosition: {x: 14.499535, y: 3.093629e-16, z: 13.917536}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -57,6 +57,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -126,6 +127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_construction_cone
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
