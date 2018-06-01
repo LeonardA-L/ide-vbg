@@ -40,7 +40,7 @@ Transform:
   m_GameObject: {fileID: 1344016813008596}
   m_LocalRotation: {x: 0.000000021855694, y: 1.6283761e-16, z: 0.000000007450581,
     w: 1}
-  m_LocalPosition: {x: 11.39, y: -0.03, z: 32.83}
+  m_LocalPosition: {x: -4.0264773, y: -6.0429974, z: 32.798023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -59,6 +59,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -128,8 +129,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 1432571165020544, guid: ff6426339091f1d4ca6b50b6077b531a,
     type: 2}
 --- !u!114 &114152721373871918
