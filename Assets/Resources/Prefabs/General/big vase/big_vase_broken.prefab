@@ -391,6 +391,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1591206662225518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4817016981868360}
+  - component: {fileID: 114219347715971704}
+  - component: {fileID: 114945685203519474}
+  m_Layer: 0
+  m_Name: DeathSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1637169290496982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,6 +1109,19 @@ Transform:
   m_Father: {fileID: 4839672023121390}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4817016981868360
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1591206662225518}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4839672023121390}
+  m_RootOrder: 33
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4821576402515984
 Transform:
   m_ObjectHideFlags: 1
@@ -1113,7 +1143,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1928180700877356}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.828602, y: 0.74, z: 32.10487}
+  m_LocalPosition: {x: 3, y: 0.71, z: 19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4794812257312424}
@@ -1149,6 +1179,7 @@ Transform:
   - {fileID: 4293446944855676}
   - {fileID: 4025189707181178}
   - {fileID: 4068577886974124}
+  - {fileID: 4817016981868360}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1207,6 +1238,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1241,6 +1273,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1275,6 +1308,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1309,6 +1343,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1343,6 +1378,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1377,6 +1413,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1411,6 +1448,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1445,6 +1483,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1479,6 +1518,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1513,6 +1553,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1547,6 +1588,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1581,6 +1623,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1615,6 +1658,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1649,6 +1693,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1683,6 +1728,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1717,6 +1763,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1751,6 +1798,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1785,6 +1833,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1819,6 +1868,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1853,6 +1903,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1887,6 +1938,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1921,6 +1973,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1955,6 +2008,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1989,6 +2043,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -2023,6 +2078,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -2057,6 +2113,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -2091,6 +2148,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -2125,6 +2183,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -2159,6 +2218,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -2193,6 +2253,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -2227,6 +2288,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -2261,6 +2323,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -2295,6 +2358,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -3516,8 +3580,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114082911095447356
 MonoBehaviour:
@@ -3531,8 +3598,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114097651930401384
 MonoBehaviour:
@@ -3546,8 +3616,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114107778748221268
 MonoBehaviour:
@@ -3561,8 +3634,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114110274026346496
 MonoBehaviour:
@@ -3576,8 +3652,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114123550374144468
 MonoBehaviour:
@@ -3591,8 +3670,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114124056267167470
 MonoBehaviour:
@@ -3606,8 +3688,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114126367116638036
 MonoBehaviour:
@@ -3621,8 +3706,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114178183750035654
 MonoBehaviour:
@@ -3636,8 +3724,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114203784118455226
 MonoBehaviour:
@@ -3651,9 +3742,112 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
+--- !u!114 &114219347715971704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1591206662225518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60818e15baa5c54a8664a5ea40b70d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishPrefab: {fileID: 0}
+  initialVelocity: {x: 0, y: 0, z: 0}
+  owner: {fileID: 0}
+  destroyParent: 0
+  destroyParentParent: 0
+  destroyOnWall: 0
+  resetNotFinish: 0
+  stable: 0
+  activateOncePerActivator: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 0
+    name: 
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toNearestSpawnPoint: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+    boolValue: 1
+    unstable: 0
+  ownerImpact:
+    active: 0
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  audioImpact:
+    active: 1
+    startEvent: Play_big_plate_DESTRUCTION
+    endEvent: 
+    useActivatorTransform: 0
+    switchNames: []
+    switchValues: []
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
+    destroyActivator: 0
 --- !u!114 &114255161080464624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3666,8 +3860,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114337924372637446
 MonoBehaviour:
@@ -3681,8 +3878,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114341574561611802
 MonoBehaviour:
@@ -3696,8 +3896,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114388695699972724
 MonoBehaviour:
@@ -3711,8 +3914,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114419077576176366
 MonoBehaviour:
@@ -3726,8 +3932,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114456433058935186
 MonoBehaviour:
@@ -3741,8 +3950,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114467945134523154
 MonoBehaviour:
@@ -3756,8 +3968,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114469642972999072
 MonoBehaviour:
@@ -3771,8 +3986,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114481743751595202
 MonoBehaviour:
@@ -3786,8 +4004,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114511806888485948
 MonoBehaviour:
@@ -3801,8 +4022,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114512017486746208
 MonoBehaviour:
@@ -3816,8 +4040,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114560125444450884
 MonoBehaviour:
@@ -3831,8 +4058,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114648438240235766
 MonoBehaviour:
@@ -3846,8 +4076,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114817187533582068
 MonoBehaviour:
@@ -3861,8 +4094,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114828961209220346
 MonoBehaviour:
@@ -3876,8 +4112,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114842438565742688
 MonoBehaviour:
@@ -3891,8 +4130,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114856942569143464
 MonoBehaviour:
@@ -3906,8 +4148,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114890011548741100
 MonoBehaviour:
@@ -3921,8 +4166,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114891874894424584
 MonoBehaviour:
@@ -3936,9 +4184,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
+--- !u!114 &114945685203519474
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1591206662225518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43275866f290b0b4c9b6e319deb5b106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: 1
+  currentTimes: 1
 --- !u!114 &114969082891623778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3951,8 +4215,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114971252512375368
 MonoBehaviour:
@@ -3966,8 +4233,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114984698807464104
 MonoBehaviour:
@@ -3981,8 +4251,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114986116053754914
 MonoBehaviour:
@@ -3996,6 +4269,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_big_plate_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
