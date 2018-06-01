@@ -51,6 +51,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1247548067731480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4148312932835446}
+  - component: {fileID: 114180607482074430}
+  - component: {fileID: 114894860182789628}
+  m_Layer: 0
+  m_Name: DeathSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1267200945369864
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,7 +190,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1616589043750476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.483018, y: 0, z: 22.19547}
+  m_LocalPosition: {x: 18.362654, y: 1.6300557e-16, z: 20.508883}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4400607774997000}
@@ -183,6 +200,7 @@ Transform:
   - {fileID: 4308191151882950}
   - {fileID: 4358002380741022}
   - {fileID: 4524220074388974}
+  - {fileID: 4148312932835446}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -198,6 +216,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4060969294687506}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4148312932835446
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1247548067731480}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4060969294687506}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4285283741553418
 Transform:
@@ -290,6 +321,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 08e84f73cea43c74fadd9c4e6cde0ef7, type: 3}
   m_StaticBatchInfo:
@@ -324,6 +356,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 08e84f73cea43c74fadd9c4e6cde0ef7, type: 3}
   m_StaticBatchInfo:
@@ -358,6 +391,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 08e84f73cea43c74fadd9c4e6cde0ef7, type: 3}
   m_StaticBatchInfo:
@@ -392,6 +426,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 08e84f73cea43c74fadd9c4e6cde0ef7, type: 3}
   m_StaticBatchInfo:
@@ -426,6 +461,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 08e84f73cea43c74fadd9c4e6cde0ef7, type: 3}
   m_StaticBatchInfo:
@@ -460,6 +496,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 08e84f73cea43c74fadd9c4e6cde0ef7, type: 3}
   m_StaticBatchInfo:
@@ -494,6 +531,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 08e84f73cea43c74fadd9c4e6cde0ef7, type: 3}
   m_StaticBatchInfo:
@@ -767,6 +805,106 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300012, guid: 08e84f73cea43c74fadd9c4e6cde0ef7, type: 3}
+--- !u!114 &114180607482074430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1247548067731480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60818e15baa5c54a8664a5ea40b70d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishPrefab: {fileID: 0}
+  initialVelocity: {x: 0, y: 0, z: 0}
+  owner: {fileID: 0}
+  destroyParent: 0
+  destroyParentParent: 0
+  destroyOnWall: 0
+  resetNotFinish: 0
+  stable: 0
+  activateOncePerActivator: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 0
+    name: 
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toNearestSpawnPoint: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+    boolValue: 1
+    unstable: 0
+  ownerImpact:
+    active: 0
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  audioImpact:
+    active: 1
+    startEvent: Play_chair_DESTRUCTION
+    endEvent: 
+    useActivatorTransform: 0
+    switchNames: []
+    switchValues: []
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
+    destroyActivator: 0
 --- !u!114 &114221317720402444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -779,8 +917,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 0.5
+  soundActiveEventPlay: Play_chair_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114516296422709548
 MonoBehaviour:
@@ -794,8 +935,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 0.5
+  soundActiveEventPlay: Play_chair_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114528255293229596
 MonoBehaviour:
@@ -809,8 +953,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 0.5
+  soundActiveEventPlay: Play_chair_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114686528248062196
 MonoBehaviour:
@@ -824,8 +971,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 0.5
+  soundActiveEventPlay: Play_chair_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114804064782070928
 MonoBehaviour:
@@ -839,9 +989,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 0.5
+  soundActiveEventPlay: Play_chair_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
+--- !u!114 &114894860182789628
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1247548067731480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43275866f290b0b4c9b6e319deb5b106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: 1
+  currentTimes: 1
 --- !u!114 &114956906521711688
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -854,8 +1020,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 0.5
+  soundActiveEventPlay: Play_chair_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114991943793515428
 MonoBehaviour:
@@ -869,6 +1038,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 0.5
+  soundActiveEventPlay: Play_chair_DEBRIS
+  soundActiveEventStop: 
   finishPrefab: {fileID: 0}
