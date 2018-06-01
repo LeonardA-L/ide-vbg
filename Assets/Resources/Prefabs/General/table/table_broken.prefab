@@ -51,6 +51,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1140849988936022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4711883147582170}
+  - component: {fileID: 114965697323847000}
+  - component: {fileID: 114115593168024876}
+  m_Layer: 0
+  m_Name: DeathSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1163949298077766
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,7 +363,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1965281710363580}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.017697, y: 3.2650036e-16, z: 13.145732}
+  m_LocalPosition: {x: 14.775414, y: 2.2455434e-16, z: 17.736973}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4024521501451244}
@@ -364,6 +381,7 @@ Transform:
   - {fileID: 4270273210759894}
   - {fileID: 4189990922296354}
   - {fileID: 4496765720830294}
+  - {fileID: 4711883147582170}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -527,6 +545,19 @@ Transform:
   m_Father: {fileID: 4037542857069936}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4711883147582170
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1140849988936022}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4037542857069936}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4732920947434468
 Transform:
   m_ObjectHideFlags: 1
@@ -566,6 +597,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -600,6 +632,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -634,6 +667,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -668,6 +702,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -702,6 +737,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -736,6 +772,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -770,6 +807,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -804,6 +842,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -838,6 +877,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -872,6 +912,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -906,6 +947,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -940,6 +982,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -974,6 +1017,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1008,6 +1052,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1042,6 +1087,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -1618,9 +1664,22 @@ MonoBehaviour:
   soundOnEnable: 
   chaotic: 0
   radius: 1
-  soundActiveEventPlay: 
+  soundActiveEventPlay: Play_table_DEBRIS
   soundActiveEventStop: 
   finishPrefab: {fileID: 0}
+--- !u!114 &114115593168024876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1140849988936022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43275866f290b0b4c9b6e319deb5b106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: 1
+  currentTimes: 1
 --- !u!114 &114115686444231280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1636,7 +1695,7 @@ MonoBehaviour:
   soundOnEnable: 
   chaotic: 0
   radius: 1
-  soundActiveEventPlay: 
+  soundActiveEventPlay: Play_table_DEBRIS
   soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114140760189396430
@@ -1654,7 +1713,7 @@ MonoBehaviour:
   soundOnEnable: 
   chaotic: 0
   radius: 1
-  soundActiveEventPlay: 
+  soundActiveEventPlay: Play_table_DEBRIS
   soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114263418490079904
@@ -1672,7 +1731,7 @@ MonoBehaviour:
   soundOnEnable: 
   chaotic: 0
   radius: 1
-  soundActiveEventPlay: 
+  soundActiveEventPlay: Play_table_DEBRIS
   soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114324674898445742
@@ -1690,7 +1749,7 @@ MonoBehaviour:
   soundOnEnable: 
   chaotic: 0
   radius: 1
-  soundActiveEventPlay: 
+  soundActiveEventPlay: Play_table_DEBRIS
   soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114432084889064664
@@ -1708,7 +1767,7 @@ MonoBehaviour:
   soundOnEnable: 
   chaotic: 0
   radius: 1
-  soundActiveEventPlay: 
+  soundActiveEventPlay: Play_table_DEBRIS
   soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114467268815945726
@@ -1726,7 +1785,7 @@ MonoBehaviour:
   soundOnEnable: 
   chaotic: 0
   radius: 1
-  soundActiveEventPlay: 
+  soundActiveEventPlay: Play_table_DEBRIS
   soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114479298382747160
@@ -1744,7 +1803,7 @@ MonoBehaviour:
   soundOnEnable: 
   chaotic: 0
   radius: 1
-  soundActiveEventPlay: 
+  soundActiveEventPlay: Play_table_DEBRIS
   soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114508308969524612
@@ -1762,7 +1821,7 @@ MonoBehaviour:
   soundOnEnable: 
   chaotic: 0
   radius: 1
-  soundActiveEventPlay: 
+  soundActiveEventPlay: Play_table_DEBRIS
   soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114550255230781330
@@ -1780,7 +1839,7 @@ MonoBehaviour:
   soundOnEnable: 
   chaotic: 0
   radius: 1
-  soundActiveEventPlay: 
+  soundActiveEventPlay: Play_table_DEBRIS
   soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114771794527854462
@@ -1798,7 +1857,7 @@ MonoBehaviour:
   soundOnEnable: 
   chaotic: 0
   radius: 1
-  soundActiveEventPlay: 
+  soundActiveEventPlay: Play_table_DEBRIS
   soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114883250855809644
@@ -1816,7 +1875,7 @@ MonoBehaviour:
   soundOnEnable: 
   chaotic: 0
   radius: 1
-  soundActiveEventPlay: 
+  soundActiveEventPlay: Play_table_DEBRIS
   soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114942816632264302
@@ -1834,7 +1893,7 @@ MonoBehaviour:
   soundOnEnable: 
   chaotic: 0
   radius: 1
-  soundActiveEventPlay: 
+  soundActiveEventPlay: Play_table_DEBRIS
   soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114955233761092262
@@ -1852,7 +1911,7 @@ MonoBehaviour:
   soundOnEnable: 
   chaotic: 0
   radius: 1
-  soundActiveEventPlay: 
+  soundActiveEventPlay: Play_table_DEBRIS
   soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114964464466938886
@@ -1870,6 +1929,106 @@ MonoBehaviour:
   soundOnEnable: 
   chaotic: 0
   radius: 1
-  soundActiveEventPlay: 
+  soundActiveEventPlay: Play_table_DEBRIS
   soundActiveEventStop: 
   finishPrefab: {fileID: 0}
+--- !u!114 &114965697323847000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1140849988936022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60818e15baa5c54a8664a5ea40b70d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishPrefab: {fileID: 0}
+  initialVelocity: {x: 0, y: 0, z: 0}
+  owner: {fileID: 0}
+  destroyParent: 0
+  destroyParentParent: 0
+  destroyOnWall: 0
+  resetNotFinish: 0
+  stable: 0
+  activateOncePerActivator: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 0
+    name: 
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toNearestSpawnPoint: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+    boolValue: 1
+    unstable: 0
+  ownerImpact:
+    active: 0
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  audioImpact:
+    active: 1
+    startEvent: Play_table_DESTRUCTION
+    endEvent: 
+    useActivatorTransform: 0
+    switchNames: []
+    switchValues: []
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
+    destroyActivator: 0
