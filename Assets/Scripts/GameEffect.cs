@@ -240,9 +240,12 @@ namespace vbg
         private bool followRotation;
         private bool processedOnce = false;
         private bool processedOnceThisCycle = false;
+        private bool processedOnceThisFixedCycle = false;
 
         private bool lastFrameProcessed = false;
         private bool lastFixedFrameProcessed = false;
+
+        private Transform lastSoundActivator;
 
         Rigidbody rb;
 
@@ -315,12 +318,12 @@ namespace vbg
                              + initialVelocity.z * transform.forward);
             }
 
+
             if (!IsActive(null))
             {
                 if(!lastFrameProcessed)
                 {
                     processedOnceThisCycle = false;
-                    activators.Clear();
                 }
                 lastFrameProcessed = false;
                 return;
@@ -348,11 +351,6 @@ namespace vbg
                 {
                     owner.SetDefenseMode(false);
                 }
-            }
-
-            if (audioImpact.active && audioImpact.endEvent != null && audioImpact.endEvent != "")
-            {
-                SoundManager.Instance.PostEvent(audioImpact.endEvent, transform.parent.gameObject);
             }
 
             impactedCharacters.RemoveAll(item => item == null);
@@ -406,9 +404,14 @@ namespace vbg
                 hasValueBeenUpdated = false;
             }
 
-            if (((!animatorImpact.unstable && !lastFrameProcessed) || finish || (animatorImpact.unstable && !lastFixedFrameProcessed)) && animatorImpact.boolName != null && animatorImpact.boolName != "")
+            if (
+                (
+                    (!animatorImpact.unstable && !lastFrameProcessed)
+                    || finish
+                    || (animatorImpact.unstable && !lastFixedFrameProcessed)
+                )
+                && animatorImpact.boolName != null && animatorImpact.boolName != "")
             {
-                //Debug.Log("In B");
                 Animator animator = animatorImpact.animator;
 
                 if (animator == null && owner != null)
@@ -418,11 +421,34 @@ namespace vbg
 
                 animator.SetBool(animatorImpact.boolName, !animatorImpact.boolValue);
             }
+
+            if(
+                finish
+                || (!lastFixedFrameProcessed && processedOnceThisFixedCycle)
+                || (!lastFrameProcessed && processedOnceThisCycle)
+                )
+            {
+                if (audioImpact.active && audioImpact.endEvent != null && audioImpact.endEvent != "")
+                {
+                    Debug.Log("Last "+lastSoundActivator);
+                    Debug.Log("parent "+ transform.parent.gameObject);
+                    GameObject audioGo = (audioImpact.useActivatorTransform ? lastSoundActivator : transform.parent ?? transform).gameObject;
+                    Debug.Log("parent "+ transform.parent.gameObject);
+                    SoundManager.Instance.PostEvent(audioImpact.endEvent, transform.parent.gameObject);
+                }
+            }
+
+
+
+            if (!lastFixedFrameProcessed)
+            {
+                processedOnceThisFixedCycle = false;
+                activators.Clear();
+            }
         }
 
         private void Reset()
         {
-            Debug.Log("??");
             Unstables();
 
             foreach (GameEffectExit gee in exitConditions)
@@ -765,11 +791,11 @@ namespace vbg
 
         public void ProcessAudioImpact(Transform tr = null)
         {
-            if (!audioImpact.active || audioImpact.startEvent == null || audioImpact.startEvent == "" || processedOnceThisCycle)
+            if (!audioImpact.active || audioImpact.startEvent == null || audioImpact.startEvent == "" || processedOnceThisCycle || processedOnceThisFixedCycle)
                 return;
 
             GameObject audioGo = (audioImpact.useActivatorTransform ? tr : transform.parent ?? transform).gameObject;
-
+            lastSoundActivator = audioGo.transform;
             for (int i= 0; i < audioImpact.switchNames.Count; i++)
             {
                 SoundManager.Instance.SetSwitch(audioImpact.startEvent, audioImpact.switchNames[i], audioImpact.switchValues[i], audioGo);
@@ -840,7 +866,6 @@ namespace vbg
         private void AfterProcessCommon()
         {
             processedOnce = true;
-            processedOnceThisCycle = true;
             lastFixedFrameProcessed = true;
             foreach (GameEffectExit gee in exitConditions)
             {
@@ -874,6 +899,7 @@ namespace vbg
             ProcessActiveImpact(null);
             // Call last
             AfterProcessCommon();
+            processedOnceThisCycle = true;
         }
 
         public void ProcessOnCollision(IDynamic idy, Rigidbody rb, ref Vector3 characterMovement)
@@ -915,6 +941,7 @@ namespace vbg
             ProcessActiveImpact(go);
             // Call last
             AfterProcessCommon();
+            processedOnceThisFixedCycle = true;
         }
 
         public VBGCharacterController GetOwner()
