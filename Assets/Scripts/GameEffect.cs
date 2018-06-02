@@ -430,10 +430,10 @@ namespace vbg
             {
                 if (audioImpact.active && audioImpact.endEvent != null && audioImpact.endEvent != "")
                 {
-                    Debug.Log("Last "+lastSoundActivator);
-                    Debug.Log("parent "+ transform.parent.gameObject);
+                    //Debug.Log("Last "+lastSoundActivator);
+                    //Debug.Log("parent "+ transform.parent.gameObject);
                     GameObject audioGo = (audioImpact.useActivatorTransform ? lastSoundActivator : transform.parent ?? transform).gameObject;
-                    Debug.Log("parent "+ transform.parent.gameObject);
+                    //Debug.Log("parent "+ transform.parent.gameObject);
                     SoundManager.Instance.PostEvent(audioImpact.endEvent, transform.parent.gameObject);
                 }
             }
