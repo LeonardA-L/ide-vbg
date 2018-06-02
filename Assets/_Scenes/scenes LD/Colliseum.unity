@@ -1268,7 +1268,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 655989114}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &134199196
 MonoBehaviour:
@@ -2629,7 +2629,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 655989114}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &260258812
 MonoBehaviour:
@@ -4623,6 +4623,149 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 383906554}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &384539857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 384539858}
+  - component: {fileID: 384539860}
+  - component: {fileID: 384539859}
+  m_Layer: 0
+  m_Name: BagarreBOUZ
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &384539858
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 384539857}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 24.2, y: 13.33, z: 11.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1563658266}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &384539859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 384539857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43275866f290b0b4c9b6e319deb5b106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: 1
+  currentTimes: 1
+--- !u!114 &384539860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 384539857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60818e15baa5c54a8664a5ea40b70d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishPrefab: {fileID: 0}
+  initialVelocity: {x: 0, y: 0, z: 0}
+  owner: {fileID: 0}
+  destroyParent: 0
+  destroyParentParent: 0
+  destroyOnWall: 0
+  resetNotFinish: 0
+  stable: 0
+  activateOncePerActivator: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 0
+    name: 
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toNearestSpawnPoint: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+    boolValue: 1
+    unstable: 0
+  ownerImpact:
+    active: 0
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  audioImpact:
+    active: 1
+    startEvent: Play_M_THEME_BAGARRE_BOUZ
+    endEvent: 
+    useActivatorTransform: 0
+    switchNames: []
+    switchValues: []
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
+    destroyActivator: 0
 --- !u!1 &386897594
 GameObject:
   m_ObjectHideFlags: 0
@@ -5569,7 +5712,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 655989114}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &480094955
 MonoBehaviour:
@@ -6840,6 +6983,149 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
   m_ChildControlHeight: 1
+--- !u!1 &603211401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 603211402}
+  - component: {fileID: 603211404}
+  - component: {fileID: 603211403}
+  m_Layer: 0
+  m_Name: BagarrePERC1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &603211402
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 603211401}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.11, y: 13.33, z: 12.02}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1563658266}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &603211403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 603211401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43275866f290b0b4c9b6e319deb5b106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: 1
+  currentTimes: 1
+--- !u!114 &603211404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 603211401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60818e15baa5c54a8664a5ea40b70d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishPrefab: {fileID: 0}
+  initialVelocity: {x: 0, y: 0, z: 0}
+  owner: {fileID: 0}
+  destroyParent: 0
+  destroyParentParent: 0
+  destroyOnWall: 0
+  resetNotFinish: 0
+  stable: 0
+  activateOncePerActivator: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 0
+    name: 
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toNearestSpawnPoint: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+    boolValue: 1
+    unstable: 0
+  ownerImpact:
+    active: 0
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  audioImpact:
+    active: 1
+    startEvent: Play_M_THEME_BAGARRE_PERC1
+    endEvent: 
+    useActivatorTransform: 0
+    switchNames: []
+    switchValues: []
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
+    destroyActivator: 0
 --- !u!4 &612305284 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4939869503146148, guid: 3e1c37508d24b294e9e58b4b796af7dc,
@@ -7237,6 +7523,7 @@ Transform:
   m_LocalPosition: {x: -8.803791, y: -20.170643, z: 13.111944}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1160395286}
   - {fileID: 480094954}
   - {fileID: 134199195}
   - {fileID: 260258811}
@@ -9793,6 +10080,149 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 986675728}
+--- !u!1 &987349023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 987349024}
+  - component: {fileID: 987349026}
+  - component: {fileID: 987349025}
+  m_Layer: 0
+  m_Name: BagarreSAZ
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &987349024
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 987349023}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.63, y: 13.33, z: 25.85}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1563658266}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &987349025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 987349023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43275866f290b0b4c9b6e319deb5b106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: 1
+  currentTimes: 1
+--- !u!114 &987349026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 987349023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60818e15baa5c54a8664a5ea40b70d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishPrefab: {fileID: 0}
+  initialVelocity: {x: 0, y: 0, z: 0}
+  owner: {fileID: 0}
+  destroyParent: 0
+  destroyParentParent: 0
+  destroyOnWall: 0
+  resetNotFinish: 0
+  stable: 0
+  activateOncePerActivator: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 0
+    name: 
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toNearestSpawnPoint: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+    boolValue: 1
+    unstable: 0
+  ownerImpact:
+    active: 0
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  audioImpact:
+    active: 1
+    startEvent: Play_M_THEME_BAGARRE_SAZ
+    endEvent: 
+    useActivatorTransform: 0
+    switchNames: []
+    switchValues: []
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
+    destroyActivator: 0
 --- !u!1001 &990727349
 Prefab:
   m_ObjectHideFlags: 0
@@ -11373,6 +11803,149 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1142871645}
+--- !u!1 &1147927583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1147927584}
+  - component: {fileID: 1147927586}
+  - component: {fileID: 1147927585}
+  m_Layer: 0
+  m_Name: BagarreACC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1147927584
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1147927583}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.34, y: 13.33, z: 23.66}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1563658266}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1147927585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1147927583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43275866f290b0b4c9b6e319deb5b106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: 1
+  currentTimes: 1
+--- !u!114 &1147927586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1147927583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60818e15baa5c54a8664a5ea40b70d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishPrefab: {fileID: 0}
+  initialVelocity: {x: 0, y: 0, z: 0}
+  owner: {fileID: 0}
+  destroyParent: 0
+  destroyParentParent: 0
+  destroyOnWall: 0
+  resetNotFinish: 0
+  stable: 0
+  activateOncePerActivator: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 0
+    name: 
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toNearestSpawnPoint: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+    boolValue: 1
+    unstable: 0
+  ownerImpact:
+    active: 0
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  audioImpact:
+    active: 1
+    startEvent: Play_M_THEME_BAGARRE_ACC
+    endEvent: 
+    useActivatorTransform: 0
+    switchNames: []
+    switchValues: []
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
+    destroyActivator: 0
 --- !u!1001 &1153179332
 Prefab:
   m_ObjectHideFlags: 0
@@ -11529,6 +12102,163 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1156667528}
+--- !u!1 &1160395285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1160395286}
+  - component: {fileID: 1160395289}
+  - component: {fileID: 1160395288}
+  - component: {fileID: 1160395287}
+  m_Layer: 0
+  m_Name: Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1160395286
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1160395285}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 655989114}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1160395287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1160395285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa84cd8520ff6c4093f4263fb6c95f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchName: Arena_State_On
+--- !u!114 &1160395288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1160395285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43275866f290b0b4c9b6e319deb5b106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: 1
+  currentTimes: 1
+--- !u!114 &1160395289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1160395285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60818e15baa5c54a8664a5ea40b70d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishPrefab: {fileID: 0}
+  initialVelocity: {x: 0, y: 0, z: 0}
+  owner: {fileID: 0}
+  destroyParent: 0
+  destroyParentParent: 0
+  destroyOnWall: 0
+  resetNotFinish: 0
+  stable: 0
+  activateOncePerActivator: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 0
+    name: 
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toNearestSpawnPoint: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+    boolValue: 1
+    unstable: 0
+  ownerImpact:
+    active: 0
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  audioImpact:
+    active: 0
+    startEvent: 
+    endEvent: 
+    useActivatorTransform: 0
+    switchNames: []
+    switchValues: []
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 1
+    objects:
+    - {fileID: 1563658265}
+    activate: 1
+    destroyActivator: 0
 --- !u!1 &1165169296
 GameObject:
   m_ObjectHideFlags: 0
@@ -13063,6 +13793,149 @@ RectTransform:
   m_AnchoredPosition: {x: 474.09998, y: -394.51425}
   m_SizeDelta: {x: 928.19995, y: 68.86666}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1335081011
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1335081012}
+  - component: {fileID: 1335081014}
+  - component: {fileID: 1335081013}
+  m_Layer: 0
+  m_Name: BagarrePERC2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1335081012
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1335081011}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.72, y: 13.33, z: 31.83}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1563658266}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1335081013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1335081011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43275866f290b0b4c9b6e319deb5b106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: 1
+  currentTimes: 1
+--- !u!114 &1335081014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1335081011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60818e15baa5c54a8664a5ea40b70d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishPrefab: {fileID: 0}
+  initialVelocity: {x: 0, y: 0, z: 0}
+  owner: {fileID: 0}
+  destroyParent: 0
+  destroyParentParent: 0
+  destroyOnWall: 0
+  resetNotFinish: 0
+  stable: 0
+  activateOncePerActivator: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 0
+    name: 
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toNearestSpawnPoint: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+    boolValue: 1
+    unstable: 0
+  ownerImpact:
+    active: 0
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  audioImpact:
+    active: 1
+    startEvent: Play_M_THEME_BAGARRE_PERC2
+    endEvent: 
+    useActivatorTransform: 0
+    switchNames: []
+    switchValues: []
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
+    destroyActivator: 0
 --- !u!1 &1341595485
 GameObject:
   m_ObjectHideFlags: 0
@@ -14778,6 +15651,40 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1562549584}
+--- !u!1 &1563658265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1563658266}
+  m_Layer: 0
+  m_Name: Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1563658266
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1563658265}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.6215245, y: -13.345879, z: 4.547415}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1147927584}
+  - {fileID: 384539858}
+  - {fileID: 1657172399}
+  - {fileID: 603211402}
+  - {fileID: 1335081012}
+  - {fileID: 987349024}
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1584474692
 GameObject:
   m_ObjectHideFlags: 0
@@ -15760,6 +16667,149 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1648508758}
+--- !u!1 &1657172398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1657172399}
+  - component: {fileID: 1657172401}
+  - component: {fileID: 1657172400}
+  m_Layer: 0
+  m_Name: BagarreGTR2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1657172399
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1657172398}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.7, y: 13.33, z: 6.04}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1563658266}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1657172400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1657172398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43275866f290b0b4c9b6e319deb5b106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: 1
+  currentTimes: 1
+--- !u!114 &1657172401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1657172398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60818e15baa5c54a8664a5ea40b70d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishPrefab: {fileID: 0}
+  initialVelocity: {x: 0, y: 0, z: 0}
+  owner: {fileID: 0}
+  destroyParent: 0
+  destroyParentParent: 0
+  destroyOnWall: 0
+  resetNotFinish: 0
+  stable: 0
+  activateOncePerActivator: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+  switchImpact:
+    active: 0
+    name: 
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toNearestSpawnPoint: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+    boolValue: 1
+    unstable: 0
+  ownerImpact:
+    active: 0
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  audioImpact:
+    active: 1
+    startEvent: Play_M_THEME_BAGARRE_GTR2
+    endEvent: 
+    useActivatorTransform: 0
+    switchNames: []
+    switchValues: []
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
+    destroyActivator: 0
 --- !u!1 &1659785388
 GameObject:
   m_ObjectHideFlags: 0
