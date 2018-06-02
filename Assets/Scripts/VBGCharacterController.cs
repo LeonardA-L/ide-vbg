@@ -142,6 +142,7 @@ namespace vbg
         [Range(0, 1)]
         public float defenseModeDeflectFactor = 0.5f;
         private bool canceledDefense = false;
+        public string hurtSound;
 
         [Tooltip("A prefab to instantiate when the character dies")]
         public GameObject finishPrefab;
@@ -575,6 +576,7 @@ namespace vbg
             AnimatorSetTrigger("Damage");
             AnimatorSetFloat("LastDamage", intensity);
             health.Damage(intensity);
+            PostAudioEvent(hurtSound);
             invincibility = invincibilityMax;
 
             if (health.GetHealth() == 0.0f)
@@ -707,7 +709,8 @@ namespace vbg
 
         public void PostAudioEvent(string _eventName)
         {
-            SoundManager.Instance.PostEvent(_eventName, this.gameObject);
+            if(_eventName != null && _eventName != "")
+                SoundManager.Instance.PostEvent(_eventName, this.gameObject);
         }
 
         public void ExecuteAdditionnalCommand(int _index)

@@ -1699,7 +1699,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1196705819576444}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 152.6601, y: 45.2, z: 85.17092}
+  m_LocalPosition: {x: 149.55518, y: 45.2, z: 87.08683}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4522660949169312}
@@ -3650,6 +3650,7 @@ MonoBehaviour:
     cooldown: 1
     timer: 0
     child: 0
+    trueChild: 0
     unique: 0
     previous: {fileID: 0}
   specialMovement:
@@ -3658,6 +3659,7 @@ MonoBehaviour:
     cooldown: 3
     timer: 0
     child: 1
+    trueChild: 0
     unique: 1
     previous: {fileID: 0}
   specialDefense:
@@ -3666,6 +3668,7 @@ MonoBehaviour:
     cooldown: 2
     timer: 0
     child: 1
+    trueChild: 0
     unique: 1
     previous: {fileID: 0}
   specialSpecial:
@@ -3673,6 +3676,7 @@ MonoBehaviour:
     cooldown: 2
     timer: 0
     child: 0
+    trueChild: 0
     unique: 0
     previous: {fileID: 0}
   movement:
@@ -3681,6 +3685,7 @@ MonoBehaviour:
     cooldown: 0.21
     timer: 0
     child: 1
+    trueChild: 0
     unique: 1
     previous: {fileID: 0}
   defense:
@@ -3689,6 +3694,7 @@ MonoBehaviour:
     cooldown: 0
     timer: 0
     child: 1
+    trueChild: 0
     unique: 1
     previous: {fileID: 0}
   special:
@@ -3696,6 +3702,7 @@ MonoBehaviour:
     cooldown: 2
     timer: 0
     child: 0
+    trueChild: 0
     unique: 0
     previous: {fileID: 0}
   attack:
@@ -3703,6 +3710,7 @@ MonoBehaviour:
     cooldown: 2
     timer: 0
     child: 0
+    trueChild: 0
     unique: 0
     previous: {fileID: 0}
   additionnalCommands:
@@ -3711,6 +3719,7 @@ MonoBehaviour:
     cooldown: 0
     timer: 0
     child: 0
+    trueChild: 0
     unique: 0
     previous: {fileID: 0}
   lastDirection: {x: 0, y: 0, z: 0}
@@ -3730,6 +3739,7 @@ MonoBehaviour:
   invincibilityMax: 0.6
   defenseMode: 0
   defenseModeDeflectFactor: 0.5
+  hurtSound: ARTE_HURT
   finishPrefab: {fileID: 0}
 --- !u!114 &114223892766572892
 MonoBehaviour:
@@ -4229,7 +4239,7 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: -0.0065841675, y: -0.046653748, z: 0.5390854}
+    m_Center: {x: -0.006576538, y: -0.046661377, z: 0.5390873}
     m_Extent: {x: 0.2996543, y: 0.30032483, z: 0.37253228}
   m_DirtyAABB: 0
 --- !u!137 &137150412481242716
@@ -4423,7 +4433,7 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: 0.006767273, y: 1.3616943, z: -0.0634346}
+    m_Center: {x: 0.0067749023, y: 1.3616982, z: -0.0634346}
     m_Extent: {x: 0.04704251, y: 0.15924938, z: 0.0760469}
   m_DirtyAABB: 0
 --- !u!137 &137611660843977338
@@ -4518,7 +4528,7 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: -0.025619507, y: 1.3691673, z: -0.081668854}
+    m_Center: {x: -0.025611877, y: 1.3691673, z: -0.08166504}
     m_Extent: {x: 0.043837383, y: 0.15890785, z: 0.07840557}
   m_DirtyAABB: 0
 --- !u!137 &137976880800687358
@@ -4565,7 +4575,7 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: -0.006690979, y: -0.043380737, z: 0.93499756}
+    m_Center: {x: -0.006690979, y: -0.043384552, z: 0.93499756}
     m_Extent: {x: 0.21339022, y: 0.20841688, z: 0.08590398}
   m_DirtyAABB: 0
 --- !u!183 &183007711256638296
