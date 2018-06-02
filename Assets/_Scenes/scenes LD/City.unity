@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1790398, g: 0.2241845, b: 0.30599248, a: 1}
+  m_IndirectSpecularColor: {r: 0.17903939, g: 0.2241837, b: 0.30599132, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -773,6 +773,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 1
   stable: 0
@@ -823,10 +824,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -1348,6 +1360,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -1398,10 +1411,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 1
     startEvent: TriggerZone_END_FALAISE
@@ -11383,6 +11407,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -11433,10 +11458,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 1
     startEvent: TriggerZone_PORT_MER
@@ -16537,17 +16573,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 563aa06ef99f4144298fa734cea4e83e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerList: f7e1664c
-  useOtherObject: 0
-  actionOnEventType: 0
-  curveInterpolation: 4
-  enableActionOnEvent: 0
-  eventID: 0
-  m_callbackData: {fileID: 0}
-  playingId: 0
-  soundEmitterObject: {fileID: 0}
-  transitionDuration: 0
-  valueGuid: 00000000000000000000000000000000
 --- !u!114 &383772741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16559,16 +16584,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c28701c6ac6bb94c96a6a0eff1f0d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 1
-  isStaticObject: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
 --- !u!1 &386252691
 GameObject:
   m_ObjectHideFlags: 0
@@ -19074,6 +19089,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -19124,10 +19140,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 1
     startEvent: TriggerZone_FALAISE
@@ -19770,6 +19797,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -19820,10 +19848,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 1
     startEvent: TriggerZone_PORT
@@ -22500,6 +22539,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -22550,10 +22590,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 1
     startEvent: TriggerZone_FALAISE
@@ -23114,6 +23165,10 @@ Prefab:
     - target: {fileID: 4174880449060604, guid: 37298ddd1ca9988448d5aad40cc8dec8, type: 2}
       propertyPath: m_LocalScale.x
       value: 2.0964136
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174880449060604, guid: 37298ddd1ca9988448d5aad40cc8dec8, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 2.1143212
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 37298ddd1ca9988448d5aad40cc8dec8, type: 2}
@@ -23821,6 +23876,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -23871,10 +23927,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 1
     startEvent: Play_M_THEME_VILLAGE_ACC
@@ -30077,6 +30144,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -30127,10 +30195,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -37954,6 +38033,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -38004,10 +38084,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 1
     startEvent: TriggerZone_PORT
@@ -41261,6 +41352,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 1
   stable: 0
@@ -41311,10 +41403,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -41520,17 +41623,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 563aa06ef99f4144298fa734cea4e83e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerList: f7e1664c
-  useOtherObject: 0
-  actionOnEventType: 0
-  curveInterpolation: 4
-  enableActionOnEvent: 0
-  eventID: 0
-  m_callbackData: {fileID: 0}
-  playingId: 0
-  soundEmitterObject: {fileID: 0}
-  transitionDuration: 0
-  valueGuid: 00000000000000000000000000000000
 --- !u!114 &886905725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41542,16 +41634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c28701c6ac6bb94c96a6a0eff1f0d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 1
-  isStaticObject: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
 --- !u!1001 &887161323
 Prefab:
   m_ObjectHideFlags: 0
@@ -43791,6 +43873,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -43841,10 +43924,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 1
     startEvent: TriggerZone_END_FALAISE
@@ -44941,6 +45035,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -44991,10 +45086,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 1
     startEvent: TriggerZone_BEGIN_FALAISE
@@ -47338,6 +47444,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -47388,10 +47495,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 1
     startEvent: TriggerZone_BEGIN_FALAISE
@@ -48270,17 +48388,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 563aa06ef99f4144298fa734cea4e83e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerList: f7e1664c
-  useOtherObject: 0
-  actionOnEventType: 0
-  curveInterpolation: 4
-  enableActionOnEvent: 0
-  eventID: 0
-  m_callbackData: {fileID: 0}
-  playingId: 0
-  soundEmitterObject: {fileID: 0}
-  transitionDuration: 0
-  valueGuid: 00000000000000000000000000000000
 --- !u!114 &960957982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48292,16 +48399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c28701c6ac6bb94c96a6a0eff1f0d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 1
-  isStaticObject: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
 --- !u!1001 &961951541
 Prefab:
   m_ObjectHideFlags: 0
@@ -51042,6 +51139,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -51092,10 +51190,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 1
     startEvent: TriggerZone_VILLAGE
@@ -52335,6 +52444,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -52385,10 +52495,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -57095,6 +57216,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -57145,10 +57267,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 1
     startEvent: TriggerZone_PORT
@@ -60911,6 +61044,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -60961,10 +61095,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 1
     startEvent: TriggerZone_PORT_MER
@@ -61391,6 +61536,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -61441,10 +61587,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -61651,17 +61808,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 563aa06ef99f4144298fa734cea4e83e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerList: f7e1664c
-  useOtherObject: 0
-  actionOnEventType: 0
-  curveInterpolation: 4
-  enableActionOnEvent: 0
-  eventID: 0
-  m_callbackData: {fileID: 0}
-  playingId: 0
-  soundEmitterObject: {fileID: 0}
-  transitionDuration: 0
-  valueGuid: 00000000000000000000000000000000
 --- !u!114 &1345546689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61673,16 +61819,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c28701c6ac6bb94c96a6a0eff1f0d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 1
-  isStaticObject: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
 --- !u!1001 &1350928997
 Prefab:
   m_ObjectHideFlags: 0
@@ -66364,6 +66500,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -66414,10 +66551,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 1
     startEvent: TriggerZone_FALAISE
@@ -68219,6 +68367,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -68269,10 +68418,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 1
     startEvent: TriggerZone_FALAISE
@@ -68916,6 +69076,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -68966,10 +69127,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 1
     startEvent: TriggerZone_BEGIN_FALAISE
@@ -74802,6 +74974,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -74852,10 +75025,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 1
     startEvent: TriggerZone_BEGIN_FALAISE
@@ -76467,17 +76651,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 563aa06ef99f4144298fa734cea4e83e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerList: f7e1664c
-  useOtherObject: 0
-  actionOnEventType: 0
-  curveInterpolation: 4
-  enableActionOnEvent: 0
-  eventID: 0
-  m_callbackData: {fileID: 0}
-  playingId: 0
-  soundEmitterObject: {fileID: 0}
-  transitionDuration: 0
-  valueGuid: 00000000000000000000000000000000
 --- !u!114 &1704844444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76489,16 +76662,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c28701c6ac6bb94c96a6a0eff1f0d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 1
-  isStaticObject: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
 --- !u!1001 &1705662695
 Prefab:
   m_ObjectHideFlags: 0
@@ -76886,6 +77049,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -76936,10 +77100,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 1
     startEvent: TriggerZone_VILLAGE
@@ -88351,17 +88526,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 563aa06ef99f4144298fa734cea4e83e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerList: f7e1664c
-  useOtherObject: 0
-  actionOnEventType: 0
-  curveInterpolation: 4
-  enableActionOnEvent: 0
-  eventID: 0
-  m_callbackData: {fileID: 0}
-  playingId: 0
-  soundEmitterObject: {fileID: 0}
-  transitionDuration: 0
-  valueGuid: 00000000000000000000000000000000
 --- !u!114 &2077221631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88373,16 +88537,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c28701c6ac6bb94c96a6a0eff1f0d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 1
-  isStaticObject: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
 --- !u!1 &2077702376
 GameObject:
   m_ObjectHideFlags: 0
@@ -91245,6 +91399,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -91295,10 +91450,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -91997,6 +92163,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -92047,10 +92214,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 0
     startEvent: 
