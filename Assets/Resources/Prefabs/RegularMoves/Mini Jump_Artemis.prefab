@@ -138,6 +138,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -149,7 +150,7 @@ MonoBehaviour:
     friendlyFire: 0
   pushForce:
     active: 1
-    pushForceVector: {x: 0, y: 6, z: 0}
+    pushForceVector: {x: 0, y: 1, z: 0}
     pushForceNorm: 500
     pushForceIsOmnidirectional: 0
     ownerAsReference: 1
@@ -179,6 +180,7 @@ MonoBehaviour:
     triggerName: 
     boolName: Jump
     boolValue: 1
+    unstable: 0
   ownerImpact:
     active: 0
     paralyse: 0
@@ -187,10 +189,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 1
     startEvent: ARTE_JUMP
