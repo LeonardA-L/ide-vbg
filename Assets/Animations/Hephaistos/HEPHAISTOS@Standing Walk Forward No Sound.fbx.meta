@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 33bf1055332f7a941aa62f9ce5ea26cf
+guid: 8deec91692cb64d45bb8e8777203a2f3
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -135,7 +135,7 @@ ModelImporter:
     400126: mixamorig:Spine
     400128: mixamorig:Spine1
     400130: mixamorig:Spine2
-    7400000: Running
+    7400000: Standing Walk Forward No Sound
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -166,10 +166,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Running
+      name: Standing Walk Forward No Sound
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 42
+      lastFrame: 79
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -188,23 +188,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 0.28706548
-        functionName: PostAudioEvent
-        data: Play_Footsteps_HEPHA
-        objectReferenceParameter: {fileID: 11500000, guid: 70ad7ed69a4757040808f735d6e7dc63,
-          type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.75040907
-        functionName: PostAudioEvent
-        data: Play_Footsteps_HEPHA
-        objectReferenceParameter: {fileID: 11500000, guid: 70ad7ed69a4757040808f735d6e7dc63,
-          type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
