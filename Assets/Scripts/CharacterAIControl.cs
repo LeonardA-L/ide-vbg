@@ -292,5 +292,10 @@ namespace vbg
                 m_aiAnimator.SetTrigger("Success");
             }
         }
+
+        public void SetTarget(Transform tr)
+        {
+            m_target = tr;
+        }
     }
 }

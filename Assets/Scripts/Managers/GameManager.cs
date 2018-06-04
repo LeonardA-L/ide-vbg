@@ -154,5 +154,10 @@ namespace vbg
 
             return ret;
         }
+
+        public void Death()
+        {
+
+        }
     }
 }
