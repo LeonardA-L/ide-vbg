@@ -839,5 +839,10 @@ namespace vbg
                 return superMode;
             }
         }
+
+        public void SetInvicibility(float _inv)
+        {
+            invincibility = _inv;
+        }
     }
 }

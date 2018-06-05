@@ -51,6 +51,11 @@ namespace vbg
                 {
                     GameManager.Instance.Death(arenaActive);
                 }
+
+                if(timer <= 0.0f)
+                {
+                    Victory();
+                }
             }
             if(players == null)
             {
@@ -65,6 +70,13 @@ namespace vbg
             {
                 GameManager.Instance.Death(arenaActive);
             }
+        }
+
+        void Victory()
+        {
+            SwitchManager.Instance.SetSwitch("Arena_Victory_10", true);
+            characterHealth.SetHealth(100000);
+            SwitchManager.Instance.SetSwitch(timerActiveSwitch, false);
         }
 
         public void ResetArena()

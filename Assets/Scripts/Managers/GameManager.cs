@@ -16,6 +16,7 @@ namespace vbg
         private bool pauseButtonIsDown = false;
         private bool endScreen = false;
 
+        public GameObject victoryScreen;
         public GameObject deathScreen;
         public GameObject deathArenaScreen;
 
@@ -181,6 +182,14 @@ namespace vbg
             deathScreen.SetActive(false);
             Play();
 
+        }
+
+        public void Victory()
+        {
+            Debug.Log("??");
+            Pause(false);
+            endScreen = true;
+            victoryScreen.SetActive(true);
         }
     }
 }
