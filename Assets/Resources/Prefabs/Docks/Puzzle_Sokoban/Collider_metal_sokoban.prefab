@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65855017004245114}
   - component: {fileID: 23244798036063772}
   - component: {fileID: 114745978445430984}
-  m_Layer: 8
+  m_Layer: 17
   m_Name: Collider_metal_sokoban
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,8 +36,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1901679192513934}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0.5, z: 17.5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.7196965, y: -0.38506317, z: -2.7521076}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -95,8 +95,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 3, z: 1}
+  m_Center: {x: 0, y: 0.84, z: 0}
 --- !u!114 &114745978445430984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -109,4 +109,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_groundType: 0
-  hideRenderInGame: 0
+  hideRenderInGame: 1
