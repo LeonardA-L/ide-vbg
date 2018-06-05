@@ -237,6 +237,7 @@ namespace vbg
 
             if(IsDead() && isGrounded)
             {
+                col.enabled = false;
                 rb.constraints = RigidbodyConstraints.FreezeAll;
             }
         }
@@ -594,8 +595,6 @@ namespace vbg
             ResetAttackBool();
             ResetAimBool();
             Debug.Log("Me Dead");
-
-            col.enabled = false;
 
             activeGameEffects.Clear();
 

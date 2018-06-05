@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Default Fabric_FRONT_3574
-  m_Shader: {fileID: 4800000, guid: b965f82ca09623c41afded17f5d27c27, type: 3}
+  m_Shader: {fileID: 4800000, guid: 50fb955893772524aa8b575933fc22e8, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -55,6 +55,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _BackShininess: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -67,6 +68,7 @@ Material:
     - _NormalIntensity: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _Shininess: 1
     - _SmoothnessTextureChannel: 0
     - _SpecIntensity: 0.2
     - _SpecularHighlights: 1
@@ -74,7 +76,10 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.81960785, g: 0.81960785, b: 0.81960785, a: 1}
+    - _BackColor: {r: 0, g: 0.3882353, b: 0.007843138, a: 1}
+    - _BackSpecColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 0, g: 0.38679248, b: 0.009748972, a: 1}
     - _Diffusecolor: {r: 0.31057906, g: 0.44117647, b: 0.05839101, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
+    - _SpecColor: {r: 0, g: 0, b: 0, a: 1}
     - _Speccolor: {r: 1, g: 1, b: 1, a: 1}
