@@ -173,5 +173,14 @@ namespace vbg
                 deathScreen.SetActive(true);
             }
         }
+
+        public void Undeath()
+        {
+            endScreen = false;
+            deathArenaScreen.SetActive(false);
+            deathScreen.SetActive(false);
+            Play();
+
+        }
     }
 }

@@ -60,6 +60,6 @@ namespace vbg
             forceGoal = Mathf.Max(_force, forceGoal);
             duration = Mathf.Max(duration, _duration);
             lerpFactor = _lerpFactor;
-    }
+        }
     }
 }

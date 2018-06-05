@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 4951407039635026}
   - component: {fileID: 114246880515835628}
   - component: {fileID: 114723504500306732}
+  - component: {fileID: 114525979673238310}
   m_Layer: 0
   m_Name: Arena_OnTrigger
   m_TagString: Untagged
@@ -507,7 +508,7 @@ GameObject:
   - component: {fileID: 4837638150719814}
   m_Layer: 13
   m_Name: ArenaDynamic
-  m_TagString: Untagged
+  m_TagString: ArenaGameplay
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -522,6 +523,7 @@ GameObject:
   - component: {fileID: 4626640653000508}
   - component: {fileID: 114745223676518660}
   - component: {fileID: 114962481967401550}
+  - component: {fileID: 114771819789372412}
   m_Layer: 0
   m_Name: Arena_PreTrigger
   m_TagString: Untagged
@@ -1008,7 +1010,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1707086200202308}
   m_LocalRotation: {x: 0.000000021342931, y: 0.25037938, z: 0.0000000047064366, w: 0.9681478}
-  m_LocalPosition: {x: -5.0699997, y: -0.03, z: 1.7099991}
+  m_LocalPosition: {x: -5.0699997, y: -0.035, z: 1.7099991}
   m_LocalScale: {x: 1.4196783, y: 1.4196782, z: 1.4196783}
   m_Children:
   - {fileID: 4949445693029554}
@@ -1639,7 +1641,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1503792896498700}
   m_LocalRotation: {x: 0.000000021342931, y: 0.25037938, z: 0.0000000047064366, w: 0.9681478}
-  m_LocalPosition: {x: 1.7790003, y: -0.03, z: -2.0750008}
+  m_LocalPosition: {x: 1.7790003, y: -0.035, z: -2.0750008}
   m_LocalScale: {x: 1.4196783, y: 1.4196782, z: 1.4196783}
   m_Children:
   - {fileID: 4877610004514652}
@@ -3882,6 +3884,19 @@ MonoBehaviour:
     objects: []
     activate: 1
     destroyActivator: 0
+--- !u!114 &114525979673238310
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1274768243929554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43275866f290b0b4c9b6e319deb5b106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: 1
+  currentTimes: 1
 --- !u!114 &114547344693167776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5072,6 +5087,19 @@ MonoBehaviour:
     objects: []
     activate: 1
     destroyActivator: 0
+--- !u!114 &114771819789372412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1610561302124886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43275866f290b0b4c9b6e319deb5b106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: 1
+  currentTimes: 1
 --- !u!114 &114831373186387034
 MonoBehaviour:
   m_ObjectHideFlags: 1

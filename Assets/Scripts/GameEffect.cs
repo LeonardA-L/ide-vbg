@@ -8,7 +8,6 @@ namespace vbg
     [AddComponentMenu("GameEffect/New Game Effect")]
     public class GameEffect : MonoBehaviour
     {
-
         [System.Serializable]
         public class VibrationImpact
         {
@@ -243,14 +242,14 @@ namespace vbg
         private bool processedOnceThisFixedCycle = false;
 
         private bool lastFrameProcessed = false;
-        private bool lastFixedFrameProcessed = false;
+        private int lastFixedFrameProcessed = 0;
 
         private Transform lastSoundActivator;
 
         Rigidbody rb;
 
         // Use this for initialization
-        void Start()
+        void Awake()
         {
             exitConditions = GetComponents<GameEffectExit>();
             activateConditions = GetComponents<GameEffectActivate>();
@@ -266,7 +265,7 @@ namespace vbg
 
         private void FixedUpdate()
         {
-            lastFixedFrameProcessed = false;
+            lastFixedFrameProcessed++;
         }
 
         // Update is called once per frame
@@ -393,12 +392,12 @@ namespace vbg
 
         private void Unstables(bool finish = false)
         {
-            if (switchImpact.unstable && !lastFrameProcessed && !lastFixedFrameProcessed)
+            if (switchImpact.unstable && !lastFrameProcessed && lastFixedFrameProcessed > 1)
             {
                 SwitchManager.Instance.SetSwitch(switchImpact.name, !switchImpact.newValue);
             }
 
-            if (valueImpact.unstable && !lastFrameProcessed && !lastFixedFrameProcessed && hasValueBeenUpdated && valueImpact.updateRate == FloatValueUpdate.ONCE)
+            if (valueImpact.unstable && !lastFrameProcessed && lastFixedFrameProcessed > 1 && hasValueBeenUpdated && valueImpact.updateRate == FloatValueUpdate.ONCE)
             {
                 SwitchManager.Instance.SetValue(valueImpact.name, (float)SwitchManager.Instance.GetValue(valueImpact.name) - valueImpact.update);
                 hasValueBeenUpdated = false;
@@ -408,7 +407,7 @@ namespace vbg
                 (
                     (!animatorImpact.unstable && !lastFrameProcessed)
                     || finish
-                    || (animatorImpact.unstable && !lastFixedFrameProcessed)
+                    || (animatorImpact.unstable && lastFixedFrameProcessed > 1)
                 )
                 && animatorImpact.boolName != null && animatorImpact.boolName != "")
             {
@@ -424,12 +423,13 @@ namespace vbg
 
             if(
                 finish
-                || (!lastFixedFrameProcessed && processedOnceThisFixedCycle)
+                || (lastFixedFrameProcessed > 1 && processedOnceThisFixedCycle)
                 || (!lastFrameProcessed && processedOnceThisCycle)
                 )
             {
                 if (audioImpact.active && audioImpact.endEvent != null && audioImpact.endEvent != "")
                 {
+                    //Debug.Log(lastFixedFrameProcessed);
                     //Debug.Log("Last "+lastSoundActivator);
                     //Debug.Log("parent "+ transform.parent.gameObject);
                     GameObject audioGo = (audioImpact.useActivatorTransform ? lastSoundActivator : transform.parent ?? transform).gameObject;
@@ -440,7 +440,7 @@ namespace vbg
 
 
 
-            if (!lastFixedFrameProcessed)
+            if (lastFixedFrameProcessed > 1)
             {
                 processedOnceThisFixedCycle = false;
                 activators.Clear();
@@ -450,7 +450,6 @@ namespace vbg
         private void Reset()
         {
             Unstables();
-
             foreach (GameEffectExit gee in exitConditions)
             {
                 gee.Reset();
@@ -866,7 +865,6 @@ namespace vbg
         private void AfterProcessCommon()
         {
             processedOnce = true;
-            lastFixedFrameProcessed = true;
             foreach (GameEffectExit gee in exitConditions)
             {
                 if (gee.AfterProcess())
@@ -899,13 +897,12 @@ namespace vbg
             ProcessActiveImpact(null);
             // Call last
             AfterProcessCommon();
+            lastFrameProcessed = true;
             processedOnceThisCycle = true;
         }
 
         public void ProcessOnCollision(IDynamic idy, Rigidbody rb, ref Vector3 characterMovement)
         {
-            //Debug.Log("Process On Collision " + gameObject.name);
-
             if (finished)
                 return;
 
@@ -928,6 +925,8 @@ namespace vbg
                 activators.Add(idy);
             }
 
+            //Debug.Log("Process On Collision " + gameObject.name + " " + rb.gameObject.name);
+
             ProcessPushForce(tr, rb, ref characterMovement);
             ProcessHealth(idy, go.tag);
             ProcessSwitch();
@@ -941,6 +940,7 @@ namespace vbg
             ProcessActiveImpact(go);
             // Call last
             AfterProcessCommon();
+            lastFixedFrameProcessed = 0;
             processedOnceThisFixedCycle = true;
         }
 
