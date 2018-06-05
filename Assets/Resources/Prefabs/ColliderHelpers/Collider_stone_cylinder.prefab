@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33238676481624726}
   - component: {fileID: 136053726099725192}
   - component: {fileID: 23405075242431312}
+  - component: {fileID: 114552180178041880}
   m_Layer: 0
   m_Name: Collider_stone_cylinder
   m_TagString: Untagged
@@ -55,6 +56,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 8f11c7bd00194c04282681cddbf96b43, type: 2}
   m_StaticBatchInfo:
@@ -83,6 +85,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1878868511840250}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114552180178041880
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1878868511840250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff2076ca5f53def4ca367acfb735ab38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_groundType: 0
+  hideRenderInGame: 1
 --- !u!136 &136053726099725192
 CapsuleCollider:
   m_ObjectHideFlags: 1

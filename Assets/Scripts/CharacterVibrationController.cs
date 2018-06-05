@@ -35,6 +35,12 @@ namespace vbg
             if (!set)
                 return;
 
+            if(cc.IsDead())
+            {
+                GamePad.SetVibration(controllerID, 0, 0);
+                return;
+            }
+
             
             if(duration > 0)
             {

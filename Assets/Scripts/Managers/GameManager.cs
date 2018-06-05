@@ -14,6 +14,11 @@ namespace vbg
         public bool isQuitting = false;
         private bool pause = false;
         private bool pauseButtonIsDown = false;
+        private bool endScreen = false;
+
+        public GameObject deathScreen;
+        public GameObject deathArenaScreen;
+
         public struct DebugConstants
         {
             public readonly static bool SHOW_COLLIDERS_INGAME = true;
@@ -78,7 +83,7 @@ namespace vbg
         void Update()
         {
 
-            if (!pauseButtonIsDown && Input.GetButton("Pause"))
+            if (!endScreen && !pauseButtonIsDown && Input.GetButton("Pause"))
             {
                 pauseButtonIsDown = true;
                 if (pause)
@@ -99,10 +104,10 @@ namespace vbg
             return startPoints[_idx % startPoints.Count];
         }
 
-        public void Pause()
+        public void Pause(bool _showEndScreen = true)
         {
             Time.timeScale = 0;
-            uiController.SetPauseMenu(true);
+            uiController.SetPauseMenu(_showEndScreen);
             pause = true;
         }
 
@@ -155,9 +160,18 @@ namespace vbg
             return ret;
         }
 
-        public void Death()
+        public void Death(bool _arena)
         {
-
+            Pause(false);
+            endScreen = true;
+            if (_arena)
+            {
+                deathArenaScreen.SetActive(true);
+            }
+            else
+            {
+                deathScreen.SetActive(true);
+            }
         }
     }
 }
