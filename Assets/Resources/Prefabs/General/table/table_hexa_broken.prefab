@@ -261,7 +261,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1375419772937916}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.240473, y: 0.39, z: 23.49452}
+  m_LocalPosition: {x: 27.854736, y: 1.862, z: 20.805775}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4127270242887600}
@@ -715,7 +715,7 @@ MonoBehaviour:
   soundOnEnable: 
   chaotic: 0
   radius: 1
-  soundActiveEventPlay: Play_table_DEBRIS
+  soundActiveEventPlay: Play_table_hexa_DEBRIS
   soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114060808224317790
@@ -733,7 +733,7 @@ MonoBehaviour:
   soundOnEnable: 
   chaotic: 0
   radius: 1
-  soundActiveEventPlay: Play_table_DEBRIS
+  soundActiveEventPlay: Play_table_hexa_DEBRIS
   soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114192826319776606
@@ -751,7 +751,7 @@ MonoBehaviour:
   soundOnEnable: 
   chaotic: 0
   radius: 1
-  soundActiveEventPlay: Play_table_DEBRIS
+  soundActiveEventPlay: Play_table_hexa_DEBRIS
   soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114500484864763960
@@ -769,7 +769,7 @@ MonoBehaviour:
   soundOnEnable: 
   chaotic: 0
   radius: 1
-  soundActiveEventPlay: Play_table_DEBRIS
+  soundActiveEventPlay: Play_table_hexa_DEBRIS
   soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114629933172918636
@@ -787,7 +787,7 @@ MonoBehaviour:
   soundOnEnable: 
   chaotic: 0
   radius: 1
-  soundActiveEventPlay: Play_table_DEBRIS
+  soundActiveEventPlay: Play_table_hexa_DEBRIS
   soundActiveEventStop: 
   finishPrefab: {fileID: 0}
 --- !u!114 &114671821083703456
@@ -803,6 +803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
+  initialVelocityOwnerReference: 0
   owner: {fileID: 0}
   destroyParent: 0
   destroyParentParent: 0
@@ -823,6 +824,7 @@ MonoBehaviour:
     ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
+    asVelocity: 0
   switchImpact:
     active: 0
     name: 
@@ -873,9 +875,10 @@ MonoBehaviour:
       lerp: 1
   audioImpact:
     active: 1
-    startEvent: Play_table_DESTRUCTION
+    startEvent: Play_table_hexa_DESTRUCTION
     endEvent: 
     useActivatorTransform: 0
+    useOwnerTransform: 0
     switchNames: []
     switchValues: []
   scriptImpact:
@@ -918,6 +921,6 @@ MonoBehaviour:
   soundOnEnable: 
   chaotic: 0
   radius: 1
-  soundActiveEventPlay: Play_table_DEBRIS
+  soundActiveEventPlay: Play_table_hexa_DEBRIS
   soundActiveEventStop: 
   finishPrefab: {fileID: 0}

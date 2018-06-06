@@ -38,8 +38,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1510027900135022}
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.877081, y: -5.981108e-17, z: 30.543652}
+  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.481674, y: 5.545971, z: -2.1835938}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -58,8 +58,9 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
+  - {fileID: 2100000, guid: dce71710601186a4ba00c61b62bd9fc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,8 +128,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minForceToEnableRigidbody: 0
+  soundOnEnable: 
   chaotic: 0
   radius: 1
+  soundActiveEventPlay: Play_amphora
+  soundActiveEventStop: Stop_amphora
   finishPrefab: {fileID: 1870380143131498, guid: dedc59e29f724c8418648b874251698a,
     type: 2}
 --- !u!114 &114983849109706078
@@ -144,6 +148,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   threshold: 0
-  impactThreshold: 0.1
-  impactMultiplier: 3
+  impactThreshold: 0
+  impactMultiplier: 0
   chaosOnDeath: 0
