@@ -136,6 +136,7 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 1
@@ -153,6 +154,7 @@ MonoBehaviour:
     ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
+    asVelocity: 0
   switchImpact:
     active: 0
     name: 
@@ -181,16 +183,26 @@ MonoBehaviour:
   ownerImpact:
     active: 1
     paralyse: 0
-    speedFactor: 0.2
-    rotFactor: 0.2
+    speedFactor: 0
+    rotFactor: 1
     blockActions: 1
     disableGravity: 0
     velocityEndFactor: 1
     enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 0
     startEvent: 
