@@ -197,6 +197,7 @@ namespace vbg
         public GameObject finishPrefab;
         [Tooltip("The initial velocity (or force if it has a RigidBody) of the object")]
         public Vector3 initialVelocity;
+        public bool initialVelocityOwnerReference = false;
         [Tooltip("Owner the object belongs to. This field is filled automatically if the GE is an action")]
         public VBGCharacterController owner;
         [Tooltip("Should the game effect destroy its parent when it dies (is it embedded)")]
@@ -250,7 +251,7 @@ namespace vbg
         Rigidbody rb;
 
         // Use this for initialization
-        void Awake()
+        void Start()
         {
             exitConditions = GetComponents<GameEffectExit>();
             activateConditions = GetComponents<GameEffectActivate>();
@@ -258,9 +259,10 @@ namespace vbg
             rb = GetComponent<Rigidbody>();
             if(initialVelocity.magnitude > 0.0f && rb != null && rb.useGravity)
             {
-                rb.velocity = (initialVelocity.x * transform.right
-                             + initialVelocity.y * transform.up
-                             + initialVelocity.z * transform.forward);
+                Transform refTransform = initialVelocityOwnerReference ? owner.transform : transform;
+                rb.velocity = (initialVelocity.x * refTransform.right
+                             + initialVelocity.y * refTransform.up
+                             + initialVelocity.z * refTransform.forward);
             }
         }
 
@@ -306,16 +308,18 @@ namespace vbg
 
             if (initialVelocity.magnitude > 0.0f && rb == null)
             {
-                transform.position += (initialVelocity.x * transform.right
-                                     + initialVelocity.y * transform.up
-                                     + initialVelocity.z * transform.forward)
+                Transform refTransform = initialVelocityOwnerReference ? owner.transform : transform;
+                transform.position += (initialVelocity.x * refTransform.right
+                                     + initialVelocity.y * refTransform.up
+                                     + initialVelocity.z * refTransform.forward)
                                      * Time.deltaTime;
             }
             if (initialVelocity.magnitude > 0.0f && rb != null && !rb.useGravity)
             {
-                rb.velocity = (initialVelocity.x * transform.right
-                             + initialVelocity.y * transform.up
-                             + initialVelocity.z * transform.forward);
+                Transform refTransform = initialVelocityOwnerReference ? owner.transform : transform;
+                rb.velocity = (initialVelocity.x * refTransform.right
+                             + initialVelocity.y * refTransform.up
+                             + initialVelocity.z * refTransform.forward);
             }
 
 

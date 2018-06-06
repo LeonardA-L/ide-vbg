@@ -307,8 +307,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 3, z: 25}
+  initialVelocityOwnerReference: 1
   owner: {fileID: 0}
   destroyParent: 1
+  destroyParentParent: 0
   destroyOnWall: 1
   resetNotFinish: 0
   stable: 0
@@ -326,6 +328,7 @@ MonoBehaviour:
     ownerAsReference: 0
     pushForceNoY: 0
     pushForceDecreaseLength: 3
+    asVelocity: 0
   switchImpact:
     active: 0
     name: 
@@ -350,6 +353,7 @@ MonoBehaviour:
     triggerName: 
     boolName: 
     boolValue: 1
+    unstable: 0
   ownerImpact:
     active: 0
     paralyse: 0
@@ -358,10 +362,21 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 0
     startEvent: 

@@ -3636,7 +3636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ad7ed69a4757040808f735d6e7dc63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 7
   rotationSpeedFactor: 0.2
   groundChecker: {fileID: 4170847227422880}
   Ground:
@@ -3647,7 +3647,7 @@ MonoBehaviour:
   specialAttack:
     toInstanciate: {fileID: 1778091153758932, guid: 275c21519af30364b8a815dd88745af8,
       type: 2}
-    cooldown: 1
+    cooldown: 5
     timer: 0
     child: 0
     trueChild: 0
@@ -4165,7 +4165,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.38
+  m_Radius: 0.3
   m_Height: 1.65
   m_Direction: 1
   m_Center: {x: 0, y: 0.85, z: 0}
