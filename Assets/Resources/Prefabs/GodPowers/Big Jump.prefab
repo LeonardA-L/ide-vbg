@@ -196,6 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
+  initialVelocityOwnerReference: 0
   owner: {fileID: 0}
   destroyParent: 0
   destroyParentParent: 0
@@ -266,10 +267,11 @@ MonoBehaviour:
       duration: 1
       lerp: 1
   audioImpact:
-    active: 0
-    startEvent: 
+    active: 1
+    startEvent: ARTE_BIG_JUMP
     endEvent: 
     useActivatorTransform: 0
+    useOwnerTransform: 1
     switchNames: []
     switchValues: []
   scriptImpact:

@@ -472,8 +472,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
+  initialVelocityOwnerReference: 0
   owner: {fileID: 0}
   destroyParent: 1
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -491,6 +493,7 @@ MonoBehaviour:
     ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
+    asVelocity: 0
   switchImpact:
     active: 0
     name: 
@@ -524,15 +527,27 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 0
     startEvent: 
     endEvent: 
     useActivatorTransform: 0
+    useOwnerTransform: 0
     switchNames: []
     switchValues: []
   scriptImpact:
@@ -561,8 +576,10 @@ MonoBehaviour:
   finishPrefab: {fileID: 1778091153758932, guid: 15154b0c161cc8a498c2e1be833587b1,
     type: 2}
   initialVelocity: {x: 0, y: 0, z: 40}
+  initialVelocityOwnerReference: 0
   owner: {fileID: 0}
   destroyParent: 1
+  destroyParentParent: 0
   destroyOnWall: 1
   resetNotFinish: 0
   stable: 0
@@ -580,6 +597,7 @@ MonoBehaviour:
     ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
+    asVelocity: 0
   switchImpact:
     active: 0
     name: 
@@ -613,15 +631,27 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 0
     startEvent: 
     endEvent: 
     useActivatorTransform: 0
+    useOwnerTransform: 0
     switchNames: []
     switchValues: []
   scriptImpact:
@@ -755,8 +785,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
+  initialVelocityOwnerReference: 0
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -774,6 +806,7 @@ MonoBehaviour:
     ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
+    asVelocity: 0
   switchImpact:
     active: 0
     name: 
@@ -807,15 +840,27 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 0
     startEvent: 
     endEvent: 
     useActivatorTransform: 0
+    useOwnerTransform: 0
     switchNames: []
     switchValues: []
   scriptImpact:
@@ -878,8 +923,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
+  initialVelocityOwnerReference: 0
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 1
@@ -897,6 +944,7 @@ MonoBehaviour:
     ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
+    asVelocity: 0
   switchImpact:
     active: 0
     name: 
@@ -930,15 +978,27 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
-    active: 0
-    startEvent: 
+    active: 1
+    startEvent: ARTE_BIG_ARROW
     endEvent: 
     useActivatorTransform: 0
+    useOwnerTransform: 1
     switchNames: []
     switchValues: []
   scriptImpact:
