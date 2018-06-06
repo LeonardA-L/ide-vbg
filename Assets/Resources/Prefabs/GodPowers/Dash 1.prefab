@@ -276,8 +276,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
+  initialVelocityOwnerReference: 0
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -295,6 +297,7 @@ MonoBehaviour:
     ownerAsReference: 1
     pushForceNoY: 0
     pushForceDecreaseLength: 0
+    asVelocity: 0
   switchImpact:
     active: 0
     name: 
@@ -348,6 +351,7 @@ MonoBehaviour:
     startEvent: 
     endEvent: 
     useActivatorTransform: 0
+    useOwnerTransform: 0
     switchNames: []
     switchValues: []
   scriptImpact:
@@ -416,8 +420,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
+  initialVelocityOwnerReference: 0
   owner: {fileID: 0}
   destroyParent: 1
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -435,6 +441,7 @@ MonoBehaviour:
     ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
+    asVelocity: 0
   switchImpact:
     active: 0
     name: 
@@ -484,10 +491,11 @@ MonoBehaviour:
       duration: 1
       lerp: 1
   audioImpact:
-    active: 0
-    startEvent: 
-    endEvent: 
+    active: 1
+    startEvent: Play_DASH
+    endEvent: Play_DASH_END
     useActivatorTransform: 0
+    useOwnerTransform: 1
     switchNames: []
     switchValues: []
   scriptImpact:
@@ -576,8 +584,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
+  initialVelocityOwnerReference: 0
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -595,6 +605,7 @@ MonoBehaviour:
     ownerAsReference: 1
     pushForceNoY: 1
     pushForceDecreaseLength: 1
+    asVelocity: 0
   switchImpact:
     active: 0
     name: 
@@ -644,10 +655,11 @@ MonoBehaviour:
       duration: 1
       lerp: 1
   audioImpact:
-    active: 0
-    startEvent: 
+    active: 1
+    startEvent: Play_SPECIALS_HEPHA_IMPACT
     endEvent: 
     useActivatorTransform: 0
+    useOwnerTransform: 0
     switchNames: []
     switchValues: []
   scriptImpact:

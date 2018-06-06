@@ -156,6 +156,7 @@ namespace vbg
             public string startEvent;
             public string endEvent;
             public bool useActivatorTransform = false;
+            public bool useOwnerTransform = false;
             public List<string> switchNames = new List<string>();
             public List<string> switchValues = new List<string>();
         }
@@ -437,9 +438,9 @@ namespace vbg
                     //Debug.Log(lastFixedFrameProcessed);
                     //Debug.Log("Last "+lastSoundActivator);
                     //Debug.Log("parent "+ transform.parent.gameObject);
-                    GameObject audioGo = (audioImpact.useActivatorTransform ? lastSoundActivator : transform.parent ?? transform).gameObject;
+                    GameObject audioGo = (audioImpact.useOwnerTransform ? owner.transform : (audioImpact.useActivatorTransform ? lastSoundActivator : transform.parent ?? transform)).gameObject;
                     //Debug.Log("parent "+ transform.parent.gameObject);
-                    SoundManager.Instance.PostEvent(audioImpact.endEvent, transform.parent.gameObject);
+                    SoundManager.Instance.PostEvent(audioImpact.endEvent, audioGo);
                 }
             }
 
@@ -806,7 +807,7 @@ namespace vbg
             if (!audioImpact.active || audioImpact.startEvent == null || audioImpact.startEvent == "" || processedOnceThisCycle || processedOnceThisFixedCycle)
                 return;
 
-            GameObject audioGo = (audioImpact.useActivatorTransform ? tr : transform.parent ?? transform).gameObject;
+            GameObject audioGo = (audioImpact.useOwnerTransform ? owner.transform : (audioImpact.useActivatorTransform ? tr : transform.parent ?? transform)).gameObject;
             lastSoundActivator = audioGo.transform;
             for (int i= 0; i < audioImpact.switchNames.Count; i++)
             {

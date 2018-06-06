@@ -110,6 +110,7 @@ namespace vbg
                 {
                     goal += disp * 2;
                     temp = wait;
+                    SoundManager.Instance.PostEvent("Play_PUZZLEBOX", gameObject);
                 }
             }
         }
