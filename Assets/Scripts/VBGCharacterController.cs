@@ -425,16 +425,22 @@ namespace vbg
                         }
                         break;
                     case Action.SPE_DEFENSE:
-                        TriggerGameEffect(action);
                         AnimatorSetBool("SpeDefense", true);
                         AnimatorSetBool("SpeDefenseAim", false);
+                        if(!TriggerGameEffect(action))
+                        {
+                            AnimatorSetBool("SpeDefense", false);
+                        }
                         break;
                     case Action.SPE_ATTACK:
                         AnimatorSetBool("AttackAim", false);
                         AnimatorSetBool("SpeAttack", true);
                         AnimatorSetBool("SpeDefenseAim", false);
                         AnimatorSetBool("SpeAttackAim", false);
-                        TriggerGameEffect(action);
+                        if(!TriggerGameEffect(action))
+                        {
+                            AnimatorSetBool("SpeAttack", false);
+                        }
                         break;
                     case Action.SPE_MOVEMENT:
                         TriggerGameEffect(action);
@@ -470,7 +476,7 @@ namespace vbg
                 action = Action.NONE;
         }
 
-        private void TriggerGameEffect(Action action)
+        private bool TriggerGameEffect(Action action)
         {
             GameEffectCommand command;
             switch(action)
@@ -501,29 +507,29 @@ namespace vbg
                     break;
                 default:
                     Debug.Assert(false, "No prefab provided");
-                    return;
+                    return false;
             }
 
-            ExecuteCommand(command);
+            return ExecuteCommand(command);
         }
 
-        private void ExecuteCommand(GameEffectCommand command)
+        private bool ExecuteCommand(GameEffectCommand command)
         {
             if (command.toInstanciate == null)
-                return;
+                return false;
 
             if (command.timer > 0.0f)
             {
                 AnimatorSetTrigger("CooldownFail");
                 Debug.Log("Too soon");
-                return;
+                return false;
             }
 
             command.timer = command.cooldown;
 
             if(command.unique && command.previous != null)
             {
-                return;
+                return false;
             }
 
             GameObject geGameObject = Instantiate(command.toInstanciate, command.trueChild ? transform : null);
@@ -556,6 +562,7 @@ namespace vbg
                 }
             }
             command.previous = geGameObject;
+            return true;
         }
 
         public void RegisterGameEffect(GameEffect ge)
