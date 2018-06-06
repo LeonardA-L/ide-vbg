@@ -38,6 +38,7 @@ namespace vbg
             public float pushForceDecreaseLength = 0.0f;
             //[Tooltip("Resets the momentum of the target when it is first activated")]
             //public bool resetMomentum = false;
+            public bool asVelocity = false;
         }
 
         [System.Serializable]
@@ -697,7 +698,15 @@ namespace vbg
 
                 if (rb != null)
                 {
-                    rb.AddForce(force);
+                    if (pushForce.asVelocity)
+                    {
+                        rb.velocity = force;
+                    }
+                    else
+                    {
+                        rb.AddForce(force);
+                    }
+
                 } else
                 {
                     characterMovement = force;

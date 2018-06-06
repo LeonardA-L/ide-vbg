@@ -198,10 +198,11 @@ MonoBehaviour:
   initialVelocity: {x: 0, y: 0, z: 0}
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 1
-  activateOncePerActivator: 0
+  activateOncePerActivator: 1
   healthImpact:
     active: 0
     impact: 0
@@ -215,6 +216,7 @@ MonoBehaviour:
     ownerAsReference: 0
     pushForceNoY: 0
     pushForceDecreaseLength: 0
+    asVelocity: 0
   switchImpact:
     active: 0
     name: 
