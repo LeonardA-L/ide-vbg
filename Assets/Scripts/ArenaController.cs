@@ -76,6 +76,7 @@ namespace vbg
         {
             SwitchManager.Instance.SetSwitch("Arena_Victory_10", true);
             characterHealth.SetHealth(100000);
+            SoundManager.Instance.PostEvent("Stop_M_BAGARRE_ST", gameObject);
             SwitchManager.Instance.SetSwitch(timerActiveSwitch, false);
         }
 
