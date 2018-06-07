@@ -49,7 +49,7 @@ namespace vbg
 
         void CallbackSwitch(bool switchValue)
         {
-            if(triggerName != null && triggerName != "")
+            if(switchValue && triggerName != null && triggerName != "")
             {
                 animator.SetTrigger(triggerName);
             }
