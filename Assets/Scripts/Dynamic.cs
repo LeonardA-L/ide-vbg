@@ -94,6 +94,7 @@ namespace vbg
                 GameObject finishObject = GameObject.Instantiate(finishPrefab);
                 finishObject.transform.position = transform.position;
                 finishObject.transform.rotation = transform.rotation;
+                finishObject.transform.localScale = transform.localScale;
             }
 
             if(health.chaosOnDeath != 0.0f)
