@@ -87,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1778091153758932}
   m_LocalRotation: {x: -0, y: -0.7231585, z: -0, w: 0.69068223}
-  m_LocalPosition: {x: 12.835163, y: 1.62, z: 16.190323}
+  m_LocalPosition: {x: 15.347195, y: -2.6637513e-16, z: 39.84647}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4479046824291126}
@@ -103,7 +103,7 @@ Transform:
   m_GameObject: {fileID: 1592612462666706}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.25000048}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 4724110287953884}
   m_Father: {fileID: 4002775426839714}
@@ -280,20 +280,20 @@ MonoBehaviour:
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
-  activateOncePerActivator: 0
+  activateOncePerActivator: 1
   healthImpact:
     active: 1
-    impact: -30
-    impactPerFrame: 0
+    impact: -40
+    impactPerFrame: 1
     friendlyFire: 0
   pushForce:
     active: 1
     pushForceVector: {x: 0, y: 0, z: 0}
-    pushForceNorm: 100
+    pushForceNorm: 70
     pushForceIsOmnidirectional: 1
     ownerAsReference: 0
     pushForceNoY: 1
-    pushForceDecreaseLength: 5
+    pushForceDecreaseLength: 3
     asVelocity: 0
   switchImpact:
     active: 0
