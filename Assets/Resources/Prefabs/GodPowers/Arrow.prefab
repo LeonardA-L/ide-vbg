@@ -28,9 +28,9 @@ GameObject:
   - component: {fileID: 114338249050961676}
   - component: {fileID: 114557444540798796}
   - component: {fileID: 114565869578299362}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: Arrow
-  m_TagString: GameEffect
+  m_TagString: NonTriggerCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 33287643476536584}
   - component: {fileID: 23877500422145394}
   - component: {fileID: 96760790875838242}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: Arrow_Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,8 +61,26 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4002775426839714}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: Arrow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1890630978175588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4841119600972160}
+  - component: {fileID: 114190659927029414}
+  - component: {fileID: 114627187245123052}
+  - component: {fileID: 114381847959733660}
+  m_Layer: 0
+  m_Name: DestroyParentOnTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,9 +93,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1778091153758932}
   m_LocalRotation: {x: -0, y: -0.7231585, z: -0, w: 0.69068223}
-  m_LocalPosition: {x: 0.87, y: 0, z: 9.89}
+  m_LocalPosition: {x: 12.4734745, y: 5.2516357e-17, z: 25.484875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4841119600972160}
   - {fileID: 4329971590486600}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -107,8 +126,21 @@ Transform:
   m_Children:
   - {fileID: 4026981217503616}
   m_Father: {fileID: 4002775426839714}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -8.63, y: -0.51, z: 0.386}
+--- !u!4 &4841119600972160
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1890630978175588}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4002775426839714}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23877500422145394
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -183,8 +215,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 2, z: 0.1}
-  m_Center: {x: 0, y: -0.91, z: 0.5}
+  m_Size: {x: 0.3, y: 0.8, z: 0.1}
+  m_Center: {x: 0, y: -0.31, z: 0.41}
 --- !u!96 &96760790875838242
 TrailRenderer:
   serializedVersion: 2
@@ -382,6 +414,110 @@ MonoBehaviour:
     startEvent: 
     endEvent: 
     useActivatorTransform: 0
+    useOwnerTransform: 0
+    switchNames: []
+    switchValues: []
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
+    destroyActivator: 0
+--- !u!114 &114190659927029414
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1890630978175588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60818e15baa5c54a8664a5ea40b70d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishPrefab: {fileID: 0}
+  initialVelocity: {x: 0, y: 0, z: 0}
+  initialVelocityOwnerReference: 0
+  owner: {fileID: 0}
+  destroyParent: 1
+  destroyParentParent: 0
+  destroyOnWall: 0
+  resetNotFinish: 0
+  stable: 0
+  activateOncePerActivator: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+    asVelocity: 0
+  switchImpact:
+    active: 0
+    name: 
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toNearestSpawnPoint: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+    boolValue: 1
+    unstable: 0
+  ownerImpact:
+    active: 0
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  audioImpact:
+    active: 0
+    startEvent: 
+    endEvent: 
+    useActivatorTransform: 0
+    useOwnerTransform: 0
     switchNames: []
     switchValues: []
   scriptImpact:
@@ -427,13 +563,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   times: 1
   currentTimes: 1
+--- !u!114 &114381847959733660
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1890630978175588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43275866f290b0b4c9b6e319deb5b106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: 1
+  currentTimes: 1
 --- !u!114 &114557444540798796
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1123465278882356}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 023f36611f3a7e1429738d770c339104, type: 3}
   m_Name: 
@@ -450,6 +599,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff93a6b26832ea48a257b251ac22533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114627187245123052
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1890630978175588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 499b1b518470d484ba8f1dbfe26c2929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 10
+  currentDelay: 10
+  switchStart: 
 --- !u!114 &114647887805590900
 MonoBehaviour:
   m_ObjectHideFlags: 1

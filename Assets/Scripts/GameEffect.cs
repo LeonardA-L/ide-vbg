@@ -515,7 +515,7 @@ namespace vbg
             }
             else if (destroyOnWall && other.layer != GameManager.Constants.LAYER_SOUND && other.tag != GameManager.Constants.TAG_NONTRIGGERCOLLIDER)
             {
-                Debug.Log("Onwall " + name + " - " +other.name);
+                //Debug.Log("Onwall " + name + " - " +other.name);
                 if(other.tag == GameManager.Constants.TAG_GAMEEFFECT)
                 {
                     GameEffect otherGE = other.GetComponent<GameEffect>();

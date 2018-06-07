@@ -20,6 +20,8 @@ namespace vbg {
 
             Vector3 segment = target.position - transform.position;
             segment.y = 0.0f;
+            segment.Normalize();
+            //Debug.DrawLine(transform.position, transform.position + segment * 10.0f, Color.red, 2.0f);
             ///Debug.Log("A a " + transform.forward);
             transform.forward = segment;
             //Debug.Log("A b " + transform.forward);
