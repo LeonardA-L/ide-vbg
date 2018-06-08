@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PostProcessing;
 
 namespace vbg
 {
@@ -43,6 +44,8 @@ namespace vbg
         private List<Vector3> m_cachedBarycenters = new List<Vector3>();
         public float m_predictionFactor = 1;
         public float m_speedPredictionFactor = 1.0f;
+
+        public PostProcessingBehaviour ppBehaviour;
 
         protected static CameraManager m_instance;
         public static CameraManager Instance
@@ -169,7 +172,10 @@ namespace vbg
                     }
 
                     //Debug.Log(playerRadius + " - " + followDistance);
-                    Camera.main.fieldOfView = fov;
+                    //Camera.main.fieldOfView = fov;
+                    var ppDoFSettings = ppBehaviour.profile.depthOfField.settings;
+                    ppDoFSettings.focusDistance = fov;
+                    ppBehaviour.profile.depthOfField.settings = ppDoFSettings;
                     m_cam.transform.position = Vector3.Lerp(m_cam.transform.position, barycenter - m_cam.forward * followDistance, Constants.DEFAULT_LERP_POSITION);
                 }
             }
