@@ -17,6 +17,12 @@ namespace vbg
             if (_collider.gameObject.tag != GameManager.Constants.TAG_PLAYER)
                 return;
 
+            // Cheap hack
+            if(_collider.name == "Core")
+            {
+                return;
+            }
+
             Transform cameraSettings = transform.Find("Camera");
             CameraManager.Instance.SetSceneSettings(cameraSettings, m_aimAtCenter, m_positionSmooth, m_rotationSmooth);
         }
