@@ -71,7 +71,7 @@ MonoBehaviour:
   depthOfField:
     m_Enabled: 1
     m_Settings:
-      focusDistance: 35
+      focusDistance: 28
       aperture: 2.2
       focalLength: 188
       useCameraFov: 0
@@ -85,16 +85,16 @@ MonoBehaviour:
   eyeAdaptation:
     m_Enabled: 0
     m_Settings:
-      lowPercent: 45
+      lowPercent: 24.732359
       highPercent: 95
-      minLuminance: -5
+      minLuminance: -14.77
       maxLuminance: 1
       keyValue: 0.25
       dynamicKeyValue: 1
       adaptationType: 0
       speedUp: 2
       speedDown: 1
-      logMin: -8
+      logMin: -5
       logMax: 4
   bloom:
     m_Enabled: 1
@@ -120,12 +120,12 @@ MonoBehaviour:
         neutralWhiteLevel: 9.3
         neutralWhiteClip: 8.74
       basic:
-        postExposure: 1
-        temperature: 0
+        postExposure: 1.1
+        temperature: 17.4
         tint: 0
         hueShift: 0
         saturation: 1
-        contrast: 1
+        contrast: 0.85
       channelMixer:
         red: {x: 1, y: 0, z: 0}
         green: {x: 0, y: 1, z: 0}
@@ -138,9 +138,9 @@ MonoBehaviour:
           power: {r: 1, g: 1, b: 1, a: 0}
           offset: {r: 1, g: 1, b: 1, a: 0}
         linear:
-          lift: {r: 0.49639887, g: 0.43043733, b: 1, a: 0}
-          gamma: {r: 1, g: 0.84716254, b: 0.7257281, a: 0}
-          gain: {r: 1, g: 0.75159204, b: 0.39982438, a: 0}
+          lift: {r: 0.30945665, g: 0.678564, b: 1, a: 0}
+          gamma: {r: 1, g: 0.6161222, b: 0.54561746, a: 0}
+          gain: {r: 1, g: 0.7545691, b: 0.72643673, a: 0}
       curves:
         master:
           curve:
