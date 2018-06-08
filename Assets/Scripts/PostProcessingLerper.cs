@@ -8,14 +8,14 @@ public class PostProcessingLerper : MonoBehaviour {
     public PostProcessingProfile profileA;
     public PostProcessingProfile profileB;
 
-    private AmbientOcclusionModel.Settings ambOccSettings;
-    private MotionBlurModel.Settings motionBlurSettings;
-    private BloomModel.Settings bloomSettings;
+    //private AmbientOcclusionModel.Settings ambOccSettings;
+    //private MotionBlurModel.Settings motionBlurSettings;
+    //private BloomModel.Settings bloomSettings;
     private ColorGradingModel.Settings colorSettings;
-    private GrainModel.Settings grainSettings;
-    private VignetteModel.Settings vignetteSettings;
+    //private GrainModel.Settings grainSettings;
+    //private VignetteModel.Settings vignetteSettings;
 
-    private bool active = false;
+    public bool active = false;
     public float lerp = 0.1f;
 	
 	// Update is called once per frame
@@ -24,19 +24,29 @@ public class PostProcessingLerper : MonoBehaviour {
             return;
 
 
-        ambOccSettings.intensity = Mathf.Lerp(ambOccSettings.intensity, profileB.ambientOcclusion.settings.intensity, lerp);
-        ambOccSettings.radius = Mathf.Lerp(ambOccSettings.radius, profileB.ambientOcclusion.settings.radius, lerp);
-        ambOccSettings.radius = Mathf.Lerp(ambOccSettings.radius, profileB.ambientOcclusion.settings.radius, lerp);
+        colorSettings.basic.postExposure = Mathf.Lerp(colorSettings.basic.postExposure, profileB.colorGrading.settings.basic.postExposure, lerp);
+        colorSettings.basic.temperature = Mathf.Lerp(colorSettings.basic.temperature, profileB.colorGrading.settings.basic.temperature, lerp);
+        colorSettings.basic.saturation = Mathf.Lerp(colorSettings.basic.saturation, profileB.colorGrading.settings.basic.saturation, lerp);
+        colorSettings.basic.contrast = Mathf.Lerp(colorSettings.basic.contrast, profileB.colorGrading.settings.basic.contrast, lerp);
+        colorSettings.colorWheels.linear.lift = Color.Lerp(colorSettings.colorWheels.linear.lift, ppBehaviour.profile.colorGrading.settings.colorWheels.linear.lift, lerp);
+        colorSettings.colorWheels.linear.gamma = Color.Lerp(colorSettings.colorWheels.linear.gamma, ppBehaviour.profile.colorGrading.settings.colorWheels.linear.gamma, lerp);
+        colorSettings.colorWheels.linear.gain = Color.Lerp(colorSettings.colorWheels.linear.gain, ppBehaviour.profile.colorGrading.settings.colorWheels.linear.gain, lerp);
+        //colorSettings.channelMixer.red
+
+        var settings = ppBehaviour.profile.colorGrading.settings;
+        settings.basic = colorSettings.basic;
+        settings.colorWheels = colorSettings.colorWheels;
+        ppBehaviour.profile.colorGrading.settings = settings;
     }
 
     public void StartLerp()
     {
-        ambOccSettings = profileA.ambientOcclusion.settings;
-        motionBlurSettings = profileA.motionBlur.settings;
-        bloomSettings = profileA.bloom.settings;
+        //ambOccSettings = profileA.ambientOcclusion.settings;
+        //motionBlurSettings = profileA.motionBlur.settings;
+        //bloomSettings = profileA.bloom.settings;
         colorSettings = profileA.colorGrading.settings;
-        grainSettings = profileA.grain.settings;
-        vignetteSettings = profileA.vignette.settings;
+        //grainSettings = profileA.grain.settings;
+        //vignetteSettings = profileA.vignette.settings;
 
         active = true;
     }
