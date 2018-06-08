@@ -32,6 +32,8 @@ namespace vbg
         private float m_enlargeD2 = 10;
         private float m_enlargeF1 = 25;
         private float m_enlargeF2 = 45;
+        private float m_fov1 = 45;
+        private float m_fov2 = 45;
 
         private Animator m_refAnimator;
         private Transform m_hotspotStart;
@@ -143,23 +145,31 @@ namespace vbg
                         m_cam.forward = Vector3.Lerp(m_cam.forward, m_cameraToFollow.forward, m_rotationSmooth);
 
                     float followDistance = 25.0f;
+                    float fov = 30.0f;
 
                     if(playerRadius < m_enlargeD1)
                     {
                         followDistance = m_enlargeF1;
+                        fov = m_fov1;
                     }
                     else if (playerRadius > m_enlargeD2)
                     {
                         followDistance = m_enlargeF2;
-                    } else
+                        fov = m_fov2;
+                    }
+                    else
                     {
                         float a = (m_enlargeF2 - m_enlargeF1) / (m_enlargeD2 - m_enlargeD1);
                         float b = m_enlargeF1 - m_enlargeD1 * a;
                         followDistance = a * playerRadius + b;
+
+                        float fova = (m_fov2 - m_fov1) / (m_enlargeD2 - m_enlargeD1);
+                        float fovb = m_fov1 - m_enlargeD1 * fova;
+                        fov = fova * playerRadius + fovb;
                     }
 
                     //Debug.Log(playerRadius + " - " + followDistance);
-
+                    Camera.main.fieldOfView = fov;
                     m_cam.transform.position = Vector3.Lerp(m_cam.transform.position, barycenter - m_cam.forward * followDistance, Constants.DEFAULT_LERP_POSITION);
                 }
             }
@@ -175,7 +185,7 @@ namespace vbg
             m_rotationSmooth = _overrideRotationSmooth;
         }
 
-        public void SetFollowSettings(Transform _newCameraToFollow, float _d1, float _d2, float _f1, float _f2, float _overridePositionSmooth = 0.0f, float _overrideRotationSmooth = 0.0f)
+        public void SetFollowSettings(Transform _newCameraToFollow, float _d1, float _d2, float _f1, float _f2, float _overridePositionSmooth = 0.0f, float _overrideRotationSmooth = 0.0f, float _fovMin=40, float _fovMax = 40)
         {
             m_cameraToFollow = _newCameraToFollow;
             m_currentMode = CameraType.FOLLOW;
@@ -184,6 +194,9 @@ namespace vbg
             m_enlargeD2 = _d2;
             m_enlargeF1 = _f1;
             m_enlargeF2 = _f2;
+
+            m_fov1 = _fovMin;
+            m_fov2 = _fovMax;
 
             m_positionSmooth = _overridePositionSmooth;
             m_rotationSmooth = _overrideRotationSmooth;

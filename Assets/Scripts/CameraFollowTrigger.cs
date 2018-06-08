@@ -15,6 +15,8 @@ namespace vbg
         public float m_positionSmooth = 0.05f;  // The default value is actually set in the prefab
         [Range(0, 1)]
         public float m_rotationSmooth = 0.05f;
+        public float m_fovMin = 40;
+        public float m_fovMax = 40;
 
         private void OnTriggerEnter(UnityEngine.Collider _collider)
         {
@@ -22,7 +24,7 @@ namespace vbg
                 return;
 
             Transform cameraSettings = transform.Find("Camera");
-            CameraManager.Instance.SetFollowSettings(cameraSettings, m_radiusMin, m_radiusMax, m_followDistanceMin, m_followDistanceMax, m_positionSmooth, m_rotationSmooth);
+            CameraManager.Instance.SetFollowSettings(cameraSettings, m_radiusMin, m_radiusMax, m_followDistanceMin, m_followDistanceMax, m_positionSmooth, m_rotationSmooth, m_fovMin, m_fovMax);
         }
     }
 }
