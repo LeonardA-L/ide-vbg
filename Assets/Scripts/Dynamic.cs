@@ -18,6 +18,7 @@ namespace vbg
         private bool soundActive = false;
         public string soundActiveEventPlay;
         public string soundActiveEventStop;
+        public bool preserveScaleOnFinish = false;
         private List<UnityEngine.Collider> activeColliders = new List<UnityEngine.Collider>();
         private Vector3 lastPosition;
 
@@ -94,7 +95,8 @@ namespace vbg
                 GameObject finishObject = GameObject.Instantiate(finishPrefab);
                 finishObject.transform.position = transform.position;
                 finishObject.transform.rotation = transform.rotation;
-                finishObject.transform.localScale = transform.localScale;
+                if(preserveScaleOnFinish)
+                    finishObject.transform.localScale = transform.localScale;
             }
 
             if(health.chaosOnDeath != 0.0f)
