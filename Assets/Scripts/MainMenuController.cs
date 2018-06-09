@@ -35,16 +35,20 @@ namespace vbg
             }
             heads[buttonId].Select();
             cameraAnimator.SetTrigger(scene);
+            SoundManager.Instance.PostEvent("Play_UI_Click", cameraAnimator.gameObject);
+            SoundManager.Instance.PostEvent("Play_TRANSITION_MENU_RND", cameraAnimator.gameObject);
         }
 
         public void StartDemo()
         {
             SceneManager.Instance.LaunchScene(SceneManager.Scene.DEMO);
+            SoundManager.Instance.PostEvent("Play_UI_Click", cameraAnimator.gameObject);
         }
 
         public void StartArena()
         {
             SceneManager.Instance.LaunchScene(SceneManager.Scene.ARENA);
+            SoundManager.Instance.PostEvent("Play_UI_Click", cameraAnimator.gameObject);
         }
     }
 }
