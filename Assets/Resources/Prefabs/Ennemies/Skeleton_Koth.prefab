@@ -2124,8 +2124,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1241690744105820}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.82, y: -0.00999999, z: 33.91}
+  m_LocalRotation: {x: -0, y: 0.95137095, z: -0, w: 0.30804786}
+  m_LocalPosition: {x: 19.28, y: 0, z: 37.05}
   m_LocalScale: {x: 0.7500001, y: 0.75, z: 0.7500001}
   m_Children:
   - {fileID: 4835801814312408}
@@ -2155,7 +2155,7 @@ Transform:
   - {fileID: 4355451043796414}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -63.706, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 144.117, z: 0}
 --- !u!4 &4944813164417308
 Transform:
   m_ObjectHideFlags: 1
@@ -2260,7 +2260,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 50e373d132827a94e9e1ef360d8818b7, type: 2}
+  - {fileID: 2100000, guid: 172cbbd1a1c8a354b9b5197c0c548f8c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2365,7 +2365,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 50e373d132827a94e9e1ef360d8818b7, type: 2}
+  - {fileID: 2100000, guid: 172cbbd1a1c8a354b9b5197c0c548f8c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2725,6 +2725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
+  initialVelocityOwnerReference: 0
   owner: {fileID: 114260015814941778}
   destroyParent: 0
   destroyParentParent: 0
@@ -2745,6 +2746,7 @@ MonoBehaviour:
     ownerAsReference: 1
     pushForceNoY: 1
     pushForceDecreaseLength: 2
+    asVelocity: 0
   switchImpact:
     active: 0
     name: 
@@ -2798,6 +2800,7 @@ MonoBehaviour:
     startEvent: Play_Attack_Hit_Skelets
     endEvent: 
     useActivatorTransform: 0
+    useOwnerTransform: 0
     switchNames: []
     switchValues: []
   scriptImpact:
