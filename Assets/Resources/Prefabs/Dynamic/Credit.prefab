@@ -52,11 +52,11 @@ GameObject:
   - component: {fileID: 4026104441675448}
   - component: {fileID: 33554645167277020}
   - component: {fileID: 23696580929736384}
-  - component: {fileID: 64284435129745670}
   - component: {fileID: 114229131123978642}
   - component: {fileID: 114473222518716994}
   - component: {fileID: 114468724697779980}
   - component: {fileID: 114854439044452492}
+  - component: {fileID: 136246608257061414}
   m_Layer: 0
   m_Name: amphora
   m_TagString: GameEffect
@@ -84,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1023827041534684}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 6, y: -0.144, z: 12}
+  m_LocalPosition: {x: 47.258965, y: 55.58, z: -31.0689}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4217663848787390}
@@ -147,20 +147,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1964697177812076}
   m_Mesh: {fileID: 4300000, guid: a95ea25bfa1f5b942950787fc0d5c634, type: 3}
---- !u!64 &64284435129745670
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1964697177812076}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: a95ea25bfa1f5b942950787fc0d5c634, type: 3}
 --- !u!95 &95403182011759106
 Animator:
   serializedVersion: 3
@@ -193,6 +179,7 @@ MonoBehaviour:
   finishPrefab: {fileID: 1870380143131498, guid: bd04ce22a7f91774686d6bd57d92dbc2,
     type: 2}
   initialVelocity: {x: 0, y: 0, z: 0}
+  initialVelocityOwnerReference: 0
   owner: {fileID: 0}
   destroyParent: 0
   destroyParentParent: 1
@@ -213,6 +200,7 @@ MonoBehaviour:
     ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
+    asVelocity: 0
   switchImpact:
     active: 0
     name: 
@@ -266,6 +254,7 @@ MonoBehaviour:
     startEvent: Play_credit
     endEvent: 
     useActivatorTransform: 0
+    useOwnerTransform: 0
     switchNames: []
     switchValues: []
   scriptImpact:
@@ -318,3 +307,16 @@ MonoBehaviour:
   allowedTags:
   - Player
   revertList: 0
+--- !u!136 &136246608257061414
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1964697177812076}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 5.5
+  m_Height: 25.85
+  m_Direction: 1
+  m_Center: {x: 0.000061035156, y: 6.0730915, z: -0.000026941296}
