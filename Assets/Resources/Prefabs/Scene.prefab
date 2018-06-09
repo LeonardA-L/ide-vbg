@@ -1925,23 +1925,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1576454529974480
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4391739691555522}
-  - component: {fileID: 114347317304646154}
-  - component: {fileID: 114496405521162456}
-  m_Layer: 0
-  m_Name: InitSound
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1576549551502574
 GameObject:
   m_ObjectHideFlags: 1
@@ -3483,7 +3466,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1949704105373310
 GameObject:
   m_ObjectHideFlags: 1
@@ -3623,7 +3606,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1548098267252850}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 15}
+  m_LocalPosition: {x: 0, y: 0, z: 25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4158140888828190}
@@ -3669,19 +3652,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4855185462108202}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4391739691555522
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1576454529974480}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 99.1917, y: 39.31703, z: -19.601559}
-  m_LocalScale: {x: 0.954074, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4855185462108202}
-  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4501759452984972
 Transform:
@@ -3740,7 +3710,6 @@ Transform:
   - {fileID: 4037997481859378}
   - {fileID: 4218723099328454}
   - {fileID: 4501759452984972}
-  - {fileID: 4391739691555522}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6476,109 +6445,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114347317304646154
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1576454529974480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c60818e15baa5c54a8664a5ea40b70d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  finishPrefab: {fileID: 0}
-  initialVelocity: {x: 0, y: 0, z: 0}
-  initialVelocityOwnerReference: 0
-  owner: {fileID: 0}
-  destroyParent: 0
-  destroyParentParent: 0
-  destroyOnWall: 0
-  resetNotFinish: 0
-  stable: 0
-  activateOncePerActivator: 0
-  healthImpact:
-    active: 0
-    impact: 0
-    impactPerFrame: 0
-    friendlyFire: 0
-  pushForce:
-    active: 0
-    pushForceVector: {x: 0, y: 0, z: 0}
-    pushForceNorm: 0
-    pushForceIsOmnidirectional: 0
-    ownerAsReference: 0
-    pushForceNoY: 1
-    pushForceDecreaseLength: 0
-    asVelocity: 0
-  switchImpact:
-    active: 0
-    name: 
-    newValue: 1
-    unstable: 0
-  valueImpact:
-    active: 0
-    name: 
-    updateMode: 0
-    update: 0
-    unstable: 0
-    updateRate: 0
-  teleport:
-    active: 0
-    toNearestSpawnPoint: 0
-    toHotspot: {fileID: 0}
-    useHotspotRotation: 0
-    preserveMomentum: 0
-  animatorImpact:
-    active: 0
-    animator: {fileID: 0}
-    triggerName: 
-    boolName: 
-    boolValue: 1
-    unstable: 0
-  ownerImpact:
-    active: 0
-    paralyse: 0
-    speedFactor: 1
-    rotFactor: 1
-    blockActions: 0
-    disableGravity: 0
-    velocityEndFactor: 1
-    enableDefenseMode: 1
-    vibration:
-      active: 0
-      force: 1
-      duration: 1
-      lerp: 1
-  creatureImpact:
-    active: 0
-    addGameEffect: {fileID: 0}
-    asOwner: 1
-    vibration:
-      active: 0
-      force: 1
-      duration: 1
-      lerp: 1
-  audioImpact:
-    active: 1
-    startEvent: AMB_Init
-    endEvent: 
-    useActivatorTransform: 0
-    useOwnerTransform: 0
-    switchNames: []
-    switchValues: []
-  scriptImpact:
-    active: 0
-    action:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  activeImpact:
-    active: 0
-    objects: []
-    activate: 1
-    destroyActivator: 0
 --- !u!114 &114350527365805450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7478,19 +7344,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114496405521162456
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1576454529974480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43275866f290b0b4c9b6e319deb5b106, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  times: 1
-  currentTimes: 1
 --- !u!114 &114498005495791558
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -12657,10 +12510,10 @@ RectTransform:
   m_Father: {fileID: 224296571484887438}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 100}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 227.15, y: -95.4}
+  m_SizeDelta: {x: 454.3, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224162864580804460
 RectTransform:
@@ -14347,10 +14200,10 @@ RectTransform:
   m_Father: {fileID: 224296571484887438}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 29.7}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 227.15, y: -14.85}
+  m_SizeDelta: {x: 454.3, y: 29.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224593570032210956
 RectTransform:
