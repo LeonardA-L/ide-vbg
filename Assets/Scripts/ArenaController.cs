@@ -50,9 +50,10 @@ namespace vbg
                 if(characterHealth.health <= 0.0f)
                 {
                     GameManager.Instance.Death(arenaActive);
+                    SoundManager.Instance.PostEvent("Stop_M_BAGARRE_ST", gameObject);
                 }
 
-                if(timer <= 0.0f)
+                if (timer <= 0.0f)
                 {
                     Victory();
                 }
