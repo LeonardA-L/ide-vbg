@@ -186,7 +186,6 @@ namespace vbg
 
         public void Victory()
         {
-            Debug.Log("??");
             Pause(false);
             endScreen = true;
             victoryScreen.SetActive(true);

@@ -79,6 +79,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1031633675994338
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4375743760188642}
+  - component: {fileID: 114461906060672810}
+  - component: {fileID: 114962481967401550}
+  - component: {fileID: 114546428312976516}
+  m_Layer: 0
+  m_Name: Arena_PreTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1042896633252852
 GameObject:
   m_ObjectHideFlags: 1
@@ -1077,10 +1095,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4626640653000508}
   - component: {fileID: 114745223676518660}
-  - component: {fileID: 114962481967401550}
   - component: {fileID: 114771819789372412}
+  - component: {fileID: 114874418676946012}
   m_Layer: 0
-  m_Name: Arena_PreTrigger
+  m_Name: Arena_AfterOn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2292,6 +2310,19 @@ Transform:
   m_Father: {fileID: 4389564790827154}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4375743760188642
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1031633675994338}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -32.90184, y: -38.018806, z: -54.39527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4389564790827154}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4384253418246378
 Transform:
   m_ObjectHideFlags: 1
@@ -2343,9 +2374,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4373984369646472}
-  - {fileID: 4626640653000508}
+  - {fileID: 4375743760188642}
   - {fileID: 4951407039635026}
   - {fileID: 4443717673220788}
+  - {fileID: 4626640653000508}
   m_Father: {fileID: 4837638150719814}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2709,11 +2741,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1610561302124886}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -32.90184, y: -38.018806, z: -54.39527}
+  m_LocalPosition: {x: -32.901855, y: -38.018806, z: -54.395264}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4389564790827154}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4645416624460338
 Transform:
@@ -5506,7 +5538,7 @@ MonoBehaviour:
     impactPerFrame: 0
     friendlyFire: 1
   pushForce:
-    active: 1
+    active: 0
     pushForceVector: {x: 1, y: 0, z: 0}
     pushForceNorm: 40
     pushForceIsOmnidirectional: 0
@@ -6242,7 +6274,7 @@ MonoBehaviour:
     impactPerFrame: 0
     friendlyFire: 1
   pushForce:
-    active: 1
+    active: 0
     pushForceVector: {x: 1, y: 0, z: 0}
     pushForceNorm: 40
     pushForceIsOmnidirectional: 0
@@ -6756,7 +6788,7 @@ MonoBehaviour:
     impactPerFrame: 0
     friendlyFire: 1
   pushForce:
-    active: 1
+    active: 0
     pushForceVector: {x: 1, y: 0, z: 0}
     pushForceNorm: 40
     pushForceIsOmnidirectional: 0
@@ -7058,6 +7090,109 @@ MonoBehaviour:
   soundActiveEventStop: 
   preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+--- !u!114 &114461906060672810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1031633675994338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60818e15baa5c54a8664a5ea40b70d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishPrefab: {fileID: 0}
+  initialVelocity: {x: 0, y: 0, z: 0}
+  initialVelocityOwnerReference: 0
+  owner: {fileID: 0}
+  destroyParent: 0
+  destroyParentParent: 0
+  destroyOnWall: 0
+  resetNotFinish: 0
+  stable: 0
+  activateOncePerActivator: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+    asVelocity: 0
+  switchImpact:
+    active: 1
+    name: Arena_State_Pre
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toNearestSpawnPoint: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+    boolValue: 1
+    unstable: 0
+  ownerImpact:
+    active: 0
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  audioImpact:
+    active: 1
+    startEvent: Play_M_THEME_VILLAGE_FIN
+    endEvent: 
+    useActivatorTransform: 0
+    useOwnerTransform: 0
+    switchNames: []
+    switchValues: []
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
+    destroyActivator: 0
 --- !u!114 &114493922422956060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7284,6 +7419,19 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1274768243929554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43275866f290b0b4c9b6e319deb5b106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: 1
+  currentTimes: 1
+--- !u!114 &114546428312976516
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1031633675994338}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43275866f290b0b4c9b6e319deb5b106, type: 3}
@@ -8388,9 +8536,9 @@ MonoBehaviour:
     pushForceDecreaseLength: 0
     asVelocity: 0
   switchImpact:
-    active: 1
-    name: Arena_State_Pre
-    newValue: 1
+    active: 0
+    name: 
+    newValue: 0
     unstable: 0
   valueImpact:
     active: 0
@@ -8436,7 +8584,7 @@ MonoBehaviour:
       duration: 1
       lerp: 1
   audioImpact:
-    active: 1
+    active: 0
     startEvent: Play_M_THEME_VILLAGE_FIN
     endEvent: 
     useActivatorTransform: 0
@@ -8737,6 +8885,18 @@ MonoBehaviour:
     objects: []
     activate: 1
     destroyActivator: 0
+--- !u!114 &114874418676946012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1610561302124886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa84cd8520ff6c4093f4263fb6c95f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchName: Arena_State_On
 --- !u!114 &114877108895001246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9130,7 +9290,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1610561302124886}
+  m_GameObject: {fileID: 1031633675994338}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39606621f7068494e9cb54059c84e0e8, type: 3}
@@ -9177,7 +9337,7 @@ MonoBehaviour:
     impactPerFrame: 0
     friendlyFire: 1
   pushForce:
-    active: 1
+    active: 0
     pushForceVector: {x: 1, y: 0, z: 0}
     pushForceNorm: 40
     pushForceIsOmnidirectional: 0

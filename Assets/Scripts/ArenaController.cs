@@ -10,6 +10,7 @@ namespace vbg
         public CharacterHealth characterHealth;
         public float timer;
         private float timerMax;
+        private bool lastArenaActive;
         public string timerActiveSwitch;
 
         public Text timerText;
@@ -33,6 +34,13 @@ namespace vbg
 
             if (arenaActive)
             {
+                if(!lastArenaActive)
+                {
+                    foreach(VBGCharacterController player in PlayerManager.Instance.GetAllPlayersInGame())
+                    {
+                        player.GetHealth().SetHealth(player.GetHealth().MaxHealth);
+                    }
+                }
 
                 timer -= Time.deltaTime;
                 timer = Mathf.Max(timer, 0.0f);
@@ -71,6 +79,7 @@ namespace vbg
             {
                 GameManager.Instance.Death(arenaActive);
             }
+            lastArenaActive = arenaActive;
         }
 
         void Victory()
