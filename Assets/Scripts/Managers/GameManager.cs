@@ -163,6 +163,8 @@ namespace vbg
 
         public void Death(bool _arena)
         {
+            if (endScreen)
+                return;
             Pause(false);
             endScreen = true;
             if (_arena)
@@ -173,6 +175,7 @@ namespace vbg
             {
                 deathScreen.SetActive(true);
             }
+            SoundManager.Instance.PostEvent("Play_GAME_OVER", gameObject);
         }
 
         public void Undeath()
@@ -189,6 +192,7 @@ namespace vbg
             Pause(false);
             endScreen = true;
             victoryScreen.SetActive(true);
+            SoundManager.Instance.PostEvent("Play_VICTOIRE", gameObject);
         }
     }
 }
