@@ -39,6 +39,7 @@ namespace vbg {
 
         public void LaunchScene(Scene _scene)
         {
+            SoundManager.Instance.PostEvent("Stop_All_Scene", gameObject);
             StartCoroutine(LoadSceneAsync(_scene));
         }
 

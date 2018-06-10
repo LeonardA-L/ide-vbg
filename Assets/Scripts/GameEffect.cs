@@ -337,7 +337,7 @@ namespace vbg
             ProcessAlways();
         }
 
-        public void Finish()
+        public void Finish(bool destroy = false)
         {
             //Debug.Log("Finish " + name);
 
@@ -396,7 +396,7 @@ namespace vbg
             toDelete = false;
         }
 
-        private void Unstables(bool finish = false)
+        private void Unstables(bool finish = false, bool destroy = false)
         {
             if (switchImpact.unstable && !lastFrameProcessed && lastFixedFrameProcessed > 1)
             {
@@ -425,6 +425,11 @@ namespace vbg
                 }
 
                 animator.SetBool(animatorImpact.boolName, !animatorImpact.boolValue);
+            }
+
+            if(destroy)
+            {
+                return;
             }
 
             if(
@@ -1003,7 +1008,7 @@ namespace vbg
         void OnDestroy()
         {
             if(!finished && !GameManager.Instance.isQuitting)
-                Finish();
+                Finish(true);
         }
     }
 }
