@@ -40,53 +40,62 @@ namespace vbg
         {
 
             // Apply GameEffects
-            activeGameEffects.RemoveAll(item => item == null);
-            foreach (GameEffect ge in activeGameEffects)
+            if (activeGameEffects.Count > 0)
             {
-                if (minForceToEnableRigidbody > 0.0f && ge.pushForce.active && ge.pushForce.pushForceNorm > minForceToEnableRigidbody)
+                activeGameEffects.RemoveAll(item => item == null);
+                foreach (GameEffect ge in activeGameEffects)
                 {
-                    rb.isKinematic = false;
-                    if(null != soundOnEnable && soundOnEnable != "")
+                    if (minForceToEnableRigidbody > 0.0f && ge.pushForce.active && ge.pushForce.pushForceNorm > minForceToEnableRigidbody)
                     {
-                        SoundManager.Instance.PostEvent(soundOnEnable, gameObject);
-                        soundOnEnable = null;
+                        rb.isKinematic = false;
+                        if (null != soundOnEnable && soundOnEnable != "")
+                        {
+                            SoundManager.Instance.PostEvent(soundOnEnable, gameObject);
+                            soundOnEnable = null;
+                        }
                     }
-                }
 
-                Vector3 placeholder = new Vector3();
-                ge.ProcessOnCollision(this, rb, ref placeholder);
+                    Vector3 placeholder = new Vector3();
+                    ge.ProcessOnCollision(this, rb, ref placeholder);
+                }
             }
 
             if (health != null && health.IsDead())
             {
                 Die();
+                return;
             }
 
-            float movingDiff = (transform.position - lastPosition).magnitude;
-            float movingThr = 0.02f;
-            
-            if (movingDiff > movingThr)
-            {
-                // Add sound
-                if(soundActiveEventPlay != null && soundActiveEventPlay != "" && !soundActive && activeColliders.Count > 0)
-                {
-                    soundActive = true;
-                    SoundManager.Instance.PostEvent(soundActiveEventPlay, gameObject);
-                }
-                // Add chaos
-                if (chaotic != 0.0f)
-                {
-                    float chaos = chaotic * rb.mass / GameManager.Constants.CHAOS_MASS_REFERENCE * movingDiff;
-                    GameManager.Instance.AddChaos(chaos);
-                }
-            }
-            lastPosition = transform.position;
 
-            // Remove sound
-            if (soundActiveEventStop != null && soundActiveEventStop != "" && soundActive && (activeColliders.Count == 0 || movingDiff < 0.003f))
+            if (soundActiveEventPlay != null && soundActiveEventPlay != "")
             {
-                soundActive = false;
-                SoundManager.Instance.PostEvent(soundActiveEventStop, gameObject);
+
+                float movingDiff = (transform.position - lastPosition).magnitude;
+                float movingThr = 0.02f;
+
+                if (movingDiff > movingThr)
+                {
+                    // Add sound
+                    if (soundActiveEventPlay != null && soundActiveEventPlay != "" && !soundActive && activeColliders.Count > 0)
+                    {
+                        soundActive = true;
+                        SoundManager.Instance.PostEvent(soundActiveEventPlay, gameObject);
+                    }
+                    // Add chaos
+                    if (chaotic != 0.0f)
+                    {
+                        float chaos = chaotic * rb.mass / GameManager.Constants.CHAOS_MASS_REFERENCE * movingDiff;
+                        GameManager.Instance.AddChaos(chaos);
+                    }
+                }
+                lastPosition = transform.position;
+
+                // Remove sound
+                if (soundActiveEventStop != null && soundActiveEventStop != "" && soundActive && (activeColliders.Count == 0 || movingDiff < 0.003f))
+                {
+                    soundActive = false;
+                    SoundManager.Instance.PostEvent(soundActiveEventStop, gameObject);
+                }
             }
         }
 
