@@ -35,8 +35,9 @@ namespace vbg
 
         void Start()
         {
-            if(hideRenderInGame)
-                GetComponent<MeshRenderer>().enabled = GameManager.Instance.showCollidersInGame && Debug.isDebugBuild;
+            MeshRenderer m = GetComponent<MeshRenderer>();
+            if (hideRenderInGame && m != null)
+                m.enabled = GameManager.Instance.showCollidersInGame && Debug.isDebugBuild;
         }
 
         public ColliderType GetGroundType()
