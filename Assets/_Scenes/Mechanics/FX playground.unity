@@ -1064,6 +1064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_predictionFactor: 1
   m_speedPredictionFactor: 1
+  ppBehaviour: {fileID: 0}
 --- !u!1 &63666451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1634,6 +1635,7 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: 
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
 --- !u!64 &95719910
 MeshCollider:
@@ -3390,6 +3392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
+  initialVelocityOwnerReference: 0
   owner: {fileID: 0}
   destroyParent: 0
   destroyParentParent: 0
@@ -3410,6 +3413,7 @@ MonoBehaviour:
     ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
+    asVelocity: 0
   switchImpact:
     active: 0
     name: 
@@ -3463,6 +3467,7 @@ MonoBehaviour:
     startEvent: AMB_Init
     endEvent: 
     useActivatorTransform: 0
+    useOwnerTransform: 0
     switchNames: []
     switchValues: []
   scriptImpact:
@@ -5047,6 +5052,9 @@ MonoBehaviour:
   allowRevive: 1
   isArena: 0
   isQuitting: 0
+  victoryScreen: {fileID: 0}
+  deathScreen: {fileID: 0}
+  deathArenaScreen: {fileID: 0}
 --- !u!114 &345979216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5421,6 +5429,52 @@ Transform:
   m_PrefabParentObject: {fileID: 4159440772385614, guid: b75be85d0d0428845801fcbad2c4b855,
     type: 2}
   m_PrefabInternal: {fileID: 359398464}
+--- !u!1001 &362313052
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4136060834868620, guid: 96c24b0da6fe54542b39949722b5d848, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 13.613281
+      objectReference: {fileID: 0}
+    - target: {fileID: 4136060834868620, guid: 96c24b0da6fe54542b39949722b5d848, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.0000014765171
+      objectReference: {fileID: 0}
+    - target: {fileID: 4136060834868620, guid: 96c24b0da6fe54542b39949722b5d848, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 9.957792
+      objectReference: {fileID: 0}
+    - target: {fileID: 4136060834868620, guid: 96c24b0da6fe54542b39949722b5d848, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4136060834868620, guid: 96c24b0da6fe54542b39949722b5d848, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4136060834868620, guid: 96c24b0da6fe54542b39949722b5d848, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4136060834868620, guid: 96c24b0da6fe54542b39949722b5d848, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4136060834868620, guid: 96c24b0da6fe54542b39949722b5d848, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992857089697350, guid: 96c24b0da6fe54542b39949722b5d848, type: 2}
+      propertyPath: m_Name
+      value: fire (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 96c24b0da6fe54542b39949722b5d848, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &376508505
 Prefab:
   m_ObjectHideFlags: 0
@@ -9339,6 +9393,7 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: 
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
 --- !u!54 &718914724
 Rigidbody:
@@ -11372,7 +11427,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 3, z: 1.1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &859105698
 Prefab:
@@ -17193,6 +17248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
+  initialVelocityOwnerReference: 0
   owner: {fileID: 0}
   destroyParent: 0
   destroyParentParent: 0
@@ -17213,6 +17269,7 @@ MonoBehaviour:
     ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
+    asVelocity: 0
   switchImpact:
     active: 0
     name: 
@@ -17266,6 +17323,7 @@ MonoBehaviour:
     startEvent: AMB_Init
     endEvent: 
     useActivatorTransform: 0
+    useOwnerTransform: 0
     switchNames: []
     switchValues: []
   scriptImpact:
@@ -17562,7 +17620,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4136060834868620, guid: 47230e26e5c2a5342992d5306be87e43, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 11.832813
+      value: 2.45
       objectReference: {fileID: 0}
     - target: {fileID: 4136060834868620, guid: 47230e26e5c2a5342992d5306be87e43, type: 2}
       propertyPath: m_LocalPosition.y
@@ -17590,7 +17648,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4136060834868620, guid: 47230e26e5c2a5342992d5306be87e43, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47230e26e5c2a5342992d5306be87e43, type: 2}
@@ -23809,7 +23867,7 @@ Transform:
   - {fileID: 402175165}
   - {fileID: 1155310722}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1428351870
 Prefab:
@@ -24022,6 +24080,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
+  initialVelocityOwnerReference: 0
   owner: {fileID: 0}
   destroyParent: 0
   destroyParentParent: 0
@@ -24042,6 +24101,7 @@ MonoBehaviour:
     ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
+    asVelocity: 0
   switchImpact:
     active: 0
     name: 
@@ -24095,6 +24155,7 @@ MonoBehaviour:
     startEvent: 
     endEvent: 
     useActivatorTransform: 0
+    useOwnerTransform: 0
     switchNames: []
     switchValues: []
   scriptImpact:
@@ -32191,6 +32252,7 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: 
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
 --- !u!64 &1864222873
 MeshCollider:
@@ -33741,7 +33803,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4136060834868620, guid: 71e500c1a1323ec48934ba51d58c5f92, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 13.891517
+      value: 18.29
       objectReference: {fileID: 0}
     - target: {fileID: 4136060834868620, guid: 71e500c1a1323ec48934ba51d58c5f92, type: 2}
       propertyPath: m_LocalPosition.y
@@ -33769,7 +33831,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4136060834868620, guid: 71e500c1a1323ec48934ba51d58c5f92, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71e500c1a1323ec48934ba51d58c5f92, type: 2}
@@ -34581,6 +34643,7 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: 
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
 --- !u!54 &2021066168
 Rigidbody:
