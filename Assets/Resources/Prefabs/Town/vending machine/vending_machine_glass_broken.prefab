@@ -49,6 +49,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1147039546808466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4485934998310032}
+  - component: {fileID: 114025402884249148}
+  - component: {fileID: 114812434489064736}
+  m_Layer: 0
+  m_Name: Destrusound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1184060478166012
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +300,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1259649678673744}
   m_LocalRotation: {x: -0, y: 0.7240894, z: -0, w: 0.68970615}
-  m_LocalPosition: {x: -3.243, y: 2.982, z: 33.86}
+  m_LocalPosition: {x: 2.1691923, y: 2.2238064, z: 38.772095}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4022703139276768}
@@ -296,6 +313,7 @@ Transform:
   - {fileID: 4960762010137032}
   - {fileID: 4279854734326444}
   - {fileID: 4797852161805728}
+  - {fileID: 4485934998310032}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 92.786, z: 0}
@@ -324,6 +342,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4301661589572274}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4485934998310032
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1147039546808466}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4301661589572274}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4574291141282178
 Transform:
@@ -1028,6 +1059,109 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114025402884249148
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1147039546808466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60818e15baa5c54a8664a5ea40b70d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishPrefab: {fileID: 0}
+  initialVelocity: {x: 0, y: 0, z: 0}
+  initialVelocityOwnerReference: 0
+  owner: {fileID: 0}
+  destroyParent: 0
+  destroyParentParent: 0
+  destroyOnWall: 0
+  resetNotFinish: 0
+  stable: 0
+  activateOncePerActivator: 0
+  healthImpact:
+    active: 0
+    impact: 0
+    impactPerFrame: 0
+    friendlyFire: 0
+  pushForce:
+    active: 0
+    pushForceVector: {x: 0, y: 0, z: 0}
+    pushForceNorm: 0
+    pushForceIsOmnidirectional: 0
+    ownerAsReference: 0
+    pushForceNoY: 1
+    pushForceDecreaseLength: 0
+    asVelocity: 0
+  switchImpact:
+    active: 0
+    name: 
+    newValue: 1
+    unstable: 0
+  valueImpact:
+    active: 0
+    name: 
+    updateMode: 0
+    update: 0
+    unstable: 0
+    updateRate: 0
+  teleport:
+    active: 0
+    toNearestSpawnPoint: 0
+    toHotspot: {fileID: 0}
+    useHotspotRotation: 0
+    preserveMomentum: 0
+  animatorImpact:
+    active: 0
+    animator: {fileID: 0}
+    triggerName: 
+    boolName: 
+    boolValue: 1
+    unstable: 0
+  ownerImpact:
+    active: 0
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  creatureImpact:
+    active: 0
+    addGameEffect: {fileID: 0}
+    asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
+  audioImpact:
+    active: 1
+    startEvent: Play_vending_machine_DESTRUCTION
+    endEvent: 
+    useActivatorTransform: 0
+    useOwnerTransform: 0
+    switchNames: []
+    switchValues: []
+  scriptImpact:
+    active: 0
+    action:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  activeImpact:
+    active: 0
+    objects: []
+    activate: 1
+    destroyActivator: 0
 --- !u!114 &114132861838566906
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1058,7 +1192,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: 
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114253373247993676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1076,7 +1212,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: 
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114594805235914838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1094,7 +1232,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: 
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114639587514148004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1112,7 +1252,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: 
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114649554991129924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1130,7 +1272,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: 
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114653677543184620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1148,7 +1292,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: 
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114782603277149914
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1162,8 +1308,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
+  initialVelocityOwnerReference: 0
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -1181,6 +1329,7 @@ MonoBehaviour:
     ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
+    asVelocity: 0
   switchImpact:
     active: 0
     name: 
@@ -1205,6 +1354,7 @@ MonoBehaviour:
     triggerName: 
     boolName: 
     boolValue: 1
+    unstable: 0
   ownerImpact:
     active: 0
     paralyse: 0
@@ -1213,15 +1363,27 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
     active: 0
     startEvent: 
     endEvent: 
     useActivatorTransform: 0
+    useOwnerTransform: 0
     switchNames: []
     switchValues: []
   scriptImpact:
@@ -1236,6 +1398,19 @@ MonoBehaviour:
     objects: []
     activate: 1
     destroyActivator: 0
+--- !u!114 &114812434489064736
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1147039546808466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43275866f290b0b4c9b6e319deb5b106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  times: 1
+  currentTimes: 1
 --- !u!114 &114859128436776114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1253,7 +1428,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: 
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114895592595485712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1271,7 +1448,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: 
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114937920288707600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1289,4 +1468,6 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: 
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 

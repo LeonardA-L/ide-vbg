@@ -11,7 +11,6 @@ namespace vbg {
             DEMO,
             ARENA,
         }
-
         protected static SceneManager m_instance;
         public static SceneManager Instance
         {
@@ -51,6 +50,14 @@ namespace vbg {
         public void QuitToMenu()
         {
             LaunchScene(Scene.MENU);
+        }
+
+        public void LaunchGame()
+        {
+            if (!enabled)
+                return;
+            SceneManager.Instance.LaunchScene(SceneManager.Scene.DEMO);
+            enabled = false;
         }
     }
 }
