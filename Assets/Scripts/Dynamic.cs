@@ -67,7 +67,7 @@ namespace vbg
             }
 
 
-            if (soundActiveEventPlay != null && soundActiveEventPlay != "")
+            if (chaotic != 0.0f || soundActiveEventPlay != null && soundActiveEventPlay != "")
             {
 
                 float movingDiff = (transform.position - lastPosition).magnitude;
@@ -172,6 +172,15 @@ namespace vbg
             if (activeColliders.Contains(col))
             {
                 activeColliders.Remove(col);
+            }
+        }
+
+        private void LateUpdate()
+        {
+            if (float.IsNaN(transform.position.x) || float.IsNaN(transform.position.y) || float.IsNaN(transform.position.z))
+            {
+                //Debug.LogError("Infinite Burger " + gameObject, gameObject);
+                Destroy(gameObject);
             }
         }
     }
