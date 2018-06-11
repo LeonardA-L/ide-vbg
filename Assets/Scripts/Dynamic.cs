@@ -30,6 +30,7 @@ namespace vbg
         void Start()
         {
             rb = GetComponent<Rigidbody>();
+            rb.maxDepenetrationVelocity = 3.0f;
             health = GetComponent<CharacterHealth>();
             lastPosition = transform.position;
         }
