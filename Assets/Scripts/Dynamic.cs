@@ -67,7 +67,7 @@ namespace vbg
             }
 
 
-            if (soundActiveEventPlay != null && soundActiveEventPlay != "")
+            if (chaotic != 0.0f || soundActiveEventPlay != null && soundActiveEventPlay != "")
             {
 
                 float movingDiff = (transform.position - lastPosition).magnitude;
