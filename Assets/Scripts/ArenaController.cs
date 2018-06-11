@@ -24,6 +24,7 @@ namespace vbg
         void Start()
         {
             timerMax = timer;
+            SwitchManager.Instance.SetValue("ArenaTimerRatio", 1);
         }
 
         // Update is called once per frame
@@ -96,6 +97,7 @@ namespace vbg
             SwitchManager.Instance.SetSwitch(timerActiveSwitch, false);
             SwitchManager.Instance.SetSwitch("Arena_State_Pre", false);
             SwitchManager.Instance.SetValue("ArenaCollector", 0);
+            SwitchManager.Instance.SetValue("ArenaTimerRatio", 1);
             GameObject old = GameObject.FindGameObjectWithTag("ArenaGameplay");
             GameObject.Destroy(old);
             GameObject newArena = GameObject.Instantiate(arenaPrefab, transform.parent);
