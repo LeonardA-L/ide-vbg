@@ -550,7 +550,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1901098288349274}
   m_LocalRotation: {x: -0, y: 0.069507875, z: -0, w: 0.9975814}
-  m_LocalPosition: {x: 136.33038, y: 45.2975, z: 53.315742}
+  m_LocalPosition: {x: 173.93373, y: 54.3, z: 59.877502}
   m_LocalScale: {x: 1.3468323, y: 1.3468317, z: 1.3468317}
   m_Children:
   - {fileID: 4888740084084694}
@@ -1650,7 +1650,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: Play_chest_DEBRIS
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114068956365960460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1664,6 +1666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
+  initialVelocityOwnerReference: 0
   owner: {fileID: 0}
   destroyParent: 0
   destroyParentParent: 0
@@ -1684,6 +1687,7 @@ MonoBehaviour:
     ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
+    asVelocity: 0
   switchImpact:
     active: 0
     name: 
@@ -1734,9 +1738,10 @@ MonoBehaviour:
       lerp: 1
   audioImpact:
     active: 1
-    startEvent: Play_chest_DESTRUCTION
+    startEvent: Play_table_DESTRUCTION
     endEvent: 
     useActivatorTransform: 0
+    useOwnerTransform: 0
     switchNames: []
     switchValues: []
   scriptImpact:
@@ -1768,7 +1773,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: Play_chest_DEBRIS
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114151326192238452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1786,7 +1793,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: Play_chest_DEBRIS
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114207893372586922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1804,7 +1813,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: Play_chest_DEBRIS
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114260033683919728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1822,7 +1833,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: Play_chest_DEBRIS
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114305282996929544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1840,7 +1853,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: Play_chest_DEBRIS
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114385248013395690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1855,6 +1870,7 @@ MonoBehaviour:
   finishPrefab: {fileID: 1023827041534684, guid: 64a5b0638eac08848895a6ed28f1b80d,
     type: 2}
   initialVelocity: {x: 0, y: 0, z: 0}
+  initialVelocityOwnerReference: 0
   owner: {fileID: 0}
   destroyParent: 0
   destroyParentParent: 0
@@ -1875,6 +1891,7 @@ MonoBehaviour:
     ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
+    asVelocity: 0
   switchImpact:
     active: 0
     name: 
@@ -1928,6 +1945,7 @@ MonoBehaviour:
     startEvent: 
     endEvent: 
     useActivatorTransform: 0
+    useOwnerTransform: 0
     switchNames: []
     switchValues: []
   scriptImpact:
@@ -1972,7 +1990,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: Play_chest_DEBRIS
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114650617622340648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1990,7 +2010,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: Play_chest_DEBRIS
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114667706954227890
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2008,7 +2030,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: Play_chest_DEBRIS
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114730824454769990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2026,7 +2050,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: Play_chest_DEBRIS
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114737417386973250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2054,6 +2080,7 @@ MonoBehaviour:
   finishPrefab: {fileID: 1023827041534684, guid: 64a5b0638eac08848895a6ed28f1b80d,
     type: 2}
   initialVelocity: {x: 0, y: 0, z: 0}
+  initialVelocityOwnerReference: 0
   owner: {fileID: 0}
   destroyParent: 0
   destroyParentParent: 0
@@ -2074,6 +2101,7 @@ MonoBehaviour:
     ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
+    asVelocity: 0
   switchImpact:
     active: 0
     name: 
@@ -2127,6 +2155,7 @@ MonoBehaviour:
     startEvent: 
     endEvent: 
     useActivatorTransform: 0
+    useOwnerTransform: 0
     switchNames: []
     switchValues: []
   scriptImpact:
@@ -2158,7 +2187,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: Play_chest_DEBRIS
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114811583930044256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2189,7 +2220,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: Play_chest_DEBRIS
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114856967246098952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2220,7 +2253,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: Play_chest_DEBRIS
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114936051785683970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2238,7 +2273,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: Play_chest_DEBRIS
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114974860964425152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2253,6 +2290,7 @@ MonoBehaviour:
   finishPrefab: {fileID: 1023827041534684, guid: 64a5b0638eac08848895a6ed28f1b80d,
     type: 2}
   initialVelocity: {x: 0, y: 0, z: 0}
+  initialVelocityOwnerReference: 0
   owner: {fileID: 0}
   destroyParent: 0
   destroyParentParent: 0
@@ -2273,6 +2311,7 @@ MonoBehaviour:
     ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
+    asVelocity: 0
   switchImpact:
     active: 0
     name: 
@@ -2326,6 +2365,7 @@ MonoBehaviour:
     startEvent: 
     endEvent: 
     useActivatorTransform: 0
+    useOwnerTransform: 0
     switchNames: []
     switchValues: []
   scriptImpact:
