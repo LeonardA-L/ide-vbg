@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1312832615872630}
   m_LocalRotation: {x: -0, y: 0.25567293, z: -0, w: 0.9667634}
-  m_LocalPosition: {x: 7.9227653, y: 1.9912744e-16, z: 18.8821}
+  m_LocalPosition: {x: 25.890562, y: -1.2398327e-16, z: 33.433712}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -73,8 +73,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
+  initialVelocityOwnerReference: 0
   owner: {fileID: 0}
   destroyParent: 0
+  destroyParentParent: 0
   destroyOnWall: 0
   resetNotFinish: 0
   stable: 0
@@ -92,6 +94,7 @@ MonoBehaviour:
     ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
+    asVelocity: 0
   switchImpact:
     active: 0
     name: 
@@ -116,6 +119,7 @@ MonoBehaviour:
     triggerName: 
     boolName: 
     boolValue: 1
+    unstable: 0
   ownerImpact:
     active: 0
     paralyse: 0
@@ -124,15 +128,27 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
+    enableDefenseMode: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   creatureImpact:
     active: 0
     addGameEffect: {fileID: 0}
     asOwner: 1
+    vibration:
+      active: 0
+      force: 1
+      duration: 1
+      lerp: 1
   audioImpact:
-    active: 0
-    startEvent: 
+    active: 1
+    startEvent: Play_LEMUR_BUILD
     endEvent: 
     useActivatorTransform: 0
+    useOwnerTransform: 0
     switchNames: []
     switchValues: []
   scriptImpact:
