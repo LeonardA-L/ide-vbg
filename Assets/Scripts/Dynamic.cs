@@ -24,7 +24,8 @@ namespace vbg
 
         [Tooltip("A prefab to instantiate when the object dies")]
         public GameObject finishPrefab;
-
+        public string switchOnDeath;
+        
         // Use this for initialization
         void Start()
         {
@@ -97,6 +98,10 @@ namespace vbg
                 finishObject.transform.rotation = transform.rotation;
                 if(preserveScaleOnFinish)
                     finishObject.transform.localScale = transform.localScale;
+            }
+            if(switchOnDeath != null && switchOnDeath != "")
+            {
+                SwitchManager.Instance.SetSwitch(switchOnDeath, true);
             }
 
             if(health.chaosOnDeath != 0.0f)

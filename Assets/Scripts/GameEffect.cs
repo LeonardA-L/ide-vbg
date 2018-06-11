@@ -908,13 +908,13 @@ namespace vbg
                 return;
             }
 
-            ProcessSwitch();
-            ProcessValue();
             ProcessAnimator();
             ProcessOwnerImpact();
             ProcessAudioImpact();
             ProcessScriptImpact();
             ProcessActiveImpact(null);
+            ProcessSwitch();
+            ProcessValue();
             // Call last
             AfterProcessCommon();
             lastFrameProcessed = true;
@@ -949,8 +949,6 @@ namespace vbg
 
             ProcessPushForce(tr, rb, ref characterMovement);
             ProcessHealth(idy, go.tag);
-            ProcessSwitch();
-            ProcessValue();
             ProcessTeleport(tr, rb);
             ProcessAnimator();
             ProcessOwnerImpact();
@@ -958,6 +956,8 @@ namespace vbg
             ProcessAudioImpact(tr);
             ProcessScriptImpact();
             ProcessActiveImpact(go);
+            ProcessSwitch();
+            ProcessValue();
             // Call last
             AfterProcessCommon();
             lastFixedFrameProcessed = 0;

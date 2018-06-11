@@ -15,6 +15,8 @@ namespace vbg
         public delegate void FloatCallback(float floatValue);
         private Dictionary<string, List<FloatCallback>> floatValuesPubSub;
 
+        private bool commandsEnabled = true;
+
         public bool debugSwitches = false;
         public bool debugValues = false;
 
@@ -115,6 +117,8 @@ namespace vbg
 
         public void SetSwitch(string name, bool value)
         {
+            if (!commandsEnabled)
+                return;
             switches[name] = value;
             List<SwitchCallback> subscribers = null;
 
@@ -153,6 +157,8 @@ namespace vbg
 
         public void SetValue(string name, float value)
         {
+            if (!commandsEnabled)
+                return;
             floatValues[name] = value;
             List<FloatCallback> subscribers = null;
 
@@ -165,6 +171,11 @@ namespace vbg
                     vc(value);
                 }
             }
+        }
+
+        public void Disable()
+        {
+            commandsEnabled = false;
         }
     }
 }
