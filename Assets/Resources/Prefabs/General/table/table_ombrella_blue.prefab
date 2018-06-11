@@ -37,9 +37,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1125735782488796}
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1936045, y: -4.3397249e-16, z: 47.394382}
-  m_LocalScale: {x: 0.214466, y: 0.214466, z: 0.214466}
+  m_LocalRotation: {x: 0.000000013257676, y: 0.7950069, z: -0.000000017375427, w: 0.6066005}
+  m_LocalPosition: {x: 0.8239248, y: 0.94762415, z: 8.348783}
+  m_LocalScale: {x: 0.21446605, y: 0.214466, z: 0.21446605}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -97,9 +97,9 @@ Rigidbody:
   m_Drag: 0.2
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 1
-  m_Constraints: 126
+  m_Constraints: 0
   m_CollisionDetection: 2
 --- !u!64 &64255303333929656
 MeshCollider:
@@ -126,10 +126,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 111ded54215117c4fabdb0a47c997e19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minForceToEnableRigidbody: 0
+  minForceToEnableRigidbody: 1.1
   soundOnEnable: 
   chaotic: 1
   radius: 1
   soundActiveEventPlay: 
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
