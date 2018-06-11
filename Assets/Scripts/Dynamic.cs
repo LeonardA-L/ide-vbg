@@ -174,5 +174,14 @@ namespace vbg
                 activeColliders.Remove(col);
             }
         }
+
+        private void LateUpdate()
+        {
+            if (float.IsNaN(transform.position.x) || float.IsNaN(transform.position.y) || float.IsNaN(transform.position.z))
+            {
+                //Debug.LogError("Infinite Burger " + gameObject, gameObject);
+                Destroy(gameObject);
+            }
+        }
     }
 }
