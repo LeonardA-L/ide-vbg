@@ -146,6 +146,14 @@ namespace vbg
             public GameObject addGameEffect;
             public bool asOwner = true;
             public VibrationImpact vibration;
+
+            public bool paralyse;
+            public float speedFactor = 1.0f;
+            public float rotFactor = 1.0f;
+            public bool blockActions = false;
+            public bool disableGravity = false;
+            public float velocityEndFactor = 1.0f;
+            public bool enableDefenseMode = true;
         }
 
         [System.Serializable]
@@ -355,6 +363,23 @@ namespace vbg
                 if(ownerImpact.enableDefenseMode)
                 {
                     owner.SetDefenseMode(false);
+                }
+            }
+
+            if (creatureImpact.active && owner != null)
+            {
+                foreach (VBGCharacterController cc in impactedCharacters)
+                {
+                    cc.SetParalyzed(false);
+                    cc.SetSpeedFactor(1.0f);
+                    cc.SetRotFactor(1.0f);
+                    cc.SetBlockActions(false);
+                    cc.SetGravity(true);
+                    cc.MultiplyVelocity(creatureImpact.velocityEndFactor);
+                    if (creatureImpact.enableDefenseMode)
+                    {
+                        cc.SetDefenseMode(false);
+                    }
                 }
             }
 
@@ -852,6 +877,19 @@ namespace vbg
                 if (cvc != null)
                 {
                     cvc.SetVibration(creatureImpact.vibration.force, creatureImpact.vibration.duration, creatureImpact.vibration.lerp);
+                }
+            }
+
+            if (creatureImpact.active)
+            {
+                cc.SetParalyzed(creatureImpact.paralyse);
+                cc.SetSpeedFactor(creatureImpact.speedFactor);
+                cc.SetRotFactor(creatureImpact.rotFactor);
+                cc.SetBlockActions(creatureImpact.blockActions);
+                cc.SetGravity(!creatureImpact.disableGravity);
+                if (creatureImpact.enableDefenseMode)
+                {
+                    cc.SetDefenseMode(true);
                 }
             }
         }

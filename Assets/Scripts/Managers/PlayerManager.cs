@@ -7,6 +7,8 @@ namespace vbg
 {
     public class PlayerManager : MonoBehaviour
     {
+        private static readonly string PLAYERS_INGAME_VALUE = "PlayersInGame";
+        private bool valueInit = false;
 
         public struct Constants
         {
@@ -43,11 +45,15 @@ namespace vbg
             instance = this;
             controllersInGame = new Dictionary<int, CharacterUserControl>();
             players = new List<VBGCharacterController>();
-
         }
 
         void Update()
         {
+            if(!valueInit && SwitchManager.Instance != null)
+            {
+                SwitchManager.Instance.SetValue(PLAYERS_INGAME_VALUE, 0);
+                valueInit = true;
+            }
             if (playersInGame < Constants.PLAYERS_MAX)   // Check new players joining the game
             {
                 for (int controllerID = 0; controllerID <= Constants.CONTROLLER_LISTENER_MAX; controllerID++)
@@ -143,6 +149,8 @@ namespace vbg
             players.Add(tpuc.GetComponent<VBGCharacterController>());
 
             playersInGame++;
+
+            SwitchManager.Instance.SetValue(PLAYERS_INGAME_VALUE, playersInGame);
 
             VSFightingMap vs = GetComponent<VSFightingMap>();
             if (vs != null)
