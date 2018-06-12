@@ -14,6 +14,8 @@ namespace vbg
         public Transform target1;
         public Transform target2;
 
+        private float timer = 1;
+
         // Use this for initialization
         void Start()
         {
@@ -25,6 +27,14 @@ namespace vbg
         // Update is called once per frame
         void Update()
         {
+            if (!SwitchManager.Instance.GetSwitch("SokoStart"))
+                return;
+
+            timer -= Time.deltaTime;
+            timer = Mathf.Max(0, timer);
+            if (timer > 0)
+                return;
+
             int k = 0;
             Vector3 t1d = target1.position - crate1.position;
             t1d.y = 0;
@@ -51,10 +61,8 @@ namespace vbg
             if (SwitchManager.Instance.GetSwitch("Sokoban"))
                 return;
 
-            crate1.position = crate1StartPos;
-            crate1.GetComponent<MoveOnGrid>().Reset();
-            crate2.position = crate2StartPos;
-            crate2.GetComponent<MoveOnGrid>().Reset();
+            crate1.GetComponent<MoveOnGrid>().Reset(crate1StartPos);
+            crate2.GetComponent<MoveOnGrid>().Reset(crate2StartPos);
 
         }
     }

@@ -22,8 +22,15 @@ namespace vbg
         // Update is called once per frame
         void FixedUpdate()
         {
-            transform.position = Vector3.Lerp(transform.position, goal, 0.15f);
             temp -= Time.fixedDeltaTime;
+            
+            if((goal - transform.position).magnitude < 0.01)
+            {
+                transform.position = goal;
+            } else {
+
+                transform.position = Vector3.Lerp(transform.position, goal, 0.15f);
+            }
 
             //rb.MovePosition(Vector3.Lerp(transform.position, goal, 0.3f));
             /*if (lastPosition != transform.position)
@@ -104,9 +111,17 @@ namespace vbg
                 RaycastHit[] hits;
                 hits = Physics.RaycastAll(transform.position, disp, 2.0f);
                 Debug.DrawLine(transform.position, transform.position + disp * 2, Color.blue, 2.0f);
-                Debug.Log(hits.Length);
 
-                if (hits.Length == 0)
+                int i = hits.Length;
+                foreach(var h in hits)
+                {
+                    if(h.collider.tag == GameManager.Constants.TAG_NONTRIGGERCOLLIDER || h.collider.gameObject.layer == GameManager.Constants.LAYER_SOUND)
+                    {
+                        i--;
+                    }
+                }
+
+                if (i == 0)
                 {
                     goal += disp * 2;
                     temp = wait;
@@ -120,9 +135,10 @@ namespace vbg
             lockPos = true;
         }
 
-        public void Reset()
+        public void Reset(Vector3 newPosition)
         {
-            goal = transform.position;
+            goal = newPosition;
+            rb.velocity = new Vector3();
         }
     }
 }
