@@ -632,7 +632,7 @@ namespace vbg
                 }
                 if(rb != null && tag == GameManager.Constants.TAG_PLAYER)
                 {
-                    if (!healthImpact.friendlyFire && rb.tag == tag)
+                    if (!healthImpact.friendlyFire && gameObject.tag == tag)
                     {
                         return;
                     }

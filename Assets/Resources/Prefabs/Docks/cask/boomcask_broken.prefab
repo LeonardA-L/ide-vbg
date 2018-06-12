@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 114330226289017302}
   m_Layer: 0
   m_Name: BigArrowExplosion
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1463,6 +1463,7 @@ MonoBehaviour:
   soundActiveEventStop: 
   preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114031892131031036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1546,6 +1547,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -1585,6 +1593,7 @@ MonoBehaviour:
   soundActiveEventStop: 
   preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114051785352885516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1604,6 +1613,7 @@ MonoBehaviour:
   soundActiveEventStop: 
   preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114060539389271458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1623,6 +1633,7 @@ MonoBehaviour:
   soundActiveEventStop: 
   preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114093451105264254
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1642,6 +1653,7 @@ MonoBehaviour:
   soundActiveEventStop: 
   preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114153601483011514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1685,6 +1697,7 @@ MonoBehaviour:
   soundActiveEventStop: 
   preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114250154409111142
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1704,6 +1717,7 @@ MonoBehaviour:
   soundActiveEventStop: 
   preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114251963394537530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1723,6 +1737,7 @@ MonoBehaviour:
   soundActiveEventStop: 
   preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114293295206962528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1755,6 +1770,7 @@ MonoBehaviour:
   soundActiveEventStop: 
   preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114309325493574000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1774,6 +1790,7 @@ MonoBehaviour:
   soundActiveEventStop: 
   preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114328348963178776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1793,6 +1810,7 @@ MonoBehaviour:
   soundActiveEventStop: 
   preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114330226289017302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1823,6 +1841,7 @@ MonoBehaviour:
   soundActiveEventStop: 
   preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114434363335505348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1852,7 +1871,7 @@ MonoBehaviour:
   pushForce:
     active: 1
     pushForceVector: {x: 0, y: 0, z: 0}
-    pushForceNorm: 70
+    pushForceNorm: 90
     pushForceIsOmnidirectional: 1
     ownerAsReference: 0
     pushForceNoY: 1
@@ -1906,6 +1925,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -1958,6 +1984,7 @@ MonoBehaviour:
   soundActiveEventStop: 
   preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114526411637748340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1977,6 +2004,7 @@ MonoBehaviour:
   soundActiveEventStop: 
   preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114546764232794496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2007,6 +2035,7 @@ MonoBehaviour:
   soundActiveEventStop: 
   preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114654121026964444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2026,6 +2055,7 @@ MonoBehaviour:
   soundActiveEventStop: 
   preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114741152515004814
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2123,6 +2153,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 1
     startEvent: ARTE_BIG_EXPLOSION
@@ -2226,6 +2263,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 1
     startEvent: Play_cask_DESTRUCTION
@@ -2265,6 +2309,7 @@ MonoBehaviour:
   soundActiveEventStop: 
   preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114893925771944524
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2299,6 +2344,7 @@ MonoBehaviour:
   soundActiveEventStop: 
   preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114948258257630376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2318,6 +2364,7 @@ MonoBehaviour:
   soundActiveEventStop: 
   preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114963697367869022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2337,6 +2384,7 @@ MonoBehaviour:
   soundActiveEventStop: 
   preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!135 &135813166595398278
 SphereCollider:
   m_ObjectHideFlags: 1

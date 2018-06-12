@@ -53,7 +53,7 @@ namespace vbg
                     force = 0;
                 }
                 duration = Mathf.Max(duration, 0);
-                GamePad.SetVibration(controllerID, force, force);
+                GamePad.SetVibration(controllerID, force * GLOBAL_FACTOR, force * GLOBAL_FACTOR);
             }
         }
 
