@@ -611,7 +611,7 @@ namespace vbg
             impactedCharacters.Remove(dy);
         }
 
-        private void ProcessHealth(IDynamic idy, string tag)
+        private void ProcessHealth(IDynamic idy, string tag, Rigidbody rb)
         {
             if (!healthImpact.active)
                 return;
@@ -626,6 +626,13 @@ namespace vbg
                 if (owner != null)
                 {
                     if(!healthImpact.friendlyFire && owner.tag == tag)
+                    {
+                        return;
+                    }
+                }
+                if(rb != null && tag == GameManager.Constants.TAG_PLAYER)
+                {
+                    if (!healthImpact.friendlyFire && rb.tag == tag)
                     {
                         return;
                     }
@@ -986,7 +993,7 @@ namespace vbg
             //Debug.Log("Process On Collision " + gameObject.name + " " + rb.gameObject.name);
 
             ProcessPushForce(tr, rb, ref characterMovement);
-            ProcessHealth(idy, go.tag);
+            ProcessHealth(idy, go.tag, rb);
             ProcessTeleport(tr, rb);
             ProcessAnimator();
             ProcessOwnerImpact();

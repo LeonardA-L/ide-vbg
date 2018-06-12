@@ -346,6 +346,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -490,6 +497,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 1
     startEvent: Play_DASH
@@ -596,7 +610,7 @@ MonoBehaviour:
     active: 1
     impact: -10
     impactPerFrame: 1
-    friendlyFire: 1
+    friendlyFire: 0
   pushForce:
     active: 1
     pushForceVector: {x: 0, y: 0, z: 0}
@@ -654,6 +668,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 1
     startEvent: Play_SPECIALS_HEPHA_IMPACT
