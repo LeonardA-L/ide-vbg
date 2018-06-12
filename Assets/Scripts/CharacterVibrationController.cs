@@ -7,6 +7,8 @@ namespace vbg
 {
     public class CharacterVibrationController : MonoBehaviour
     {
+        private static readonly float GLOBAL_FACTOR = 0.6f;
+
         private PlayerIndex controllerID;
         private bool set = false;
         private VBGCharacterController cc;
