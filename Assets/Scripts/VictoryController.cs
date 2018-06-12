@@ -12,6 +12,8 @@ namespace vbg
             GameObject[] ennemies = GameObject.FindGameObjectsWithTag(GameManager.Constants.TAG_ENNEMY);
             foreach (GameObject ennemy in ennemies)
             {
+                if (ennemy == null || ennemy.GetComponent<VBGCharacterController>() == null)
+                    continue;
                 GameObject fx = GameObject.Instantiate(fxPrefab);
                 fx.transform.position = ennemy.transform.position;
                 ennemy.GetComponent<VBGCharacterController>().Damage(-1000);

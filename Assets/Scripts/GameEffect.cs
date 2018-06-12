@@ -880,7 +880,7 @@ namespace vbg
                 }
             }
 
-            if (creatureImpact.active)
+            if (creatureImpact.active && cc != null)
             {
                 cc.SetParalyzed(creatureImpact.paralyse);
                 cc.SetSpeedFactor(creatureImpact.speedFactor);

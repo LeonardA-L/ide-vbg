@@ -2930,7 +2930,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4991466452067856}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4556617884044504
 Transform:
@@ -3023,7 +3023,6 @@ Transform:
   - {fileID: 4327575615030474}
   - {fileID: 4804185106301334}
   - {fileID: 4421281390975658}
-  - {fileID: 4736461157121448}
   - {fileID: 4907312097813428}
   m_Father: {fileID: 4247883347694084}
   m_RootOrder: 8
@@ -3142,8 +3141,8 @@ Transform:
   m_LocalPosition: {x: 3.300003, y: -5.1499977, z: -7.4799957}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4633194426449630}
-  m_RootOrder: 3
+  m_Father: {fileID: 4991466452067856}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4748740903288336
 Transform:
@@ -3404,7 +3403,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4633194426449630}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4915708612334750
 Transform:
@@ -3508,7 +3507,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4991466452067856}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4949445693029554
 Transform:
@@ -3600,6 +3599,7 @@ Transform:
   m_Children:
   - {fileID: 4423372614180210}
   - {fileID: 4035183574252546}
+  - {fileID: 4736461157121448}
   - {fileID: 4556443758657540}
   - {fileID: 4945640998950888}
   m_Father: {fileID: 4247883347694084}
@@ -5338,6 +5338,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 1
     startEvent: Play_M_THEME_BAGARRE_BOUZ
@@ -5441,6 +5448,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 1
     startEvent: Play_PressSwitch
@@ -5594,6 +5608,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 1
     startEvent: Play_M_THEME_BAGARRE_SAZ
@@ -5711,6 +5732,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -5757,7 +5785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40012bb8a706d4441b807a01b10bd24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vfxPrefab: {fileID: 1831242073200886, guid: 9353ed627967c4245b31acd0e372fab1, type: 2}
+  vfxPrefab: {fileID: 1992857089697350, guid: 71e500c1a1323ec48934ba51d58c5f92, type: 2}
   followParentPosition: 0
   followParentRotation: 0
   endOnDestroy: 1
@@ -5871,6 +5899,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -6027,6 +6062,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -6145,6 +6187,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -6249,6 +6298,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -6379,6 +6435,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -6483,6 +6546,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -6612,6 +6682,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -6717,6 +6794,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -6822,6 +6906,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -6926,6 +7017,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -7030,6 +7128,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -7175,6 +7280,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -7304,6 +7416,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -7409,6 +7528,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -7537,6 +7663,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -7641,6 +7774,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -7745,6 +7885,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -7849,6 +7996,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -7953,6 +8107,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -8056,6 +8217,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 1
     startEvent: Play_M_THEME_BAGARRE_GTR2
@@ -8173,6 +8341,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -8309,6 +8484,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -8413,6 +8595,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 1
     startEvent: Play_M_THEME_VILLAGE_FIN
@@ -8556,6 +8745,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -8660,6 +8856,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -8763,6 +8966,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -8867,6 +9077,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -9035,6 +9252,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -9151,6 +9375,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 1
     startEvent: Play_PressSwitch
@@ -9270,6 +9501,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -9375,6 +9613,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -9506,6 +9751,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 1
     startEvent: Play_M_THEME_BAGARRE_PERC2
@@ -9610,6 +9862,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -9727,6 +9986,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -9831,6 +10097,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -9961,6 +10234,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -10064,6 +10344,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -10168,6 +10455,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -10326,6 +10620,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -10443,6 +10744,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: Play_M_THEME_VILLAGE_FIN
@@ -10575,6 +10883,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -10678,6 +10993,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 1
     startEvent: Play_M_THEME_BAGARRE_ST
@@ -10808,6 +11130,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -10912,6 +11241,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -11042,6 +11378,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -11171,6 +11514,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 1
     startEvent: Play_M_THEME_BAGARRE_ACC
@@ -11313,6 +11663,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -11416,6 +11773,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -11521,6 +11885,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -11650,6 +12021,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -11754,6 +12132,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -11872,6 +12257,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
@@ -11975,6 +12367,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 1
     startEvent: Play_M_THEME_BAGARRE_PERC1
@@ -12006,7 +12405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40012bb8a706d4441b807a01b10bd24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vfxPrefab: {fileID: 1831242073200886, guid: 9353ed627967c4245b31acd0e372fab1, type: 2}
+  vfxPrefab: {fileID: 1992857089697350, guid: 71e500c1a1323ec48934ba51d58c5f92, type: 2}
   followParentPosition: 0
   followParentRotation: 0
   endOnDestroy: 1
@@ -12135,6 +12534,13 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 0
     startEvent: 
