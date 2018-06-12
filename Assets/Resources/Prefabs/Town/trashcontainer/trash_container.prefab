@@ -100,7 +100,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1604493623243710
 GameObject:
@@ -117,7 +117,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1995453486056288
 GameObject:
@@ -170,8 +170,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1565767413468484}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 154.97, y: 43.21112, z: -19.95}
+  m_LocalRotation: {x: -0, y: -0.7786979, z: -0, w: 0.627399}
+  m_LocalPosition: {x: -134.09312, y: -27.460003, z: -115.86134}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4772806905870664}
@@ -182,7 +182,7 @@ Transform:
   - {fileID: 4073956017877156}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -102.283005, z: 0}
 --- !u!4 &4559386436595054
 Transform:
   m_ObjectHideFlags: 1
@@ -558,6 +558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2076ca5f53def4ca367acfb735ab38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_groundType: 0
+  hideRenderInGame: 1
 --- !u!114 &114397480724858166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -569,6 +571,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2076ca5f53def4ca367acfb735ab38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_groundType: 0
+  hideRenderInGame: 1
 --- !u!114 &114871160526811726
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -580,6 +584,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2076ca5f53def4ca367acfb735ab38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_groundType: 0
+  hideRenderInGame: 1
 --- !u!114 &114911523594644618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -591,6 +597,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2076ca5f53def4ca367acfb735ab38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_groundType: 0
+  hideRenderInGame: 1
 --- !u!114 &114926576058995234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -602,3 +610,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2076ca5f53def4ca367acfb735ab38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_groundType: 0
+  hideRenderInGame: 1
