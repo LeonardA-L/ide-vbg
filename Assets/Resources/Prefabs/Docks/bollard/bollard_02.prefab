@@ -21,12 +21,13 @@ GameObject:
   - component: {fileID: 4214662245777216}
   - component: {fileID: 33932437887975022}
   - component: {fileID: 23967976734712260}
+  - component: {fileID: 65554920353876220}
   m_Layer: 0
   m_Name: bollard_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4214662245777216
 Transform:
@@ -34,13 +35,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1102534147887232}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 19.901915, y: 6.319709e-18, z: 27.565386}
+  m_LocalRotation: {x: -0.6532975, y: -0.27055952, z: -0.27055952, w: 0.6532975}
+  m_LocalPosition: {x: -62.253128, y: -47.64938, z: -98.6582}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -44.993004}
 --- !u!23 &23967976734712260
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -54,6 +55,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -82,3 +84,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1102534147887232}
   m_Mesh: {fileID: 4300000, guid: 3dfef2bc19c4f224ead0378c6db709fa, type: 3}
+--- !u!65 &65554920353876220
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1102534147887232}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000002, y: 0.8000003, z: 0.89999974}
+  m_Center: {x: -0.000007667322, y: 0.0000037989898, z: 0.45000362}
