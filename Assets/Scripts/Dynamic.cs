@@ -179,7 +179,7 @@ namespace vbg
         {
             if (float.IsNaN(transform.position.x) || float.IsNaN(transform.position.y) || float.IsNaN(transform.position.z))
             {
-                //Debug.LogError("Infinite Burger " + gameObject, gameObject);
+                Debug.LogError("Infinite Burger " + gameObject, gameObject);
                 Destroy(gameObject);
             }
         }
