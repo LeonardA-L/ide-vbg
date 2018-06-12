@@ -59,7 +59,7 @@ namespace vbg
 
 
         // Fixed update is called in sync with physics
-        private void Update()
+        private void FixedUpdate()
         {
             if(controllerID < 0)
             {
