@@ -54,6 +54,7 @@ public class Credit : MonoBehaviour {
             Scene scene = SceneManager.GetActiveScene();
             creditStringID = scene.name + "_" + max;
             creditID = max;
+            Debug.Log(creditID);
         }
     }
 }
