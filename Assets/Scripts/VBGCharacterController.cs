@@ -83,6 +83,8 @@ namespace vbg
             }
         }
 
+        public int playerID = -1;
+
         // Components
         private Rigidbody rb;
         private UnityEngine.Collider col;

@@ -448,7 +448,6 @@ namespace vbg
                 {
                     animator = owner.GetComponent<Animator>();
                 }
-
                 animator.SetBool(animatorImpact.boolName, !animatorImpact.boolValue);
             }
 

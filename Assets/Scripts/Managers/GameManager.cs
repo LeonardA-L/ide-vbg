@@ -16,6 +16,8 @@ namespace vbg
         private bool pauseButtonIsDown = false;
         private bool endScreen = false;
 
+        public bool removeDeadPlayers = false;
+
         public GameObject victoryScreen;
         public GameObject deathScreen;
         public GameObject deathArenaScreen;
@@ -121,6 +123,11 @@ namespace vbg
 
         public void OnDeath(VBGCharacterController player)
         {
+            if(removeDeadPlayers && player.playerID == 2)
+            {
+                PlayerManager.Instance.Remove(player);
+            }
+
             VSFightingMap vs = GetComponent<VSFightingMap>();
             if(vs != null)
             {

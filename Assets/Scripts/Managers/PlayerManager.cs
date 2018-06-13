@@ -147,6 +147,7 @@ namespace vbg
 
             controllersInGame.Add(_controllerID, tpuc);
             players.Add(tpuc.GetComponent<VBGCharacterController>());
+            tpuc.GetComponent<VBGCharacterController>().playerID = playersInGame;
 
             playersInGame++;
 
@@ -194,6 +195,13 @@ namespace vbg
         public List<VBGCharacterController> GetAllPlayersInGame()
         {
             return players;
+        }
+
+        public void Remove(VBGCharacterController player)
+        {
+            players.Remove(player);
+            playersInGame--;
+            SwitchManager.Instance.SetSwitch("P" + player.playerID, false);
         }
     }
 }
