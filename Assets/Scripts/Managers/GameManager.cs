@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using XInputDotNetPure;
 
@@ -78,6 +79,8 @@ namespace vbg
                     startPoints.Add(spawn);
                 }
             }
+            startPoints = startPoints.OrderBy(o => o.name).ToList();
+
 
             Debug.Log("Game initialized. " + spawnPoints.Count + " spawn points including " + startPoints.Count + " start points.");
         }
