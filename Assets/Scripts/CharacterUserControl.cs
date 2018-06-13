@@ -19,7 +19,7 @@ namespace vbg
         private bool m_modifierCanceled;
         private bool m_triggerModActive = false;
 
-        private int controllerID = -1;
+        public int controllerID = -1;
 
         private VBGCharacterController m_Character; // A reference to the ThirdPersonCharacter on the object
         private Transform m_Cam;                  // A reference to the main camera in the scenes transform

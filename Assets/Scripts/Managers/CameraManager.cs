@@ -12,6 +12,7 @@ namespace vbg
             FOLLOW,
             SCENE,
             ANIMATED,
+            FREE,
             NONE
         }
 
@@ -79,6 +80,10 @@ namespace vbg
         // Update is called once per frame
         void Update()
         {
+            if (m_currentMode == CameraType.FREE)
+            {
+            }
+
             if (m_currentMode == CameraType.SCENE)
             {
                 m_cam.position = Vector3.Lerp(m_cam.position, m_cameraToFollow.position, m_positionSmooth);
@@ -216,6 +221,11 @@ namespace vbg
             m_cameraToFollow = _newCameraToFollow;
             m_refAnimator = _cameraAnimator;
             m_actualRatio = -1;
+        }
+
+        public void SetFreeSettings()
+        {
+            m_currentMode = CameraType.FREE;
         }
     }
 }
