@@ -6,6 +6,7 @@ namespace vbg
 {
     public class Dynamic : MonoBehaviour, IDynamic
     {
+        private static readonly float movingThr = 0.02f;
 
         private List<GameEffect> activeGameEffects = new List<GameEffect>();
         private Rigidbody rb;
@@ -71,7 +72,6 @@ namespace vbg
             {
 
                 float movingDiff = (transform.position - lastPosition).magnitude;
-                float movingThr = 0.02f;
 
                 if (movingDiff > movingThr)
                 {

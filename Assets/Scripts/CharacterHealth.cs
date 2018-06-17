@@ -25,6 +25,10 @@ namespace vbg
         // Update is called once per frame
         void Update()
         {
+            if (impactThreshold <= 0.0f)
+            {
+                return;
+            }
             lastPosition = transform.position;
             // Poison ?
         }
