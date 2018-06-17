@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 33134861118998776}
   - component: {fileID: 23138126373437358}
   - component: {fileID: 114128975267945018}
-  - component: {fileID: 64566838663627198}
   - component: {fileID: 54480775209811232}
+  - component: {fileID: 65292894907722932}
   m_Layer: 0
   m_Name: fish
   m_TagString: Dynamic
@@ -37,13 +37,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1989239006089118}
-  m_LocalRotation: {x: -0.7071068, y: -0.000000021073424, z: 0.000000021073424, w: 0.7071068}
-  m_LocalPosition: {x: 4.188, y: -0.02, z: 36.574}
+  m_LocalRotation: {x: -0.37103096, y: -0.60194355, z: -0.60194355, w: 0.37103093}
+  m_LocalPosition: {x: -60.14995, y: -48.159054, z: -101.70558}
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -116.702}
 --- !u!23 &23138126373437358
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -101,8 +101,8 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!64 &64566838663627198
-MeshCollider:
+--- !u!65 &65292894907722932
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -110,11 +110,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: ecb73efd2b8940449aa2824714a07925, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.023693752, y: 0.00774109, z: 0.002348578}
+  m_Center: {x: 0.0034663812, y: 0.002643525, z: 0.0007645109}
 --- !u!114 &114128975267945018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,3 +132,4 @@ MonoBehaviour:
   soundActiveEventStop: 
   preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 

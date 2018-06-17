@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4111209110076642}
   - component: {fileID: 33858108786401604}
   - component: {fileID: 23572846118590610}
-  - component: {fileID: 64069408653415926}
   - component: {fileID: 54358390503462864}
   - component: {fileID: 114807967347880000}
   - component: {fileID: 114051192398860368}
+  - component: {fileID: 65708364531219770}
   m_Layer: 0
   m_Name: cardboard-box_01
   m_TagString: Dynamic
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1411474534078928}
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.592411, y: -5.075385e-16, z: 50.707504}
+  m_LocalPosition: {x: -57.28669, y: 54.097946, z: -93.103836}
   m_LocalScale: {x: 0.65683603, y: 0.65683603, z: 0.65683603}
   m_Children: []
   m_Father: {fileID: 0}
@@ -58,6 +58,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -101,8 +102,8 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!64 &64069408653415926
-MeshCollider:
+--- !u!65 &65708364531219770
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -110,11 +111,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 6659679ad9901ab478e177bec7e2a0e4, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.95, y: 0.67, z: 0.77}
+  m_Center: {x: -0.02, y: 0.36, z: -0.02}
 --- !u!114 &114051192398860368
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -148,5 +147,7 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: 
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 1543655939356628, guid: c62e9b365a055694bab214e80ede3259,
     type: 2}
+  switchOnDeath: 

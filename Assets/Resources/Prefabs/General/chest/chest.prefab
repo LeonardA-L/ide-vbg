@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4963259876368940}
   - component: {fileID: 33874138185996976}
   - component: {fileID: 23762599021816012}
-  - component: {fileID: 64567156053630578}
   - component: {fileID: 54872149999679576}
   - component: {fileID: 114365545776875806}
   - component: {fileID: 114323603552848424}
+  - component: {fileID: 65142037165857554}
   m_Layer: 0
   m_Name: chest
   m_TagString: Dynamic
@@ -38,13 +38,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1075133750888880}
-  m_LocalRotation: {x: -0.0000000057733454, y: 0.4986945, z: -0.00000002107938, w: 0.86677784}
-  m_LocalPosition: {x: 1.3139353, y: 9.659534, z: -5.403579}
-  m_LocalScale: {x: 0.14, y: 0.14, z: 0.14}
+  m_LocalRotation: {x: -0.000000020392493, y: -0.40170798, z: -0.000000007862451,
+    w: 0.9157679}
+  m_LocalPosition: {x: -183.32, y: -24.73, z: -210.24}
+  m_LocalScale: {x: 0.14000005, y: 0.14, z: 0.14000005}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 14.827001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -47.370003, z: 0}
 --- !u!23 &23762599021816012
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -102,8 +103,8 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!64 &64567156053630578
-MeshCollider:
+--- !u!65 &65142037165857554
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -111,11 +112,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 313ee58577477b24fb415ae437a83d2a, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 11.09, y: 9.45, z: 8.54}
+  m_Center: {x: -0.10599972, y: 0.26765874, z: -0.037489895}
 --- !u!114 &114323603552848424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,5 +148,7 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: Play_chest
   soundActiveEventStop: Stop_chest
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 1901098288349274, guid: 684feb41c13c00947b62a75add6332e4,
     type: 2}
+  switchOnDeath: 

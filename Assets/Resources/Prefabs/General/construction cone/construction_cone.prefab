@@ -21,12 +21,28 @@ GameObject:
   - component: {fileID: 4108425945899322}
   - component: {fileID: 33900576112636320}
   - component: {fileID: 23240433486116004}
-  - component: {fileID: 64772005363064380}
   - component: {fileID: 54616208501934942}
   - component: {fileID: 114527646117341600}
+  - component: {fileID: 136515812543233784}
   m_Layer: 0
   m_Name: construction_cone
   m_TagString: Dynamic
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1869709630036490
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4134555736297546}
+  - component: {fileID: 65197525497015156}
+  m_Layer: 0
+  m_Name: Stabilizer
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,11 +53,25 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1752441256347684}
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.499535, y: 3.093629e-16, z: 13.917536}
+  m_LocalRotation: {x: 0.000000011850643, y: -0.98785794, z: 0.00000001180573, w: 0.15535988}
+  m_LocalPosition: {x: -19.540161, y: -4.1124997, z: -1.4464183}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4134555736297546}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 31.329002, z: 0}
+--- !u!4 &4134555736297546
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1869709630036490}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.027, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 4108425945899322}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23240433486116004
@@ -101,20 +131,18 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!64 &64772005363064380
-MeshCollider:
+--- !u!65 &65197525497015156
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1752441256347684}
+  m_GameObject: {fileID: 1869709630036490}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 9c9aeab4391d9324684cdfd2a1fda087, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.52, y: 0.05, z: 0.52}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114527646117341600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,4 +160,19 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: Play_construction_cone
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
+--- !u!136 &136515812543233784
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1752441256347684}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.2
+  m_Height: 0.7419247
+  m_Direction: 1
+  m_Center: {x: -2.635846e-15, y: 0.37095854, z: 1.317923e-15}

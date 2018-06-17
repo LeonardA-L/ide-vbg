@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4237671850959350}
   - component: {fileID: 33254369581314894}
   - component: {fileID: 23940762687396112}
-  - component: {fileID: 64695222802202442}
   - component: {fileID: 54067837554184698}
   - component: {fileID: 114038565686488758}
   - component: {fileID: 114966873780695972}
+  - component: {fileID: 65737102471216072}
   m_Layer: 0
   m_Name: pallet_01
   m_TagString: Dynamic
@@ -38,13 +38,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1904772870254428}
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 36.721622, y: 3.2490675e-16, z: 13.217502}
+  m_LocalRotation: {x: 0.00000000852543, y: 0.61938405, z: -0.000000020124325, w: 0.78508824}
+  m_LocalPosition: {x: -7.5892906, y: 0, z: -12.947939}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -28.769001, z: 0}
 --- !u!23 &23940762687396112
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -58,6 +58,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -101,8 +102,8 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!64 &64695222802202442
-MeshCollider:
+--- !u!65 &65737102471216072
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -110,11 +111,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 863263fb0d1883741a8a23a45175594d, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.1, y: 0.14, z: 0.8890001}
+  m_Center: {x: 0.00061592465, y: 0.069992356, z: 0.0000076293945}
 --- !u!114 &114038565686488758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,8 +131,10 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: 
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 1327830526265434, guid: 2386c1a4757d3f74b8eb238c454050d2,
     type: 2}
+  switchOnDeath: 
 --- !u!114 &114966873780695972
 MonoBehaviour:
   m_ObjectHideFlags: 1

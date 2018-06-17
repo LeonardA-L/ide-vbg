@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4142039307477222}
   - component: {fileID: 33480435143588516}
   - component: {fileID: 23139430488548896}
-  - component: {fileID: 64779842059059176}
   - component: {fileID: 54076203268954738}
   - component: {fileID: 114076200891559008}
+  - component: {fileID: 65053433701985808}
   m_Layer: 0
   m_Name: tv_antenna
   m_TagString: Dynamic
@@ -37,13 +37,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1519529838497480}
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 152.73972, y: 45.2975, z: 76.73748}
+  m_LocalRotation: {x: 0.000000007747364, y: -0.93506444, z: 0.000000020436495, w: 0.35447788}
+  m_LocalPosition: {x: -113.97, y: -18.38, z: -140.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -138.477, z: 0}
 --- !u!23 &23139430488548896
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -101,8 +101,8 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!64 &64779842059059176
-MeshCollider:
+--- !u!65 &65053433701985808
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -110,11 +110,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: ead6132a1d7cf5045b6a13a944630f28, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 2.2517896, y: 2.814538, z: 1.0834525}
+  m_Center: {x: 1.0719674, y: 1.4208617, z: 0.0101395575}
 --- !u!114 &114076200891559008
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4851669993851344}
   - component: {fileID: 33826823861793196}
   - component: {fileID: 23689021341896446}
-  - component: {fileID: 64523829298820484}
   - component: {fileID: 54926057893490380}
   - component: {fileID: 114600529228615890}
   - component: {fileID: 114135244634513498}
+  - component: {fileID: 136607971264622276}
   m_Layer: 0
   m_Name: big_vase
   m_TagString: Dynamic
@@ -38,9 +38,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1502463121366292}
-  m_LocalRotation: {x: 0.08282729, y: -0.70223904, z: -0.70223904, w: -0.08282726}
-  m_LocalPosition: {x: 11.419154, y: -4.120987, z: 11.430839}
-  m_LocalScale: {x: 0.100000024, y: 0.10000007, z: 0.10000003}
+  m_LocalRotation: {x: -0.6532815, y: 0.27059802, z: 0.27059802, w: 0.6532815}
+  m_LocalPosition: {x: -136.45784, y: -24.07, z: -123.433525}
+  m_LocalScale: {x: 0.100000024, y: 0.09994483, z: 0.10000003}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -94,28 +94,14 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1502463121366292}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 2
+  m_Drag: 0.1
+  m_AngularDrag: 0.1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!64 &64523829298820484
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1502463121366292}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 76f8ed5d49914554e8c7a694decfd2fc, type: 3}
 --- !u!114 &114135244634513498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -153,3 +139,16 @@ MonoBehaviour:
   finishPrefab: {fileID: 1928180700877356, guid: a17d05314707739469e2ab9daccb54e5,
     type: 2}
   switchOnDeath: 
+--- !u!136 &136607971264622276
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1502463121366292}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 5.455157
+  m_Height: 10.636766
+  m_Direction: 1
+  m_Center: {x: 0.000015258787, y: 0.0000073909723, z: 4.5687933}

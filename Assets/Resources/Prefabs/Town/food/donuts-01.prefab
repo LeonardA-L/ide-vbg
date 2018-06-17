@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4555834650969968}
   - component: {fileID: 33235849530633468}
   - component: {fileID: 23878553292994278}
-  - component: {fileID: 64990858395826414}
   - component: {fileID: 54103005805534528}
   - component: {fileID: 114901192755014088}
+  - component: {fileID: 65550675661517478}
   m_Layer: 0
   m_Name: donuts-01
   m_TagString: Dynamic
@@ -37,8 +37,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1950579241065894}
-  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.992336, y: -10.02918, z: 2.6361618}
+  m_LocalRotation: {x: 0.000000013257676, y: 0.7950069, z: -0.000000017375427, w: 0.6066005}
+  m_LocalPosition: {x: 8.0378, y: 0.0639, z: -3.5794}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -57,6 +57,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -100,8 +101,8 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!64 &64990858395826414
-MeshCollider:
+--- !u!65 &65550675661517478
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -109,11 +110,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: c10b3731cd74a2246b64e98b9798590d, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.13, y: 0.049999997, z: 0.12}
+  m_Center: {x: -0.0000076293945, y: -0.0000038146973, z: 0.000022888184}
 --- !u!114 &114901192755014088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,4 +130,6 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: 
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 

@@ -36,9 +36,9 @@ GameObject:
   - component: {fileID: 4004006585001094}
   - component: {fileID: 33350186935552926}
   - component: {fileID: 23344256838819228}
-  - component: {fileID: 64783174344817342}
   - component: {fileID: 54053190579427260}
   - component: {fileID: 114545381380409914}
+  - component: {fileID: 65490102505800584}
   m_Layer: 0
   m_Name: cardboard_side002
   m_TagString: Untagged
@@ -56,9 +56,9 @@ GameObject:
   - component: {fileID: 4245430887463976}
   - component: {fileID: 33269172883642898}
   - component: {fileID: 23498984540275434}
-  - component: {fileID: 64230795411590956}
   - component: {fileID: 54014811962303546}
   - component: {fileID: 114538364312297118}
+  - component: {fileID: 65122515075698176}
   m_Layer: 0
   m_Name: cardboard_side003
   m_TagString: Untagged
@@ -76,9 +76,9 @@ GameObject:
   - component: {fileID: 4958544445898724}
   - component: {fileID: 33931649102345072}
   - component: {fileID: 23901567090362212}
-  - component: {fileID: 64374314269666544}
   - component: {fileID: 54998672315814624}
   - component: {fileID: 114099809402487440}
+  - component: {fileID: 65170944797369052}
   m_Layer: 0
   m_Name: cardboard_side005
   m_TagString: Untagged
@@ -96,9 +96,9 @@ GameObject:
   - component: {fileID: 4978968779484632}
   - component: {fileID: 33839617588755050}
   - component: {fileID: 23789337530575752}
-  - component: {fileID: 64101120211430250}
   - component: {fileID: 54999549768150840}
   - component: {fileID: 114888295826206268}
+  - component: {fileID: 65494420459755976}
   m_Layer: 0
   m_Name: cardboard_side004
   m_TagString: Untagged
@@ -133,9 +133,9 @@ GameObject:
   - component: {fileID: 4505602181322510}
   - component: {fileID: 33570884023627296}
   - component: {fileID: 23341724590825832}
-  - component: {fileID: 64676400448424548}
   - component: {fileID: 54026473996475004}
   - component: {fileID: 114114438151024134}
+  - component: {fileID: 65724139192753508}
   m_Layer: 0
   m_Name: cardboard_side001
   m_TagString: Untagged
@@ -162,8 +162,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1543655939356628}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.081782, y: 2.1672102e-16, z: 18.089752}
+  m_LocalRotation: {x: -0.4681263, y: -0.13905336, z: -0.3891267, w: 0.78109044}
+  m_LocalPosition: {x: -5.5928507, y: 3.86, z: -5.166481}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4004006585001094}
@@ -174,7 +174,7 @@ Transform:
   - {fileID: 4527228349498446}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -57.089005, y: -89.604004, z: -61.546}
 --- !u!4 &4245430887463976
 Transform:
   m_ObjectHideFlags: 1
@@ -457,14 +457,14 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1614918336223176}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.2
   m_Drag: 0.2
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 0
 --- !u!54 &54026473996475004
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -472,14 +472,14 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1849116418871028}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.2
   m_Drag: 0.2
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 0
 --- !u!54 &54053190579427260
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -487,14 +487,14 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1569197078028490}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.2
   m_Drag: 0.2
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 0
 --- !u!54 &54998672315814624
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -502,14 +502,14 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1638664189751762}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.2
   m_Drag: 0.2
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 0
 --- !u!54 &54999549768150840
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -517,30 +517,16 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1750999344322904}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.2
   m_Drag: 0.2
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
---- !u!64 &64101120211430250
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1750999344322904}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300006, guid: 261b3d88f20b06d438c7b8b55055ffc6, type: 3}
---- !u!64 &64230795411590956
-MeshCollider:
+  m_CollisionDetection: 0
+--- !u!65 &65122515075698176
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -548,13 +534,11 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300004, guid: 261b3d88f20b06d438c7b8b55055ffc6, type: 3}
---- !u!64 &64374314269666544
-MeshCollider:
+  serializedVersion: 2
+  m_Size: {x: 0.0072414475, y: 0.4565353, z: 0.5039446}
+  m_Center: {x: 0.0024923405, y: -0.000016093327, z: 0.000022888258}
+--- !u!65 &65170944797369052
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -562,27 +546,11 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300008, guid: 261b3d88f20b06d438c7b8b55055ffc6, type: 3}
---- !u!64 &64676400448424548
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1849116418871028}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 261b3d88f20b06d438c7b8b55055ffc6, type: 3}
---- !u!64 &64783174344817342
-MeshCollider:
+  serializedVersion: 2
+  m_Size: {x: 0.5925413, y: 0.007435969, z: 0.49615672}
+  m_Center: {x: -0.000007629469, y: 0.0024923403, z: 0.000027529968}
+--- !u!65 &65490102505800584
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -590,11 +558,33 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300002, guid: 261b3d88f20b06d438c7b8b55055ffc6, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.0072414475, y: 0.4565353, z: 0.5039446}
+  m_Center: {x: 0.0024847111, y: -0.000027537419, z: 0.000022888258}
+--- !u!65 &65494420459755976
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1750999344322904}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5925413, y: 0.0073996545, z: 0.48876074}
+  m_Center: {x: -7.413876e-11, y: 0.0024923403, z: 0.00003898896}
+--- !u!65 &65724139192753508
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1849116418871028}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5925413, y: 0.45653528, z: 0.0072414}
+  m_Center: {x: -0.0000076293195, y: -0.000019900424, z: 0.0025228579}
 --- !u!114 &114099809402487440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -612,7 +602,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: Play_cardboard_box_01_DEBRIS
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114114438151024134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -630,7 +622,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: Play_cardboard_box_01_DEBRIS
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114353362310693430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -644,6 +638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finishPrefab: {fileID: 0}
   initialVelocity: {x: 0, y: 0, z: 0}
+  initialVelocityOwnerReference: 0
   owner: {fileID: 0}
   destroyParent: 0
   destroyParentParent: 0
@@ -664,6 +659,7 @@ MonoBehaviour:
     ownerAsReference: 0
     pushForceNoY: 1
     pushForceDecreaseLength: 0
+    asVelocity: 0
   switchImpact:
     active: 0
     name: 
@@ -712,11 +708,19 @@ MonoBehaviour:
       force: 1
       duration: 1
       lerp: 1
+    paralyse: 0
+    speedFactor: 1
+    rotFactor: 1
+    blockActions: 0
+    disableGravity: 0
+    velocityEndFactor: 1
+    enableDefenseMode: 1
   audioImpact:
     active: 1
     startEvent: Play_cardboard_box_01_DESTRUCTION
     endEvent: 
     useActivatorTransform: 0
+    useOwnerTransform: 0
     switchNames: []
     switchValues: []
   scriptImpact:
@@ -748,7 +752,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: Play_cardboard_box_01_DEBRIS
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114545381380409914
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -766,7 +772,9 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: Play_cardboard_box_01_DEBRIS
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114816932962647928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -797,4 +805,6 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: Play_cardboard_box_01_DEBRIS
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 0}
+  switchOnDeath: 

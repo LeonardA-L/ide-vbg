@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4677284917729178}
   - component: {fileID: 33205711404616682}
   - component: {fileID: 23075498814879576}
-  - component: {fileID: 64121129828248358}
   - component: {fileID: 54629612427089082}
   - component: {fileID: 114097592856935826}
   - component: {fileID: 114157709067323720}
+  - component: {fileID: 65189999888764534}
   m_Layer: 0
   m_Name: cardboard-box_04
   m_TagString: Dynamic
@@ -38,8 +38,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1590111867287284}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 25.57962, y: -5.099306e-16, z: 50.81523}
+  m_LocalRotation: {x: -0.42893133, y: 0.5621547, z: 0.5621547, w: 0.42893133}
+  m_LocalPosition: {x: 3.2580342, y: 0.30648017, z: -6.6694803}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -58,6 +58,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -101,8 +102,8 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!64 &64121129828248358
-MeshCollider:
+--- !u!65 &65189999888764534
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -110,11 +111,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: de3f4f127b49eee44a5d4c3b34889092, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.59162223, y: 0.51167995, z: 0.47935733}
+  m_Center: {x: 0, y: -0.0000038146973, z: 0.23967867}
 --- !u!114 &114097592856935826
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,8 +131,10 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: 
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 1543655939356628, guid: c62e9b365a055694bab214e80ede3259,
     type: 2}
+  switchOnDeath: 
 --- !u!114 &114157709067323720
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4211632886338278}
   - component: {fileID: 33250497469243792}
   - component: {fileID: 23482510859762220}
-  - component: {fileID: 64749991302012910}
   - component: {fileID: 54385401621589938}
   - component: {fileID: 114471823254773702}
   - component: {fileID: 114817442497358240}
+  - component: {fileID: 65594359542239706}
   m_Layer: 0
   m_Name: cardboard-box_03
   m_TagString: Dynamic
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1559551541542616}
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.83315, y: -5.276824e-16, z: 51.6147}
+  m_LocalPosition: {x: -56.4982, y: 54.097946, z: -90.54254}
   m_LocalScale: {x: 0.65683603, y: 0.65683603, z: 0.65683603}
   m_Children: []
   m_Father: {fileID: 0}
@@ -58,6 +58,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: b11da9822b2b1be4ea208023e826fc03, type: 2}
   m_StaticBatchInfo:
@@ -101,8 +102,8 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!64 &64749991302012910
-MeshCollider:
+--- !u!65 &65594359542239706
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -110,11 +111,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 19bd904f277b66c46a7ea54384460d2d, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.9184775, y: 0.7057734, z: 0.81847745}
+  m_Center: {x: 0, y: 0.34711322, z: 0}
 --- !u!114 &114471823254773702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,8 +131,10 @@ MonoBehaviour:
   radius: 1
   soundActiveEventPlay: 
   soundActiveEventStop: 
+  preserveScaleOnFinish: 0
   finishPrefab: {fileID: 1543655939356628, guid: c62e9b365a055694bab214e80ede3259,
     type: 2}
+  switchOnDeath: 
 --- !u!114 &114817442497358240
 MonoBehaviour:
   m_ObjectHideFlags: 1
