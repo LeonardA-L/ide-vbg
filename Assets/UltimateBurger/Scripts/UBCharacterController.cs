@@ -5,7 +5,7 @@ using vbg;
 
 namespace ub
 {
-    public class UBCharacterController : MonoBehaviour
+    public class UBCharacterController : VBGCharacterController
     {
         public struct Request
         {
@@ -14,10 +14,11 @@ namespace ub
 
             public bool RBrake;
             public bool LBrake;
+
+            public bool attack;
         }
 
         private UBUserInput inputs;
-        private Rigidbody rb;
         public float maxThruster = 50;
         public float maxBrake = 10;
         public float shift = 0.5f;
@@ -26,10 +27,16 @@ namespace ub
         private Vector3 thrustDirection = new Vector3(0, 0, 1);
 
         // Use this for initialization
-        void Start()
+        protected void Start()
         {
+            base.Start();
             inputs = GetComponent<UBUserInput>();
             rb = GetComponent<Rigidbody>();
+        }
+
+        void Update()
+        {
+            ProcessCooldown(attack);
         }
 
         void FixedUpdate()
@@ -50,6 +57,12 @@ namespace ub
             //Debug.Log(rb.angularVelocity);
 
             rb.AddForce((req.LThruster + req.RThruster - rBrakeEffect - lBrakeEffect) * maxThruster * TransformToWorld(thrustDirection));
+
+            if (req.attack)
+            {
+                Debug.Log("Go");
+                ExecuteCommand(attack);
+            }
             /*
             RaycastHit hit;
             Ray groundRay = new Ray(transform.position, -transform.up);
@@ -60,6 +73,14 @@ namespace ub
                 transform.up = ground.up;
             }
             */
+
+            // Apply GameEffects
+            activeGameEffects.RemoveAll(item => item == null);
+            for (int idx = 0; idx < activeGameEffects.Count; idx++)
+            {
+                GameEffect ge = activeGameEffects[idx];
+                ge.ProcessOnCollision(this, rb, ref bodyMovement);
+            }
         }
 
         Vector3 TransformToWorld(Vector3 from)
@@ -79,5 +100,58 @@ namespace ub
             }
         }
         */
+
+
+        private bool ExecuteCommand(VBGCharacterController.GameEffectCommand command)
+        {
+            if (command.toInstanciate == null)
+                return false;
+
+            if (command.timer > 0.0f)
+            {
+                Debug.Log("Too soon");
+                return false;
+            }
+
+            command.timer = command.cooldown;
+
+            if (command.unique && command.previous != null)
+            {
+                return false;
+            }
+
+            GameObject geGameObject = Instantiate(command.toInstanciate, command.trueChild ? transform : null);
+            GameEffect gameEffect = geGameObject.GetComponent<GameEffect>();
+            List<GameEffect> effects = new List<GameEffect>();
+            if (gameEffect == null)
+            {
+                effects.AddRange(geGameObject.GetComponentsInChildren<GameEffect>());
+            }
+            else
+            {
+                effects.Add(gameEffect);
+            }
+
+            foreach (GameEffect ge in effects)
+            {
+                ge.SetOwner(this);
+            }
+
+            geGameObject.transform.position = transform.position;
+            geGameObject.transform.forward = transform.forward;
+            if (command.child)
+            {
+                if (gameEffect != null)
+                    gameEffect.FollowTransform(transform, true, false);
+                foreach (GameEffect ge in effects)
+                {
+                    if (ge == gameEffect)
+                        continue;
+                    ge.FollowTransform(transform, true, false, true);
+                }
+            }
+            command.previous = geGameObject;
+            return true;
+        }
     }
 }

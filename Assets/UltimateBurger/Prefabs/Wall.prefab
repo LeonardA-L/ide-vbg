@@ -41,9 +41,12 @@ GameObject:
   - component: {fileID: 65716689160814942}
   - component: {fileID: 23320994492088318}
   - component: {fileID: 114690519583714582}
+  - component: {fileID: 114784017239317018}
+  - component: {fileID: 65904929022952220}
+  - component: {fileID: 54155567287140256}
   m_Layer: 8
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Dynamic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -117,6 +120,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1908856856150900}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54155567287140256
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1908856856150900}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 2
+  m_Constraints: 126
+  m_CollisionDetection: 2
 --- !u!65 &65024821353393648
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -140,6 +158,18 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65904929022952220
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1908856856150900}
+  m_Material: {fileID: 13400000, guid: a4815882be4d6684f9b56c8025a8210b, type: 2}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1.16}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114340567077731386
 MonoBehaviour:
@@ -264,6 +294,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_groundType: 0
   hideRenderInGame: 1
+--- !u!114 &114784017239317018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1908856856150900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 111ded54215117c4fabdb0a47c997e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minForceToEnableRigidbody: 0
+  soundOnEnable: 
+  chaotic: 0
+  radius: 1
+  soundActiveEventPlay: 
+  soundActiveEventStop: 
+  preserveScaleOnFinish: 0
+  finishPrefab: {fileID: 0}
+  switchOnDeath: 
 --- !u!114 &114999712918099302
 MonoBehaviour:
   m_ObjectHideFlags: 1

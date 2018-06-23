@@ -84,11 +84,11 @@ namespace vbg
         }
 
         // Components
-        private Rigidbody rb;
-        private UnityEngine.Collider col;
-        private CharacterHealth health;
-        private Animator animator;
-        private HUDHelper hudHelper;
+        protected Rigidbody rb;
+        protected UnityEngine.Collider col;
+        protected CharacterHealth health;
+        protected Animator animator;
+        protected HUDHelper hudHelper;
 
         // Parameters
         public float speed = 6;
@@ -118,9 +118,9 @@ namespace vbg
         public float lastDirectionNorm;
         public bool lastStrafe = false;
         public Action action;
-        private List<GameEffect> activeGameEffects;
+        protected List<GameEffect> activeGameEffects;
         private bool weaponIsActive;
-        private Vector3 bodyMovement;
+        protected Vector3 bodyMovement;
         public bool isGrounded;
         private float deathTimer = 0.0f;
         public bool canMove = true;
@@ -148,7 +148,7 @@ namespace vbg
         public GameObject finishPrefab;
 
         // Use this for initialization
-        void Start()
+        protected void Start()
         {
             rb = GetComponent<Rigidbody>();
             activeGameEffects = new List<GameEffect>();
@@ -242,7 +242,7 @@ namespace vbg
             }
         }
 
-        private void ProcessCooldown(GameEffectCommand gec)
+        protected void ProcessCooldown(GameEffectCommand gec)
         {
             if (gec != null)
             {
