@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114290147079363306}
   - component: {fileID: 114793356527470732}
   m_Layer: 13
-  m_Name: DodgeR
+  m_Name: DodgeL
   m_TagString: GameEffect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +84,7 @@ MonoBehaviour:
     friendlyFire: 0
   pushForce:
     active: 1
-    pushForceVector: {x: 1, y: 0, z: 0}
+    pushForceVector: {x: -1, y: 0, z: 0}
     pushForceNorm: 1000
     pushForceIsOmnidirectional: 0
     ownerAsReference: 1
