@@ -19,6 +19,9 @@ namespace ub
 
             bool attackPressed = Input.GetButtonDown("UB_Attack" + GetControllersuffix());
 
+            bool LDodge = Input.GetButtonDown("Attack" + GetControllersuffix());
+            bool RDodge = Input.GetButtonDown("Defense" + GetControllersuffix());
+
             bool brakeL = Input.GetButton("UB_Brake_L" + GetControllersuffix());
             bool brakeR = Input.GetButton("UB_Brake_R" + GetControllersuffix());
 
@@ -27,6 +30,9 @@ namespace ub
 
             req.LBrake = brakeL;
             req.RBrake = brakeR;
+
+            req.LDodge = LDodge;
+            req.RDodge = RDodge;
 
             req.attack = attackPressed;
 

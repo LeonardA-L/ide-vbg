@@ -16,6 +16,8 @@ namespace ub
             public bool LBrake;
 
             public bool attack;
+            public bool RDodge;
+            public bool LDodge;
         }
 
         private UBUserInput inputs;
@@ -37,6 +39,8 @@ namespace ub
         void Update()
         {
             ProcessCooldown(attack);
+            ProcessCooldown(defense);
+            ProcessCooldown(movement);
         }
 
         void FixedUpdate()
@@ -60,8 +64,17 @@ namespace ub
 
             if (req.attack)
             {
-                Debug.Log("Go");
                 ExecuteCommand(attack);
+            }
+
+
+            if (req.RDodge)
+            {
+                ExecuteCommand(defense);
+            }
+            if (req.LDodge)
+            {
+                ExecuteCommand(movement);
             }
             /*
             RaycastHit hit;
