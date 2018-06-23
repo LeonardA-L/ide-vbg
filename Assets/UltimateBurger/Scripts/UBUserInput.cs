@@ -16,6 +16,7 @@ namespace ub
 
             float LeftThruster = Input.GetAxis("Modifier" + GetControllersuffix());
             float RightThruster = Input.GetAxis("Attack_ALT" + GetControllersuffix());
+            //bool attackPressed = Input.GetButton("Attack" + GetControllersuffix()) || axisAttackPressed;
 
             req.LThruster = LeftThruster;
             req.RThruster = -RightThruster;

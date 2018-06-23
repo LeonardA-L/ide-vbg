@@ -32,14 +32,27 @@ namespace ub
         {
             Request req = inputs.GetRequest();
 
-            Debug.Log(req.LThruster + " - " + req.RThruster);
-
             float shiftFactor = Mathf.Abs(shift);
 
-            rb.AddTorque(transform.up * shiftFactor * -req.LThruster, ForceMode.Acceleration);
-            rb.AddTorque(transform.up * shiftFactor * req.RThruster, ForceMode.Acceleration);
+            //Debug.Log("R " + transform.up * shiftFactor * -req.RThruster);
+            //Debug.Log("L " + transform.up * shiftFactor * req.LThruster);
+
+            rb.AddRelativeTorque(transform.up * shiftFactor * -req.RThruster, ForceMode.VelocityChange);
+            rb.AddRelativeTorque(transform.up * shiftFactor * req.LThruster, ForceMode.VelocityChange);
+
+            //Debug.Log(rb.angularVelocity);
 
             rb.AddForce((req.LThruster + req.RThruster) * maxThruster * TransformToWorld(thrustDirection));
+            /*
+            RaycastHit hit;
+            Ray groundRay = new Ray(transform.position, -transform.up);
+            if (Physics.Raycast(groundRay, out hit, groundCheckDist + 0.15f, Ground, QueryTriggerInteraction.Ignore))
+            {
+                Transform ground = hit.collider.gameObject.transform;
+                Debug.Log(ground);
+                transform.up = ground.up;
+            }
+            */
         }
 
         Vector3 TransformToWorld(Vector3 from)
@@ -48,5 +61,16 @@ namespace ub
                 + from.y * transform.up
                 + from.z * transform.forward;
         }
+        /*
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.collider.gameObject.layer == Ground)
+            {
+                Transform ground = collision.collider.transform;
+                Debug.Log(ground);
+                transform.up = ground.up;
+            }
+        }
+        */
     }
 }
