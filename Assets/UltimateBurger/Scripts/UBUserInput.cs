@@ -18,8 +18,14 @@ namespace ub
             float RightThruster = Input.GetAxis("Attack_ALT" + GetControllersuffix());
             //bool attackPressed = Input.GetButton("Attack" + GetControllersuffix()) || axisAttackPressed;
 
+            bool brakeL = Input.GetButton("UB_Brake_L" + GetControllersuffix());
+            bool brakeR = Input.GetButton("UB_Brake_R" + GetControllersuffix());
+
             req.LThruster = LeftThruster;
             req.RThruster = -RightThruster;
+
+            req.LBrake = brakeL;
+            req.RBrake = brakeR;
 
             return req;
         }

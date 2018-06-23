@@ -11,11 +11,15 @@ namespace ub
         {
             public float LThruster;
             public float RThruster;
+
+            public bool RBrake;
+            public bool LBrake;
         }
 
         private UBUserInput inputs;
         private Rigidbody rb;
-        public float maxThruster = 6;
+        public float maxThruster = 50;
+        public float maxBrake = 10;
         public float shift = 0.5f;
         public float speedToShift= 0.01f;
 
@@ -37,12 +41,15 @@ namespace ub
             //Debug.Log("R " + transform.up * shiftFactor * -req.RThruster);
             //Debug.Log("L " + transform.up * shiftFactor * req.LThruster);
 
-            rb.AddRelativeTorque(transform.up * shiftFactor * -req.RThruster, ForceMode.VelocityChange);
-            rb.AddRelativeTorque(transform.up * shiftFactor * req.LThruster, ForceMode.VelocityChange);
+            float rBrakeEffect = maxBrake * (req.RBrake ? 1.0f : 0);
+            float lBrakeEffect = maxBrake * (req.LBrake ? 1.0f : 0);
+
+            rb.AddRelativeTorque(transform.up * shiftFactor * -(req.RThruster - rBrakeEffect), ForceMode.VelocityChange);
+            rb.AddRelativeTorque(transform.up * shiftFactor * (req.LThruster - lBrakeEffect), ForceMode.VelocityChange);
 
             //Debug.Log(rb.angularVelocity);
 
-            rb.AddForce((req.LThruster + req.RThruster) * maxThruster * TransformToWorld(thrustDirection));
+            rb.AddForce((req.LThruster + req.RThruster - rBrakeEffect - lBrakeEffect) * maxThruster * TransformToWorld(thrustDirection));
             /*
             RaycastHit hit;
             Ray groundRay = new Ray(transform.position, -transform.up);
