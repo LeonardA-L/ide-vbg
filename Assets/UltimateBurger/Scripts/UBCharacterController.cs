@@ -28,6 +28,10 @@ namespace ub
 
         private Vector3 thrustDirection = new Vector3(0, 0, 1);
 
+        public Transform emissionL;
+        public Transform emissionR;
+        public GameObject emissionPrefab;
+
         // Use this for initialization
         protected void Start()
         {
@@ -61,6 +65,19 @@ namespace ub
             //Debug.Log(rb.angularVelocity);
 
             rb.AddForce((req.LThruster + req.RThruster - rBrakeEffect - lBrakeEffect) * maxThruster * TransformToWorld(thrustDirection));
+
+            if (req.LThruster - lBrakeEffect > 0.0f)
+            {
+                GameObject go = Instantiate(emissionPrefab);
+                go.transform.position = emissionL.position;
+                go.transform.rotation = emissionL.rotation;
+            }
+            if (req.RThruster - rBrakeEffect > 0.0f)
+            {
+                GameObject go = Instantiate(emissionPrefab);
+                go.transform.position = emissionR.position;
+                go.transform.rotation = emissionR.rotation;
+            }
 
             if (req.attack)
             {
