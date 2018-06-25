@@ -50,6 +50,9 @@ namespace ub
 
         void FixedUpdate()
         {
+            if (!UBSceneController.Instance.enableMoves)
+                return;
+
             Request req = inputs.GetRequest();
 
             float shiftFactor = Mathf.Abs(shift);
