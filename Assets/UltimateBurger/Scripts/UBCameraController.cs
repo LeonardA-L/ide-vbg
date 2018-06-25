@@ -41,6 +41,8 @@ namespace ub
         // Update is called once per frame
         void Update()
         {
+            if (targerRb == null)
+                return;
             float velocityRatio = Mathf.Clamp(targerRb.velocity.magnitude / speedMax, 0.0f, 1.0f);
             float smoothedRatio = Easings.Interpolate(velocityRatio, Easings.Functions.QuadraticEaseInOut);
             float angularVelocityRatio = Mathf.Clamp(targerRb.angularVelocity.y / angSpeedMax, -1.0f, 1.0f);

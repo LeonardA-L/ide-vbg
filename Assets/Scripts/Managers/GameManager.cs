@@ -126,6 +126,12 @@ namespace vbg
             {
                 vs.OnDeath(player);
             }
+
+            ub.UBSceneController ub = GetComponent<ub.UBSceneController>();
+            if (ub != null)
+            {
+                ub.OnDeath(player);
+            }
         }
 
         private void OnApplicationQuit()

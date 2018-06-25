@@ -20,6 +20,7 @@ namespace ub
             public bool LDodge;
         }
 
+        public int playerID;
         private UBUserInput inputs;
         public float maxThruster = 50;
         public float maxBrake = 10;
