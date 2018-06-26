@@ -40,6 +40,10 @@ namespace ub
         public float menuWaitCountdown = 1.0f;
         public Text timerText;
 
+        public GameObject hps;
+
+        public UBUserInput p1;
+
         private bool readyPlayerOne = false;
         private bool readyPlayerTwo = false;
 
@@ -66,7 +70,12 @@ namespace ub
             {
                 case State.MENU:
 
-                    if (Input.GetButtonDown("Movement_P0") || Input.GetButtonDown("Movement_P2"))
+                    bool c2 = Input.GetButtonDown("Movement_P0");
+                    if (c2)
+                    {
+                        p1.controllerID = 0;
+                    }
+                    if (Input.GetButtonDown("Movement_P2") || c2)
                     {
                         readyPlayerOne = true;
                         P1NotReady.SetActive(false);
@@ -117,6 +126,7 @@ namespace ub
                         timerUI.SetActive(false);
                         state = State.GO;
                         enableMoves = true;
+                        hps.SetActive(true);
                     }
                     break;
             }

@@ -33,6 +33,8 @@ namespace ub
         public Transform emissionR;
         public GameObject emissionPrefab;
 
+        public List<GameObject> hp;
+
         // Use this for initialization
         protected void Start()
         {
@@ -117,6 +119,13 @@ namespace ub
                 GameEffect ge = activeGameEffects[idx];
                 ge.ProcessOnCollision(this, rb, ref bodyMovement);
             }
+        }
+
+        public override void Damage(float intensity)
+        {
+            base.Damage(intensity);
+            hp[hp.Count - 1].SetActive(false);
+            hp.RemoveAt(hp.Count - 1);
         }
 
         Vector3 TransformToWorld(Vector3 from)

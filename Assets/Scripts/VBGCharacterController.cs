@@ -575,7 +575,7 @@ namespace vbg
             activeGameEffects.Remove(ge);
         }
 
-        public void Damage(float intensity)
+        public virtual void Damage(float intensity)
         {
             if(health == null || health.IsDead())
             {
