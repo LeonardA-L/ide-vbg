@@ -8,10 +8,16 @@ namespace ub
     public class UBUserInput : MonoBehaviour
     {
         public int controllerID = -1;
+        private CharacterVibrationController cvc;
 
+        private void Start()
+        {
+            cvc = GetComponent<CharacterVibrationController>();
+        }
 
         public UBCharacterController.Request GetRequest()
         {
+            cvc.SetController(controllerID);
             UBCharacterController.Request req = new UBCharacterController.Request();
 
             float LeftThruster = Input.GetAxis("Modifier" + GetControllersuffix());

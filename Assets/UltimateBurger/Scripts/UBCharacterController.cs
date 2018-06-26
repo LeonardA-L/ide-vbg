@@ -52,6 +52,8 @@ namespace ub
         {
             if (!UBSceneController.Instance.enableMoves)
                 return;
+            if (IsDead())
+                return;
 
             Request req = inputs.GetRequest();
 

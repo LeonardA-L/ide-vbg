@@ -1329,7 +1329,7 @@ MonoBehaviour:
   pushForce:
     active: 1
     pushForceVector: {x: 0, y: 0, z: 0}
-    pushForceNorm: 90
+    pushForceNorm: 250
     pushForceIsOmnidirectional: 1
     ownerAsReference: 0
     pushForceNoY: 1
@@ -1375,13 +1375,13 @@ MonoBehaviour:
       duration: 1
       lerp: 1
   creatureImpact:
-    active: 0
+    active: 1
     addGameEffect: {fileID: 0}
     asOwner: 1
     vibration:
-      active: 0
+      active: 1
       force: 1
-      duration: 1
+      duration: 0.6
       lerp: 1
     paralyse: 0
     speedFactor: 1
@@ -1389,7 +1389,7 @@ MonoBehaviour:
     blockActions: 0
     disableGravity: 0
     velocityEndFactor: 1
-    enableDefenseMode: 1
+    enableDefenseMode: 0
   audioImpact:
     active: 0
     startEvent: 
