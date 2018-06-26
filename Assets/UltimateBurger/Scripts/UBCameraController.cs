@@ -43,6 +43,8 @@ namespace ub
         {
             if (targerRb == null)
                 return;
+            transform.position -= transform.up * 2.0f;  // Cheap offset hack
+
             float velocityRatio = Mathf.Clamp(targerRb.velocity.magnitude / speedMax, 0.0f, 1.0f);
             float smoothedRatio = Easings.Interpolate(velocityRatio, Easings.Functions.QuadraticEaseInOut);
             float angularVelocityRatio = Mathf.Clamp(targerRb.angularVelocity.y / angSpeedMax, -1.0f, 1.0f);
@@ -69,6 +71,7 @@ namespace ub
             //camera.transform.Rotate(camera.transform.forward, rollGoal);
             //camera.transform.eulerAngles = new Vector3(rollGoal, 0, 0);
             camera.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, rollGoal));
+            transform.position += transform.up * 2.0f; // Cheap offset hack
         }
     }
 }

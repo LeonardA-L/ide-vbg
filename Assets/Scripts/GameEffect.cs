@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using EZCameraShake;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -187,6 +188,18 @@ namespace vbg
             public bool destroyActivator = false;
         }
 
+        [System.Serializable]
+        public class CameraShakeImpact
+        {
+            [Tooltip("Is CameraShake Impact Active")]
+            public bool active = false;
+            public string cameraName;
+            public float magnitude;
+            public float roughness;
+            public float fadeInTime;
+            public float fadeOutTime;
+        }
+
         public enum FloatValueMode
         {
             NONE,
@@ -235,6 +248,7 @@ namespace vbg
         public AudioImpact audioImpact;
         public ScriptImpact scriptImpact;
         public ActiveImpact activeImpact;
+        public CameraShakeImpact camShakeImpact;
 
         private bool hasValueBeenUpdated = false;
 
@@ -927,6 +941,21 @@ namespace vbg
             }
         }
 
+        public void ProcessCameraShakeImpact(VBGCharacterController activator)
+        {
+            if (!camShakeImpact.active || activator == null)
+                return;
+
+            CameraShaker shaker = CameraShaker.Instance;
+
+            if(camShakeImpact.cameraName !=  null && camShakeImpact.cameraName != "")
+            {
+                shaker = CameraShaker.GetInstance(camShakeImpact.cameraName);
+            }
+
+            shaker.ShakeOnce(camShakeImpact.magnitude, camShakeImpact.roughness, camShakeImpact.fadeInTime, camShakeImpact.fadeOutTime);
+        }
+
         private void AfterProcessCommon()
         {
             processedOnce = true;
@@ -1003,6 +1032,7 @@ namespace vbg
             ProcessActiveImpact(go);
             ProcessSwitch();
             ProcessValue();
+            ProcessCameraShakeImpact(cc);
             // Call last
             AfterProcessCommon();
             lastFixedFrameProcessed = 0;
