@@ -50,5 +50,10 @@ namespace vbg
             SceneManager.Instance.LaunchScene(SceneManager.Scene.ARENA);
             SoundManager.Instance.PostEvent("Play_UI_Click", cameraAnimator.gameObject);
         }
+        public void StartUB85()
+        {
+            SceneManager.Instance.LaunchScene(SceneManager.Scene.UB85);
+            SoundManager.Instance.PostEvent("Play_UI_Click", cameraAnimator.gameObject);
+        }
     }
 }

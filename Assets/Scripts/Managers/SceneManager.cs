@@ -10,6 +10,7 @@ namespace vbg {
             MENU,
             DEMO,
             ARENA,
+            UB85,
         }
         protected static SceneManager m_instance;
         public static SceneManager Instance
