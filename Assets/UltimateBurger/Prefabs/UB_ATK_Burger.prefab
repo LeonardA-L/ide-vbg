@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 114338249050961676}
   - component: {fileID: 54806243428230418}
   - component: {fileID: 114639569508871964}
+  - component: {fileID: 114969442440275412}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Player
@@ -1673,3 +1674,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3084a4cb85c5434db60aa147c9298a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114969442440275412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1123465278882356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75846a1958dba064b8c500cc0e232d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ennemy: SushiPlayer
+  lerp: 0.02

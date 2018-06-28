@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 114338249050961676}
   - component: {fileID: 54806243428230418}
   - component: {fileID: 114639569508871964}
+  - component: {fileID: 114510563197386990}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Ennemy
@@ -1626,6 +1627,19 @@ MonoBehaviour:
     roughness: 0
     fadeInTime: 0
     fadeOutTime: 0
+--- !u!114 &114510563197386990
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1123465278882356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75846a1958dba064b8c500cc0e232d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ennemy: BurgerPlayer
+  lerp: 0.02
 --- !u!114 &114639569508871964
 MonoBehaviour:
   m_ObjectHideFlags: 1
